@@ -60,11 +60,11 @@
   </div>
   <script>
     const tl = gsap.timeline({ paused: true });
-    tl.fromTo(["#c-t1", "#c-t2"], { yPercent: 110 }, { yPercent: 0, duration: 0.8, ease: "expo.out", stagger: 0.08 }, 0.09);
-    tl.fromTo("#c-fenetre", { opacity: 0 }, { opacity: 1, duration: 0.3, ease: "power2.out" }, 0.25);
+    tl.fromTo(["#c-t1", "#c-t2"], { yPercent: 110 }, { yPercent: 0, duration: 0.8, ease: "expo.out", stagger: 0.08 }, 1.45);
+    tl.fromTo("#c-fenetre", { opacity: 0 }, { opacity: 1, duration: 0.3, ease: "power2.out" }, 0.6);
     // On fouille : la galerie file vite puis ralentit, sans jamais trouver
-    tl.fromTo("#c-galerie", { y: 120 }, { y: -2280, duration: 2.75, ease: "power3.out" }, 0.1);
-    tl.fromTo(["#c-t1", "#c-t2"], { yPercent: 0 }, { immediateRender: false, yPercent: -135, duration: 0.38, ease: "power3.in", stagger: 0.05 }, 2.78);
+    tl.fromTo("#c-galerie", { y: 120 }, { y: -2280, duration: 2.2, ease: "power3.out" }, 0.6);
+    tl.fromTo(["#c-t1", "#c-t2"], { yPercent: 0 }, { immediateRender: false, yPercent: -135, duration: 0.38, ease: "power3.in", stagger: 0.05 }, 2.85);
     tl.fromTo("#c-fenetre", { opacity: 1, y: 0 }, { immediateRender: false, opacity: 0, y: -80, duration: 0.36, ease: "power3.in" }, 2.8);
     window.__timelines["captures"] = tl;
   </script>

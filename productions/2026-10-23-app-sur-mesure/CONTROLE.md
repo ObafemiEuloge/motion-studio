@@ -1,30 +1,32 @@
-# Contrôle : application sur mesure (vidéo 1)
+# Contrôle : application sur mesure (vidéo 1, version 2)
 
-Rendu contrôlé : `renders/app-sur-mesure.mp4`, 30,0 s, 1080 × 1920, 30 i/s, H.264 + AAC.
+Rendu contrôlé : `renders/app-sur-mesure.mp4`, 30,0 s, 1080 × 1920, 30 i/s, H.264 + AAC, rendu le 23 oct. 2026 (1 min 54 s).
 
 ## Texte
-- [x] `verifier_texte.py` sur `script.md`, `audio/voix.txt`, `publication.md`, `storyboard.md`, `index.html`, `compositions/*.html` : OK, aucun interdit.
-- [x] Faits : seul 1Peu 1Peu est cité (cofondateur, toute l'API, FastAPI, paiements Mobile Money), conforme à `brand/faits.md`. Aucun montant de vente affiché. EducaPro absent, aucun projet exclu par CLAUDE.md. Montants (15 000 F, 186 000 F, 171 500 F), heures et numéros de commande : illustrations, signalées dans `script.md`.
-- [x] Nom à l'écran : Obafemi / Euloge / Agnoun, trois lignes, 132 px, graisse 700 toutes les trois, comme l'ident v3 validé.
-- [x] Numéro WhatsApp à l'écran : +229 01 96 25 66 94 (vérifié sur l'image à 29,5 s).
+- [x] `python3 scripts/verifier_texte.py script.md audio/voix.txt publication.md index.html compositions/*.html` : OK (et `storyboard.md`, `brand/voix.md`).
+- [x] Faits : seul 1Peu 1Peu est cité, en résultat (« chaque paiement est vérifié sans que personne ne regarde », « Paiements Mobile Money vérifiés côté serveur », « Cofondateur », « Toute l'API »), conforme à `brand/faits.md`. Aucun montant de vente. Montants, heure 21:47 et numéro de commande : illustrations, signalées dans `script.md`.
+- [x] Nom à l'écran : Obafemi / Euloge / Agnoun., trois lignes, 132 px, graisse 700, comme l'ident v3.
+- [x] Numéro WhatsApp : +229 01 96 25 66 94 (lu sur l'image à 28,5 s).
 
 ## Charte
-- [x] Aucun halo, dégradé de fond, flou d'entrée de titre, emoji. Fond uni ; profondeur par le plan d'interfaces puis par la séquence d'Oba. Les seuls dégradés sont le masque du plan d'interfaces (repris du modèle), le fondu haut et bas de la galerie de captures (masque) et le reflet unique du verre.
-- [x] Champagne, un usage par plan : « 21:47 » (bulles), le point de « capture. », le signe ≠, le statut « Payé », les points des pastilles de preuve, le point de « Agnoun. ».
-- [x] Le verre a toujours quelque chose derrière : les bulles floutent le plan d'interfaces ; le tableau, la preuve et la signature floutent la séquence d'Oba.
-- [x] Séquence d'Oba : jamais en plein écran brut. Étalonnée « B profond » (comparée à 2 autres essais avec `grade-compare`), voile sombre uniforme, ralentie 0,5×, sans son d'origine.
+- [x] Aucun halo, dégradé de fond, flou d'entrée de titre, emoji. Fond uni + plan d'interfaces sur tout le film. Seuls dégradés : masque du plan (modèle), fondu de la galerie (masque), reflet unique du verre.
+- [x] Champagne, un usage par plan : « payé » (accroche), le point de « capture. », ≠, statut « Payé », « 0 F », points des pastilles de preuve, « APP » (signature ; le point de « Agnoun. » passe en blanc cassé pour garder un seul champagne).
+- [x] Le verre a toujours quelque chose derrière : le tableau, la preuve et la signature floutent le plan d'interfaces.
 
 ## Mouvement et lecture
-- [x] `npx hyperframes check --json` : zéro erreur. Avertissements gardés : `line_unread` sur les chiffres des rouleaux (ils défilent, on lit le total posé) et sur les deux bulles anciennes (même phrase que la bulle déjà lue) ; `nested_structure_needs_subcomposition` sur le plan d'interfaces du modèle ; avertissements WebGL du rendu logiciel, sans effet sur l'image.
-- [x] `npx hyperframes snapshot --review` + revue : corrigé les pastilles de preuve qui passaient à la ligne, la coupe entre les deux extraits d'Oba (déplacée au pic de vitesse de la carte qui grandit, 24,88 s), des animations sans état de départ stable. Aucun titre ne bouge après son arrivée.
-- [x] Image 0 lisible sans le son : la bulle « Mais j'ai déjà payé hein ! » est posée dès l'image 0.
-- [x] Tout texte entre 200 (titre « Capture par capture. ») et 1271 px de haut (bande 168 à 1330), aucune taille sous 28 px. Lu sur 10 images à 360 px de large.
-- [x] Tenues : bulle d'accroche 4,0 s ; « Capture par capture. » 2,7 s ; totaux 2 à 3 s ; tableau 6,5 s ; preuve 5 s ; signature 5 s ; ligne WhatsApp 2,9 s (au moins 2,5 s).
+- [x] Test du pouce : l'image 0 réduite à 270 px de large reste lisible (« Mais j'ai déjà payé hein ! » en 150 px, soit 37 px à 270 px) et dit le problème.
+- [x] Visage d'Oba : n'apparaît pas (séquence retirée en v2), donc rien de flou.
+- [x] Appel final : mot-clé APP (en champagne) et raison d'écrire (« je te montre ce que ça donnerait pour ton business »).
+- [x] `npx hyperframes check --json` : zéro erreur. Avertissements gardés : `line_unread` uniquement sur les chiffres des rouleaux (on lit le total posé) ; `container_overflow` sur les rouleaux du bilan (la colonne de chiffres dépasse sa fenêtre par construction) ; `nested_structure_needs_subcomposition` sur le plan d'interfaces du modèle.
+- [x] `npx hyperframes snapshot --review` + revue : corrigés en cours de route le chevauchement accroche / galerie, une scène qui s'arrêtait avant la fin de sa sortie (écran vide à 2,3 s), des jambages et accents qui dépassaient des caches (« Écart », « Écris », « DÉJÀ », sorties à −135 %), des zéros rognés dans les compteurs. Aucun titre ne bouge après son arrivée.
+- [x] Image 0 lisible sans le son. Tout texte entre 200 et 1290 px de haut (bande 168 à 1330). Infos clés à 36 px ou plus (statuts, notification, pastilles, étiquettes des totaux, sur-titres de l'accroche et du bilan) ; seuls « à l'instant », « Commandes · aujourd'hui » et les libellés des captures restent plus petits (détails d'interface).
+- [x] Tenues (0,5 s + 0,3 s par mot) : accroche 2,05 s (5 mots, 2,0) ; « Capture par capture. » 1,4 s (3 mots, 1,4) ; totaux 1,7 à 3,2 s ; « Payé » 1,25 s ; « Vérifié » 0,8 s (1 mot, 0,8) ; « Écart 0 F » 1,4 s (3 mots, 1,4) ; preuve 2,7 à 3,8 s ; signature 6,85 s après l'appel (au moins 2,5 s).
 
 ## Son
-- [x] Voix calée (écart ≤ 0,1 s entre le texte et son mot, `audio/voix.alignment.json`) : bulle 2 / « Tu connais » 2,75 / 2,72 ; titre / « Tu fouilles » 4,35 / 4,32 ; cahier 7,5 / 7,52 ; Mobile Money 8,95 / 9,0 ; ≠ / « autre » 9,82 / 9,84 ; tableau / « Une application » 12,3 / 12,32 ; notification / « Le client » 14,56 / 14,56 ; « Payé » / « payé » 17,2 / 17,2 ; « Toute seule » 17,89 / 17,89 ; « 1Peu 1Peu » / « Un Peu Un Peu » 19,12 / 19,12 ; « paiements » 21,7 / 21,68 ; WhatsApp / « Écris-moi » 27,02 / 27,04.
-- [x] `npx hyperframes audio renders/app-sur-mesure.mp4 --json` : son présent, −14,2 LUFS intégrés, crête vraie −2,4 dBTP, aucun écrêtage. Silences détectés seulement de 10,5 à 12,33 s : la pause voulue autour de « Bon. » (musique coupée, puis rouverte sur « Une application »). La musique tient jusqu'à 30 s avec un fondu de 1,2 s (premier rendu refait : le lit précédent s'éteignait seul à 25 s).
-- [x] Bruitages seulement sur des actions visibles (bulles, défilement, chiffres qui s'arrêtent, cartes qui se posent, notification, « Payé », signature). Jamais deux fois le même fichier d'affilée (tic_a revient une fois, 12 s plus tard).
+- [x] Aucun silence de plus de 0,35 s : `silencedetect=n=-35dB:d=0.35` sur le MP4 ne renvoie que la fin (29,08 à 30 s, fondu final). En voix seule non plus (prise recoupée, blancs de 0,05 à 0,22 s).
+- [x] Voix calée, écart ≤ 0,1 s (texte / mot) : accroche image 0 / « Mais » 0,08 ; titre captures 3,40 / « capture » 3,40 ; CAHIER 5,08 / « Le » 5,08 ; MOBILE MONEY 6,55 / « le » 6,56 ; ≠ 7,40 / « autre » 7,40 ; tableau 8,62 / « Une » 8,67 ; notification 10,79 / « Le » 10,79 ; « Payé » 13,25 / « payé » 13,25 ; « Vérifié » 13,72 / « Toute » 13,72 ; « Ce soir » 14,62 / « soir » 14,62 ; « Écart 0 F » 16,66 / « les » 16,66 ; « 1Peu 1Peu » 18,41 / « Un » 18,41 ; corps de la preuve 19,53 / « chaque » 19,53 ; « Écris APP » 23,15 / « APP » 23,15 ; numéro 23,87 / « WhatsApp » 23,87 ; promesse 24,70 / « je » 24,71.
+- [x] `npx hyperframes audio renders/app-sur-mesure.mp4 --json` : son présent, −15,0 LUFS, crête vraie −1,1 dBTP, aucun écrêtage.
+- [x] Bruitages seulement sur des actions visibles (galerie, arrêt des chiffres, cartes qui se posent, notification, « Payé », « 0 F », signature). Jamais deux fois le même fichier d'affilée.
 
 ## Mesuré, pas écouté
-Le son a été mesuré (sonie, crêtes, silences, transcription de la voix) mais personne ne l'a écouté ici. À vérifier à l'oreille par Oba : le petit rire avant « Donc oui… » (la transcription ne le détecte pas), l'équilibre voix et musique sur un téléphone, et le caractère des bruitages.
+Personne n'a écouté le son ici. À vérifier à l'oreille par Oba : la prononciation de « APP » (dit comme « ap » ou épelé ? une variante « app » prononcé comme un mot est prête dans `audio/v2/appel_b.mp3`), les raccords entre phrases de l'ancienne prise et phrases régénérées, le « Bon. » (remonté de 10 dB car murmuré), et l'équilibre voix et musique sur un téléphone.
