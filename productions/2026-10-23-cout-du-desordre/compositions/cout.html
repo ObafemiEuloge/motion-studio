@@ -1,0 +1,64 @@
+<template>
+  <style>
+    @font-face { font-family: "Plus Jakarta Sans"; font-weight: 500; src: url("assets/fonts/plus-jakarta-sans-latin-500-normal.woff2") format("woff2"); }
+    @font-face { font-family: "Plus Jakarta Sans"; font-weight: 600; src: url("assets/fonts/plus-jakarta-sans-latin-600-normal.woff2") format("woff2"); }
+    @font-face { font-family: "Plus Jakarta Sans"; font-weight: 700; src: url("assets/fonts/plus-jakarta-sans-latin-700-normal.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; font-family: "Plus Jakarta Sans", sans-serif; color: #F5F3EE; }
+    .tot { position: absolute; left: 80px; width: 920px; height: 330px; border-radius: 40px; background: #0B111D;
+      border: 1.5px solid rgba(255,255,255,0.07); padding: 50px 60px; box-shadow: 0 50px 140px rgba(0,0,0,0.6); }
+    #k-a { top: 330px; }
+    #k-b { top: 900px; }
+    .haut { display: flex; justify-content: space-between; align-items: center; }
+    .eyebrow { font-weight: 600; font-size: 36px; letter-spacing: 0.16em; text-transform: uppercase; color: rgba(245,243,238,0.62); }
+    .ex { font-weight: 600; font-size: 36px; padding: 8px 24px; border-radius: 999px; color: rgba(245,243,238,0.78);
+      border: 1.5px solid rgba(255,255,255,0.22); }
+    .nb { margin-top: 30px; font-weight: 700; font-size: 150px; letter-spacing: -0.04em; line-height: 1; display: flex; align-items: flex-start; height: 150px; }
+    .col { display: inline-block; width: 0.68em; height: 1em; overflow: hidden; text-align: center; }
+    .roll { display: block; }
+    .roll b { display: block; height: 1em; line-height: 1; font-weight: 700; }
+    .sp { display: inline-block; width: 0.22em; }
+    .f { margin-left: 0.18em; color: rgba(245,243,238,0.55); }
+    #k-b .nb { color: #D9C6A3; }
+    #k-b .f { color: rgba(217,198,163,0.6); }
+    #k-calc { position: absolute; left: 90px; right: 60px; top: 690px; text-shadow: 0 0 40px rgba(4,6,11,0.95), 0 0 16px rgba(4,6,11,0.9); }
+    .mask { overflow: hidden; padding: 4px 0 12px; margin-bottom: -12px; }
+    .mask > .in { display: block; }
+    .l { font-weight: 500; font-size: 46px; letter-spacing: -0.01em; color: rgba(245,243,238,0.85); }
+    .l b { font-weight: 700; color: #F5F3EE; }
+  </style>
+  <div id="root" data-composition-id="cout" data-width="1080" data-height="1920">
+    <div id="k-a" class="tot"><div class="haut"><div class="eyebrow">Commande oubliée</div><div class="ex">Exemple</div></div><div class="nb"><span class="col"><span class="roll" id="c1-d0"><b>0</b><b>1</b><b>2</b><b>3</b><b>4</b><b>5</b><b>6</b><b>7</b><b>8</b><b>9</b></span></span><span class="col"><span class="roll" id="c1-d1"><b>0</b><b>1</b><b>2</b><b>3</b><b>4</b><b>5</b><b>6</b><b>7</b><b>8</b><b>9</b></span></span><span class="sp"></span><span class="col"><span class="roll" id="c1-d2"><b>0</b><b>1</b><b>2</b><b>3</b><b>4</b><b>5</b><b>6</b><b>7</b><b>8</b><b>9</b></span></span><span class="col"><span class="roll" id="c1-d3"><b>0</b><b>1</b><b>2</b><b>3</b><b>4</b><b>5</b><b>6</b><b>7</b><b>8</b><b>9</b></span></span><span class="col"><span class="roll" id="c1-d4"><b>0</b><b>1</b><b>2</b><b>3</b><b>4</b><b>5</b><b>6</b><b>7</b><b>8</b><b>9</b></span></span><span class="f">F</span></div></div>
+    <div id="k-calc" data-layout-allow-overlap>
+      <div class="mask"><span class="in l" id="k-l1">Et si elle ne revient plus…</span></div>
+      <div class="mask"><span class="in l" id="k-l2"><b>× 2</b> par mois <b>× 12</b> mois</span></div>
+    </div>
+    <div id="k-b" class="tot"><div class="haut"><div class="eyebrow">Cliente perdue · 1 an</div><div class="ex">Exemple</div></div><div class="nb" id="k-bnb"><span class="col"><span class="roll" id="c2-d0"><b>0</b><b>1</b><b>2</b><b>3</b><b>4</b><b>5</b><b>6</b><b>7</b><b>8</b><b>9</b></span></span><span class="col"><span class="roll" id="c2-d1"><b>0</b><b>1</b><b>2</b><b>3</b><b>4</b><b>5</b><b>6</b><b>7</b><b>8</b><b>9</b></span></span><span class="col"><span class="roll" id="c2-d2"><b>0</b><b>1</b><b>2</b><b>3</b><b>4</b><b>5</b><b>6</b><b>7</b><b>8</b><b>9</b></span></span><span class="sp"></span><span class="col"><span class="roll" id="c2-d3"><b>0</b><b>1</b><b>2</b><b>3</b><b>4</b><b>5</b><b>6</b><b>7</b><b>8</b><b>9</b></span></span><span class="col"><span class="roll" id="c2-d4"><b>0</b><b>1</b><b>2</b><b>3</b><b>4</b><b>5</b><b>6</b><b>7</b><b>8</b><b>9</b></span></span><span class="col"><span class="roll" id="c2-d5"><b>0</b><b>1</b><b>2</b><b>3</b><b>4</b><b>5</b><b>6</b><b>7</b><b>8</b><b>9</b></span></span><span class="f">F</span></div></div>
+  </div>
+  <script>
+    const tl = gsap.timeline({ paused: true });
+    // « Vingt-cinq mille de perdus »
+    tl.fromTo("#k-a", { y: 80, opacity: 0 }, { y: 0, opacity: 1, duration: 0.75, ease: "expo.out" }, 0.12);
+    tl.fromTo("#c1-d0", { yPercent: 0 }, { yPercent: -20, duration: 1.10, ease: "power3.out" }, 0.20);
+    tl.fromTo("#c1-d1", { yPercent: 0 }, { yPercent: -50, duration: 1.05, ease: "power3.out" }, 0.23);
+    tl.fromTo("#c1-d2", { yPercent: 0 }, { yPercent: -0, duration: 1.00, ease: "power3.out" }, 0.26);
+    tl.fromTo("#c1-d3", { yPercent: 0 }, { yPercent: -0, duration: 0.95, ease: "power3.out" }, 0.29);
+    tl.fromTo("#c1-d4", { yPercent: 0 }, { yPercent: -0, duration: 0.90, ease: "power3.out" }, 0.32);
+    // « Et si elle ne revient plus »
+    tl.fromTo("#k-l1", { yPercent: 130 }, { yPercent: 0, duration: 0.75, ease: "expo.out" }, 1.59);
+    // « sur un an »
+    tl.fromTo("#k-l2", { yPercent: 130 }, { yPercent: 0, duration: 0.75, ease: "expo.out" }, 2.99);
+    // « sur un an » : la carte arrive, le chiffre attend « six cent mille »
+    tl.fromTo("#k-b", { y: 80, opacity: 0 }, { y: 0, opacity: 1, duration: 0.6, ease: "expo.out" }, 3.05);
+    tl.fromTo("#k-bnb", { opacity: 0 }, { opacity: 0, duration: 0.01 }, 0);
+    tl.fromTo("#k-bnb", { opacity: 0 }, { immediateRender: false, opacity: 1, duration: 0.2, ease: "power2.out" }, 4.2);
+    tl.fromTo("#c2-d0", { yPercent: 0 }, { yPercent: -60, duration: 0.80, ease: "power3.out" }, 4.23);
+    tl.fromTo("#c2-d1", { yPercent: 0 }, { yPercent: -0, duration: 0.75, ease: "power3.out" }, 4.26);
+    tl.fromTo("#c2-d2", { yPercent: 0 }, { yPercent: -0, duration: 0.70, ease: "power3.out" }, 4.29);
+    tl.fromTo("#c2-d3", { yPercent: 0 }, { yPercent: -0, duration: 0.65, ease: "power3.out" }, 4.32);
+    tl.fromTo("#c2-d4", { yPercent: 0 }, { yPercent: -0, duration: 0.60, ease: "power3.out" }, 4.35);
+    tl.fromTo("#c2-d5", { yPercent: 0 }, { yPercent: -0, duration: 0.55, ease: "power3.out" }, 4.38);
+    // Sortie : la carte du haut d'abord, 600 000 F en dernier
+    tl.fromTo(["#k-a", "#k-calc", "#k-b"], { y: 0, opacity: 1 }, { immediateRender: false, y: -140, opacity: 0, duration: 0.4, ease: "power3.in", stagger: 0.05 }, 5.35);
+    window.__timelines["cout"] = tl;
+  </script>
+</template>

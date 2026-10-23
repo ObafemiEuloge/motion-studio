@@ -1,0 +1,70 @@
+<template>
+  <style>
+    @font-face { font-family: "Plus Jakarta Sans"; font-weight: 500; src: url("assets/fonts/plus-jakarta-sans-latin-500-normal.woff2") format("woff2"); }
+    @font-face { font-family: "Plus Jakarta Sans"; font-weight: 600; src: url("assets/fonts/plus-jakarta-sans-latin-600-normal.woff2") format("woff2"); }
+    @font-face { font-family: "Plus Jakarta Sans"; font-weight: 700; src: url("assets/fonts/plus-jakarta-sans-latin-700-normal.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; font-family: "Plus Jakarta Sans", sans-serif; color: #F5F3EE; }
+    #s-titre { position: absolute; left: 80px; top: 196px; }
+    .mask { overflow: hidden; padding: 6px 0 14px; margin-bottom: -16px; }
+    .mask > .in { display: block; }
+    .h { font-weight: 700; font-size: 110px; letter-spacing: -0.045em; line-height: 1.0;
+      text-shadow: 0 0 50px rgba(4,6,11,0.95), 0 0 18px rgba(4,6,11,0.9); }
+    #s-carte {
+      position: absolute; left: 70px; top: 520px; width: 940px; height: 780px; border-radius: 64px; overflow: hidden;
+      background: rgba(255,255,255,0.055);
+      -webkit-backdrop-filter: blur(34px) saturate(150%); backdrop-filter: blur(34px) saturate(150%);
+      border: 1.5px solid rgba(255,255,255,0.16);
+      box-shadow: inset 0 1.5px 0 rgba(255,255,255,0.28), 0 50px 140px rgba(0,0,0,0.6);
+    }
+    #s-in { position: absolute; left: 60px; right: 60px; top: 52px; }
+    .eyebrow { font-weight: 600; font-size: 30px; letter-spacing: 0.22em; text-transform: uppercase; color: rgba(245,243,238,0.55); }
+    .ligne { height: 112px; margin-bottom: 14px; border-radius: 26px; background: #0B111D; border: 1.5px solid rgba(255,255,255,0.07);
+      display: flex; justify-content: space-between; align-items: center; padding: 0 26px 0 34px; }
+    .ligne .n { font-weight: 600; font-size: 40px; letter-spacing: -0.02em; }
+    .ligne .n span { color: rgba(245,243,238,0.55); }
+    .ligne.haute { height: 140px; }
+    .ligne .n2 { font-weight: 500; font-size: 32px; color: rgba(245,243,238,0.6); margin-top: 6px; }
+    .statut { flex: 0 0 auto; padding: 14px 26px; border-radius: 999px; font-weight: 600; font-size: 36px; white-space: nowrap;
+      background: rgba(255,255,255,0.07); border: 1.5px solid rgba(255,255,255,0.12); color: rgba(245,243,238,0.78); }
+    .statut .d { display: inline-block; width: 12px; height: 12px; border-radius: 50%; margin-right: 12px; background: rgba(245,243,238,0.45); vertical-align: middle; }
+    .statut.acc { color: #D9C6A3; border-color: rgba(217,198,163,0.45); }
+    .statut.acc .d { background: #D9C6A3; }
+    #s-lignes { margin-top: 30px; }
+    #s-sep { margin-top: 26px; margin-bottom: 18px; }
+  </style>
+  <div id="root" data-composition-id="solution" data-width="1080" data-height="1920">
+    <div id="s-titre">
+      <div class="mask"><span class="in h" id="s-t1">Des applications</span></div>
+      <div class="mask"><span class="in h" id="s-t2">sur mesure.</span></div>
+    </div>
+    <div id="s-carte">
+      <div id="s-in">
+        <div class="eyebrow">Commandes · à préparer</div>
+        <div id="s-lignes">
+          <div class="ligne" id="s-l1"><div class="n">Vendredi <span>· 3 pagnes</span></div><div class="statut"><i class="d"></i>À préparer</div></div>
+          <div class="ligne" id="s-l2"><div class="n">Samedi <span>· 1 sac</span></div><div class="statut"><i class="d"></i>À préparer</div></div>
+          <div class="ligne" id="s-l3"><div class="n">Samedi <span>· 2 robes</span></div><div class="statut"><i class="d"></i>À préparer</div></div>
+        </div>
+        <div class="eyebrow" id="s-sep">Clientes</div>
+        <div class="ligne haute" id="s-l4"><div><div class="n">Cliente fidèle</div><div class="n2">3 semaines sans commande</div></div>
+          <div class="statut acc" id="s-relance"><i class="d"></i>À relancer</div></div>
+      </div>
+    </div>
+  </div>
+  <script>
+    const tl = gsap.timeline({ paused: true });
+    // « applications sur mesure »
+    tl.fromTo(["#s-t1", "#s-t2"], { yPercent: 130 }, { yPercent: 0, duration: 0.8, ease: "expo.out", stagger: 0.08 }, 0.86);
+    tl.fromTo("#s-carte", { y: 1500 }, { y: 0, duration: 1.1, ease: "expo.out" }, 1.25);
+    tl.fromTo(["#s-l1", "#s-l2", "#s-l4"], { y: 40, opacity: 0 }, { y: 0, opacity: 1, duration: 0.7, ease: "expo.out", stagger: 0.08 }, 1.6);
+    tl.fromTo("#s-relance", { opacity: 0, scale: 0.9 }, { opacity: 0, scale: 0.9, duration: 0.01 }, 0);
+    // « chaque commande tombe dans ta liste »
+    tl.fromTo("#s-l3", { y: 40, opacity: 0 }, { y: 0, opacity: 1, duration: 0.6, ease: "expo.out" }, 2.98);
+    // « et rien ne se perd »
+    tl.fromTo("#s-relance", { opacity: 0, scale: 0.9 }, { immediateRender: false, opacity: 1, scale: 1, duration: 0.5, ease: "expo.out" }, 4.1);
+    // La carte part pendant que la preuve monte
+    tl.fromTo(["#s-t1", "#s-t2"], { yPercent: 0 }, { immediateRender: false, yPercent: -135, duration: 0.38, ease: "power3.in", stagger: 0.04 }, 5.2);
+    tl.fromTo("#s-carte", { y: 0 }, { immediateRender: false, y: -1500, duration: 0.45, ease: "power3.in" }, 5.2);
+    window.__timelines["solution"] = tl;
+  </script>
+</template>

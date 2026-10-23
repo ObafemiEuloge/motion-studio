@@ -1,0 +1,523 @@
+{
+ "modele": "eleven_v4",
+ "voice_id": "cEjGxRhK5rId1bacJPJr",
+ "mots": [
+  {
+   "mot": "Combien",
+   "debut": 0.0,
+   "fin": 0.32
+  },
+  {
+   "mot": "de",
+   "debut": 0.4,
+   "fin": 0.48
+  },
+  {
+   "mot": "commandes",
+   "debut": 0.64,
+   "fin": 0.88
+  },
+  {
+   "mot": "tu",
+   "debut": 0.96,
+   "fin": 1.04
+  },
+  {
+   "mot": "as",
+   "debut": 1.08,
+   "fin": 1.12
+  },
+  {
+   "mot": "perdues",
+   "debut": 1.2,
+   "fin": 1.52
+  },
+  {
+   "mot": "ce",
+   "debut": 1.56,
+   "fin": 1.6
+  },
+  {
+   "mot": "mois-ci",
+   "debut": 1.68,
+   "fin": 2.08
+  },
+  {
+   "mot": "?",
+   "debut": 2.29,
+   "fin": 2.343
+  },
+  {
+   "mot": "Pas",
+   "debut": 2.397,
+   "fin": 2.45
+  },
+  {
+   "mot": "volées",
+   "debut": 2.57,
+   "fin": 2.85
+  },
+  {
+   "mot": "hein...",
+   "debut": 2.89,
+   "fin": 3.41
+  },
+  {
+   "mot": "oubliées.",
+   "debut": 3.49,
+   "fin": 3.963
+  },
+  {
+   "mot": "Une",
+   "debut": 4.037,
+   "fin": 4.197
+  },
+  {
+   "mot": "cliente",
+   "debut": 4.357,
+   "fin": 4.517
+  },
+  {
+   "mot": "écrit,",
+   "debut": 4.597,
+   "fin": 5.157
+  },
+  {
+   "mot": "tu",
+   "debut": 5.237,
+   "fin": 5.317
+  },
+  {
+   "mot": "réponds",
+   "debut": 5.397,
+   "fin": 5.877
+  },
+  {
+   "mot": "«",
+   "debut": 6.037,
+   "fin": 6.064
+  },
+  {
+   "mot": "c'est",
+   "debut": 6.09,
+   "fin": 6.197
+  },
+  {
+   "mot": "noté",
+   "debut": 6.277,
+   "fin": 6.517
+  },
+  {
+   "mot": "»...",
+   "debut": 6.613,
+   "fin": 6.651
+  },
+  {
+   "mot": "et",
+   "debut": 6.691,
+   "fin": 6.731
+  },
+  {
+   "mot": "son",
+   "debut": 6.811,
+   "fin": 6.891
+  },
+  {
+   "mot": "message",
+   "debut": 6.971,
+   "fin": 7.291
+  },
+  {
+   "mot": "disparaît",
+   "debut": 7.451,
+   "fin": 7.931
+  },
+  {
+   "mot": "sous",
+   "debut": 8.011,
+   "fin": 8.091
+  },
+  {
+   "mot": "les",
+   "debut": 8.171,
+   "fin": 8.251
+  },
+  {
+   "mot": "autres.",
+   "debut": 8.331,
+   "fin": 8.651
+  },
+  {
+   "mot": "Vingt-cinq",
+   "debut": 8.923,
+   "fin": 9.403
+  },
+  {
+   "mot": "mille",
+   "debut": 9.563,
+   "fin": 9.643
+  },
+  {
+   "mot": "de",
+   "debut": 9.723,
+   "fin": 9.803
+  },
+  {
+   "mot": "perdus.",
+   "debut": 9.883,
+   "fin": 10.283
+  },
+  {
+   "mot": "Et",
+   "debut": 10.391,
+   "fin": 10.471
+  },
+  {
+   "mot": "si",
+   "debut": 10.511,
+   "fin": 10.551
+  },
+  {
+   "mot": "elle",
+   "debut": 10.631,
+   "fin": 10.711
+  },
+  {
+   "mot": "ne",
+   "debut": 10.751,
+   "fin": 10.791
+  },
+  {
+   "mot": "revient",
+   "debut": 10.871,
+   "fin": 11.191
+  },
+  {
+   "mot": "plus,",
+   "debut": 11.311,
+   "fin": 11.671
+  },
+  {
+   "mot": "sur",
+   "debut": 11.791,
+   "fin": 11.911
+  },
+  {
+   "mot": "un",
+   "debut": 11.991,
+   "fin": 12.071
+  },
+  {
+   "mot": "an,",
+   "debut": 12.151,
+   "fin": 12.391
+  },
+  {
+   "mot": "ça",
+   "debut": 12.431,
+   "fin": 12.471
+  },
+  {
+   "mot": "peut",
+   "debut": 12.551,
+   "fin": 12.631
+  },
+  {
+   "mot": "faire",
+   "debut": 12.711,
+   "fin": 12.871
+  },
+  {
+   "mot": "six",
+   "debut": 13.031,
+   "fin": 13.111
+  },
+  {
+   "mot": "cent",
+   "debut": 13.191,
+   "fin": 13.351
+  },
+  {
+   "mot": "mille.",
+   "debut": 13.431,
+   "fin": 13.751
+  },
+  {
+   "mot": "Moi,",
+   "debut": 13.898,
+   "fin": 14.298
+  },
+  {
+   "mot": "je",
+   "debut": 14.378,
+   "fin": 14.458
+  },
+  {
+   "mot": "crée",
+   "debut": 14.498,
+   "fin": 14.618
+  },
+  {
+   "mot": "des",
+   "debut": 14.698,
+   "fin": 14.778
+  },
+  {
+   "mot": "applications",
+   "debut": 15.058,
+   "fin": 15.338
+  },
+  {
+   "mot": "sur",
+   "debut": 15.418,
+   "fin": 15.578
+  },
+  {
+   "mot": "mesure",
+   "debut": 15.658,
+   "fin": 16.058
+  },
+  {
+   "mot": ":",
+   "debut": 16.298,
+   "fin": 16.351
+  },
+  {
+   "mot": "chaque",
+   "debut": 16.405,
+   "fin": 16.538
+  },
+  {
+   "mot": "commande",
+   "debut": 16.618,
+   "fin": 17.098
+  },
+  {
+   "mot": "tombe",
+   "debut": 17.178,
+   "fin": 17.338
+  },
+  {
+   "mot": "dans",
+   "debut": 17.365,
+   "fin": 17.418
+  },
+  {
+   "mot": "ta",
+   "debut": 17.498,
+   "fin": 17.578
+  },
+  {
+   "mot": "liste,",
+   "debut": 17.658,
+   "fin": 18.058
+  },
+  {
+   "mot": "et",
+   "debut": 18.138,
+   "fin": 18.218
+  },
+  {
+   "mot": "rien",
+   "debut": 18.298,
+   "fin": 18.538
+  },
+  {
+   "mot": "ne",
+   "debut": 18.578,
+   "fin": 18.618
+  },
+  {
+   "mot": "se",
+   "debut": 18.698,
+   "fin": 18.778
+  },
+  {
+   "mot": "perd.",
+   "debut": 18.898,
+   "fin": 19.178
+  },
+  {
+   "mot": "Une",
+   "debut": 19.296,
+   "fin": 19.376
+  },
+  {
+   "mot": "usine",
+   "debut": 19.456,
+   "fin": 19.696
+  },
+  {
+   "mot": "suit",
+   "debut": 19.776,
+   "fin": 19.936
+  },
+  {
+   "mot": "déjà",
+   "debut": 20.016,
+   "fin": 20.256
+  },
+  {
+   "mot": "ses",
+   "debut": 20.336,
+   "fin": 20.496
+  },
+  {
+   "mot": "ventes",
+   "debut": 20.576,
+   "fin": 20.736
+  },
+  {
+   "mot": "et",
+   "debut": 20.776,
+   "fin": 20.816
+  },
+  {
+   "mot": "sa",
+   "debut": 20.896,
+   "fin": 20.976
+  },
+  {
+   "mot": "production",
+   "debut": 21.216,
+   "fin": 21.456
+  },
+  {
+   "mot": "dans",
+   "debut": 21.536,
+   "fin": 21.616
+  },
+  {
+   "mot": "l'application",
+   "debut": 21.656,
+   "fin": 22.176
+  },
+  {
+   "mot": "que",
+   "debut": 22.256,
+   "fin": 22.336
+  },
+  {
+   "mot": "j'ai",
+   "debut": 22.389,
+   "fin": 22.496
+  },
+  {
+   "mot": "construite.",
+   "debut": 22.576,
+   "fin": 23.165
+  },
+  {
+   "mot": "Écris",
+   "debut": 23.245,
+   "fin": 23.485
+  },
+  {
+   "mot": "APP",
+   "debut": 23.645,
+   "fin": 24.125
+  },
+  {
+   "mot": "sur",
+   "debut": 24.205,
+   "fin": 24.285
+  },
+  {
+   "mot": "WhatsApp,",
+   "debut": 24.525,
+   "fin": 25.005
+  },
+  {
+   "mot": "je",
+   "debut": 25.045,
+   "fin": 25.085
+  },
+  {
+   "mot": "te",
+   "debut": 25.165,
+   "fin": 25.245
+  },
+  {
+   "mot": "montre",
+   "debut": 25.325,
+   "fin": 25.565
+  },
+  {
+   "mot": "ce",
+   "debut": 25.605,
+   "fin": 25.645
+  },
+  {
+   "mot": "que",
+   "debut": 25.685,
+   "fin": 25.725
+  },
+  {
+   "mot": "ça",
+   "debut": 25.805,
+   "fin": 25.885
+  },
+  {
+   "mot": "donnerait",
+   "debut": 25.965,
+   "fin": 26.285
+  },
+  {
+   "mot": "pour",
+   "debut": 26.325,
+   "fin": 26.365
+  },
+  {
+   "mot": "ton",
+   "debut": 26.445,
+   "fin": 26.525
+  },
+  {
+   "mot": "business.",
+   "debut": 26.605,
+   "fin": 27.245
+  }
+ ],
+ "resserre": {
+  "max_blanc_s": 0.22,
+  "retire_s": 2.355,
+  "coupes": [
+   [
+    2.19726,
+    2.38676
+   ],
+   [
+    4.15265,
+    4.565939999999999
+   ],
+   [
+    7.215940000000001,
+    7.48231
+   ],
+   [
+    9.55063,
+    9.7581
+   ],
+   [
+    11.3675,
+    11.659500000000001
+   ],
+   [
+    15.1242,
+    15.5372
+   ],
+   [
+    17.9332,
+    18.0938
+   ],
+   [
+    21.1385,
+    21.3404
+   ],
+   [
+    25.2331,
+    25.4441
+   ]
+  ]
+ }
+}

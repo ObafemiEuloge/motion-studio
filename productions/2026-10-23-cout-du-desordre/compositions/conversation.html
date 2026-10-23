@@ -1,0 +1,105 @@
+<template>
+  <style>
+    @font-face { font-family: "Plus Jakarta Sans"; font-weight: 500; src: url("assets/fonts/plus-jakarta-sans-latin-500-normal.woff2") format("woff2"); }
+    @font-face { font-family: "Plus Jakarta Sans"; font-weight: 600; src: url("assets/fonts/plus-jakarta-sans-latin-600-normal.woff2") format("woff2"); }
+    @font-face { font-family: "Plus Jakarta Sans"; font-weight: 700; src: url("assets/fonts/plus-jakarta-sans-latin-700-normal.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; font-family: "Plus Jakarta Sans", sans-serif; color: #F5F3EE; }
+    /* Le téléphone : un objet réel, posé, qui ne flotte pas */
+    #p-tel { position: absolute; left: 260px; top: 205px; width: 560px; height: 1120px; border-radius: 78px; padding: 14px;
+      background: #15171C; border: 1.5px solid rgba(255,255,255,0.18);
+      box-shadow: inset 0 1.5px 0 rgba(255,255,255,0.22), 0 60px 160px rgba(0,0,0,0.7); }
+    #p-ecran { position: relative; width: 100%; height: 100%; border-radius: 64px; overflow: hidden; background: #0B111D; }
+    #p-ilot { position: absolute; left: 50%; top: 18px; width: 130px; height: 36px; margin-left: -65px; border-radius: 18px; background: #000; z-index: 5; }
+    .barre { position: absolute; left: 44px; right: 40px; top: 20px; height: 36px; font-weight: 600; font-size: 28px; color: rgba(245,243,238,0.7); display: flex; justify-content: space-between; }
+    .vue { position: absolute; inset: 0; }
+    /* Vue 1 : la conversation */
+    #p-tete { position: absolute; left: 0; right: 0; top: 74px; height: 104px; display: flex; align-items: center; gap: 18px; padding: 0 30px;
+      border-bottom: 1.5px solid rgba(255,255,255,0.08); }
+    #p-tete .av { width: 64px; height: 64px; border-radius: 50%; background: rgba(255,255,255,0.12); flex: 0 0 auto; }
+    #p-tete .nm { font-weight: 700; font-size: 34px; letter-spacing: -0.02em; }
+    #p-tete .st { font-weight: 500; font-size: 28px; color: rgba(245,243,238,0.55); }
+    #p-fil { position: absolute; left: 26px; right: 26px; top: 220px; display: flex; flex-direction: column; gap: 20px; }
+    .b { max-width: 420px; padding: 20px 26px 14px; border-radius: 32px; }
+    .b.g { align-self: flex-start; background: rgba(255,255,255,0.08); border-bottom-left-radius: 10px; }
+    .b.d { align-self: flex-end; background: rgba(255,255,255,0.16); border-bottom-right-radius: 10px; }
+    .b .t { font-weight: 500; font-size: 38px; letter-spacing: -0.015em; line-height: 1.2; }
+    .b .h { margin-top: 6px; font-weight: 600; font-size: 28px; color: rgba(245,243,238,0.5); text-align: right; }
+    /* Vue 2 : la liste des discussions */
+    #p-titre { position: absolute; left: 32px; top: 78px; font-weight: 700; font-size: 44px; letter-spacing: -0.03em; }
+    #p-liste { position: absolute; left: 0; right: 0; top: 156px; bottom: 0; overflow: hidden; }
+    #p-col { position: absolute; left: 0; right: 0; top: 0; }
+    .row { height: 116px; display: flex; align-items: center; gap: 18px; padding: 0 26px; border-bottom: 1px solid rgba(255,255,255,0.06); }
+    .row .av { width: 72px; height: 72px; border-radius: 50%; background: rgba(255,255,255,0.10); flex: 0 0 auto; }
+    .row .tx { flex: 1; min-width: 0; }
+    .row .nm { font-weight: 600; font-size: 34px; letter-spacing: -0.02em; white-space: nowrap; overflow: hidden; }
+    .row .pv { font-weight: 500; font-size: 30px; color: rgba(245,243,238,0.55); white-space: nowrap; overflow: hidden; }
+    .row .hr { font-weight: 600; font-size: 28px; color: rgba(245,243,238,0.45); align-self: flex-start; padding-top: 26px; }
+    .row.cible .nm { font-weight: 700; }
+    .row .pt { display: inline-block; width: 14px; height: 14px; border-radius: 50%; background: #D9C6A3; margin-right: 12px; vertical-align: middle; }
+  </style>
+  <div id="root" data-composition-id="conversation" data-width="1080" data-height="1920">
+    <div id="p-tel">
+      <div id="p-ecran">
+        <i id="p-ilot"></i>
+        <div class="vue" id="p-v1">
+          <div class="barre"><span>21:13</span><span>●●●</span></div>
+          <div id="p-tete"><i class="av"></i><div><div class="nm">Cliente · Fidjrossè</div><div class="st">en ligne</div></div></div>
+          <div id="p-fil">
+            <div class="b g" id="p-m1"><div class="t">Je prends 2 robes, je passe samedi</div><div class="h">21:12</div></div>
+            <div class="b d" id="p-m2"><div class="t">C'est noté</div><div class="h">21:13</div></div>
+          </div>
+        </div>
+        <div class="vue" id="p-v2" data-layout-ignore>
+          <div class="barre"><span>21:18</span><span>●●●</span></div>
+          <div id="p-titre">Discussions</div>
+          <div id="p-liste">
+            <div id="p-col">
+              <div class="row "><i class="av"></i><div class="tx"><div class="nm">Client · Akpakpa</div><div class="pv">Tu as encore la taille M ?</div></div><div class="hr">21:18</div></div>
+              <div class="row "><i class="av"></i><div class="tx"><div class="nm">Cliente · Calavi</div><div class="pv">Bonsoir, c'est dispo ?</div></div><div class="hr">21:18</div></div>
+              <div class="row "><i class="av"></i><div class="tx"><div class="nm">Client · Godomey</div><div class="pv">Je t'envoie la capture</div></div><div class="hr">21:17</div></div>
+              <div class="row "><i class="av"></i><div class="tx"><div class="nm">Cliente · Cadjehoun</div><div class="pv">Photo</div></div><div class="hr">21:17</div></div>
+              <div class="row "><i class="av"></i><div class="tx"><div class="nm">Client · Agla</div><div class="pv">Livraison à Calavi ?</div></div><div class="hr">21:16</div></div>
+              <div class="row "><i class="av"></i><div class="tx"><div class="nm">Cliente · Zogbo</div><div class="pv">Ok je passe demain</div></div><div class="hr">21:16</div></div>
+              <div class="row "><i class="av"></i><div class="tx"><div class="nm">Client · Ganhi</div><div class="pv">Tu es là ?</div></div><div class="hr">21:15</div></div>
+              <div class="row "><i class="av"></i><div class="tx"><div class="nm">Cliente · Gbégamey</div><div class="pv">Il reste le modèle bleu ?</div></div><div class="hr">21:15</div></div>
+              <div class="row "><i class="av"></i><div class="tx"><div class="nm">Client · Dantokpa</div><div class="pv">Merci beaucoup</div></div><div class="hr">21:14</div></div>
+              <div class="row "><i class="av"></i><div class="tx"><div class="nm">Cliente · Agontikon</div><div class="pv">Je confirme pour 3</div></div><div class="hr">21:14</div></div>
+              <div class="row cible" id="p-cible"><i class="av"></i><div class="tx"><div class="nm"><span class="pt"></span>Cliente · Fidjrossè</div><div class="pv">Vous : C'est noté</div></div><div class="hr">21:13</div></div>
+              <div class="row "><i class="av"></i><div class="tx"><div class="nm">Client · Cocotomey</div><div class="pv">Ok merci</div></div><div class="hr">20:41</div></div>
+              <div class="row "><i class="av"></i><div class="tx"><div class="nm">Cliente · Houéyiho</div><div class="pv">À demain alors</div></div><div class="hr">20:03</div></div>
+              <div class="row "><i class="av"></i><div class="tx"><div class="nm">Client · Vêdoko</div><div class="pv">Bien reçu</div></div><div class="hr">19:30</div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script>
+    const tl = gsap.timeline({ paused: true });
+    tl.fromTo("#p-v2", { xPercent: 100 }, { xPercent: 100, duration: 0.01 }, 0);
+    tl.fromTo("#p-col", { y: -1160 }, { y: -1160, duration: 0.01 }, 0);
+    // « Une cliente » : le téléphone monte et se pose
+    tl.fromTo("#p-tel", { y: 1800 }, { y: 0, duration: 1.0, ease: "expo.out" }, 0.35);
+    // « écrit »
+    tl.fromTo("#p-m1", { y: 30, opacity: 0 }, { y: 0, opacity: 1, duration: 0.45, ease: "expo.out" }, 0.55);
+    // « c'est noté »
+    tl.fromTo("#p-m2", { y: 30, opacity: 0 }, { y: 0, opacity: 1, duration: 0.45, ease: "expo.out" }, 1.94);
+    // « disparaît » : retour à la liste des discussions
+    tl.fromTo("#p-v1", { xPercent: 0 }, { xPercent: -100, duration: 0.35, ease: "power3.inOut" }, 3.15);
+    tl.fromTo("#p-v2", { xPercent: 100 }, { immediateRender: false, xPercent: 0, duration: 0.35, ease: "power3.inOut" }, 3.15);
+    // « sous les autres » : dix discussions arrivent et poussent la commande hors de l'écran
+    tl.fromTo("#p-col", { y: -1160 }, { immediateRender: false, y: -1044, duration: 0.12, ease: "power2.out" }, 3.30);
+    tl.fromTo("#p-col", { y: -1044 }, { immediateRender: false, y: -928, duration: 0.12, ease: "power2.out" }, 3.43);
+    tl.fromTo("#p-col", { y: -928 }, { immediateRender: false, y: -812, duration: 0.12, ease: "power2.out" }, 3.56);
+    tl.fromTo("#p-col", { y: -812 }, { immediateRender: false, y: -696, duration: 0.12, ease: "power2.out" }, 3.69);
+    tl.fromTo("#p-col", { y: -696 }, { immediateRender: false, y: -580, duration: 0.12, ease: "power2.out" }, 3.82);
+    tl.fromTo("#p-col", { y: -580 }, { immediateRender: false, y: -464, duration: 0.12, ease: "power2.out" }, 3.95);
+    tl.fromTo("#p-col", { y: -464 }, { immediateRender: false, y: -348, duration: 0.12, ease: "power2.out" }, 4.08);
+    tl.fromTo("#p-col", { y: -348 }, { immediateRender: false, y: -232, duration: 0.12, ease: "power2.out" }, 4.21);
+    tl.fromTo("#p-col", { y: -232 }, { immediateRender: false, y: -116, duration: 0.12, ease: "power2.out" }, 4.34);
+    tl.fromTo("#p-col", { y: -116 }, { immediateRender: false, y: 0, duration: 0.12, ease: "power2.out" }, 4.47);
+    // Le téléphone part avant les chiffres
+    tl.fromTo("#p-tel", { y: 0 }, { immediateRender: false, y: -1500, duration: 0.4, ease: "power3.in" }, 4.6);
+    window.__timelines["conversation"] = tl;
+  </script>
+</template>

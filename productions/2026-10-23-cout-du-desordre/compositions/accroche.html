@@ -1,0 +1,42 @@
+<template>
+  <style>
+    @font-face { font-family: "Plus Jakarta Sans"; font-weight: 600; src: url("assets/fonts/plus-jakarta-sans-latin-600-normal.woff2") format("woff2"); }
+    @font-face { font-family: "Plus Jakarta Sans"; font-weight: 700; src: url("assets/fonts/plus-jakarta-sans-latin-700-normal.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; font-family: "Plus Jakarta Sans", sans-serif; color: #F5F3EE; }
+    #a-bloc { position: absolute; left: 0; right: 0; top: 430px; text-align: center; }
+    .mask { overflow: hidden; padding: 6px 0 14px; margin-bottom: -16px; }
+    .mask > .in { display: block; }
+    .h { font-weight: 700; font-size: 124px; letter-spacing: -0.045em; line-height: 1.0;
+      text-shadow: 0 0 50px rgba(4,6,11,0.95), 0 0 18px rgba(4,6,11,0.9); }
+    .acc { color: #D9C6A3; }
+    .fente { display: inline-block; height: 1.16em; overflow: hidden; vertical-align: top; text-align: left; }
+    .fente > span { display: block; }
+    .fente > span > span { display: block; line-height: 1.16em; }
+    .fente > span > span + span { margin-top: 0.3em; }
+    .sous { font-weight: 700; font-size: 72px; letter-spacing: -0.035em; line-height: 1.0; color: rgba(245,243,238,0.82);
+      text-shadow: 0 0 40px rgba(4,6,11,0.95); }
+  </style>
+  <div id="root" data-composition-id="accroche" data-width="1080" data-height="1920">
+    <div id="a-bloc">
+      <div class="mask"><span class="in h" id="a-1">Combien de</span></div>
+      <div class="mask"><span class="in h" id="a-2">commandes</span></div>
+      <div class="mask"><span class="in h" id="a-3">tu as <span class="fente acc"><span id="a-roule"><span>perdues</span><span>oubliées</span></span></span></span></div>
+      <div class="mask"><span class="in h" id="a-4">ce mois-ci ?</span></div>
+      <div style="height:46px"></div>
+      <div class="mask"><span class="in sous" id="a-5">Pas volées.</span></div>
+    </div>
+  </div>
+  <script>
+    const tl = gsap.timeline({ paused: true });
+    // Image 0 : la question est déjà posée, lisible en miniature
+    tl.fromTo(["#a-1", "#a-2", "#a-3", "#a-4"], { yPercent: 0 }, { yPercent: 0, duration: 0.01 }, 0);
+    tl.fromTo("#a-roule", { yPercent: 0 }, { yPercent: 0, duration: 0.01 }, 0);
+    // « Pas volées »
+    tl.fromTo("#a-5", { yPercent: 130 }, { yPercent: 0, duration: 0.75, ease: "expo.out" }, 2.4);
+    // « oubliées » : le mot roule dans la phrase
+    tl.fromTo("#a-roule", { yPercent: 0 }, { immediateRender: false, yPercent: -55.73, duration: 0.35, ease: "power3.inOut" }, 3.32);
+    // Sortie par les caches quand la cliente écrit
+    tl.fromTo(["#a-1", "#a-2", "#a-3", "#a-4", "#a-5"], { yPercent: 0 }, { immediateRender: false, yPercent: -135, duration: 0.38, ease: "power3.in", stagger: 0.03 }, 4.29);
+    window.__timelines["accroche"] = tl;
+  </script>
+</template>
