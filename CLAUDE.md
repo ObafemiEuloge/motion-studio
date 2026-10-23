@@ -12,7 +12,7 @@ Ce dépôt produit les vidéos courtes (Instagram Reels, TikTok, 1080 × 1920) d
 
 ## Règles qui ne se discutent pas
 
-- **Aucun tiret cadratin (—) ni demi-cadratin (–)** dans les textes, scripts, légendes, sous-titres. Vérifié par `scripts/verifier_texte.py`.
+- **Aucun tiret cadratin (U+2014) ni demi-cadratin (U+2013)** dans les textes, scripts, légendes, sous-titres. Vérifié par `scripts/verifier_texte.py`.
 - Tutoiement. Français naturel parlé, pas écrit. Aucun prix affiché.
 - Appel à l'action : écrire à Oba sur WhatsApp, **+229 01 96 25 66 94**.
 - Nom à l'écran : **Obafemi Euloge AGNOUN** (trois mots, même taille, même graisse).
