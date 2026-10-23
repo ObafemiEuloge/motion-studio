@@ -1,6 +1,6 @@
 # Contrôle : Centime, la preuve (vidéo 5)
 
-Rendu contrôlé : `renders/centime-la-preuve.mp4`, 26,5 s, 1080 × 1920, 30 i/s, H.264 + AAC (2 min 55 s de rendu).
+Rendu contrôlé : `renders/centime-la-preuve.mp4`, 26,5 s, 1080 × 1920, 30 i/s, H.264 + AAC (3 min 11 s de rendu).
 
 ## Texte
 - [x] `python3 scripts/verifier_texte.py script.md storyboard.md audio/voix.txt publication.md index.html compositions/*.html` : OK.
@@ -25,6 +25,9 @@ Rendu contrôlé : `renders/centime-la-preuve.mp4`, 26,5 s, 1080 × 1920, 30 i/s
 - [x] Appel final : mot-clé APP (champagne) et raison d'écrire.
 - [x] `npx hyperframes check --json` : zéro erreur. Avertissements gardés : `duplicate_media_discovery_risk` (les captures répétées sur le mur, voulu) ; `dead_stretch` 0 à 3,1 s (le téléphone se dessine pendant ce temps, l'outil ne voit pas les tracés) ; chiffres qui roulent signalés comme lus trop vite (ce sont des chiffres en mouvement, le résultat reste affiché).
 - [x] Revue sur 30 instants : corrigés les montants « 00 000 » visibles avant la répartition, l'anneau qui arrivait sur la carte encore présente, deux animations qui se chevauchaient, le verre de la signature qui ne floutait pas.
+- [x] Retours d'Oba sur le premier rendu, corrigés :
+  - le trait de répartition passait par-dessus les icônes des enveloppes, décalé de leur centre, avec des points qui débordaient sous la dernière : il passe maintenant derrière les icônes, centré sur elles, avance à vitesse constante, et chaque icône devient bleue au moment exact où il l'atteint ;
+  - l'anneau d'une année ressemblait à un cercle en pointillés épais, et son tracé n'apparaissait qu'à la fin (`pathLength` mal géré sur un cercle fait d'arcs) : c'est maintenant un cadran fin (graduations, initiale de chaque mois qui s'allume, tête qui fait le tour), posé sur un disque de verre qui floute le mur, tracé avec la circonférence réelle et vérifié à 13,3, 13,6 et 13,85 s.
 - [x] Texte entre 236 et 1330 px de haut. Infos clés à 36 px ou plus (titres 72 à 90 px, interface 36 à 128 px ; libellés secondaires de l'interface 28 à 34 px, comme dans Centime).
 - [x] Tenues : accroche 3,2 s ; « Centime » 0,8 s (dit en même temps) ; titres 1,4 à 2,2 s ; « En ligne depuis un an » 2,4 s ; « Version 2 » 0,9 s (dit en même temps) ; phrase clé 2,9 s puis 1,6 s pour « je le mets dans le tien. » (dite en même temps) ; signature 6,8 s après l'appel.
 

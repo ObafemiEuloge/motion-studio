@@ -37,7 +37,7 @@
     #d-revenu .mont { position: absolute; left: 130px; top: 60px; font-weight: 700; font-size: 52px; letter-spacing: -0.03em; white-space: nowrap; line-height: 1; }
 
     .env { position: absolute; left: 0; width: 880px; height: 116px; }
-    .env .rond { position: absolute; left: 36px; top: 10px; width: 68px; height: 68px; border-radius: 50%; background: var(--pale); display: flex; align-items: center; justify-content: center; }
+    .env .rond { position: absolute; left: 36px; top: 10px; width: 68px; height: 68px; border-radius: 50%; background: var(--pale); box-shadow: 0 0 0 6px #FFFFFF; display: flex; align-items: center; justify-content: center; }
     .env .rond.actif { background: #DCEBF6; }
     .env .nom { position: absolute; left: 126px; top: 14px; font-weight: 600; font-size: 36px; letter-spacing: -0.015em; white-space: nowrap; }
     .env .mont { position: absolute; right: 36px; top: 14px; font-weight: 700; font-size: 38px; letter-spacing: -0.02em; white-space: nowrap; line-height: 1; }
@@ -84,9 +84,12 @@
     #d-dispo .cv .unite { font-size: 30px; margin-left: 6px; }
 
     /* L'anneau d'une année et les versions */
-    #d-anneau { position: absolute; left: 290px; top: 610px; width: 500px; height: 500px; }
+    #d-anneau { position: absolute; left: 190px; top: 510px; width: 700px; height: 700px; }
     #d-anneau svg { position: absolute; left: 0; top: 0; overflow: visible; }
-    #d-anneau .logo { position: absolute; left: 175px; top: 175px; width: 150px; height: 150px; border-radius: 38px; background: #1BA0E2; display: flex; align-items: center; justify-content: center; }
+    #d-disque { position: absolute; left: 10px; top: 10px; width: 680px; height: 680px; border-radius: 50%;
+      background: rgba(4,6,11,0.55); -webkit-backdrop-filter: blur(30px) saturate(140%); backdrop-filter: blur(30px) saturate(140%);
+      border: 1.5px solid rgba(255,255,255,0.14); box-shadow: inset 0 1.5px 0 rgba(255,255,255,0.22), 0 50px 140px rgba(0,0,0,0.6); }
+    .mois { font-family: "Plus Jakarta Sans", sans-serif; font-weight: 600; font-size: 30px; }
     .carte-v { position: absolute; left: 240px; top: 600px; width: 600px; height: 552px; border-radius: 48px; }
     #d-v1 { background: rgba(255,255,255,0.04); border: 2px dashed rgba(245,243,238,0.32); }
     #d-v2 { padding: 16px; }
@@ -116,6 +119,11 @@
             <div class="lab"><div id="d-lab-rail"><div>Revenu reçu</div><div>Rangé dans 4 enveloppes</div></div></div>
             <div class="mont"><span class="roule" id="d-r-rev">100 000</span><span class="unite" style="font-size:34px; margin-left:8px">F</span></div>
           </div>
+          <svg id="d-courant" width="880" height="820" viewBox="0 0 880 820" data-layout-ignore>
+            <path id="d-tronc-fond" d="M70 270 V728" fill="none" stroke="#E3E8EF" stroke-width="4" stroke-linecap="round" />
+            <path id="d-tronc" d="M70 270 V728" fill="none" stroke="#0B6BA3" stroke-width="4" stroke-linecap="round" pathLength="1" />
+            <circle id="d-tete" cx="70" cy="270" r="8" fill="#0B6BA3" />
+          </svg>
           <div class="env" style="top:300px" id="d-e1">
             <div class="rond" id="d-e1-r"><svg width="34" height="34" viewBox="0 0 34 34"><path class="ico" d="M6 15 L17 6 L28 15 V28 H6 Z" /></svg></div>
             <div class="nom">Dépenses fixes</div><div class="mont"><span class="roule" id="d-r-e1">58 000</span><span class="unite" style="font-size:28px; margin-left:6px">F</span></div>
@@ -136,12 +144,6 @@
             <div class="nom">Épargne de sécurité</div><div class="mont"><span class="roule" id="d-r-e4">15 000</span><span class="unite" style="font-size:28px; margin-left:6px">F</span></div>
             <div class="piste"><div class="plein" id="d-e4-p"></div></div>
           </div>
-          <svg id="d-courant" width="880" height="820" viewBox="0 0 880 820" data-layout-ignore>
-            <path id="d-tronc" d="M65 270 V718" fill="none" stroke="#0B6BA3" stroke-width="4" stroke-linecap="round" pathLength="1" />
-            <circle class="goutte" id="d-go1" cx="65" cy="270" r="9" fill="#0B6BA3" />
-            <circle class="goutte" id="d-go2" cx="65" cy="270" r="7" fill="#0B6BA3" />
-            <circle class="goutte" id="d-go3" cx="65" cy="270" r="5" fill="#0B6BA3" />
-          </svg>
         </div>
 
         <!-- Écran 2 : l'accueil, ce que tu peux encore dépenser -->
@@ -185,8 +187,15 @@
 
     <!-- Un an en ligne : douze mois autour du logo -->
     <div id="d-anneau">
-      <svg width="500" height="500" viewBox="0 0 500 500" id="d-anneau-svg"></svg>
-      <div class="logo"><svg width="100" height="100" viewBox="0 0 84 84"><circle cx="42" cy="42" r="31" fill="none" stroke="#FFFFFF" stroke-width="7" /><path d="M53 31.5 A15 15 0 1 0 53 52.5" fill="none" stroke="#FFFFFF" stroke-width="7" stroke-linecap="round" /><path d="M42 20 V27 M42 57 V64" stroke="#FFFFFF" stroke-width="6" stroke-linecap="round" /></svg></div>
+      <div id="d-disque"></div>
+      <svg width="700" height="700" viewBox="0 0 700 700" id="d-anneau-svg">
+        <circle cx="350" cy="350" r="228" fill="none" stroke="rgba(245,243,238,0.16)" stroke-width="2" />
+        <g id="d-graduations"></g>
+        <path id="d-annee" d="M350 122 A228 228 0 0 1 350 578 A228 228 0 0 1 350 122" fill="none" stroke="#F5F3EE" stroke-width="6" stroke-linecap="round" />
+        <g id="d-tete-an"><circle cx="350" cy="122" r="11" fill="#F5F3EE" /><circle cx="350" cy="122" r="4" fill="#04060B" /></g>
+        <rect x="275" y="275" width="150" height="150" rx="38" fill="#1BA0E2" />
+        <g transform="translate(300 300) scale(1.1905)"><circle cx="42" cy="42" r="31" fill="none" stroke="#FFFFFF" stroke-width="7" /><path d="M53 31.5 A15 15 0 1 0 53 52.5" fill="none" stroke="#FFFFFF" stroke-width="7" stroke-linecap="round" /><path d="M42 20 V27 M42 57 V64" stroke="#FFFFFF" stroke-width="6" stroke-linecap="round" /></g>
+      </svg>
     </div>
 
     <!-- Les versions -->
@@ -210,17 +219,17 @@
         }
         rouleaux[el.id] = rails;
       });
-      // L'anneau : douze mois, un segment par mois
-      const NS = "http://www.w3.org/2000/svg", svg = document.getElementById("d-anneau-svg"), mois = [];
-      const arc = (a0, a1, r) => { const p = (a) => [250 + r * Math.cos((a - 90) * Math.PI / 180), 250 + r * Math.sin((a - 90) * Math.PI / 180)];
-        const [x0, y0] = p(a0), [x1, y1] = p(a1); return `M${x0.toFixed(2)} ${y0.toFixed(2)} A${r} ${r} 0 0 1 ${x1.toFixed(2)} ${y1.toFixed(2)}`; };
-      for (let m = 0; m < 12; m++) {
-        const a0 = m * 30 + 3, a1 = m * 30 + 27;
-        const fond = document.createElementNS(NS, "path"); fond.setAttribute("d", arc(a0, a1, 228)); fond.setAttribute("fill", "none");
-        fond.setAttribute("stroke", "rgba(245,243,238,0.14)"); fond.setAttribute("stroke-width", "22"); fond.setAttribute("stroke-linecap", "round"); svg.appendChild(fond);
-        const plein = document.createElementNS(NS, "path"); plein.setAttribute("d", arc(a0, a1, 228)); plein.setAttribute("fill", "none"); plein.setAttribute("pathLength", "1");
-        plein.setAttribute("stroke", "#F5F3EE"); plein.setAttribute("stroke-width", "22"); plein.setAttribute("stroke-linecap", "round"); svg.appendChild(plein); mois.push(plein);
-      }
+      // Le cadran d'une année : douze graduations et l'initiale de chaque mois
+      const NS = "http://www.w3.org/2000/svg", grad = document.getElementById("d-graduations"), traits = [], lettres = [];
+      const pt = (deg, r) => [350 + r * Math.sin(deg * Math.PI / 180), 350 - r * Math.cos(deg * Math.PI / 180)];
+      "JFMAMJJASOND".split("").forEach((l, m) => {
+        const [x0, y0] = pt(m * 30, 244), [x1, y1] = pt(m * 30, 262);
+        const tr = document.createElementNS(NS, "path"); tr.setAttribute("d", `M${x0.toFixed(2)} ${y0.toFixed(2)} L${x1.toFixed(2)} ${y1.toFixed(2)}`);
+        tr.setAttribute("stroke", "rgba(245,243,238,0.3)"); tr.setAttribute("stroke-width", "3"); tr.setAttribute("stroke-linecap", "round"); grad.appendChild(tr); traits.push(tr);
+        const [xl, yl] = pt(m * 30 + 15, 300);
+        const tx = document.createElementNS(NS, "text"); tx.setAttribute("x", xl.toFixed(2)); tx.setAttribute("y", (yl + 10).toFixed(2));
+        tx.setAttribute("text-anchor", "middle"); tx.setAttribute("class", "mois"); tx.setAttribute("fill", "rgba(245,243,238,0.4)"); tx.textContent = l; grad.appendChild(tx); lettres.push(tx);
+      });
 
       const tl = gsap.timeline({ paused: true });
       const pose = (id, chiffres) => rouleaux[id].forEach((r, i) => tl.fromTo(r.rail, { yPercent: -chiffres[i] * 10 }, { yPercent: -chiffres[i] * 10, duration: 0.01 }, 0));
@@ -239,10 +248,11 @@
       pose("d-r-rev", [0, 0, 0, 0, 0, 0]);
       ["d-r-e1", "d-r-e2", "d-r-e3", "d-r-e4"].forEach((id) => pose(id, rouleaux[id].map(() => 0)));
       tl.fromTo([".env .plein"], { scaleX: 0 }, { scaleX: 0, duration: 0.01 }, 0);
-      tl.fromTo(".env", { opacity: 0.35 }, { opacity: 0.35, duration: 0.01 }, 0);
+      tl.fromTo([".env .nom", ".env .piste"], { opacity: 0.35 }, { opacity: 0.35, duration: 0.01 }, 0);
+      tl.fromTo(".env .rond path", { stroke: "#0F1B2D" }, { stroke: "#0F1B2D", duration: 0.01 }, 0);
       tl.fromTo(".env .mont", { opacity: 0 }, { opacity: 0, duration: 0.01 }, 0);
       tl.fromTo("#d-tronc", { strokeDasharray: "1 1", strokeDashoffset: 1 }, { strokeDasharray: "1 1", strokeDashoffset: 1, duration: 0.01 }, 0);
-      tl.fromTo(".goutte", { y: 0, opacity: 0 }, { y: 0, opacity: 0, duration: 0.01 }, 0);
+      tl.fromTo("#d-tete", { y: 0, opacity: 0 }, { y: 0, opacity: 0, duration: 0.01 }, 0);
       tl.fromTo("#d-s4", { opacity: 0 }, { opacity: 0, duration: 0.01 }, 0);
       tl.fromTo("#d-voile", { opacity: 0 }, { opacity: 0, duration: 0.01 }, 0);
       tl.fromTo("#d-feuille", { y: 780 }, { y: 780, duration: 0.01 }, 0);
@@ -253,8 +263,13 @@
       tl.fromTo(["#d-g1-d", "#d-g2-d"], { scale: 0 }, { scale: 0, duration: 0.01 }, 0);
       pose("d-r-dispo", [5, 7, 3, 2, 5]);
       pose("d-r-dep", [2, 7, 6, 7, 5]);
-      tl.fromTo("#d-anneau", { scale: 0.8, opacity: 0 }, { scale: 0.8, opacity: 0, duration: 0.01 }, 0);
-      tl.fromTo(mois, { strokeDasharray: "1 1", strokeDashoffset: 1 }, { strokeDasharray: "1 1", strokeDashoffset: 1, duration: 0.01 }, 0);
+      tl.fromTo("#d-anneau", { scale: 0.85, opacity: 0 }, { scale: 0.85, opacity: 0, duration: 0.01 }, 0);
+      // Circonférence réelle (2 × π × 228) : plus sûr que pathLength sur un cercle fait d'arcs
+      const TOUR = 1432.6;
+      tl.fromTo("#d-annee", { strokeDasharray: TOUR + " " + TOUR, strokeDashoffset: TOUR }, { strokeDasharray: TOUR + " " + TOUR, strokeDashoffset: TOUR, duration: 0.01 }, 0);
+      tl.fromTo("#d-tete-an", { rotation: 0, svgOrigin: "350 350", opacity: 0 }, { rotation: 0, svgOrigin: "350 350", opacity: 0, duration: 0.01 }, 0);
+      tl.fromTo(traits, { stroke: "rgba(245,243,238,0.3)" }, { stroke: "rgba(245,243,238,0.3)", duration: 0.01 }, 0);
+      tl.fromTo(lettres, { fill: "rgba(245,243,238,0.4)" }, { fill: "rgba(245,243,238,0.4)", duration: 0.01 }, 0);
       tl.fromTo("#d-v1", { x: 0, y: 0, rotation: -5, scale: 1, opacity: 0, zIndex: 2 }, { x: 0, y: 0, rotation: -5, scale: 1, opacity: 0, zIndex: 2, duration: 0.01 }, 0);
       tl.fromTo("#d-v2", { x: 90, y: 60, rotation: 4, scale: 0.9, opacity: 0, zIndex: 1 }, { x: 90, y: 60, rotation: 4, scale: 0.9, opacity: 0, zIndex: 1, duration: 0.01 }, 0);
       tl.fromTo("#d-version", { y: 40, opacity: 0 }, { y: 40, opacity: 0, duration: 0.01 }, 0);
@@ -269,16 +284,19 @@
       // « il se range tout seul dans les enveloppes »
       tl.fromTo("#d-t1", { yPercent: 0 }, { immediateRender: false, yPercent: -135, duration: 0.35, ease: "power3.in" }, 1.38);
       tl.fromTo("#d-t2", { yPercent: 130 }, { immediateRender: false, yPercent: 0, duration: 0.8, ease: "expo.out" }, 1.69);
-      tl.fromTo("#d-tronc", { strokeDashoffset: 1 }, { immediateRender: false, strokeDashoffset: 0, duration: 0.9, ease: "power2.inOut" }, 1.45);
-      [["#d-go1", 1.5], ["#d-go2", 1.62], ["#d-go3", 1.74]].forEach(([id, t]) => {
-        tl.fromTo(id, { y: 0, opacity: 0 }, { immediateRender: false, keyframes: { y: [0, 448], opacity: [1, 1, 1, 0] }, duration: 1.0, ease: "power1.inOut" }, t);
-      });
+      // Le courant descend d'enveloppe en enveloppe, à vitesse constante : chaque icône s'allume quand il l'atteint
+      const T0 = 1.55, DUREE = 0.9;
+      tl.fromTo("#d-tronc", { strokeDashoffset: 1 }, { immediateRender: false, strokeDashoffset: 0, duration: DUREE, ease: "none" }, T0);
+      tl.fromTo("#d-tete", { opacity: 0 }, { immediateRender: false, opacity: 1, duration: 0.08 }, T0);
+      tl.fromTo("#d-tete", { y: 0 }, { immediateRender: false, y: 458, duration: DUREE, ease: "none" }, T0);
       const envs = [["d-e1", "d-r-e1", [5, 8, 0, 0, 0]], ["d-e2", "d-r-e2", [2, 5, 0, 0, 0]], ["d-e3", "d-r-e3", [2, 0, 0, 0]], ["d-e4", "d-r-e4", [1, 5, 0, 0, 0]]];
       envs.forEach(([e, r, ch], i) => {
-        const t = 1.72 + i * 0.2;
-        tl.fromTo("#" + e, { opacity: 0.35 }, { immediateRender: false, opacity: 1, duration: 0.3 }, t);
+        const t = T0 + DUREE * (344 + 128 * i - 270) / 458;
+        tl.fromTo(["#" + e + " .nom", "#" + e + " .piste"], { opacity: 0.35 }, { immediateRender: false, opacity: 1, duration: 0.3 }, t);
         tl.fromTo("#" + e + " .mont", { opacity: 0 }, { immediateRender: false, opacity: 1, duration: 0.2 }, t);
-        tl.fromTo("#" + e + "-r", { backgroundColor: "#F1F5F9" }, { backgroundColor: "#DCEBF6", duration: 0.3 }, t);
+        tl.fromTo("#" + e + "-r", { backgroundColor: "#F1F5F9" }, { immediateRender: false, backgroundColor: "#0B6BA3", duration: 0.2 }, t);
+        tl.fromTo("#" + e + "-r path", { stroke: "#0F1B2D" }, { immediateRender: false, stroke: "#FFFFFF", duration: 0.2 }, t);
+        tl.fromTo("#" + e + "-r", { scale: 1 }, { immediateRender: false, keyframes: { scale: [1, 1.14, 1] }, duration: 0.35, ease: "power2.out" }, t);
         tl.fromTo("#" + e + "-p", { scaleX: 0 }, { immediateRender: false, scaleX: 1, duration: 0.8, ease: "expo.out" }, t);
         roule(r, ch.map(() => 0), ch, t, 0.8, 0.04);
       });
@@ -328,8 +346,14 @@
       tl.fromTo("#d-carte", { x: 0, y: 0, rotationY: 0, scale: 1, opacity: 1 },
         { immediateRender: false, x: 330, y: -60, rotationY: -40, scale: 0.5, opacity: 0, duration: 0.5, ease: "power2.in" }, 8.15);
       tl.fromTo("#d-t5", { yPercent: 130 }, { immediateRender: false, yPercent: 0, duration: 0.8, ease: "expo.out" }, 8.48);
-      tl.fromTo("#d-anneau", { scale: 0.8, opacity: 0 }, { immediateRender: false, scale: 1, opacity: 1, duration: 0.7, ease: "expo.out" }, 8.62);
-      tl.fromTo(mois, { strokeDashoffset: 1 }, { immediateRender: false, strokeDashoffset: 0, duration: 0.16, ease: "power1.out", stagger: 0.055 }, 8.72);
+      tl.fromTo("#d-anneau", { scale: 0.85, opacity: 0 }, { immediateRender: false, scale: 1, opacity: 1, duration: 0.7, ease: "expo.out" }, 8.55);
+      // « depuis un an » : le cadran fait un tour complet, mois après mois
+      const A0 = 8.62, AN = 0.95;
+      tl.fromTo("#d-annee", { strokeDashoffset: TOUR }, { immediateRender: false, strokeDashoffset: 0, duration: AN, ease: "none" }, A0);
+      tl.fromTo("#d-tete-an", { opacity: 0 }, { immediateRender: false, opacity: 1, duration: 0.1 }, A0);
+      tl.fromTo("#d-tete-an", { rotation: 0 }, { immediateRender: false, rotation: 360, duration: AN, ease: "none" }, A0);
+      traits.forEach((tr, m) => tl.fromTo(tr, { stroke: "rgba(245,243,238,0.3)" }, { immediateRender: false, stroke: "#F5F3EE", duration: 0.1 }, A0 + AN * m / 12));
+      lettres.forEach((tx, m) => tl.fromTo(tx, { fill: "rgba(245,243,238,0.4)" }, { immediateRender: false, fill: "#F5F3EE", duration: 0.12 }, A0 + AN * (m + 0.5) / 12));
       // « J'en suis à la version 2 »
       tl.fromTo("#d-anneau", { scale: 1, opacity: 1 }, { immediateRender: false, scale: 0.7, opacity: 0, duration: 0.4, ease: "power3.in" }, 9.62);
       tl.fromTo("#d-v1", { opacity: 0 }, { immediateRender: false, opacity: 1, duration: 0.3, ease: "power1.out" }, 9.68);
