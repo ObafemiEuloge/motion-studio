@@ -1,0 +1,83 @@
+<template>
+  <style>
+    @font-face { font-family: "Plus Jakarta Sans"; font-weight: 500; src: url("assets/fonts/plus-jakarta-sans-latin-500-normal.woff2") format("woff2"); }
+    @font-face { font-family: "Plus Jakarta Sans"; font-weight: 600; src: url("assets/fonts/plus-jakarta-sans-latin-600-normal.woff2") format("woff2"); }
+    @font-face { font-family: "Plus Jakarta Sans"; font-weight: 700; src: url("assets/fonts/plus-jakarta-sans-latin-700-normal.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; font-family: "Plus Jakarta Sans", sans-serif; color: #F5F3EE; }
+    #k-carte {
+      position: absolute; left: 70px; top: 330px; width: 940px; height: 940px; border-radius: 64px; overflow: hidden;
+      background: rgba(255,255,255,0.055);
+      -webkit-backdrop-filter: blur(34px) saturate(150%); backdrop-filter: blur(34px) saturate(150%);
+      border: 1.5px solid rgba(255,255,255,0.16);
+      box-shadow: inset 0 1.5px 0 rgba(255,255,255,0.28), 0 50px 140px rgba(0,0,0,0.6);
+    }
+    #k-in { position: absolute; left: 64px; right: 64px; top: 60px; }
+    .mask { overflow: hidden; padding: 6px 0 10px; margin-bottom: -12px; }
+    .mask > .in { display: block; }
+    .eyebrow { font-weight: 600; font-size: 30px; letter-spacing: 0.22em; text-transform: uppercase; color: rgba(245,243,238,0.55); }
+    #k-slot { margin-top: 34px; height: 150px; overflow: hidden; border-radius: 26px; }
+    #k-notif { height: 150px; border-radius: 26px; background: #0B111D; border: 1.5px solid rgba(255,255,255,0.10);
+      padding: 28px 34px; display: flex; justify-content: space-between; align-items: flex-start; }
+    #k-notif .t { font-weight: 700; font-size: 42px; letter-spacing: -0.02em; }
+    #k-notif .s { margin-top: 10px; font-weight: 500; font-size: 32px; color: rgba(245,243,238,0.78); }
+    #k-notif .q { font-weight: 600; font-size: 28px; color: rgba(245,243,238,0.55); padding-top: 8px; }
+    #k-lignes { margin-top: 34px; }
+    .ligne { height: 112px; margin-bottom: 14px; border-radius: 26px; background: #0B111D; border: 1.5px solid rgba(255,255,255,0.07);
+      display: flex; justify-content: space-between; align-items: center; padding: 0 30px 0 36px; }
+    .ligne .n { font-weight: 600; font-size: 40px; letter-spacing: -0.02em; }
+    .ligne .n span { color: rgba(245,243,238,0.55); }
+    .statut { position: relative; height: 62px; min-width: 250px; border-radius: 999px; overflow: hidden;
+      background: rgba(255,255,255,0.07); border: 1.5px solid rgba(255,255,255,0.12); }
+    .statut .e { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center;
+      font-weight: 600; font-size: 30px; color: rgba(245,243,238,0.78); }
+    .statut .e.attente { color: rgba(245,243,238,0.55); }
+    .statut .e.paye { color: #D9C6A3; }
+    .statut .d { display: inline-block; width: 12px; height: 12px; border-radius: 50%; margin-right: 14px; background: rgba(245,243,238,0.45); }
+    .statut .e.paye .d { background: #D9C6A3; }
+    #k-pastille { position: absolute; left: 64px; top: 812px; padding: 20px 34px; border-radius: 999px; font-weight: 600; font-size: 32px;
+      background: rgba(255,255,255,0.07); border: 1.5px solid rgba(255,255,255,0.14); box-shadow: inset 0 1px 0 rgba(255,255,255,0.22); }
+    #k-pastille .d { display: inline-block; width: 12px; height: 12px; border-radius: 50%; margin-right: 14px; background: rgba(245,243,238,0.78); vertical-align: middle; }
+  </style>
+  <div id="root" data-composition-id="commandes" data-width="1080" data-height="1920">
+    <div id="k-carte">
+      <div id="k-in">
+        <div class="mask"><span class="in eyebrow" id="k-eb">Commandes · aujourd'hui</span></div>
+        <div id="k-slot">
+          <div id="k-notif">
+            <div><div class="t">Paiement reçu</div><div class="s">Mobile Money · 15 000 F</div></div>
+            <div class="q">à l'instant</div>
+          </div>
+        </div>
+        <div id="k-lignes">
+          <div class="ligne" id="k-l1"><div class="n"><span>Commande</span> 0139</div><div class="statut"><div class="e"><i class="d"></i>Payé</div></div></div>
+          <div class="ligne" id="k-l2"><div class="n"><span>Commande</span> 0140</div><div class="statut"><div class="e"><i class="d"></i>Livré</div></div></div>
+          <div class="ligne" id="k-l3"><div class="n"><span>Commande</span> 0141</div><div class="statut"><div class="e"><i class="d"></i>Payé</div></div></div>
+          <div class="ligne" id="k-l4"><div class="n"><span>Commande</span> 0142</div>
+            <div class="statut"><div class="e attente" id="k-attente"><i class="d"></i>En attente</div><div class="e paye" id="k-paye"><i class="d"></i>Payé</div></div>
+          </div>
+        </div>
+      </div>
+      <div id="k-pastille"><span class="d"></span>Vérifié automatiquement</div>
+    </div>
+  </div>
+  <script>
+    const tl = gsap.timeline({ paused: true });
+    // « Une application » : la carte de verre monte et se pose sur Oba
+    tl.fromTo("#k-carte", { y: 1250 }, { y: 0, duration: 1.1, ease: "expo.out" }, 0.1);
+    tl.fromTo("#k-eb", { yPercent: 110 }, { yPercent: 0, duration: 0.75, ease: "expo.out" }, 0.45);
+    tl.fromTo(["#k-l1", "#k-l2", "#k-l3", "#k-l4"], { y: 40, opacity: 0 }, { y: 0, opacity: 1, duration: 0.7, ease: "expo.out", stagger: 0.08 }, 0.55);
+    tl.fromTo("#k-notif", { yPercent: -110 }, { yPercent: -110, duration: 0.01 }, 0);
+    tl.fromTo("#k-paye", { yPercent: 110 }, { yPercent: 110, duration: 0.01 }, 0);
+    tl.fromTo("#k-pastille", { y: 26, opacity: 0 }, { y: 26, opacity: 0, duration: 0.01 }, 0);
+    // « Le client paie » : le paiement arrive
+    tl.fromTo("#k-notif", { yPercent: -110 }, { immediateRender: false, yPercent: 0, duration: 0.7, ease: "expo.out" }, 2.36);
+    // « passe à payé » : le statut bascule
+    tl.fromTo("#k-attente", { yPercent: 0 }, { yPercent: -110, duration: 0.36, ease: "power3.in" }, 4.4);
+    tl.fromTo("#k-paye", { yPercent: 110 }, { immediateRender: false, yPercent: 0, duration: 0.6, ease: "expo.out" }, 4.52);
+    // « Toute seule »
+    tl.fromTo("#k-pastille", { y: 26, opacity: 0 }, { immediateRender: false, y: 0, opacity: 1, duration: 0.6, ease: "expo.out" }, 5.69);
+    // La carte part pendant que la preuve monte
+    tl.fromTo("#k-carte", { y: 0 }, { immediateRender: false, y: -1500, duration: 0.5, ease: "power3.in" }, 6.6);
+    window.__timelines["commandes"] = tl;
+  </script>
+</template>

@@ -1,6 +1,8 @@
 renders/
 *.mp4
 !references/**/*.mp4
+!sources/selects/*.mp4
+!productions/*/assets/media/*.mp4
 node_modules/
 .hyperframes/
 __pycache__/

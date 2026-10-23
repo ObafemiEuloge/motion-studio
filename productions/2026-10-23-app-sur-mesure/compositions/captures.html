@@ -1,0 +1,71 @@
+<template>
+  <style>
+    @font-face { font-family: "Plus Jakarta Sans"; font-weight: 600; src: url("assets/fonts/plus-jakarta-sans-latin-600-normal.woff2") format("woff2"); }
+    @font-face { font-family: "Plus Jakarta Sans"; font-weight: 700; src: url("assets/fonts/plus-jakarta-sans-latin-700-normal.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; font-family: "Plus Jakarta Sans", sans-serif; color: #F5F3EE; }
+    #c-titre { position: absolute; left: 80px; top: 200px; }
+    .mask { overflow: hidden; padding: 6px 0 10px; margin-bottom: -12px; }
+    .mask > .in { display: block; }
+    .h { font-weight: 700; font-size: 124px; letter-spacing: -0.045em; line-height: 1.0; }
+    .acc { color: #D9C6A3; }
+    #c-fenetre { position: absolute; left: 75px; top: 520px; width: 930px; height: 810px; overflow: hidden;
+      -webkit-mask-image: linear-gradient(180deg, transparent 0%, #000 14%, #000 82%, transparent 100%);
+              mask-image: linear-gradient(180deg, transparent 0%, #000 14%, #000 82%, transparent 100%); }
+    #c-galerie { position: absolute; left: 0; top: 0; width: 930px; display: grid; grid-template-columns: repeat(3, 290px); gap: 30px; }
+    .cap { height: 470px; border-radius: 26px; background: #0B111D; border: 1.5px solid rgba(255,255,255,0.07); padding: 26px 24px; overflow: hidden; }
+    .cap .top { height: 14px; width: 40%; border-radius: 7px; background: rgba(255,255,255,0.12); margin-bottom: 34px; }
+    .cap .lab { font-weight: 600; font-size: 28px; color: rgba(245,243,238,0.55); }
+    .cap .mt { font-weight: 700; font-size: 46px; letter-spacing: -0.03em; margin: 14px 0 34px; color: rgba(245,243,238,0.85); white-space: nowrap; }
+    .cap .l { display: block; height: 12px; border-radius: 6px; background: rgba(255,255,255,0.10); margin-bottom: 18px; }
+    .cap .ref { margin-top: 40px; height: 54px; border-radius: 14px; background: rgba(255,255,255,0.05); }
+    .cap .b { display: block; height: 58px; border-radius: 22px; margin-bottom: 18px; background: rgba(255,255,255,0.09); }
+    .cap .b.d { margin-left: auto; background: rgba(255,255,255,0.15); }
+  </style>
+  <div id="root" data-composition-id="captures" data-width="1080" data-height="1920">
+    <div id="c-titre">
+      <div class="mask"><span class="in h" id="c-t1">Capture</span></div>
+      <div class="mask"><span class="in h" id="c-t2">par capture<span class="acc">.</span></span></div>
+    </div>
+    <div id="c-fenetre" data-layout-ignore>
+      <div id="c-galerie">
+        <div class="cap sms"><div class="top"></div><div class="lab">Transfert reçu</div><div class="mt">15 000 F</div><i class="l" style="width:84%"></i><i class="l" style="width:62%"></i><i class="l" style="width:74%"></i><div class="ref"></div></div>
+        <div class="cap chat"><div class="top"></div><i class="b g" style="width:48%"></i><i class="b d" style="width:70%"></i><i class="b g" style="width:40%"></i><i class="b d" style="width:56%"></i><i class="b g" style="width:62%"></i></div>
+        <div class="cap sms"><div class="top"></div><div class="lab">Transfert reçu</div><div class="mt">25 000 F</div><i class="l" style="width:84%"></i><i class="l" style="width:62%"></i><i class="l" style="width:74%"></i><div class="ref"></div></div>
+        <div class="cap sms"><div class="top"></div><div class="lab">Transfert reçu</div><div class="mt">3 500 F</div><i class="l" style="width:84%"></i><i class="l" style="width:62%"></i><i class="l" style="width:74%"></i><div class="ref"></div></div>
+        <div class="cap chat"><div class="top"></div><i class="b g" style="width:56%"></i><i class="b d" style="width:62%"></i><i class="b g" style="width:48%"></i><i class="b d" style="width:70%"></i><i class="b g" style="width:40%"></i></div>
+        <div class="cap sms"><div class="top"></div><div class="lab">Transfert reçu</div><div class="mt">40 000 F</div><i class="l" style="width:84%"></i><i class="l" style="width:62%"></i><i class="l" style="width:74%"></i><div class="ref"></div></div>
+        <div class="cap sms"><div class="top"></div><div class="lab">Transfert reçu</div><div class="mt">9 000 F</div><i class="l" style="width:84%"></i><i class="l" style="width:62%"></i><i class="l" style="width:74%"></i><div class="ref"></div></div>
+        <div class="cap chat"><div class="top"></div><i class="b g" style="width:70%"></i><i class="b d" style="width:40%"></i><i class="b g" style="width:56%"></i><i class="b d" style="width:62%"></i><i class="b g" style="width:48%"></i></div>
+        <div class="cap sms"><div class="top"></div><div class="lab">Transfert reçu</div><div class="mt">5 000 F</div><i class="l" style="width:84%"></i><i class="l" style="width:62%"></i><i class="l" style="width:74%"></i><div class="ref"></div></div>
+        <div class="cap sms"><div class="top"></div><div class="lab">Transfert reçu</div><div class="mt">30 000 F</div><i class="l" style="width:84%"></i><i class="l" style="width:62%"></i><i class="l" style="width:74%"></i><div class="ref"></div></div>
+        <div class="cap chat"><div class="top"></div><i class="b g" style="width:62%"></i><i class="b d" style="width:48%"></i><i class="b g" style="width:70%"></i><i class="b d" style="width:40%"></i><i class="b g" style="width:56%"></i></div>
+        <div class="cap sms"><div class="top"></div><div class="lab">Transfert reçu</div><div class="mt">6 500 F</div><i class="l" style="width:84%"></i><i class="l" style="width:62%"></i><i class="l" style="width:74%"></i><div class="ref"></div></div>
+        <div class="cap sms"><div class="top"></div><div class="lab">Transfert reçu</div><div class="mt">15 000 F</div><i class="l" style="width:84%"></i><i class="l" style="width:62%"></i><i class="l" style="width:74%"></i><div class="ref"></div></div>
+        <div class="cap chat"><div class="top"></div><i class="b g" style="width:40%"></i><i class="b d" style="width:56%"></i><i class="b g" style="width:62%"></i><i class="b d" style="width:48%"></i><i class="b g" style="width:70%"></i></div>
+        <div class="cap sms"><div class="top"></div><div class="lab">Transfert reçu</div><div class="mt">25 000 F</div><i class="l" style="width:84%"></i><i class="l" style="width:62%"></i><i class="l" style="width:74%"></i><div class="ref"></div></div>
+        <div class="cap sms"><div class="top"></div><div class="lab">Transfert reçu</div><div class="mt">3 500 F</div><i class="l" style="width:84%"></i><i class="l" style="width:62%"></i><i class="l" style="width:74%"></i><div class="ref"></div></div>
+        <div class="cap chat"><div class="top"></div><i class="b g" style="width:48%"></i><i class="b d" style="width:70%"></i><i class="b g" style="width:40%"></i><i class="b d" style="width:56%"></i><i class="b g" style="width:62%"></i></div>
+        <div class="cap sms"><div class="top"></div><div class="lab">Transfert reçu</div><div class="mt">40 000 F</div><i class="l" style="width:84%"></i><i class="l" style="width:62%"></i><i class="l" style="width:74%"></i><div class="ref"></div></div>
+        <div class="cap sms"><div class="top"></div><div class="lab">Transfert reçu</div><div class="mt">9 000 F</div><i class="l" style="width:84%"></i><i class="l" style="width:62%"></i><i class="l" style="width:74%"></i><div class="ref"></div></div>
+        <div class="cap chat"><div class="top"></div><i class="b g" style="width:56%"></i><i class="b d" style="width:62%"></i><i class="b g" style="width:48%"></i><i class="b d" style="width:70%"></i><i class="b g" style="width:40%"></i></div>
+        <div class="cap sms"><div class="top"></div><div class="lab">Transfert reçu</div><div class="mt">5 000 F</div><i class="l" style="width:84%"></i><i class="l" style="width:62%"></i><i class="l" style="width:74%"></i><div class="ref"></div></div>
+        <div class="cap sms"><div class="top"></div><div class="lab">Transfert reçu</div><div class="mt">30 000 F</div><i class="l" style="width:84%"></i><i class="l" style="width:62%"></i><i class="l" style="width:74%"></i><div class="ref"></div></div>
+        <div class="cap chat"><div class="top"></div><i class="b g" style="width:70%"></i><i class="b d" style="width:40%"></i><i class="b g" style="width:56%"></i><i class="b d" style="width:62%"></i><i class="b g" style="width:48%"></i></div>
+        <div class="cap sms"><div class="top"></div><div class="lab">Transfert reçu</div><div class="mt">6 500 F</div><i class="l" style="width:84%"></i><i class="l" style="width:62%"></i><i class="l" style="width:74%"></i><div class="ref"></div></div>
+        <div class="cap sms"><div class="top"></div><div class="lab">Transfert reçu</div><div class="mt">15 000 F</div><i class="l" style="width:84%"></i><i class="l" style="width:62%"></i><i class="l" style="width:74%"></i><div class="ref"></div></div>
+        <div class="cap chat"><div class="top"></div><i class="b g" style="width:62%"></i><i class="b d" style="width:48%"></i><i class="b g" style="width:70%"></i><i class="b d" style="width:40%"></i><i class="b g" style="width:56%"></i></div>
+        <div class="cap sms"><div class="top"></div><div class="lab">Transfert reçu</div><div class="mt">25 000 F</div><i class="l" style="width:84%"></i><i class="l" style="width:62%"></i><i class="l" style="width:74%"></i><div class="ref"></div></div>
+      </div>
+    </div>
+  </div>
+  <script>
+    const tl = gsap.timeline({ paused: true });
+    tl.fromTo(["#c-t1", "#c-t2"], { yPercent: 110 }, { yPercent: 0, duration: 0.8, ease: "expo.out", stagger: 0.08 }, 0.05);
+    tl.fromTo("#c-fenetre", { opacity: 0 }, { opacity: 1, duration: 0.3, ease: "power2.out" }, 0.1);
+    // On fouille : la galerie file vite puis ralentit, sans jamais trouver
+    tl.fromTo("#c-galerie", { y: 120 }, { y: -2280, duration: 2.75, ease: "power3.out" }, 0.1);
+    tl.fromTo(["#c-t1", "#c-t2"], { yPercent: 0 }, { immediateRender: false, yPercent: -110, duration: 0.38, ease: "power3.in", stagger: 0.05 }, 2.78);
+    tl.fromTo("#c-fenetre", { opacity: 1, y: 0 }, { immediateRender: false, opacity: 0, y: -80, duration: 0.36, ease: "power3.in" }, 2.8);
+    window.__timelines["captures"] = tl;
+  </script>
+</template>

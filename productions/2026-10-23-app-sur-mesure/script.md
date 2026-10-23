@@ -34,4 +34,4 @@ Montants, heure et numéro de commande affichés : exemples d'illustration, pas 
 
 ## Écart avec le brief
 
-Le brief prévoyait Oba face caméra (extrait de IMG_7806) juste avant la signature. Le fichier n'est pas dans le dépôt (`sources/INDEX.md` : « chez Oba »). Ce plan est retiré de cette version ; il pourra revenir à la place du plan 9 dès qu'Oba envoie la séquence compressée.
+Le brief prévoyait Oba face caméra (extrait de IMG_7806) juste avant la signature. Oba a fourni à la place IMG_5677 (lui au bureau, de dos et de profil) en demandant un usage subtil, en fond. La séquence sert de monde à toute la seconde moitié (à partir du « Bon. »), étalonnée sombre, ralentie, floutée par les cartes de verre ; elle n'est nette que 0,7 s, seule, après « Bon. ». Voir `storyboard.md`.

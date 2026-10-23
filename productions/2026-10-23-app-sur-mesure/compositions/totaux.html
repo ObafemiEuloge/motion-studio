@@ -1,0 +1,52 @@
+<template>
+  <style>
+    @font-face { font-family: "Plus Jakarta Sans"; font-weight: 600; src: url("assets/fonts/plus-jakarta-sans-latin-600-normal.woff2") format("woff2"); }
+    @font-face { font-family: "Plus Jakarta Sans"; font-weight: 700; src: url("assets/fonts/plus-jakarta-sans-latin-700-normal.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; font-family: "Plus Jakarta Sans", sans-serif; color: #F5F3EE; }
+    .tot { position: absolute; left: 80px; width: 920px; height: 330px; border-radius: 40px; background: #0B111D;
+      border: 1.5px solid rgba(255,255,255,0.07); padding: 54px 64px; box-shadow: 0 50px 140px rgba(0,0,0,0.6); }
+    #t-c1 { top: 330px; }
+    #t-c2 { top: 900px; }
+    .eyebrow { font-weight: 600; font-size: 30px; letter-spacing: 0.22em; text-transform: uppercase; color: rgba(245,243,238,0.55); }
+    .nb { margin-top: 26px; font-weight: 700; font-size: 150px; letter-spacing: -0.04em; line-height: 1; display: flex; align-items: flex-start; height: 150px; }
+    .col { display: inline-block; width: 0.6em; height: 1em; overflow: hidden; text-align: center; }
+    .roll { display: block; }
+    .roll b { display: block; height: 1em; line-height: 1; font-weight: 700; }
+    .sp { display: inline-block; width: 0.22em; }
+    .f { margin-left: 0.18em; color: rgba(245,243,238,0.55); }
+    #t-diff { position: absolute; left: 480px; top: 703px; width: 120px; height: 154px; }
+    #t-diff i { position: absolute; left: 0; width: 120px; height: 16px; border-radius: 8px; background: #D9C6A3; }
+    #t-diff .a { top: 48px; }
+    #t-diff .b { top: 90px; }
+    #t-diff .s { left: 52px; top: 0; width: 16px; height: 154px; transform: rotate(28deg); }
+  </style>
+  <div id="root" data-composition-id="totaux" data-width="1080" data-height="1920">
+    <div id="t-c1" class="tot"><div class="eyebrow">Cahier</div><div class="nb"><span class="col"><span class="roll" id="t1-d0"><b>0</b><b>1</b><b>2</b><b>3</b><b>4</b><b>5</b><b>6</b><b>7</b><b>8</b><b>9</b></span></span><span class="col"><span class="roll" id="t1-d1"><b>0</b><b>1</b><b>2</b><b>3</b><b>4</b><b>5</b><b>6</b><b>7</b><b>8</b><b>9</b></span></span><span class="col"><span class="roll" id="t1-d2"><b>0</b><b>1</b><b>2</b><b>3</b><b>4</b><b>5</b><b>6</b><b>7</b><b>8</b><b>9</b></span></span><span class="sp"></span><span class="col"><span class="roll" id="t1-d3"><b>0</b><b>1</b><b>2</b><b>3</b><b>4</b><b>5</b><b>6</b><b>7</b><b>8</b><b>9</b></span></span><span class="col"><span class="roll" id="t1-d4"><b>0</b><b>1</b><b>2</b><b>3</b><b>4</b><b>5</b><b>6</b><b>7</b><b>8</b><b>9</b></span></span><span class="col"><span class="roll" id="t1-d5"><b>0</b><b>1</b><b>2</b><b>3</b><b>4</b><b>5</b><b>6</b><b>7</b><b>8</b><b>9</b></span></span><span class="f">F</span></div></div>
+    <div id="t-diff"><div id="t-diff-in"><i class="a"></i><i class="b"></i><i class="s"></i></div></div>
+    <div id="t-c2" class="tot"><div class="eyebrow">Mobile Money</div><div class="nb"><span class="col"><span class="roll" id="t2-d0"><b>0</b><b>1</b><b>2</b><b>3</b><b>4</b><b>5</b><b>6</b><b>7</b><b>8</b><b>9</b></span></span><span class="col"><span class="roll" id="t2-d1"><b>0</b><b>1</b><b>2</b><b>3</b><b>4</b><b>5</b><b>6</b><b>7</b><b>8</b><b>9</b></span></span><span class="col"><span class="roll" id="t2-d2"><b>0</b><b>1</b><b>2</b><b>3</b><b>4</b><b>5</b><b>6</b><b>7</b><b>8</b><b>9</b></span></span><span class="sp"></span><span class="col"><span class="roll" id="t2-d3"><b>0</b><b>1</b><b>2</b><b>3</b><b>4</b><b>5</b><b>6</b><b>7</b><b>8</b><b>9</b></span></span><span class="col"><span class="roll" id="t2-d4"><b>0</b><b>1</b><b>2</b><b>3</b><b>4</b><b>5</b><b>6</b><b>7</b><b>8</b><b>9</b></span></span><span class="col"><span class="roll" id="t2-d5"><b>0</b><b>1</b><b>2</b><b>3</b><b>4</b><b>5</b><b>6</b><b>7</b><b>8</b><b>9</b></span></span><span class="f">F</span></div></div>
+  </div>
+  <script>
+    const tl = gsap.timeline({ paused: true });
+    // « Le cahier dit une chose »
+    tl.fromTo("#t-c1", { y: 80, opacity: 0 }, { y: 0, opacity: 1, duration: 0.75, ease: "expo.out" }, 0.1);
+    tl.fromTo("#t1-d0", { yPercent: 0 }, { yPercent: -10, duration: 1.10, ease: "power3.out" }, 0.20);
+    tl.fromTo("#t1-d1", { yPercent: 0 }, { yPercent: -80, duration: 1.04, ease: "power3.out" }, 0.23);
+    tl.fromTo("#t1-d2", { yPercent: 0 }, { yPercent: -60, duration: 0.98, ease: "power3.out" }, 0.26);
+    tl.fromTo("#t1-d3", { yPercent: 0 }, { yPercent: -0, duration: 0.92, ease: "power3.out" }, 0.29);
+    tl.fromTo("#t1-d4", { yPercent: 0 }, { yPercent: -0, duration: 0.86, ease: "power3.out" }, 0.32);
+    tl.fromTo("#t1-d5", { yPercent: 0 }, { yPercent: -0, duration: 0.80, ease: "power3.out" }, 0.35);
+    // « le Mobile Money autre chose »
+    tl.fromTo("#t-c2", { y: 80, opacity: 0 }, { y: 0, opacity: 1, duration: 0.75, ease: "expo.out" }, 1.55);
+    tl.fromTo("#t2-d0", { yPercent: 0 }, { yPercent: -10, duration: 1.10, ease: "power3.out" }, 1.65);
+    tl.fromTo("#t2-d1", { yPercent: 0 }, { yPercent: -70, duration: 1.04, ease: "power3.out" }, 1.68);
+    tl.fromTo("#t2-d2", { yPercent: 0 }, { yPercent: -10, duration: 0.98, ease: "power3.out" }, 1.71);
+    tl.fromTo("#t2-d3", { yPercent: 0 }, { yPercent: -50, duration: 0.92, ease: "power3.out" }, 1.74);
+    tl.fromTo("#t2-d4", { yPercent: 0 }, { yPercent: -0, duration: 0.86, ease: "power3.out" }, 1.77);
+    tl.fromTo("#t2-d5", { yPercent: 0 }, { yPercent: -0, duration: 0.80, ease: "power3.out" }, 1.80);
+    // Les deux ne collent pas
+    tl.fromTo("#t-diff-in", { scale: 0.6, opacity: 0, transformOrigin: "50% 50%" }, { scale: 1, opacity: 1, duration: 0.6, ease: "expo.out" }, 2.42);
+    // Sortie
+    tl.fromTo(["#t-c1", "#t-diff-in", "#t-c2"], { y: 0, opacity: 1 }, { immediateRender: false, y: -140, opacity: 0, duration: 0.4, ease: "power3.in", stagger: 0.05 }, 3.45);
+    window.__timelines["totaux"] = tl;
+  </script>
+</template>
