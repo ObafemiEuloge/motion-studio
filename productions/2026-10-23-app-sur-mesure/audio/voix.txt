@@ -1,10 +1,9 @@
 « Mais j'ai déjà payé hein ! »
-[sighs] Tu connais cette phrase.
-Tu fouilles WhatsApp... capture par capture.
+[sighs] Tu fouilles WhatsApp... capture par capture.
 Le cahier dit une chose, le Mobile Money autre chose.
-[pause] Bon.
+Bon.
 Une application peut faire ça à ta place.
 Le client paie, et la commande passe à « payé ». Toute seule.
-Sur Un Peu Un Peu, j'ai écrit toute l'API, paiements Mobile Money compris.
-[laughs softly] Donc oui... je connais un peu le sujet.
-Écris-moi sur WhatsApp.
+Le soir, tu fermes la boutique... les comptes sont déjà faits.
+Sur Un Peu Un Peu, chaque paiement est vérifié sans que personne ne regarde.
+Écris APP sur WhatsApp, je te montre ce que ça donnerait pour ton business.

@@ -1,0 +1,52 @@
+<template>
+  <style>
+    @font-face { font-family: "Plus Jakarta Sans"; font-weight: 500; src: url("assets/fonts/plus-jakarta-sans-latin-500-normal.woff2") format("woff2"); }
+    @font-face { font-family: "Plus Jakarta Sans"; font-weight: 600; src: url("assets/fonts/plus-jakarta-sans-latin-600-normal.woff2") format("woff2"); }
+    @font-face { font-family: "Plus Jakarta Sans"; font-weight: 700; src: url("assets/fonts/plus-jakarta-sans-latin-700-normal.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; font-family: "Plus Jakarta Sans", sans-serif; color: #F5F3EE; }
+    #b-bloc { position: absolute; left: 90px; right: 60px; top: 520px; }
+    .mask { overflow: hidden; padding: 6px 0 12px; margin-bottom: -14px; }
+    .mask > .in { display: block; }
+    .ombre { text-shadow: 0 0 50px rgba(4,6,11,0.95), 0 0 18px rgba(4,6,11,0.9); }
+    .eyebrow { font-weight: 600; font-size: 36px; letter-spacing: 0.2em; text-transform: uppercase; color: rgba(245,243,238,0.62); }
+    .nb { font-weight: 700; font-size: 170px; letter-spacing: -0.045em; line-height: 1; display: flex; align-items: flex-start; height: 170px; }
+    .col { display: inline-block; width: 0.68em; height: 1em; overflow: hidden; text-align: center; }
+    .roll { display: block; }
+    .roll b { display: block; height: 1em; line-height: 1; font-weight: 700; }
+    .sp { display: inline-block; width: 0.22em; }
+    .f { margin-left: 0.18em; color: rgba(245,243,238,0.62); }
+    .lab { font-weight: 500; font-size: 46px; letter-spacing: -0.01em; color: rgba(245,243,238,0.82); }
+    .ecart { font-weight: 700; font-size: 64px; letter-spacing: -0.03em; }
+    .ecart .k { color: rgba(245,243,238,0.82); }
+    .acc { color: #D9C6A3; }
+  </style>
+  <div id="root" data-composition-id="benefice" data-width="1080" data-height="1920">
+    <div id="b-bloc" class="ombre" data-layout-allow-overlap>
+      <div class="mask"><span class="in eyebrow" id="b-e">Ce soir · 21:47</span></div>
+      <div style="height:34px"></div>
+      <div class="mask" id="b-nbmask"><div class="in nb" id="b-nb"><span class="col"><span class="roll" id="b-d0"><b>0</b><b>1</b><b>2</b><b>3</b><b>4</b><b>5</b><b>6</b><b>7</b><b>8</b><b>9</b></span></span><span class="col"><span class="roll" id="b-d1"><b>0</b><b>1</b><b>2</b><b>3</b><b>4</b><b>5</b><b>6</b><b>7</b><b>8</b><b>9</b></span></span><span class="col"><span class="roll" id="b-d2"><b>0</b><b>1</b><b>2</b><b>3</b><b>4</b><b>5</b><b>6</b><b>7</b><b>8</b><b>9</b></span></span><span class="sp"></span><span class="col"><span class="roll" id="b-d3"><b>0</b><b>1</b><b>2</b><b>3</b><b>4</b><b>5</b><b>6</b><b>7</b><b>8</b><b>9</b></span></span><span class="col"><span class="roll" id="b-d4"><b>0</b><b>1</b><b>2</b><b>3</b><b>4</b><b>5</b><b>6</b><b>7</b><b>8</b><b>9</b></span></span><span class="col"><span class="roll" id="b-d5"><b>0</b><b>1</b><b>2</b><b>3</b><b>4</b><b>5</b><b>6</b><b>7</b><b>8</b><b>9</b></span></span><span class="f">F</span></div></div>
+      <div style="height:26px"></div>
+      <div class="mask"><span class="in lab" id="b-l">Encaissé et vérifié</span></div>
+      <div style="height:58px"></div>
+      <div class="mask"><span class="in ecart" id="b-x"><span class="k">Écart</span>&nbsp;&nbsp;<span class="acc">0 F</span></span></div>
+    </div>
+  </div>
+  <script>
+    const tl = gsap.timeline({ paused: true });
+    // « Le soir » : le bilan arrive sur le monde
+    tl.fromTo("#b-e", { yPercent: 110 }, { yPercent: 0, duration: 0.75, ease: "expo.out" }, 0.42);
+    tl.fromTo("#b-nb", { yPercent: 110 }, { yPercent: 0, duration: 0.8, ease: "expo.out" }, 0.5);
+    tl.fromTo("#b-d0", { yPercent: 0 }, { yPercent: -10, duration: 1.20, ease: "power3.out" }, 0.55);
+    tl.fromTo("#b-d1", { yPercent: 0 }, { yPercent: -80, duration: 1.14, ease: "power3.out" }, 0.58);
+    tl.fromTo("#b-d2", { yPercent: 0 }, { yPercent: -60, duration: 1.08, ease: "power3.out" }, 0.61);
+    tl.fromTo("#b-d3", { yPercent: 0 }, { yPercent: -0, duration: 1.02, ease: "power3.out" }, 0.64);
+    tl.fromTo("#b-d4", { yPercent: 0 }, { yPercent: -0, duration: 0.96, ease: "power3.out" }, 0.67);
+    tl.fromTo("#b-d5", { yPercent: 0 }, { yPercent: -0, duration: 0.90, ease: "power3.out" }, 0.70);
+    tl.fromTo("#b-l", { yPercent: 110 }, { yPercent: 0, duration: 0.75, ease: "expo.out" }, 1.0);
+    // « les comptes sont déjà faits »
+    tl.fromTo("#b-x", { yPercent: 140 }, { yPercent: 0, duration: 0.75, ease: "expo.out" }, 2.46);
+    // Sortie par les caches pendant que la preuve monte
+    tl.fromTo(["#b-e", "#b-nb", "#b-l", "#b-x"], { yPercent: 0 }, { immediateRender: false, yPercent: -135, duration: 0.38, ease: "power3.in", stagger: 0.04 }, 3.62);
+    window.__timelines["benefice"] = tl;
+  </script>
+</template>

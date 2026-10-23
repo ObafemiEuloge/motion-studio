@@ -24,16 +24,17 @@
     .titre { font-weight: 700; font-size: 124px; letter-spacing: -0.045em; line-height: 1.0; }
     .corps { font-weight: 500; font-size: 42px; letter-spacing: -0.01em; line-height: 1.22; color: rgba(245,243,238,0.78); }
     #f-chips { display: flex; gap: 14px; margin-top: 44px; white-space: nowrap; }
-    .chip { flex: 0 0 auto; padding: 18px 26px; border-radius: 999px; font-weight: 600; font-size: 30px; letter-spacing: -0.01em;
+    .chip { flex: 0 0 auto; padding: 18px 30px; border-radius: 999px; font-weight: 600; font-size: 36px; letter-spacing: -0.01em;
       background: rgba(255,255,255,0.07); border: 1.5px solid rgba(255,255,255,0.14); box-shadow: inset 0 1px 0 rgba(255,255,255,0.22); }
     .chip .d { display: inline-block; width: 12px; height: 12px; border-radius: 50%; background: #D9C6A3; margin-right: 14px; vertical-align: middle; }
 
     #f-sig { position: absolute; left: 80px; right: 80px; top: 92px; }
     .name { font-weight: 700; font-size: 132px; letter-spacing: -0.05em; line-height: 0.98; }
-    #f-trait { height: 2px; background: rgba(255,255,255,0.16); margin-top: 58px; transform-origin: 0 50%; }
+    #f-trait { height: 2px; background: rgba(255,255,255,0.16); margin-top: 48px; transform-origin: 0 50%; }
     #f-tag { font-weight: 500; font-size: 40px; color: rgba(245,243,238,0.78); letter-spacing: -0.01em; }
-    #f-tagmask { margin-top: 40px; }
-    #f-wa { margin-top: 56px; }
+    #f-tagmask { margin-top: 32px; }
+    #f-wa { margin-top: 40px; }
+    #f-cta { font-weight: 700; font-size: 52px; letter-spacing: -0.03em; line-height: 1.05; white-space: nowrap; }
     #f-num { font-weight: 700; font-size: 64px; letter-spacing: -0.03em; line-height: 1.05; white-space: nowrap; }
   </style>
   <div id="root" data-composition-id="fin" data-width="1080" data-height="1920">
@@ -44,16 +45,15 @@
       </svg>
 
       <div id="f-preuve" data-layout-allow-overlap>
-        <div class="mask"><span class="in eyebrow" id="f-p1">Déjà livré</span></div>
+        <div class="mask"><span class="in eyebrow" id="f-p1">Déjà en service</span></div>
         <div style="height:30px"></div>
         <div class="mask"><span class="in titre" id="f-p2">1Peu 1Peu</span></div>
         <div style="height:26px"></div>
-        <div class="mask"><span class="in corps" id="f-p3">Toute l'API, paiements</span></div>
-        <div class="mask"><span class="in corps" id="f-p4">Mobile Money compris.</span></div>
+        <div class="mask"><span class="in corps" id="f-p3">Paiements Mobile Money</span></div>
+        <div class="mask"><span class="in corps" id="f-p4">vérifiés côté serveur.</span></div>
         <div id="f-chips">
           <span class="chip" id="f-c1"><span class="d"></span>Cofondateur</span>
-          <span class="chip" id="f-c2"><span class="d"></span>FastAPI</span>
-          <span class="chip" id="f-c3"><span class="d"></span>Mobile Money</span>
+          <span class="chip" id="f-c2"><span class="d"></span>Toute l'API</span>
         </div>
       </div>
 
@@ -62,12 +62,12 @@
         <div style="height:40px"></div>
         <div class="mask"><span class="in name" id="f-n1">Obafemi</span></div>
         <div class="mask"><span class="in name" id="f-n2">Euloge</span></div>
-        <div class="mask"><span class="in name" id="f-n3">Agnoun<span class="acc">.</span></span></div>
+        <div class="mask"><span class="in name" id="f-n3">Agnoun.</span></div>
         <div id="f-trait"></div>
         <div class="mask" id="f-tagmask"><span class="in" id="f-tag">Applications web et mobiles, sur mesure.</span></div>
         <div id="f-wa">
-          <div class="mask"><span class="in eyebrow" id="f-w1">WhatsApp</span></div>
-          <div style="height:12px"></div>
+          <div class="mask"><span class="in" id="f-cta">Écris <span class="acc">APP</span> sur WhatsApp</span></div>
+          <div style="height:6px"></div>
           <div class="mask"><span class="in" id="f-num">+229 01 96 25 66 94</span></div>
         </div>
       </div>
@@ -75,35 +75,39 @@
   </div>
   <script>
     const tl = gsap.timeline({ paused: true });
-    const sig = ["#f-s1", "#f-n1", "#f-n2", "#f-n3", "#f-tag", "#f-w1", "#f-num"];
+    const sig = ["#f-s1", "#f-n1", "#f-n2", "#f-n3", "#f-tag"];
     tl.fromTo(sig, { yPercent: 110 }, { yPercent: 110, duration: 0.01 }, 0);
+    tl.fromTo(["#f-cta", "#f-num"], { yPercent: 140 }, { yPercent: 140, duration: 0.01 }, 0);
     tl.fromTo("#f-trait", { scaleX: 0 }, { scaleX: 0, duration: 0.01 }, 0);
     tl.fromTo("#f-reflet", { xPercent: -140 }, { xPercent: -140, duration: 0.01 }, 0);
     tl.fromTo("#f-sig", { opacity: 0 }, { opacity: 0, duration: 0.01 }, 0);
     tl.fromTo("#f-preuve", { opacity: 1 }, { opacity: 1, duration: 0.01 }, 0);
 
-    // La preuve monte pendant que le tableau part
+    // « Sur Un Peu Un Peu » : la preuve monte pendant que le bilan part
     tl.fromTo("#f-carte", { y: 1250 }, { y: 0, duration: 1.1, ease: "expo.out" }, 0.1);
-    tl.fromTo("#f-p1", { yPercent: 110 }, { yPercent: 0, duration: 0.7, ease: "expo.out" }, 0.22);
-    tl.fromTo("#f-p2", { yPercent: 110 }, { yPercent: 0, duration: 0.85, ease: "expo.out" }, 0.32);
-    tl.fromTo(["#f-p3", "#f-p4"], { yPercent: 110 }, { yPercent: 0, duration: 0.75, ease: "expo.out", stagger: 0.08 }, 1.3);
-    tl.fromTo(["#f-c1", "#f-c2", "#f-c3"], { y: 26, opacity: 0 }, { y: 0, opacity: 1, duration: 0.6, ease: "expo.out", stagger: 0.07 }, 2.9);
+    tl.fromTo("#f-p1", { yPercent: 110 }, { yPercent: 0, duration: 0.7, ease: "expo.out" }, 0.3);
+    tl.fromTo("#f-p2", { yPercent: 110 }, { yPercent: 0, duration: 0.85, ease: "expo.out" }, 0.61);
+    // « chaque paiement est vérifié »
+    tl.fromTo(["#f-p3", "#f-p4"], { yPercent: 110 }, { yPercent: 0, duration: 0.75, ease: "expo.out", stagger: 0.08 }, 1.73);
+    tl.fromTo(["#f-c1", "#f-c2"], { y: 26, opacity: 0 }, { y: 0, opacity: 1, duration: 0.6, ease: "expo.out", stagger: 0.07 }, 2.5);
 
-    // « Donc oui… » : la preuve s'efface, la carte grandit et devient la signature
-    tl.fromTo(["#f-p1", "#f-p2", "#f-p3", "#f-p4"], { yPercent: 0 }, { immediateRender: false, yPercent: -110, duration: 0.38, ease: "power3.in", stagger: 0.04 }, 5.6);
-    tl.fromTo(["#f-c1", "#f-c2", "#f-c3"], { y: 0, opacity: 1 }, { immediateRender: false, y: -20, opacity: 0, duration: 0.3, ease: "power3.in", stagger: 0.03 }, 5.62);
-    tl.fromTo("#f-verre", { clipPath: "inset(180px 0px 170px 0px round 64px)" }, { clipPath: "inset(0px 0px 0px 0px round 64px)", duration: 0.65, ease: "power2.inOut" }, 5.75);
-    tl.fromTo("#f-rect", { attr: { y: 180.75, height: 608.5 } }, { attr: { y: 0.75, height: 958.5 }, duration: 0.65, ease: "power2.inOut" }, 5.75);
-    tl.fromTo("#f-preuve", { opacity: 1 }, { immediateRender: false, opacity: 0, duration: 0.01 }, 6.02);
-    tl.fromTo("#f-sig", { opacity: 0 }, { immediateRender: false, opacity: 1, duration: 0.01 }, 6.03);
-    tl.fromTo("#f-s1", { yPercent: 110 }, { immediateRender: false, yPercent: 0, duration: 0.7, ease: "expo.out" }, 6.05);
-    tl.fromTo(["#f-n1", "#f-n2", "#f-n3"], { yPercent: 110 }, { immediateRender: false, yPercent: 0, duration: 0.85, ease: "expo.out", stagger: 0.08 }, 6.15);
-    tl.fromTo("#f-trait", { scaleX: 0 }, { immediateRender: false, scaleX: 1, duration: 0.8, ease: "expo.out" }, 6.8);
-    tl.fromTo("#f-tag", { yPercent: 110 }, { immediateRender: false, yPercent: 0, duration: 0.7, ease: "expo.out" }, 6.95);
+    // « Écris APP » : la preuve s'efface, la carte grandit et devient la signature
+    tl.fromTo(["#f-p1", "#f-p2", "#f-p3", "#f-p4"], { yPercent: 0 }, { immediateRender: false, yPercent: -135, duration: 0.36, ease: "power3.in", stagger: 0.03 }, 4.45);
+    tl.fromTo(["#f-c1", "#f-c2"], { y: 0, opacity: 1 }, { immediateRender: false, y: -20, opacity: 0, duration: 0.3, ease: "power3.in", stagger: 0.03 }, 4.47);
+    tl.fromTo("#f-verre", { clipPath: "inset(180px 0px 170px 0px round 64px)" }, { clipPath: "inset(0px 0px 0px 0px round 64px)", duration: 0.65, ease: "power2.inOut" }, 4.55);
+    tl.fromTo("#f-rect", { attr: { y: 180.75, height: 608.5 } }, { attr: { y: 0.75, height: 958.5 }, duration: 0.65, ease: "power2.inOut" }, 4.55);
+    tl.fromTo("#f-preuve", { opacity: 1 }, { immediateRender: false, opacity: 0, duration: 0.01 }, 4.85);
+    tl.fromTo("#f-sig", { opacity: 0 }, { immediateRender: false, opacity: 1, duration: 0.01 }, 4.86);
+    tl.fromTo("#f-s1", { yPercent: 110 }, { immediateRender: false, yPercent: 0, duration: 0.7, ease: "expo.out" }, 4.88);
+    tl.fromTo(["#f-n1", "#f-n2", "#f-n3"], { yPercent: 110 }, { immediateRender: false, yPercent: 0, duration: 0.85, ease: "expo.out", stagger: 0.08 }, 4.95);
+    tl.fromTo("#f-trait", { scaleX: 0 }, { immediateRender: false, scaleX: 1, duration: 0.8, ease: "expo.out" }, 5.25);
+    // « APP » puis « WhatsApp »
+    tl.fromTo("#f-cta", { yPercent: 140 }, { immediateRender: false, yPercent: 0, duration: 0.8, ease: "expo.out" }, 5.35);
+    tl.fromTo("#f-num", { yPercent: 140 }, { immediateRender: false, yPercent: 0, duration: 0.8, ease: "expo.out" }, 6.07);
+    // « je te montre ce que ça donnerait »
+    tl.fromTo("#f-tag", { yPercent: 110 }, { immediateRender: false, yPercent: 0, duration: 0.7, ease: "expo.out" }, 6.9);
     // Le seul reflet du film
-    tl.fromTo("#f-reflet", { xPercent: -140 }, { immediateRender: false, xPercent: 360, duration: 1.3, ease: "power2.inOut" }, 7.3);
-    // « Écris-moi sur WhatsApp »
-    tl.fromTo(["#f-w1", "#f-num"], { yPercent: 110 }, { immediateRender: false, yPercent: 0, duration: 0.8, ease: "expo.out", stagger: 0.08 }, 8.22);
+    tl.fromTo("#f-reflet", { xPercent: -140 }, { immediateRender: false, xPercent: 360, duration: 1.3, ease: "power2.inOut" }, 7.6);
     window.__timelines["fin"] = tl;
   </script>
 </template>

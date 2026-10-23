@@ -7,9 +7,9 @@
       border: 1.5px solid rgba(255,255,255,0.07); padding: 54px 64px; box-shadow: 0 50px 140px rgba(0,0,0,0.6); }
     #t-c1 { top: 330px; }
     #t-c2 { top: 900px; }
-    .eyebrow { font-weight: 600; font-size: 30px; letter-spacing: 0.22em; text-transform: uppercase; color: rgba(245,243,238,0.55); }
+    .eyebrow { font-weight: 600; font-size: 36px; letter-spacing: 0.2em; text-transform: uppercase; color: rgba(245,243,238,0.55); }
     .nb { margin-top: 26px; font-weight: 700; font-size: 150px; letter-spacing: -0.04em; line-height: 1; display: flex; align-items: flex-start; height: 150px; }
-    .col { display: inline-block; width: 0.6em; height: 1em; overflow: hidden; text-align: center; }
+    .col { display: inline-block; width: 0.68em; height: 1em; overflow: hidden; text-align: center; }
     .roll { display: block; }
     .roll b { display: block; height: 1em; line-height: 1; font-weight: 700; }
     .sp { display: inline-block; width: 0.22em; }
@@ -28,7 +28,7 @@
   <script>
     const tl = gsap.timeline({ paused: true });
     // « Le cahier dit une chose »
-    tl.fromTo("#t-c1", { y: 80, opacity: 0 }, { y: 0, opacity: 1, duration: 0.75, ease: "expo.out" }, 0.1);
+    tl.fromTo("#t-c1", { y: 80, opacity: 0 }, { y: 0, opacity: 1, duration: 0.75, ease: "expo.out" }, 0.13);
     tl.fromTo("#t1-d0", { yPercent: 0 }, { yPercent: -10, duration: 1.10, ease: "power3.out" }, 0.20);
     tl.fromTo("#t1-d1", { yPercent: 0 }, { yPercent: -80, duration: 1.04, ease: "power3.out" }, 0.23);
     tl.fromTo("#t1-d2", { yPercent: 0 }, { yPercent: -60, duration: 0.98, ease: "power3.out" }, 0.26);
@@ -36,17 +36,17 @@
     tl.fromTo("#t1-d4", { yPercent: 0 }, { yPercent: -0, duration: 0.86, ease: "power3.out" }, 0.32);
     tl.fromTo("#t1-d5", { yPercent: 0 }, { yPercent: -0, duration: 0.80, ease: "power3.out" }, 0.35);
     // « le Mobile Money autre chose »
-    tl.fromTo("#t-c2", { y: 80, opacity: 0 }, { y: 0, opacity: 1, duration: 0.75, ease: "expo.out" }, 1.55);
-    tl.fromTo("#t2-d0", { yPercent: 0 }, { yPercent: -10, duration: 1.10, ease: "power3.out" }, 1.65);
-    tl.fromTo("#t2-d1", { yPercent: 0 }, { yPercent: -70, duration: 1.04, ease: "power3.out" }, 1.68);
-    tl.fromTo("#t2-d2", { yPercent: 0 }, { yPercent: -10, duration: 0.98, ease: "power3.out" }, 1.71);
-    tl.fromTo("#t2-d3", { yPercent: 0 }, { yPercent: -50, duration: 0.92, ease: "power3.out" }, 1.74);
-    tl.fromTo("#t2-d4", { yPercent: 0 }, { yPercent: -0, duration: 0.86, ease: "power3.out" }, 1.77);
-    tl.fromTo("#t2-d5", { yPercent: 0 }, { yPercent: -0, duration: 0.80, ease: "power3.out" }, 1.80);
+    tl.fromTo("#t-c2", { y: 80, opacity: 0 }, { y: 0, opacity: 1, duration: 0.75, ease: "expo.out" }, 1.6);
+    tl.fromTo("#t2-d0", { yPercent: 0 }, { yPercent: -10, duration: 1.10, ease: "power3.out" }, 1.73);
+    tl.fromTo("#t2-d1", { yPercent: 0 }, { yPercent: -70, duration: 1.04, ease: "power3.out" }, 1.76);
+    tl.fromTo("#t2-d2", { yPercent: 0 }, { yPercent: -10, duration: 0.98, ease: "power3.out" }, 1.79);
+    tl.fromTo("#t2-d3", { yPercent: 0 }, { yPercent: -50, duration: 0.92, ease: "power3.out" }, 1.82);
+    tl.fromTo("#t2-d4", { yPercent: 0 }, { yPercent: -0, duration: 0.86, ease: "power3.out" }, 1.85);
+    tl.fromTo("#t2-d5", { yPercent: 0 }, { yPercent: -0, duration: 0.80, ease: "power3.out" }, 1.88);
     // Les deux ne collent pas
-    tl.fromTo("#t-diff-in", { scale: 0.6, opacity: 0, transformOrigin: "50% 50%" }, { scale: 1, opacity: 1, duration: 0.6, ease: "expo.out" }, 2.42);
+    tl.fromTo("#t-diff-in", { scale: 0.6, opacity: 0, transformOrigin: "50% 50%" }, { scale: 1, opacity: 1, duration: 0.6, ease: "expo.out" }, 2.45);
     // Sortie
-    tl.fromTo(["#t-c1", "#t-diff-in", "#t-c2"], { y: 0, opacity: 1 }, { immediateRender: false, y: -140, opacity: 0, duration: 0.4, ease: "power3.in", stagger: 0.05 }, 3.45);
+    tl.fromTo(["#t-c1", "#t-diff-in", "#t-c2"], { y: 0, opacity: 1 }, { immediateRender: false, y: -140, opacity: 0, duration: 0.4, ease: "power3.in", stagger: 0.05 }, 3.35);
     window.__timelines["totaux"] = tl;
   </script>
 </template>

@@ -1,0 +1,32 @@
+<template>
+  <style>
+    @font-face { font-family: "Plus Jakarta Sans"; font-weight: 600; src: url("assets/fonts/plus-jakarta-sans-latin-600-normal.woff2") format("woff2"); }
+    @font-face { font-family: "Plus Jakarta Sans"; font-weight: 700; src: url("assets/fonts/plus-jakarta-sans-latin-700-normal.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; font-family: "Plus Jakarta Sans", sans-serif; color: #F5F3EE; }
+    #a-bloc { position: absolute; left: 0; right: 0; top: 470px; text-align: center; }
+    .mask { overflow: hidden; padding: 6px 0 12px; margin-bottom: -14px; }
+    .mask > .in { display: block; }
+    .eyebrow { font-weight: 600; font-size: 36px; letter-spacing: 0.18em; text-transform: uppercase; color: rgba(245,243,238,0.62);
+      text-shadow: 0 0 30px rgba(4,6,11,0.95); }
+    .h { font-weight: 700; font-size: 150px; letter-spacing: -0.045em; line-height: 1.0;
+      text-shadow: 0 0 50px rgba(4,6,11,0.95), 0 0 18px rgba(4,6,11,0.9); }
+    .acc { color: #D9C6A3; }
+  </style>
+  <div id="root" data-composition-id="accroche" data-width="1080" data-height="1920">
+    <div id="a-bloc">
+      <div class="mask"><span class="in eyebrow" id="a-e">Un client, ce soir · 21:47</span></div>
+      <div style="height:40px"></div>
+      <div class="mask"><span class="in h" id="a-1">« Mais j'ai</span></div>
+      <div class="mask"><span class="in h" id="a-2">déjà <span class="acc">payé</span></span></div>
+      <div class="mask"><span class="in h" id="a-3">hein ! »</span></div>
+    </div>
+  </div>
+  <script>
+    const tl = gsap.timeline({ paused: true });
+    // Image 0 : l'accroche est déjà posée, lisible en miniature
+    tl.fromTo(["#a-e", "#a-1", "#a-2", "#a-3"], { yPercent: 0 }, { yPercent: 0, duration: 0.01 }, 0);
+    // Elle repart dans ses caches pendant que « Tu fouilles » arrive
+    tl.fromTo(["#a-e", "#a-1", "#a-2", "#a-3"], { yPercent: 0 }, { immediateRender: false, yPercent: -135, duration: 0.38, ease: "power3.in", stagger: 0.03 }, 1.6);
+    window.__timelines["accroche"] = tl;
+  </script>
+</template>
