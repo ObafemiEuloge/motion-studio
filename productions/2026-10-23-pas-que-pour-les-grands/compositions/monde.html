@@ -1,0 +1,288 @@
+<template>
+  <style>
+    @font-face { font-family: "Plus Jakarta Sans"; font-weight: 500; src: url("assets/fonts/plus-jakarta-sans-latin-500-normal.woff2") format("woff2"); }
+    @font-face { font-family: "Plus Jakarta Sans"; font-weight: 600; src: url("assets/fonts/plus-jakarta-sans-latin-600-normal.woff2") format("woff2"); }
+    @font-face { font-family: "Plus Jakarta Sans"; font-weight: 700; src: url("assets/fonts/plus-jakarta-sans-latin-700-normal.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; font-family: "Plus Jakarta Sans", sans-serif; color: #F5F3EE; }
+    .mask { overflow: hidden; padding: 6px 0 14px; margin-bottom: -16px; }
+    .mask > .in { display: block; }
+    .ombre { text-shadow: 0 0 50px rgba(4,6,11,0.95), 0 0 18px rgba(4,6,11,0.9); }
+
+    /* La caméra : un SVG dont on déplace la viewBox ; l'épaisseur du trait suit le zoom */
+    #m-scene { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; overflow: visible; --sw: 3.5; }
+    .t { fill: none; stroke: #F5F3EE; stroke-width: var(--sw); stroke-linecap: round; stroke-linejoin: round; }
+    .t.doux { stroke: rgba(245,243,238,0.42); }
+    .t.plein { fill: #0A0F19; }
+    .lum { fill: rgba(245,243,238,0.9); }
+    .enseigne { font-weight: 700; font-size: 24px; letter-spacing: 5px; fill: #F5F3EE; }
+
+    /* Accroche, calée à gauche */
+    #m-accroche { position: absolute; left: 80px; top: 268px; }
+    .l-moy { font-weight: 700; font-size: 96px; letter-spacing: -0.04em; line-height: 1.04; white-space: nowrap; }
+    .l-geant { font-weight: 700; font-size: 220px; letter-spacing: -0.055em; line-height: 0.95; white-space: nowrap; position: relative; }
+    .l-geant .mot { position: relative; display: inline-block; }
+    #m-rature { position: absolute; left: -10px; top: 0; width: calc(100% + 20px); height: 100%; overflow: visible; }
+
+    #m-taille { position: absolute; left: 80px; top: 330px; }
+    .l-grand { font-weight: 700; font-size: 124px; letter-spacing: -0.05em; line-height: 1.0; white-space: nowrap; }
+
+    #m-titre { position: absolute; left: 80px; top: 236px; }
+    .l-titre { font-weight: 700; font-size: 74px; letter-spacing: -0.04em; line-height: 1.05; white-space: nowrap; }
+    #m-chips { position: absolute; left: 80px; top: 372px; display: flex; gap: 16px; }
+    .pastille { display: inline-block; padding: 16px 30px; border-radius: 999px; font-weight: 600; font-size: 40px; white-space: nowrap;
+      background: rgba(255,255,255,0.07); border: 1.5px solid rgba(255,255,255,0.16); box-shadow: inset 0 1px 0 rgba(255,255,255,0.2);
+      -webkit-backdrop-filter: blur(24px); backdrop-filter: blur(24px); }
+    .pastille .d { display: inline-block; width: 12px; height: 12px; border-radius: 50%; margin-right: 14px; background: #F5F3EE; vertical-align: middle; }
+
+    /* Le gros plan : pièces et messages, dessinés à l'échelle de l'écran */
+    .piece { position: absolute; left: 0; top: 0; width: 52px; height: 52px; margin: -26px 0 0 -26px; border-radius: 50%;
+      background: #D9C6A3; box-shadow: inset 0 -4px 0 rgba(4,6,11,0.22), inset 0 3px 0 rgba(255,255,255,0.45);
+      color: #04060B; font-weight: 700; font-size: 28px; line-height: 52px; text-align: center; }
+    .bulle { position: absolute; left: 0; top: 0; width: 210px; height: 92px; margin: -46px 0 0 -105px; border-radius: 26px;
+      background: #0F1622; border: 2.5px solid #F5F3EE; padding: 22px 24px; }
+    .bulle i { display: block; height: 12px; border-radius: 6px; background: rgba(245,243,238,0.55); }
+    .bulle i + i { margin-top: 12px; }
+    .bulle::after { content: ""; position: absolute; left: 26px; bottom: -14px; width: 22px; height: 22px; background: #0F1622;
+      border-right: 2.5px solid #F5F3EE; border-bottom: 2.5px solid #F5F3EE; transform: skewY(40deg) rotate(20deg); }
+  </style>
+  <div id="root" data-composition-id="monde" data-width="1080" data-height="1920">
+    <div id="m-tout" data-layout-allow-overlap>
+      <svg id="m-scene" viewBox="0 0 1080 1920" data-layout-ignore>
+        <defs>
+          <clipPath id="m-clip-sol"><rect x="0" y="0" width="1080" height="1300" /></clipPath>
+          <clipPath id="m-clip-haut"><rect x="600" y="0" width="480" height="1110" /></clipPath>
+        </defs>
+
+        <!-- Les voisins : un immeuble haut en retrait, un petit à droite -->
+        <g clip-path="url(#m-clip-sol)">
+          <g id="m-voisin-a">
+            <rect class="t doux plein" x="590" y="960" width="96" height="340" />
+            <path class="t doux" d="M614 990 V1280 M638 990 V1280 M662 990 V1280" />
+          </g>
+          <g id="m-voisin-b">
+            <rect class="t doux plein" x="976" y="1060" width="76" height="240" />
+            <path class="t doux" d="M992 1092 H1036 M992 1132 H1036 M992 1172 H1036 M992 1212 H1036" />
+          </g>
+        </g>
+
+        <!-- La tour : cinq étages qui rentreront dans le sol -->
+        <g clip-path="url(#m-clip-haut)">
+          <g id="m-haut">
+            <path class="t" d="M830 742 V722" />
+            <circle id="m-feu" cx="830" cy="717" r="6" class="lum" />
+            <rect class="t plein" x="786" y="742" width="88" height="20" />
+            <g id="m-etages"></g>
+          </g>
+        </g>
+
+        <!-- Le rez-de-chaussée : un hall, puis une boutique -->
+        <rect class="t plein" x="700" y="1110" width="260" height="190" />
+        <g id="m-hall">
+          <path class="t" d="M716 1140 H776 V1284 H716 Z M884 1140 H944 V1284 H884 Z" />
+          <path class="t" d="M792 1300 V1196 H868 V1300 M830 1196 V1300 M776 1184 H884" />
+        </g>
+        <g id="m-boutique">
+          <rect id="m-b-enseigne" class="t" x="716" y="1120" width="228" height="32" rx="4" pathLength="1" />
+          <text id="m-b-texte" class="enseigne" x="830" y="1145" text-anchor="middle">BOUTIQUE</text>
+          <g id="m-b-rayures">
+            <rect x="708" y="1160" width="30.5" height="16" fill="rgba(245,243,238,0.16)" />
+            <rect x="769" y="1160" width="30.5" height="16" fill="rgba(245,243,238,0.16)" />
+            <rect x="830" y="1160" width="30.5" height="16" fill="rgba(245,243,238,0.16)" />
+            <rect x="891" y="1160" width="30.5" height="16" fill="rgba(245,243,238,0.16)" />
+          </g>
+          <path id="m-b-auvent" class="t" pathLength="1"
+            d="M708 1160 H952 V1176 a15.25 11 0 0 1 -30.5 0 a15.25 11 0 0 1 -30.5 0 a15.25 11 0 0 1 -30.5 0 a15.25 11 0 0 1 -30.5 0 a15.25 11 0 0 1 -30.5 0 a15.25 11 0 0 1 -30.5 0 a15.25 11 0 0 1 -30.5 0 a15.25 11 0 0 1 -30.5 0 Z" />
+          <path id="m-b-baie" class="t doux" pathLength="1" d="M716 1300 V1194 M944 1194 V1300" />
+          <path id="m-b-etag-g" class="t" pathLength="1" d="M714 1216 H790" />
+          <path id="m-b-etag-d" class="t" pathLength="1" d="M870 1216 H946" />
+          <g id="m-b-objets">
+            <rect class="t" x="722" y="1194" width="10" height="22" rx="3" />
+            <rect class="t" x="740" y="1200" width="14" height="16" rx="2" />
+            <rect class="t" x="762" y="1190" width="10" height="26" rx="3" />
+            <rect class="t" x="778" y="1198" width="9" height="18" rx="3" />
+            <rect class="t" x="878" y="1206" width="26" height="10" rx="2" />
+            <rect class="t" x="878" y="1196" width="26" height="10" rx="2" />
+            <rect class="t" x="912" y="1206" width="26" height="10" rx="2" />
+            <rect class="t" x="912" y="1196" width="26" height="10" rx="2" />
+            <rect class="t" x="912" y="1186" width="26" height="10" rx="2" />
+          </g>
+          <rect id="m-b-comptoir" class="t plein" x="752" y="1252" width="156" height="48" />
+          <path id="m-b-plateau" class="t" pathLength="1" d="M740 1252 H920" />
+          <path id="m-b-fente" class="t" pathLength="1" d="M814 1272 H846" style="stroke-width: calc(var(--sw) * 1.8)" />
+          <g id="m-tel">
+            <rect class="t plein" x="815" y="1197" width="30" height="53" rx="6" />
+            <rect id="m-tel-ecran" x="819" y="1203" width="22" height="41" rx="3" fill="rgba(245,243,238,0.08)" />
+            <path class="t doux" d="M823 1214 H836 M823 1222 H833 M823 1230 H837" style="stroke-width: calc(var(--sw) * 0.5)" />
+          </g>
+          <g id="m-ondes">
+            <path class="t" d="M806 1210 q-6 13 0 26 M800 1205 q-9 18 0 36" style="stroke-width: calc(var(--sw) * 0.6)" />
+            <path class="t" d="M854 1210 q6 13 0 26 M860 1205 q9 18 0 36" style="stroke-width: calc(var(--sw) * 0.6)" />
+          </g>
+        </g>
+
+        <!-- Le sol -->
+        <path id="m-sol" class="t" d="M-400 1300 H1500" />
+      </svg>
+
+      <!-- Le gros plan : ce qui s'échappe de la boutique -->
+      <div id="m-fuite" data-layout-ignore>
+        <div class="bulle" id="m-bu1"><i style="width:80%"></i><i style="width:52%"></i></div>
+        <div class="bulle" id="m-bu2"><i style="width:66%"></i><i style="width:84%"></i></div>
+        <div class="bulle" id="m-bu3"><i style="width:74%"></i><i style="width:46%"></i></div>
+        <div class="piece" id="m-p1">F</div>
+        <div class="piece" id="m-p2">F</div>
+        <div class="piece" id="m-p3">F</div>
+        <div class="piece" id="m-p4">F</div>
+        <div class="piece" id="m-p5">F</div>
+        <div class="piece" id="m-p6">F</div>
+        <div class="piece" id="m-p7">F</div>
+      </div>
+    </div>
+
+    <div id="m-accroche" class="ombre">
+      <div class="mask"><span class="in l-moy" id="m-a1">Une application ?</span></div>
+      <div class="mask"><span class="in l-moy" id="m-a2">C'est pour les</span></div>
+      <div class="mask"><span class="in l-geant" id="m-a3"><span class="mot">grandes<svg id="m-rature" viewBox="0 0 100 100" preserveAspectRatio="none"><path d="M1 64 C 26 58, 58 60, 99 52" fill="none" stroke="#D9C6A3" stroke-width="16" stroke-linecap="round" vector-effect="non-scaling-stroke" /></svg></span></span></div>
+      <div class="mask"><span class="in l-moy" id="m-a4">entreprises.</span></div>
+    </div>
+
+    <div id="m-taille" class="ombre">
+      <div class="mask"><span class="in l-grand" id="m-t1">À ta taille.</span></div>
+    </div>
+
+    <div id="m-titre" class="ombre">
+      <div class="mask"><span class="in l-titre" id="m-ti">Ce qui te fait perdre :</span></div>
+    </div>
+    <div id="m-chips">
+      <span class="pastille" id="m-c1"><span class="d"></span>Commandes</span>
+      <span class="pastille" id="m-c2"><span class="d"></span>Paiements</span>
+    </div>
+  </div>
+  <script>
+    (function () {
+      // Les cinq étages de la tour, fenêtres comprises
+      const NS = "http://www.w3.org/2000/svg";
+      const etages = document.getElementById("m-etages");
+      const lum = [];
+      for (let k = 1; k <= 5; k++) {
+        const y = 1110 - 62 * k;
+        const r = document.createElementNS(NS, "rect");
+        r.setAttribute("x", 700); r.setAttribute("y", y); r.setAttribute("width", 260); r.setAttribute("height", 62);
+        r.setAttribute("class", "t plein");
+        etages.appendChild(r);
+        for (let j = 0; j < 4; j++) {
+          const w = document.createElementNS(NS, "rect");
+          w.setAttribute("x", 720 + 60 * j); w.setAttribute("y", y + 16); w.setAttribute("width", 40); w.setAttribute("height", 30); w.setAttribute("rx", 3);
+          w.setAttribute("class", "t");
+          etages.appendChild(w);
+          const l = document.createElementNS(NS, "rect");
+          l.setAttribute("x", 725 + 60 * j); l.setAttribute("y", y + 21); l.setAttribute("width", 30); l.setAttribute("height", 20); l.setAttribute("rx", 2);
+          l.setAttribute("class", "lum m-lum");
+          etages.appendChild(l);
+          lum.push(l);
+        }
+      }
+
+      const tl = gsap.timeline({ paused: true });
+      const scene = "#m-scene";
+
+      // État de départ
+      tl.fromTo(lum, { opacity: 0 }, { opacity: 0, duration: 0.01 }, 0);
+      tl.fromTo("#m-rature", { clipPath: "inset(0 100% 0 0)" }, { clipPath: "inset(0 100% 0 0)", duration: 0.01 }, 0);
+      tl.fromTo("#m-t1", { yPercent: 130 }, { yPercent: 130, duration: 0.01 }, 0);
+      tl.fromTo("#m-ti", { yPercent: 130 }, { yPercent: 130, duration: 0.01 }, 0);
+      tl.fromTo(["#m-c1", "#m-c2"], { y: 40, opacity: 0 }, { y: 40, opacity: 0, duration: 0.01 }, 0);
+      tl.fromTo(["#m-b-enseigne", "#m-b-auvent", "#m-b-baie", "#m-b-etag-g", "#m-b-etag-d", "#m-b-plateau", "#m-b-fente"],
+        { strokeDasharray: "1 1", strokeDashoffset: 1 }, { strokeDasharray: "1 1", strokeDashoffset: 1, duration: 0.01 }, 0);
+      tl.fromTo(["#m-b-texte", "#m-b-rayures", "#m-b-objets", "#m-b-comptoir", "#m-tel", "#m-ondes"], { opacity: 0 }, { opacity: 0, duration: 0.01 }, 0);
+      tl.fromTo(".piece", { x: 540, y: 1122, scale: 0, rotation: 0, opacity: 1 }, { x: 540, y: 1122, scale: 0, rotation: 0, opacity: 1, duration: 0.01 }, 0);
+      tl.fromTo("#m-tel", { rotation: 0, svgOrigin: "830 1250" }, { rotation: 0, svgOrigin: "830 1250", duration: 0.01 }, 0);
+      tl.fromTo("#m-tel-ecran", { fill: "rgba(245,243,238,0.08)" }, { fill: "rgba(245,243,238,0.08)", duration: 0.01 }, 0);
+      tl.fromTo(".bulle", { x: 540, y: 995, scale: 0, rotation: 0, opacity: 1 }, { x: 540, y: 995, scale: 0, rotation: 0, opacity: 1, duration: 0.01 }, 0);
+
+      // Plan 1 : la tour vit, les fenêtres s'allument une à une
+      const ordre = [17, 6, 11, 2, 19, 8, 13, 0, 15, 4, 9, 18, 1, 12, 7, 16, 3, 10, 14, 5];
+      ordre.forEach((i, n) => {
+        tl.fromTo(lum[i], { opacity: 0 }, { immediateRender: false, opacity: 1, duration: 0.08, ease: "none" }, 0.2 + n * 0.125);
+      });
+      tl.fromTo("#m-feu", { opacity: 1 }, { opacity: 0.25, duration: 0.5, ease: "sine.inOut", repeat: 4, yoyo: true }, 0.2);
+
+      // Plan 2 : « Non. » Le mot est barré, la tour rentre dans le sol
+      tl.fromTo("#m-rature", { clipPath: "inset(0 100% 0 0)" }, { immediateRender: false, clipPath: "inset(0 0% 0 0)", duration: 0.32, ease: "power2.out" }, 2.91);
+      tl.fromTo(["#m-a1", "#m-a2", "#m-a3", "#m-a4"], { yPercent: 0 }, { immediateRender: false, yPercent: -135, duration: 0.42, ease: "power3.in", stagger: 0.05 }, 3.32);
+      // cinq étages, puis le toit et l'antenne : chaque palier s'enfonce d'un coup sec
+      const paliers = [62, 124, 186, 248, 310, 430];
+      paliers.forEach((y, k) => {
+        tl.fromTo("#m-haut", { y: k ? paliers[k - 1] : 0 }, { immediateRender: false, y: y, duration: k === 5 ? 0.24 : 0.19, ease: "power2.in" }, 3.05 + k * 0.24);
+      });
+      tl.fromTo("#m-voisin-a", { y: 0 }, { y: 360, duration: 0.9, ease: "power2.in" }, 3.2);
+      tl.fromTo("#m-voisin-b", { y: 0 }, { y: 260, duration: 0.8, ease: "power2.in" }, 3.45);
+
+      // Le rez-de-chaussée devient une boutique
+      tl.fromTo("#m-hall", { opacity: 1 }, { opacity: 0, duration: 0.3, ease: "power1.out" }, 4.05);
+      tl.fromTo("#m-b-enseigne", { strokeDashoffset: 1 }, { immediateRender: false, strokeDashoffset: 0, duration: 0.45, ease: "power2.inOut" }, 4.2);
+      tl.fromTo("#m-b-texte", { opacity: 0 }, { immediateRender: false, opacity: 1, duration: 0.3 }, 4.5);
+      tl.fromTo("#m-b-auvent", { strokeDashoffset: 1 }, { immediateRender: false, strokeDashoffset: 0, duration: 0.6, ease: "power2.inOut" }, 4.3);
+      tl.fromTo("#m-b-rayures", { opacity: 0 }, { immediateRender: false, opacity: 1, duration: 0.3 }, 4.75);
+      tl.fromTo(["#m-b-baie", "#m-b-etag-g", "#m-b-etag-d", "#m-b-plateau"], { strokeDashoffset: 1 }, { immediateRender: false, strokeDashoffset: 0, duration: 0.4, ease: "power2.out", stagger: 0.06 }, 4.45);
+      tl.fromTo("#m-b-comptoir", { opacity: 0 }, { immediateRender: false, opacity: 1, duration: 0.25 }, 4.6);
+      tl.fromTo("#m-b-objets", { opacity: 0 }, { immediateRender: false, opacity: 1, duration: 0.3 }, 4.75);
+      tl.fromTo("#m-b-fente", { strokeDashoffset: 1 }, { immediateRender: false, strokeDashoffset: 0, duration: 0.3 }, 4.85);
+      tl.fromTo("#m-tel", { opacity: 0 }, { immediateRender: false, opacity: 1, duration: 0.25 }, 4.95);
+
+      // La caméra suit la tour qui descend, puis pousse sur la boutique
+      tl.fromTo(scene, { attr: { viewBox: "0 0 1080 1920" }, "--sw": 3.5 }, { attr: { viewBox: "0 0 1080 1920" }, "--sw": 3.5, duration: 0.01 }, 0);
+      tl.fromTo(scene, { attr: { viewBox: "0 0 1080 1920" }, "--sw": 3.5 }, { immediateRender: false, attr: { viewBox: "470 538.3 720 1280" }, "--sw": 2.6, duration: 1.4, ease: "power2.inOut" }, 3.8);
+      tl.fromTo(scene, { attr: { viewBox: "470 538.3 720 1280" }, "--sw": 2.6 }, { immediateRender: false, attr: { viewBox: "622.3 838.5 415.4 738.5" }, "--sw": 1.75, duration: 1.05, ease: "power2.inOut" }, 5.85);
+
+      // « À ta taille. »
+      tl.fromTo("#m-t1", { yPercent: 130 }, { immediateRender: false, yPercent: 0, duration: 0.7, ease: "expo.out" }, 5.03);
+      tl.fromTo("#m-t1", { yPercent: 0 }, { immediateRender: false, yPercent: -135, duration: 0.3, ease: "power3.in" }, 6.3);
+
+      // Plan 3 : ce qui te fait perdre
+      tl.fromTo("#m-ti", { yPercent: 130 }, { immediateRender: false, yPercent: 0, duration: 0.7, ease: "expo.out" }, 6.55);
+      const buzz = (t) => {
+        tl.fromTo("#m-tel", { rotation: 0, svgOrigin: "830 1250" }, { immediateRender: false, keyframes: { rotation: [0, 4, -4, 4, -4, 3, 0] }, duration: 0.42, ease: "none" }, t);
+        tl.fromTo("#m-ondes", { opacity: 0 }, { immediateRender: false, keyframes: { opacity: [0, 1, 1, 0] }, duration: 0.46, ease: "none" }, t);
+        tl.fromTo("#m-tel-ecran", { fill: "rgba(245,243,238,0.08)" }, { immediateRender: false, keyframes: { fill: ["rgba(245,243,238,0.08)", "rgba(245,243,238,0.45)", "rgba(245,243,238,0.08)"] }, duration: 0.5, ease: "none" }, t);
+      };
+      buzz(6.87); buzz(8.91); buzz(9.51);
+
+      // Les pièces glissent par la fente, tombent et roulent hors de la boutique
+      const roule = (id, t, dx, tours, dur) => {
+        tl.fromTo(id, { scale: 0, x: 540, y: 1122 }, { immediateRender: false, scale: 1, y: 1150, duration: 0.16, ease: "power1.in" }, t);
+        tl.fromTo(id, { y: 1150 }, { immediateRender: false, y: 1174, duration: 0.12, ease: "power2.in" }, t + 0.16);
+        tl.fromTo(id, { y: 1174 }, { immediateRender: false, keyframes: { y: [1174, 1150, 1174] }, duration: 0.24, ease: "none" }, t + 0.28);
+        tl.fromTo(id, { x: 540, rotation: 0 }, { immediateRender: false, x: 540 + dx, rotation: tours * 360 * Math.sign(dx), duration: dur, ease: "sine.in" }, t + 0.22);
+      };
+      roule("#m-p1", 6.87, -640, 1.6, 1.05);
+      roule("#m-p2", 7.03, 640, 1.7, 1.0);
+      roule("#m-p3", 7.2, -600, 1.4, 1.1);
+      roule("#m-p4", 9.51, 620, 1.5, 0.85);
+      roule("#m-p5", 9.6, -620, 1.6, 0.85);
+      roule("#m-p6", 9.69, 600, 1.4, 0.8);
+      roule("#m-p7", 9.78, -600, 1.3, 0.8);
+
+      // Les messages s'échappent du téléphone et tombent
+      const fuite = (id, t, x, y, rot) => {
+        tl.fromTo(id, { scale: 0.2, x: 540, y: 995 }, { immediateRender: false, scale: 1, x: x, y: y, duration: 0.4, ease: "expo.out" }, t);
+        tl.fromTo(id, { y: y, rotation: 0, opacity: 1 }, { immediateRender: false, y: y + 1000, rotation: rot, opacity: 0, duration: 1.0, ease: "power2.in" }, t + 0.5);
+      };
+      fuite("#m-bu1", 8.91, 300, 610, -24);
+      fuite("#m-bu2", 9.0, 560, 548, 14);
+      fuite("#m-bu3", 9.09, 800, 622, 28);
+
+      // Les pastilles, sur les mots
+      tl.fromTo("#m-c1", { y: 40, opacity: 0 }, { immediateRender: false, y: 0, opacity: 1, duration: 0.5, ease: "expo.out" }, 8.91);
+      tl.fromTo("#m-c2", { y: 40, opacity: 0 }, { immediateRender: false, y: 0, opacity: 1, duration: 0.5, ease: "expo.out" }, 9.51);
+
+      // Plan 4 : « Alors » : le titre part, la caméra entre dans l'écran du téléphone
+      tl.fromTo("#m-ti", { yPercent: 0 }, { immediateRender: false, yPercent: -135, duration: 0.35, ease: "power3.in" }, 10.1);
+      tl.fromTo(["#m-c1", "#m-c2"], { y: 0, opacity: 1 }, { immediateRender: false, y: -50, opacity: 0, duration: 0.3, ease: "power3.in", stagger: 0.05 }, 10.12);
+      tl.fromTo(scene, { attr: { viewBox: "622.3 838.5 415.4 738.5" }, "--sw": 1.75 }, { immediateRender: false, attr: { viewBox: "770 1114.3 120 213.3" }, "--sw": 0.6, duration: 0.65, ease: "expo.inOut" }, 10.1);
+      tl.fromTo("#m-tout", { opacity: 1 }, { immediateRender: false, opacity: 0, duration: 0.28, ease: "power1.in" }, 10.2);
+
+      window.__timelines["monde"] = tl;
+    })();
+  </script>
+</template>

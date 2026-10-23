@@ -1,0 +1,214 @@
+<template>
+  <style>
+    @font-face { font-family: "Plus Jakarta Sans"; font-weight: 500; src: url("assets/fonts/plus-jakarta-sans-latin-500-normal.woff2") format("woff2"); }
+    @font-face { font-family: "Plus Jakarta Sans"; font-weight: 600; src: url("assets/fonts/plus-jakarta-sans-latin-600-normal.woff2") format("woff2"); }
+    @font-face { font-family: "Plus Jakarta Sans"; font-weight: 700; src: url("assets/fonts/plus-jakarta-sans-latin-700-normal.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; font-family: "Plus Jakarta Sans", sans-serif; color: #F5F3EE; }
+    .mask { overflow: hidden; padding: 6px 0 14px; margin-bottom: -16px; }
+    .mask > .in { display: block; }
+    .ombre { text-shadow: 0 0 50px rgba(4,6,11,0.95), 0 0 18px rgba(4,6,11,0.9); }
+    .titre { position: absolute; left: 80px; top: 236px; }
+    .l-titre { font-weight: 700; font-size: 76px; letter-spacing: -0.04em; line-height: 1.05; white-space: nowrap; }
+    .verre { background: rgba(255,255,255,0.065); -webkit-backdrop-filter: blur(34px) saturate(150%); backdrop-filter: blur(34px) saturate(150%);
+      border: 1.5px solid rgba(255,255,255,0.16); box-shadow: inset 0 1.5px 0 rgba(255,255,255,0.28), 0 50px 140px rgba(0,0,0,0.6); }
+    .t { fill: none; stroke: #F5F3EE; stroke-width: 3; stroke-linecap: round; stroke-linejoin: round; }
+    .t.plein { fill: #101826; }
+
+    #c-groupe { position: absolute; inset: 0; }
+    #c-chip { position: absolute; left: 190px; top: 566px; padding: 14px 28px; border-radius: 999px; font-weight: 600; font-size: 38px; white-space: nowrap;
+      background: rgba(255,255,255,0.07); border: 1.5px solid rgba(255,255,255,0.16); box-shadow: inset 0 1px 0 rgba(255,255,255,0.2); }
+    #c-chip b { font-weight: 700; }
+
+    #c-carte { position: absolute; left: 190px; top: 670px; width: 700px; height: 380px; border-radius: 44px; overflow: hidden; }
+    #c-contenu { position: absolute; left: 0; top: 0; width: 700px; height: 380px; }
+    #c-tete { position: absolute; left: 40px; top: 34px; display: flex; align-items: center; gap: 18px; }
+    #c-tete .nom { font-weight: 700; font-size: 42px; letter-spacing: -0.03em; white-space: nowrap; }
+    #c-ligne { position: absolute; left: 40px; top: 110px; width: 620px; height: 146px; border-radius: 28px;
+      background: rgba(255,255,255,0.06); border: 1.5px solid rgba(255,255,255,0.12); }
+    #c-ligne .quoi { position: absolute; left: 30px; top: 22px; font-weight: 500; font-size: 36px; color: rgba(245,243,238,0.8); white-space: nowrap; }
+    #c-ligne .combien { position: absolute; left: 30px; top: 70px; font-weight: 700; font-size: 50px; letter-spacing: -0.03em; white-space: nowrap; }
+    #c-statut { position: absolute; right: 26px; top: 42px; width: 220px; height: 62px; border-radius: 31px; overflow: hidden;
+      background: rgba(255,255,255,0.06); border: 1.5px solid rgba(255,255,255,0.22); }
+    #c-statut .rail { position: absolute; left: 0; top: 0; width: 100%; }
+    #c-statut .etat { height: 62px; display: flex; align-items: center; justify-content: center; gap: 10px; font-weight: 600; font-size: 34px; white-space: nowrap; }
+    #c-statut .etat.paye { color: #04060B; font-weight: 700; }
+    #c-semaine { position: absolute; left: 40px; top: 290px; display: flex; gap: 14px; }
+    #c-semaine .j { width: 54px; height: 54px; border-radius: 50%; border: 1.5px solid rgba(255,255,255,0.22); background: rgba(255,255,255,0.03);
+      display: flex; align-items: center; justify-content: center; font-weight: 600; font-size: 28px; color: rgba(245,243,238,0.7); position: relative; }
+    #c-semaine .j .on { position: absolute; inset: -1.5px; border-radius: 50%; background: #F5F3EE; color: #04060B;
+      display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 28px; }
+
+    .module { position: absolute; top: 1120px; width: 335px; height: 200px; border-radius: 36px; overflow: hidden; }
+    .module .lab { position: absolute; left: 28px; top: 24px; font-weight: 700; font-size: 40px; letter-spacing: -0.02em; }
+    .module svg { position: absolute; left: 0; top: 0; overflow: visible; }
+    #c-stock { left: 190px; }
+    #c-clients { left: 555px; }
+    #c-liens { position: absolute; left: 0; top: 0; overflow: visible; }
+
+    .piece { position: absolute; left: 0; top: 0; width: 52px; height: 52px; margin: -26px 0 0 -26px; border-radius: 50%;
+      background: #D9C6A3; box-shadow: inset 0 -4px 0 rgba(4,6,11,0.22), inset 0 3px 0 rgba(255,255,255,0.45);
+      color: #04060B; font-weight: 700; font-size: 28px; line-height: 52px; text-align: center; }
+  </style>
+  <div id="root" data-composition-id="carte" data-width="1080" data-height="1920">
+    <div id="c-titre1" class="titre ombre">
+      <div class="mask"><span class="in l-titre" id="c-1a">On commence par</span></div>
+      <div class="mask"><span class="in l-titre" id="c-1b">ce qui te fait</span></div>
+      <div class="mask"><span class="in l-titre" id="c-1c">perdre le plus.</span></div>
+    </div>
+    <div id="c-titre2" class="titre ombre">
+      <div class="mask"><span class="in l-titre" id="c-2a">Le reste viendra</span></div>
+      <div class="mask"><span class="in l-titre" id="c-2b">quand tu en auras</span></div>
+      <div class="mask"><span class="in l-titre" id="c-2c">besoin.</span></div>
+    </div>
+
+    <div id="c-groupe" data-layout-allow-overlap>
+      <div id="c-chip"><b>1</b> fonction</div>
+
+      <svg id="c-liens" width="1080" height="1920" viewBox="0 0 1080 1920" data-layout-ignore>
+        <path id="c-lien1" class="t" pathLength="1" d="M357 1050 V1120" />
+        <path id="c-lien2" class="t" pathLength="1" d="M722 1050 V1120" />
+        <circle id="c-noeud1" cx="357" cy="1050" r="8" fill="#F5F3EE" />
+        <circle id="c-noeud2" cx="722" cy="1050" r="8" fill="#F5F3EE" />
+      </svg>
+
+      <div id="c-stock" class="module verre">
+        <div class="lab">Stock</div>
+        <svg width="335" height="200" viewBox="0 0 335 200">
+          <g id="c-boite-a" transform="translate(138 182)"><g class="chute">
+            <path class="t plein" d="M0 0 V-54 H78 V0 Z" /><path class="t plein" d="M0 -54 L12 -64 H90 L78 -54 Z" /><path class="t plein" d="M78 0 L90 -10 V-64 L78 -54 Z" />
+            <path class="t" d="M33 -54 L45 -64 M39 -54 V-36" style="stroke-width:2" />
+          </g></g>
+          <g id="c-boite-b" transform="translate(226 182)"><g class="chute">
+            <path class="t plein" d="M0 0 V-54 H78 V0 Z" /><path class="t plein" d="M0 -54 L12 -64 H90 L78 -54 Z" /><path class="t plein" d="M78 0 L90 -10 V-64 L78 -54 Z" />
+            <path class="t" d="M33 -54 L45 -64 M39 -54 V-36" style="stroke-width:2" />
+          </g></g>
+          <g id="c-boite-c" transform="translate(182 118)"><g class="chute">
+            <path class="t plein" d="M0 0 V-54 H78 V0 Z" /><path class="t plein" d="M0 -54 L12 -64 H90 L78 -54 Z" /><path class="t plein" d="M78 0 L90 -10 V-64 L78 -54 Z" />
+            <path class="t" d="M33 -54 L45 -64 M39 -54 V-36" style="stroke-width:2" />
+          </g></g>
+        </svg>
+      </div>
+
+      <div id="c-clients" class="module verre">
+        <div class="lab">Clients</div>
+        <svg width="335" height="200" viewBox="0 0 335 200">
+          <g id="c-av4" transform="translate(190 100)"><g class="arrive"><circle class="t plein" cx="35" cy="35" r="35" /><path class="t" d="M35 23 V47 M23 35 H47" /></g></g>
+          <g id="c-av3" transform="translate(136 100)"><g class="arrive"><circle class="t plein" cx="35" cy="35" r="35" /><circle class="t" cx="35" cy="28" r="11" /><path class="t" d="M17 57 a18 15 0 0 1 36 0" /></g></g>
+          <g id="c-av2" transform="translate(82 100)"><g class="arrive"><circle class="t plein" cx="35" cy="35" r="35" /><circle class="t" cx="35" cy="28" r="11" /><path class="t" d="M17 57 a18 15 0 0 1 36 0" /></g></g>
+          <g id="c-av1" transform="translate(28 100)"><g class="arrive"><circle class="t plein" cx="35" cy="35" r="35" /><circle class="t" cx="35" cy="28" r="11" /><path class="t" d="M17 57 a18 15 0 0 1 36 0" /></g></g>
+        </svg>
+      </div>
+
+      <div id="c-carte" class="verre">
+        <div id="c-contenu">
+          <div id="c-tete">
+            <svg width="50" height="50" viewBox="0 0 50 50"><path class="t" d="M9 16 H41 L38 44 H12 Z" /><path class="t" d="M17 20 V13 a8 8 0 0 1 16 0 V20" /></svg>
+            <span class="nom">Commandes + paiements</span>
+          </div>
+          <div id="c-ligne">
+            <div class="quoi">Samedi · 2 robes</div>
+            <div class="combien">15 000 F</div>
+            <div id="c-statut">
+              <div class="rail" id="c-rail">
+                <div class="etat">En attente</div>
+                <div class="etat paye"><svg width="30" height="30" viewBox="0 0 30 30"><path d="M6 15.5 L12.5 22 L24.5 9" fill="none" stroke="#04060B" stroke-width="3.6" stroke-linecap="round" stroke-linejoin="round" /></svg>Payé</div>
+              </div>
+            </div>
+          </div>
+          <div id="c-semaine">
+            <div class="j"><span class="off">L</span><span class="on">L</span></div>
+            <div class="j"><span class="off">M</span><span class="on">M</span></div>
+            <div class="j"><span class="off">M</span><span class="on">M</span></div>
+            <div class="j"><span class="off">J</span><span class="on">J</span></div>
+            <div class="j"><span class="off">V</span><span class="on">V</span></div>
+            <div class="j"><span class="off">S</span><span class="on">S</span></div>
+            <div class="j"><span class="off">D</span><span class="on">D</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div id="c-pieces" data-layout-ignore>
+      <div class="piece" id="c-p1">F</div>
+      <div class="piece" id="c-p2">F</div>
+      <div class="piece" id="c-p3">F</div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const tl = gsap.timeline({ paused: true });
+      const t1 = ["#c-1a", "#c-1b", "#c-1c"], t2 = ["#c-2a", "#c-2b", "#c-2c"];
+      const jours = gsap.utils.toArray("#c-semaine .on"), eteints = gsap.utils.toArray("#c-semaine .off");
+
+      // État de départ : la carte a la taille de l'écran du téléphone
+      tl.fromTo([...t1, ...t2], { yPercent: 130 }, { yPercent: 130, duration: 0.01 }, 0);
+      tl.fromTo("#c-carte", { clipPath: "inset(271px 316px 0px 316px round 10px)", opacity: 0 },
+        { clipPath: "inset(271px 316px 0px 316px round 10px)", opacity: 0, duration: 0.01 }, 0);
+      tl.fromTo("#c-contenu", { opacity: 0 }, { opacity: 0, duration: 0.01 }, 0);
+      tl.fromTo("#c-chip", { y: 30, opacity: 0 }, { y: 30, opacity: 0, duration: 0.01 }, 0);
+      tl.fromTo("#c-rail", { yPercent: 0 }, { yPercent: 0, duration: 0.01 }, 0);
+      tl.fromTo("#c-statut", { backgroundColor: "rgba(255,255,255,0.06)" }, { backgroundColor: "rgba(255,255,255,0.06)", duration: 0.01 }, 0);
+      tl.fromTo(jours, { scale: 0, opacity: 0 }, { scale: 0, opacity: 0, duration: 0.01 }, 0);
+      tl.fromTo(eteints, { opacity: 1 }, { opacity: 1, duration: 0.01 }, 0);
+      tl.fromTo("#c-ligne", { x: 120, opacity: 0 }, { x: 120, opacity: 0, duration: 0.01 }, 0);
+      tl.fromTo(".piece", { x: 1110, y: 420, scale: 1, opacity: 1 }, { x: 1110, y: 420, scale: 1, opacity: 1, duration: 0.01 }, 0);
+      tl.fromTo(["#c-lien1", "#c-lien2"], { strokeDasharray: "1 1", strokeDashoffset: 1 }, { strokeDasharray: "1 1", strokeDashoffset: 1, duration: 0.01 }, 0);
+      tl.fromTo(["#c-noeud1", "#c-noeud2"], { scale: 0, transformOrigin: "50% 50%" }, { scale: 0, transformOrigin: "50% 50%", duration: 0.01 }, 0);
+      tl.fromTo(["#c-stock", "#c-clients"], { y: 70, opacity: 0 }, { y: 70, opacity: 0, duration: 0.01 }, 0);
+      tl.fromTo("#c-stock .chute", { y: -240 }, { y: -240, duration: 0.01 }, 0);
+      tl.fromTo("#c-clients .arrive", { x: 90, opacity: 0 }, { x: 90, opacity: 0, duration: 0.01 }, 0);
+      tl.fromTo("#c-groupe", { rotationY: 0, opacity: 1, transformPerspective: 1600, transformOrigin: "540px 945px" },
+        { rotationY: 0, opacity: 1, transformPerspective: 1600, transformOrigin: "540px 945px", duration: 0.01 }, 0);
+
+      // Plan 4 : l'écran du téléphone grandit et devient la carte (10,10 à 10,75)
+      tl.fromTo("#c-carte", { opacity: 0 }, { immediateRender: false, opacity: 1, duration: 0.08, ease: "none" }, 0.1);
+      tl.fromTo("#c-carte", { clipPath: "inset(271px 316px 0px 316px round 10px)" },
+        { immediateRender: false, clipPath: "inset(0px 0px 0px 0px round 44px)", duration: 0.65, ease: "expo.inOut" }, 0.1);
+      tl.fromTo("#c-contenu", { opacity: 0 }, { immediateRender: false, opacity: 1, duration: 0.3, ease: "power1.out" }, 0.58);
+      // « on commence »
+      tl.fromTo(t1, { yPercent: 130 }, { immediateRender: false, yPercent: 0, duration: 0.8, ease: "expo.out", stagger: 0.08 }, 0.46);
+
+      // Plan 5 : « Une petite application » : une commande arrive
+      tl.fromTo("#c-ligne", { x: 120, opacity: 0 }, { immediateRender: false, x: 0, opacity: 1, duration: 0.6, ease: "expo.out" }, 2.92);
+      // « une seule fonction »
+      tl.fromTo("#c-chip", { y: 30, opacity: 0 }, { immediateRender: false, y: 0, opacity: 1, duration: 0.55, ease: "expo.out" }, 4.53);
+      // Les pièces tombent maintenant dans la carte, puis « Payé » sur « marche »
+      [["#c-p1", 5.38, 696], ["#c-p2", 5.46, 724], ["#c-p3", 5.54, 708]].forEach(([id, t, x]) => {
+        tl.fromTo(id, { x: 1110 }, { immediateRender: false, x: x, duration: 0.3, ease: "power1.out" }, t);
+        tl.fromTo(id, { y: 420 }, { immediateRender: false, y: 855, duration: 0.3, ease: "power2.in" }, t);
+        tl.fromTo(id, { scale: 1, opacity: 1 }, { immediateRender: false, scale: 0.35, opacity: 0, duration: 0.1, ease: "power1.in" }, t + 0.27);
+      });
+      tl.fromTo("#c-rail", { yPercent: 0 }, { immediateRender: false, yPercent: -50, duration: 0.5, ease: "expo.out" }, 5.68);
+      tl.fromTo("#c-statut", { backgroundColor: "rgba(255,255,255,0.06)" }, { immediateRender: false, backgroundColor: "rgba(245,243,238,1)", duration: 0.3, ease: "power1.out" }, 5.68);
+      tl.fromTo("#c-statut", { scale: 1 }, { immediateRender: false, keyframes: { scale: [1, 1.08, 1] }, duration: 0.4, ease: "power2.out" }, 5.68);
+      // « tous les jours »
+      tl.fromTo(jours, { scale: 0, opacity: 0 }, { immediateRender: false, scale: 1, opacity: 1, duration: 0.3, ease: "back.out(2)", stagger: 0.075 }, 6.02);
+      tl.fromTo(eteints, { opacity: 1 }, { immediateRender: false, opacity: 0, duration: 0.12, stagger: 0.075 }, 6.02);
+
+      // Plan 6 : « Le reste viendra quand tu en auras besoin »
+      tl.fromTo(t1, { yPercent: 0 }, { immediateRender: false, yPercent: -135, duration: 0.4, ease: "power3.in", stagger: 0.04 }, 6.4);
+      tl.fromTo(t2, { yPercent: 130 }, { immediateRender: false, yPercent: 0, duration: 0.8, ease: "expo.out", stagger: 0.08 }, 6.75);
+      // « ton stock » : le module s'accroche, les cartons s'empilent
+      tl.fromTo("#c-noeud1", { scale: 0 }, { immediateRender: false, scale: 1, duration: 0.25, ease: "back.out(2)" }, 8.85);
+      tl.fromTo("#c-lien1", { strokeDashoffset: 1 }, { immediateRender: false, strokeDashoffset: 0, duration: 0.25, ease: "power2.out" }, 8.92);
+      tl.fromTo("#c-stock", { y: 70, opacity: 0 }, { immediateRender: false, y: 0, opacity: 1, duration: 0.6, ease: "expo.out" }, 9.1);
+      [["#c-boite-a .chute", 9.22], ["#c-boite-b .chute", 9.36], ["#c-boite-c .chute", 9.52]].forEach(([id, t]) => {
+        tl.fromTo(id, { y: -240 }, { immediateRender: false, y: 0, duration: 0.28, ease: "power2.in" }, t);
+        tl.fromTo(id, { y: 0 }, { immediateRender: false, keyframes: { y: [0, -9, 0] }, duration: 0.18, ease: "power1.out" }, t + 0.28);
+      });
+      // « tes clients » : le second module, les fiches arrivent
+      tl.fromTo("#c-noeud2", { scale: 0 }, { immediateRender: false, scale: 1, duration: 0.25, ease: "back.out(2)" }, 10.0);
+      tl.fromTo("#c-lien2", { strokeDashoffset: 1 }, { immediateRender: false, strokeDashoffset: 0, duration: 0.25, ease: "power2.out" }, 10.07);
+      tl.fromTo("#c-clients", { y: 70, opacity: 0 }, { immediateRender: false, y: 0, opacity: 1, duration: 0.6, ease: "expo.out" }, 10.25);
+      tl.fromTo(["#c-av1 .arrive", "#c-av2 .arrive", "#c-av3 .arrive", "#c-av4 .arrive"], { x: 90, opacity: 0 },
+        { immediateRender: false, x: 0, opacity: 1, duration: 0.5, ease: "expo.out", stagger: 0.09 }, 10.33);
+
+      // Plan 7 : « Écris » : la carte se retourne (première moitié)
+      tl.fromTo(t2, { yPercent: 0 }, { immediateRender: false, yPercent: -135, duration: 0.35, ease: "power3.in", stagger: 0.04 }, 10.88);
+      tl.fromTo("#c-groupe", { rotationY: 0 }, { immediateRender: false, rotationY: 90, duration: 0.26, ease: "power2.in" }, 11.05);
+      tl.fromTo("#c-groupe", { opacity: 1 }, { immediateRender: false, opacity: 0, duration: 0.02 }, 11.3);
+
+      window.__timelines["carte"] = tl;
+    })();
+  </script>
+</template>

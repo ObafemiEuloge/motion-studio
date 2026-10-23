@@ -1,0 +1,466 @@
+{
+ "modele": "eleven_v4",
+ "voice_id": "cEjGxRhK5rId1bacJPJr",
+ "mots": [
+  {
+   "mot": "Une",
+   "debut": 0.0,
+   "fin": 0.133
+  },
+  {
+   "mot": "application",
+   "debut": 0.16,
+   "fin": 0.771
+  },
+  {
+   "mot": "?",
+   "debut": 0.8,
+   "fin": 0.991
+  },
+  {
+   "mot": "C'est",
+   "debut": 1.124,
+   "fin": 1.284
+  },
+  {
+   "mot": "pour",
+   "debut": 1.364,
+   "fin": 1.444
+  },
+  {
+   "mot": "les",
+   "debut": 1.524,
+   "fin": 1.604
+  },
+  {
+   "mot": "grandes",
+   "debut": 1.724,
+   "fin": 1.884
+  },
+  {
+   "mot": "entreprises.",
+   "debut": 1.924,
+   "fin": 2.685
+  },
+  {
+   "mot": "Non.",
+   "debut": 2.911,
+   "fin": 3.311
+  },
+  {
+   "mot": "Une",
+   "debut": 3.631,
+   "fin": 3.711
+  },
+  {
+   "mot": "application,",
+   "debut": 3.791,
+   "fin": 4.511
+  },
+  {
+   "mot": "ça",
+   "debut": 4.591,
+   "fin": 4.671
+  },
+  {
+   "mot": "se",
+   "debut": 4.711,
+   "fin": 4.751
+  },
+  {
+   "mot": "fait",
+   "debut": 4.871,
+   "fin": 4.991
+  },
+  {
+   "mot": "à",
+   "debut": 5.031,
+   "fin": 5.071
+  },
+  {
+   "mot": "ta",
+   "debut": 5.151,
+   "fin": 5.311
+  },
+  {
+   "mot": "taille.",
+   "debut": 5.391,
+   "fin": 5.69
+  },
+  {
+   "mot": "Toi,",
+   "debut": 5.826,
+   "fin": 6.226
+  },
+  {
+   "mot": "ce",
+   "debut": 6.306,
+   "fin": 6.386
+  },
+  {
+   "mot": "qui",
+   "debut": 6.426,
+   "fin": 6.466
+  },
+  {
+   "mot": "te",
+   "debut": 6.546,
+   "fin": 6.626
+  },
+  {
+   "mot": "fait",
+   "debut": 6.706,
+   "fin": 6.786
+  },
+  {
+   "mot": "perdre",
+   "debut": 6.866,
+   "fin": 7.186
+  },
+  {
+   "mot": "de",
+   "debut": 7.226,
+   "fin": 7.266
+  },
+  {
+   "mot": "l'argent",
+   "debut": 7.293,
+   "fin": 7.586
+  },
+  {
+   "mot": "aujourd'hui,",
+   "debut": 7.666,
+   "fin": 8.386
+  },
+  {
+   "mot": "c'est",
+   "debut": 8.426,
+   "fin": 8.546
+  },
+  {
+   "mot": "les",
+   "debut": 8.626,
+   "fin": 8.706
+  },
+  {
+   "mot": "commandes",
+   "debut": 8.906,
+   "fin": 9.186
+  },
+  {
+   "mot": "et",
+   "debut": 9.226,
+   "fin": 9.266
+  },
+  {
+   "mot": "les",
+   "debut": 9.306,
+   "fin": 9.346
+  },
+  {
+   "mot": "paiements.",
+   "debut": 9.506,
+   "fin": 10.058
+  },
+  {
+   "mot": "Alors",
+   "debut": 10.098,
+   "fin": 10.298
+  },
+  {
+   "mot": "on",
+   "debut": 10.458,
+   "fin": 10.618
+  },
+  {
+   "mot": "commence",
+   "debut": 10.698,
+   "fin": 11.018
+  },
+  {
+   "mot": "par",
+   "debut": 11.058,
+   "fin": 11.098
+  },
+  {
+   "mot": "ce",
+   "debut": 11.178,
+   "fin": 11.258
+  },
+  {
+   "mot": "qui",
+   "debut": 11.338,
+   "fin": 11.418
+  },
+  {
+   "mot": "te",
+   "debut": 11.458,
+   "fin": 11.498
+  },
+  {
+   "mot": "fait",
+   "debut": 11.578,
+   "fin": 11.738
+  },
+  {
+   "mot": "perdre",
+   "debut": 11.818,
+   "fin": 12.058
+  },
+  {
+   "mot": "le",
+   "debut": 12.098,
+   "fin": 12.138
+  },
+  {
+   "mot": "plus.",
+   "debut": 12.298,
+   "fin": 12.769
+  },
+  {
+   "mot": "Une",
+   "debut": 12.886,
+   "fin": 13.046
+  },
+  {
+   "mot": "petite",
+   "debut": 13.126,
+   "fin": 13.366
+  },
+  {
+   "mot": "application,",
+   "debut": 13.686,
+   "fin": 14.246
+  },
+  {
+   "mot": "une",
+   "debut": 14.326,
+   "fin": 14.486
+  },
+  {
+   "mot": "seule",
+   "debut": 14.526,
+   "fin": 14.646
+  },
+  {
+   "mot": "fonction,",
+   "debut": 14.726,
+   "fin": 15.438
+  },
+  {
+   "mot": "qui",
+   "debut": 15.518,
+   "fin": 15.598
+  },
+  {
+   "mot": "marche",
+   "debut": 15.678,
+   "fin": 15.998
+  },
+  {
+   "mot": "tous",
+   "debut": 16.025,
+   "fin": 16.078
+  },
+  {
+   "mot": "les",
+   "debut": 16.158,
+   "fin": 16.238
+  },
+  {
+   "mot": "jours.",
+   "debut": 16.318,
+   "fin": 16.669
+  },
+  {
+   "mot": "Le",
+   "debut": 16.749,
+   "fin": 16.829
+  },
+  {
+   "mot": "reste",
+   "debut": 16.989,
+   "fin": 17.149
+  },
+  {
+   "mot": "viendra",
+   "debut": 17.229,
+   "fin": 17.549
+  },
+  {
+   "mot": "quand",
+   "debut": 17.589,
+   "fin": 17.709
+  },
+  {
+   "mot": "tu",
+   "debut": 17.749,
+   "fin": 17.789
+  },
+  {
+   "mot": "en",
+   "debut": 17.869,
+   "fin": 17.949
+  },
+  {
+   "mot": "auras",
+   "debut": 17.989,
+   "fin": 18.189
+  },
+  {
+   "mot": "besoin",
+   "debut": 18.309,
+   "fin": 18.509
+  },
+  {
+   "mot": ":",
+   "debut": 18.783,
+   "fin": 18.836
+  },
+  {
+   "mot": "ton",
+   "debut": 18.89,
+   "fin": 18.943
+  },
+  {
+   "mot": "stock,",
+   "debut": 19.143,
+   "fin": 19.568
+  },
+  {
+   "mot": "puis",
+   "debut": 19.648,
+   "fin": 19.808
+  },
+  {
+   "mot": "tes",
+   "debut": 19.968,
+   "fin": 20.128
+  },
+  {
+   "mot": "clients.",
+   "debut": 20.288,
+   "fin": 20.899
+  },
+  {
+   "mot": "Écris",
+   "debut": 20.979,
+   "fin": 21.219
+  },
+  {
+   "mot": "APP",
+   "debut": 21.379,
+   "fin": 21.859
+  },
+  {
+   "mot": "sur",
+   "debut": 21.899,
+   "fin": 21.939
+  },
+  {
+   "mot": "WhatsApp,",
+   "debut": 22.019,
+   "fin": 22.6
+  },
+  {
+   "mot": "je",
+   "debut": 22.64,
+   "fin": 22.68
+  },
+  {
+   "mot": "te",
+   "debut": 22.76,
+   "fin": 22.84
+  },
+  {
+   "mot": "montre",
+   "debut": 22.92,
+   "fin": 23.08
+  },
+  {
+   "mot": "ce",
+   "debut": 23.16,
+   "fin": 23.24
+  },
+  {
+   "mot": "que",
+   "debut": 23.28,
+   "fin": 23.32
+  },
+  {
+   "mot": "ça",
+   "debut": 23.4,
+   "fin": 23.48
+  },
+  {
+   "mot": "donnerait",
+   "debut": 23.52,
+   "fin": 23.8
+  },
+  {
+   "mot": "pour",
+   "debut": 23.88,
+   "fin": 23.96
+  },
+  {
+   "mot": "ton",
+   "debut": 24.04,
+   "fin": 24.12
+  },
+  {
+   "mot": "business.",
+   "debut": 24.36,
+   "fin": 24.84
+  }
+ ],
+ "resserre": {
+  "max_blanc_s": 0.3,
+  "retire_s": 1.8,
+  "coupes": [
+   [
+    0.947619,
+    1.0240600000000002
+   ],
+   [
+    2.76104,
+    2.8932700000000002
+   ],
+   [
+    5.898750000000001,
+    6.26404
+   ],
+   [
+    10.516,
+    10.7638
+   ],
+   [
+    13.591000000000001,
+    13.8034
+   ],
+   [
+    16.357599999999998,
+    16.3651
+   ],
+   [
+    17.6144,
+    17.9833
+   ],
+   [
+    20.112099999999998,
+    20.2387
+   ],
+   [
+    21.037599999999998,
+    21.052200000000003
+   ],
+   [
+    22.127399999999998,
+    22.317
+   ],
+   [
+    24.2597,
+    24.318
+   ]
+  ]
+ }
+}
