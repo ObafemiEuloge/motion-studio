@@ -24,7 +24,7 @@ Version 2 du 23 oct. 2026, après les leçons de la vidéo 1 (skills `script`, `
 | 2 | 2,0 à 4,9 s | Tu fouilles WhatsApp… capture par capture. | Titre « Capture par capture. » ; captures de paiement qui défilent vite puis ralentissent |
 | 3 | 4,9 à 8,3 s | Le cahier dit une chose, le Mobile Money autre chose. | « CAHIER 186 000 F » ≠ « MOBILE MONEY 171 500 F », le signe ≠ en champagne |
 | 4 | 8,3 à 10,7 s | Bon. Une application peut faire ça à ta place. | Le plan d'interfaces tourne ; une carte de verre monte : tableau « Commandes · aujourd'hui » |
-| 5 | 10,7 à 14,3 s | Le client paie, et la commande passe à « payé ». Toute seule. | Notification « Paiement reçu · Mobile Money · 15 000 F » ; la commande 0142 passe à « Payé » (champagne) ; pastille « Vérifié automatiquement » |
+| 5 | 10,7 à 14,3 s | Le client paie, et la commande passe à « payé ». Toute seule. | Notification « Paiement reçu · Mobile Money · 15 000 F » ; la commande 0142 passe à « Payé » (champagne) ; pastille « Vérifié » |
 | 6 | 14,3 à 17,9 s | Le soir, tu fermes la boutique… les comptes sont déjà faits. | Sur le monde : « Ce soir · 21:47 », 186 000 F qui compte, « encaissé et vérifié », « Écart 0 F » (champagne sur « 0 F ») |
 | 7 | 17,9 à 22,4 s | Sur Un Peu Un Peu, chaque paiement est vérifié sans que personne ne regarde. | Carte de preuve : « DÉJÀ EN SERVICE », « 1Peu 1Peu », « Paiements Mobile Money vérifiés côté serveur. », pastilles « Cofondateur », « Toute l'API » |
 | 8 | 22,4 à 30 s | Écris APP sur WhatsApp, je te montre ce que ça donnerait pour ton business. | La carte devient la signature : Obafemi / Euloge / Agnoun, trait, « Applications web et mobiles, sur mesure. », « Écris APP sur WhatsApp » (APP en champagne), +229 01 96 25 66 94 |
