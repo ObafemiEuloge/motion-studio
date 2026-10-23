@@ -4,7 +4,7 @@ Rendu contrôlé : `renders/app-sur-mesure.mp4`, 30,0 s, 1080 × 1920, 30 i/s, H
 
 ## Texte
 - [x] `verifier_texte.py` sur `script.md`, `audio/voix.txt`, `publication.md`, `storyboard.md`, `index.html`, `compositions/*.html` : OK, aucun interdit.
-- [x] Faits : seul 1Peu 1Peu est cité (cofondateur, toute l'API, FastAPI, paiements Mobile Money), conforme à `brand/faits.md`. Aucun prix. EducaPro et Spyral absents. Montants (15 000 F, 186 000 F, 171 500 F), heures et numéros de commande : illustrations, signalées dans `script.md`.
+- [x] Faits : seul 1Peu 1Peu est cité (cofondateur, toute l'API, FastAPI, paiements Mobile Money), conforme à `brand/faits.md`. Aucun montant de vente affiché. EducaPro absent, aucun projet exclu par CLAUDE.md. Montants (15 000 F, 186 000 F, 171 500 F), heures et numéros de commande : illustrations, signalées dans `script.md`.
 - [x] Nom à l'écran : Obafemi / Euloge / Agnoun, trois lignes, 132 px, graisse 700 toutes les trois, comme l'ident v3 validé.
 - [x] Numéro WhatsApp à l'écran : +229 01 96 25 66 94 (vérifié sur l'image à 29,5 s).
 
@@ -23,7 +23,7 @@ Rendu contrôlé : `renders/app-sur-mesure.mp4`, 30,0 s, 1080 × 1920, 30 i/s, H
 
 ## Son
 - [x] Voix calée (écart ≤ 0,1 s entre le texte et son mot, `audio/voix.alignment.json`) : bulle 2 / « Tu connais » 2,75 / 2,72 ; titre / « Tu fouilles » 4,35 / 4,32 ; cahier 7,5 / 7,52 ; Mobile Money 8,95 / 9,0 ; ≠ / « autre » 9,82 / 9,84 ; tableau / « Une application » 12,3 / 12,32 ; notification / « Le client » 14,56 / 14,56 ; « Payé » / « payé » 17,2 / 17,2 ; « Toute seule » 17,89 / 17,89 ; « 1Peu 1Peu » / « Un Peu Un Peu » 19,12 / 19,12 ; « paiements » 21,7 / 21,68 ; WhatsApp / « Écris-moi » 27,02 / 27,04.
-- [ ] `npx hyperframes audio renders/app-sur-mesure.mp4 --json` : à remplir après le rendu.
+- [x] `npx hyperframes audio renders/app-sur-mesure.mp4 --json` : son présent, −14,2 LUFS intégrés, crête vraie −2,4 dBTP, aucun écrêtage. Silences détectés seulement de 10,5 à 12,33 s : la pause voulue autour de « Bon. » (musique coupée, puis rouverte sur « Une application »). La musique tient jusqu'à 30 s avec un fondu de 1,2 s (premier rendu refait : le lit précédent s'éteignait seul à 25 s).
 - [x] Bruitages seulement sur des actions visibles (bulles, défilement, chiffres qui s'arrêtent, cartes qui se posent, notification, « Payé », signature). Jamais deux fois le même fichier d'affilée (tic_a revient une fois, 12 s plus tard).
 
 ## Mesuré, pas écouté
