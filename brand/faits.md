@@ -13,6 +13,10 @@ Seuls ces faits peuvent apparaître dans une vidéo. Pour tout autre chiffre ou 
 ## Réalisations (comment en parler)
 
 - **Centime (mescentimes.cloud)** : son propre produit, en ligne depuis environ un an, version 2 déployée.
+  - Promesse (site) : « Chaque franc a un rôle. » Centime répartit chaque revenu dans des enveloppes et montre ce qu'on peut encore dépenser. Gratuit, en francs CFA.
+  - Fonctions visibles : enveloppes, répartition d'un revenu, ajout rapide d'une dépense, activité, analyses, objectifs d'épargne, accès protégé par code, administration.
+  - Forme : application web installable sur le téléphone (PWA), en français.
+  - Ne jamais montrer de vraies données personnelles : uniquement les captures de démonstration fournies par Oba.
 - **EducaPro** : plateforme de tutorat pour un client. Oba y a conçu le backend Django (paiements Mobile Money, cours en direct). Dire « pour un client », jamais « mon application ».
 - **1Peu 1Peu** : cofondateur, a écrit toute l'API (FastAPI) d'un service d'achat progressif. Chaque paiement Mobile Money est vérifié côté serveur et rapproché automatiquement.
 - **Mivo** : backend d'une plateforme de mise en relation géolocalisée, livré en 26 jours.
