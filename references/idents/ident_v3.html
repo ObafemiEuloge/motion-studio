@@ -1,0 +1,191 @@
+<!doctype html>
+<html lang="fr" data-resolution="portrait"
+  data-composition-variables='[
+  {"id":"color-ground","type":"color","label":"Fond","default":"#04060B"},
+  {"id":"color-ink","type":"color","label":"Texte","default":"#F5F3EE"},
+  {"id":"color-accent","type":"color","label":"Champagne","default":"#D9C6A3"}
+]'>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=1080, height=1920" />
+    <script src="assets/js/gsap.min.js"></script>
+    <style>
+      @font-face { font-family: "Plus Jakarta Sans"; font-weight: 500; src: url("assets/fonts/plus-jakarta-sans-latin-500-normal.woff2") format("woff2"); }
+      @font-face { font-family: "Plus Jakarta Sans"; font-weight: 600; src: url("assets/fonts/plus-jakarta-sans-latin-600-normal.woff2") format("woff2"); }
+      @font-face { font-family: "Plus Jakarta Sans"; font-weight: 700; src: url("assets/fonts/plus-jakarta-sans-latin-700-normal.woff2") format("woff2"); }
+      :root { --color-ground: #04060B; --color-ink: #F5F3EE; --color-accent: #D9C6A3; }
+      * { margin: 0; padding: 0; box-sizing: border-box; }
+      html, body { width: 1080px; height: 1920px; overflow: hidden; background: var(--color-ground); }
+      body { font-family: "Plus Jakarta Sans", sans-serif; color: var(--color-ink); }
+      #bg { position: absolute; inset: 0; background: var(--color-ground); }
+
+      /* Le monde : un plan d'interfaces incliné qui défile */
+      #world { position: absolute; inset: 0; perspective: 1700px; perspective-origin: 50% 30%; overflow: hidden; }
+      #plane {
+        position: absolute; left: -560px; top: -560px; width: 2200px; opacity: 0.62;
+        display: grid; grid-template-columns: repeat(6, 330px); gap: 34px;
+        -webkit-mask-image: radial-gradient(ellipse 70% 62% at 50% 50%, #000 45%, transparent 100%);
+                mask-image: radial-gradient(ellipse 70% 62% at 50% 50%, #000 45%, transparent 100%);
+      }
+      .card { height: 220px; border-radius: 26px; background: #0B111D; border: 1.5px solid rgba(255,255,255,0.07); padding: 26px 28px; }
+      .card .k { width: 46%; height: 12px; border-radius: 6px; background: rgba(255,255,255,0.14); }
+      .card .v { font-weight: 700; font-size: 46px; letter-spacing: -0.03em; margin-top: 22px; color: rgba(245,243,238,0.62); }
+      .card .v.a { color: var(--color-accent); }
+      .card .bars { display: flex; align-items: flex-end; gap: 10px; height: 54px; margin-top: 18px; }
+      .card .bars i { flex: 1; border-radius: 5px; background: rgba(255,255,255,0.10); }
+      .card .bars i.a { background: rgba(217,198,163,0.75); }
+
+      /* Le titre d'ouverture */
+      #open { position: absolute; left: 90px; top: 300px; }
+      .mask { overflow: hidden; padding: 6px 0 10px; margin-bottom: -12px; }
+      .mask > .in { display: block; }
+      .h { font-weight: 700; font-size: 124px; letter-spacing: -0.045em; line-height: 1.02; text-shadow: 0 0 50px rgba(4,6,11,0.95), 0 0 18px rgba(4,6,11,0.9); }
+      .acc { color: var(--color-accent); }
+
+      /* La carte de verre */
+      #glass {
+        position: absolute; left: 70px; top: 500px; width: 940px; height: 960px; border-radius: 64px; overflow: hidden;
+        background: rgba(255,255,255,0.055);
+        -webkit-backdrop-filter: blur(34px) saturate(150%); backdrop-filter: blur(34px) saturate(150%);
+        border: 1.5px solid rgba(255,255,255,0.16);
+        box-shadow: inset 0 1.5px 0 rgba(255,255,255,0.28), 0 50px 140px rgba(0,0,0,0.6);
+      }
+      #sheen { position: absolute; top: -20%; left: 0; width: 34%; height: 140%;
+        background: linear-gradient(100deg, rgba(255,255,255,0) 0%, rgba(255,255,255,0.10) 50%, rgba(255,255,255,0) 100%); }
+      #gin { position: absolute; left: 80px; top: 92px; right: 80px; }
+      .eyebrow { font-weight: 600; font-size: 30px; letter-spacing: 0.22em; text-transform: uppercase; color: rgba(245,243,238,0.55); }
+      .name { font-weight: 700; font-size: 132px; letter-spacing: -0.05em; line-height: 0.98; }
+      #rule { height: 2px; background: rgba(255,255,255,0.16); margin-top: 58px; transform-origin: 0 50%; }
+      #tag { font-weight: 500; font-size: 40px; color: rgba(245,243,238,0.78); letter-spacing: -0.01em; }
+      #tagmask { margin-top: 40px; }
+      #chips { display: flex; gap: 18px; margin-top: 56px; }
+      .chip { padding: 20px 34px; border-radius: 999px; font-weight: 600; font-size: 32px; letter-spacing: -0.01em;
+        background: rgba(255,255,255,0.07); border: 1.5px solid rgba(255,255,255,0.14); box-shadow: inset 0 1px 0 rgba(255,255,255,0.22); }
+      .chip .d { display: inline-block; width: 12px; height: 12px; border-radius: 50%; background: var(--color-accent); margin-right: 14px; vertical-align: middle; }
+    </style>
+  </head>
+  <body>
+    <div id="root" data-composition-id="main" data-start="0" data-duration="8" data-width="1080" data-height="1920">
+      <div id="bg" class="clip" data-start="0" data-duration="8" data-track-index="0"></div>
+
+      <div id="world" class="clip" data-start="0" data-duration="8" data-track-index="1" data-layout-allow-overflow>
+        <div id="plane">
+          <div class="card"><div class="k"></div><div class="v">12 480 F</div><div class="bars"><i style="height:40%"></i><i style="height:65%"></i><i style="height:52%"></i><i class="a" style="height:90%"></i><i style="height:70%"></i></div></div>
+          <div class="card"><div class="k"></div><div class="v a">+38 %</div><div class="bars"><i style="height:30%"></i><i style="height:45%"></i><i style="height:60%"></i><i style="height:72%"></i><i class="a" style="height:96%"></i></div></div>
+          <div class="card"><div class="k"></div><div class="v">1 204</div><div class="bars"><i style="height:62%"></i><i style="height:48%"></i><i style="height:80%"></i><i style="height:58%"></i><i style="height:66%"></i></div></div>
+          <div class="card"><div class="k"></div><div class="v">99,9 %</div><div class="bars"><i style="height:88%"></i><i style="height:92%"></i><i style="height:90%"></i><i style="height:94%"></i><i style="height:91%"></i></div></div>
+          <div class="card"><div class="k"></div><div class="v">326</div><div class="bars"><i style="height:20%"></i><i style="height:34%"></i><i class="a" style="height:58%"></i><i style="height:44%"></i><i style="height:50%"></i></div></div>
+          <div class="card"><div class="k"></div><div class="v">48 ms</div><div class="bars"><i style="height:70%"></i><i style="height:55%"></i><i style="height:42%"></i><i style="height:38%"></i><i style="height:30%"></i></div></div>
+          <div class="card"><div class="k"></div><div class="v">7 j</div><div class="bars"><i style="height:50%"></i><i style="height:60%"></i><i style="height:45%"></i><i style="height:75%"></i><i style="height:68%"></i></div></div>
+          <div class="card"><div class="k"></div><div class="v a">Payé</div><div class="bars"><i style="height:35%"></i><i class="a" style="height:85%"></i><i style="height:40%"></i><i style="height:55%"></i><i style="height:47%"></i></div></div>
+          <div class="card"><div class="k"></div><div class="v">3 120</div><div class="bars"><i style="height:44%"></i><i style="height:58%"></i><i style="height:66%"></i><i style="height:52%"></i><i style="height:74%"></i></div></div>
+          <div class="card"><div class="k"></div><div class="v">24/7</div><div class="bars"><i style="height:80%"></i><i style="height:80%"></i><i style="height:80%"></i><i style="height:80%"></i><i style="height:80%"></i></div></div>
+          <div class="card"><div class="k"></div><div class="v">86 000 F</div><div class="bars"><i style="height:25%"></i><i style="height:40%"></i><i style="height:62%"></i><i class="a" style="height:88%"></i><i style="height:60%"></i></div></div>
+          <div class="card"><div class="k"></div><div class="v">12</div><div class="bars"><i style="height:66%"></i><i style="height:36%"></i><i style="height:52%"></i><i style="height:44%"></i><i style="height:58%"></i></div></div>
+          <div class="card"><div class="k"></div><div class="v">640</div><div class="bars"><i style="height:52%"></i><i style="height:64%"></i><i style="height:48%"></i><i style="height:70%"></i><i style="height:62%"></i></div></div>
+          <div class="card"><div class="k"></div><div class="v a">En ligne</div><div class="bars"><i style="height:60%"></i><i style="height:60%"></i><i class="a" style="height:60%"></i><i style="height:60%"></i><i style="height:60%"></i></div></div>
+          <div class="card"><div class="k"></div><div class="v">5 410</div><div class="bars"><i style="height:30%"></i><i style="height:52%"></i><i style="height:46%"></i><i style="height:68%"></i><i style="height:84%"></i></div></div>
+          <div class="card"><div class="k"></div><div class="v">+12</div><div class="bars"><i style="height:40%"></i><i style="height:42%"></i><i style="height:56%"></i><i style="height:50%"></i><i style="height:62%"></i></div></div>
+          <div class="card"><div class="k"></div><div class="v">2,1 s</div><div class="bars"><i style="height:72%"></i><i style="height:60%"></i><i style="height:50%"></i><i style="height:40%"></i><i style="height:34%"></i></div></div>
+          <div class="card"><div class="k"></div><div class="v">18 900 F</div><div class="bars"><i style="height:48%"></i><i class="a" style="height:78%"></i><i style="height:52%"></i><i style="height:60%"></i><i style="height:57%"></i></div></div>
+          <div class="card"><div class="k"></div><div class="v">412</div><div class="bars"><i style="height:58%"></i><i style="height:46%"></i><i style="height:64%"></i><i style="height:52%"></i><i style="height:70%"></i></div></div>
+          <div class="card"><div class="k"></div><div class="v">97 %</div><div class="bars"><i style="height:84%"></i><i style="height:90%"></i><i style="height:86%"></i><i style="height:94%"></i><i style="height:97%"></i></div></div>
+          <div class="card"><div class="k"></div><div class="v a">Livré</div><div class="bars"><i style="height:44%"></i><i style="height:52%"></i><i style="height:60%"></i><i style="height:68%"></i><i class="a" style="height:92%"></i></div></div>
+          <div class="card"><div class="k"></div><div class="v">8</div><div class="bars"><i style="height:30%"></i><i style="height:60%"></i><i style="height:40%"></i><i style="height:70%"></i><i style="height:50%"></i></div></div>
+          <div class="card"><div class="k"></div><div class="v">1 980</div><div class="bars"><i style="height:62%"></i><i style="height:54%"></i><i style="height:70%"></i><i style="height:58%"></i><i style="height:76%"></i></div></div>
+          <div class="card"><div class="k"></div><div class="v">0 bug</div><div class="bars"><i style="height:20%"></i><i style="height:14%"></i><i style="height:10%"></i><i style="height:6%"></i><i style="height:4%"></i></div></div>
+          <div class="card"><div class="k"></div><div class="v">74 %</div><div class="bars"><i style="height:50%"></i><i style="height:62%"></i><i style="height:58%"></i><i style="height:72%"></i><i style="height:74%"></i></div></div>
+          <div class="card"><div class="k"></div><div class="v">230</div><div class="bars"><i style="height:36%"></i><i style="height:48%"></i><i style="height:42%"></i><i style="height:56%"></i><i style="height:50%"></i></div></div>
+          <div class="card"><div class="k"></div><div class="v a">+1</div><div class="bars"><i style="height:40%"></i><i style="height:50%"></i><i class="a" style="height:80%"></i><i style="height:45%"></i><i style="height:55%"></i></div></div>
+          <div class="card"><div class="k"></div><div class="v">6 h</div><div class="bars"><i style="height:66%"></i><i style="height:58%"></i><i style="height:62%"></i><i style="height:54%"></i><i style="height:60%"></i></div></div>
+          <div class="card"><div class="k"></div><div class="v">15 300 F</div><div class="bars"><i style="height:42%"></i><i style="height:56%"></i><i style="height:64%"></i><i style="height:72%"></i><i style="height:80%"></i></div></div>
+          <div class="card"><div class="k"></div><div class="v">540</div><div class="bars"><i style="height:52%"></i><i style="height:40%"></i><i style="height:60%"></i><i style="height:48%"></i><i style="height:66%"></i></div></div>
+          <div class="card"><div class="k"></div><div class="v">3</div><div class="bars"><i style="height:60%"></i><i style="height:30%"></i><i style="height:45%"></i><i style="height:70%"></i><i style="height:40%"></i></div></div>
+          <div class="card"><div class="k"></div><div class="v">92 %</div><div class="bars"><i style="height:80%"></i><i style="height:86%"></i><i style="height:82%"></i><i style="height:90%"></i><i style="height:92%"></i></div></div>
+          <div class="card"><div class="k"></div><div class="v a">Validé</div><div class="bars"><i style="height:50%"></i><i class="a" style="height:70%"></i><i style="height:50%"></i><i style="height:60%"></i><i style="height:55%"></i></div></div>
+          <div class="card"><div class="k"></div><div class="v">2 760</div><div class="bars"><i style="height:44%"></i><i style="height:60%"></i><i style="height:52%"></i><i style="height:66%"></i><i style="height:58%"></i></div></div>
+          <div class="card"><div class="k"></div><div class="v">11 ms</div><div class="bars"><i style="height:30%"></i><i style="height:26%"></i><i style="height:22%"></i><i style="height:20%"></i><i style="height:18%"></i></div></div>
+          <div class="card"><div class="k"></div><div class="v">460</div><div class="bars"><i style="height:56%"></i><i style="height:62%"></i><i style="height:48%"></i><i style="height:70%"></i><i style="height:64%"></i></div></div>
+        
+          <div class="card"><div class="k"></div><div class="v">12 480 F</div><div class="bars"><i style="height:40%"></i><i style="height:65%"></i><i style="height:52%"></i><i class="a" style="height:90%"></i><i style="height:70%"></i></div></div>
+          <div class="card"><div class="k"></div><div class="v">+38 %</div><div class="bars"><i style="height:30%"></i><i style="height:45%"></i><i style="height:60%"></i><i style="height:72%"></i><i class="a" style="height:96%"></i></div></div>
+          <div class="card"><div class="k"></div><div class="v">1 204</div><div class="bars"><i style="height:62%"></i><i style="height:48%"></i><i style="height:80%"></i><i style="height:58%"></i><i style="height:66%"></i></div></div>
+          <div class="card"><div class="k"></div><div class="v">99,9 %</div><div class="bars"><i style="height:88%"></i><i style="height:92%"></i><i style="height:90%"></i><i style="height:94%"></i><i style="height:91%"></i></div></div>
+          <div class="card"><div class="k"></div><div class="v">326</div><div class="bars"><i style="height:20%"></i><i style="height:34%"></i><i class="a" style="height:58%"></i><i style="height:44%"></i><i style="height:50%"></i></div></div>
+          <div class="card"><div class="k"></div><div class="v">48 ms</div><div class="bars"><i style="height:70%"></i><i style="height:55%"></i><i style="height:42%"></i><i style="height:38%"></i><i style="height:30%"></i></div></div>
+          <div class="card"><div class="k"></div><div class="v">7 j</div><div class="bars"><i style="height:50%"></i><i style="height:60%"></i><i style="height:45%"></i><i style="height:75%"></i><i style="height:68%"></i></div></div>
+          <div class="card"><div class="k"></div><div class="v">Payé</div><div class="bars"><i style="height:35%"></i><i class="a" style="height:85%"></i><i style="height:40%"></i><i style="height:55%"></i><i style="height:47%"></i></div></div>
+          <div class="card"><div class="k"></div><div class="v">3 120</div><div class="bars"><i style="height:44%"></i><i style="height:58%"></i><i style="height:66%"></i><i style="height:52%"></i><i style="height:74%"></i></div></div>
+          <div class="card"><div class="k"></div><div class="v">24/7</div><div class="bars"><i style="height:80%"></i><i style="height:80%"></i><i style="height:80%"></i><i style="height:80%"></i><i style="height:80%"></i></div></div>
+          <div class="card"><div class="k"></div><div class="v">86 000 F</div><div class="bars"><i style="height:25%"></i><i style="height:40%"></i><i style="height:62%"></i><i class="a" style="height:88%"></i><i style="height:60%"></i></div></div>
+          <div class="card"><div class="k"></div><div class="v">12</div><div class="bars"><i style="height:66%"></i><i style="height:36%"></i><i style="height:52%"></i><i style="height:44%"></i><i style="height:58%"></i></div></div>
+          <div class="card"><div class="k"></div><div class="v">640</div><div class="bars"><i style="height:52%"></i><i style="height:64%"></i><i style="height:48%"></i><i style="height:70%"></i><i style="height:62%"></i></div></div>
+          <div class="card"><div class="k"></div><div class="v">En ligne</div><div class="bars"><i style="height:60%"></i><i style="height:60%"></i><i class="a" style="height:60%"></i><i style="height:60%"></i><i style="height:60%"></i></div></div>
+          <div class="card"><div class="k"></div><div class="v">5 410</div><div class="bars"><i style="height:30%"></i><i style="height:52%"></i><i style="height:46%"></i><i style="height:68%"></i><i style="height:84%"></i></div></div>
+          <div class="card"><div class="k"></div><div class="v">+12</div><div class="bars"><i style="height:40%"></i><i style="height:42%"></i><i style="height:56%"></i><i style="height:50%"></i><i style="height:62%"></i></div></div>
+          <div class="card"><div class="k"></div><div class="v">2,1 s</div><div class="bars"><i style="height:72%"></i><i style="height:60%"></i><i style="height:50%"></i><i style="height:40%"></i><i style="height:34%"></i></div></div>
+          <div class="card"><div class="k"></div><div class="v">18 900 F</div><div class="bars"><i style="height:48%"></i><i class="a" style="height:78%"></i><i style="height:52%"></i><i style="height:60%"></i><i style="height:57%"></i></div></div>
+          <div class="card"><div class="k"></div><div class="v">412</div><div class="bars"><i style="height:58%"></i><i style="height:46%"></i><i style="height:64%"></i><i style="height:52%"></i><i style="height:70%"></i></div></div>
+          <div class="card"><div class="k"></div><div class="v">97 %</div><div class="bars"><i style="height:84%"></i><i style="height:90%"></i><i style="height:86%"></i><i style="height:94%"></i><i style="height:97%"></i></div></div>
+          <div class="card"><div class="k"></div><div class="v a">Livré</div><div class="bars"><i style="height:44%"></i><i style="height:52%"></i><i style="height:60%"></i><i style="height:68%"></i><i class="a" style="height:92%"></i></div></div>
+          <div class="card"><div class="k"></div><div class="v">8</div><div class="bars"><i style="height:30%"></i><i style="height:60%"></i><i style="height:40%"></i><i style="height:70%"></i><i style="height:50%"></i></div></div>
+          <div class="card"><div class="k"></div><div class="v">1 980</div><div class="bars"><i style="height:62%"></i><i style="height:54%"></i><i style="height:70%"></i><i style="height:58%"></i><i style="height:76%"></i></div></div>
+          <div class="card"><div class="k"></div><div class="v">0 bug</div><div class="bars"><i style="height:20%"></i><i style="height:14%"></i><i style="height:10%"></i><i style="height:6%"></i><i style="height:4%"></i></div></div>
+          <div class="card"><div class="k"></div><div class="v">74 %</div><div class="bars"><i style="height:50%"></i><i style="height:62%"></i><i style="height:58%"></i><i style="height:72%"></i><i style="height:74%"></i></div></div>
+          <div class="card"><div class="k"></div><div class="v">230</div><div class="bars"><i style="height:36%"></i><i style="height:48%"></i><i style="height:42%"></i><i style="height:56%"></i><i style="height:50%"></i></div></div>
+          <div class="card"><div class="k"></div><div class="v a">+1</div><div class="bars"><i style="height:40%"></i><i style="height:50%"></i><i class="a" style="height:80%"></i><i style="height:45%"></i><i style="height:55%"></i></div></div>
+          <div class="card"><div class="k"></div><div class="v">6 h</div><div class="bars"><i style="height:66%"></i><i style="height:58%"></i><i style="height:62%"></i><i style="height:54%"></i><i style="height:60%"></i></div></div>
+          <div class="card"><div class="k"></div><div class="v">15 300 F</div><div class="bars"><i style="height:42%"></i><i style="height:56%"></i><i style="height:64%"></i><i style="height:72%"></i><i style="height:80%"></i></div></div>
+          <div class="card"><div class="k"></div><div class="v">540</div><div class="bars"><i style="height:52%"></i><i style="height:40%"></i><i style="height:60%"></i><i style="height:48%"></i><i style="height:66%"></i></div></div>
+          <div class="card"><div class="k"></div><div class="v">3</div><div class="bars"><i style="height:60%"></i><i style="height:30%"></i><i style="height:45%"></i><i style="height:70%"></i><i style="height:40%"></i></div></div>
+          <div class="card"><div class="k"></div><div class="v">92 %</div><div class="bars"><i style="height:80%"></i><i style="height:86%"></i><i style="height:82%"></i><i style="height:90%"></i><i style="height:92%"></i></div></div>
+          <div class="card"><div class="k"></div><div class="v a">Validé</div><div class="bars"><i style="height:50%"></i><i class="a" style="height:70%"></i><i style="height:50%"></i><i style="height:60%"></i><i style="height:55%"></i></div></div>
+          <div class="card"><div class="k"></div><div class="v">2 760</div><div class="bars"><i style="height:44%"></i><i style="height:60%"></i><i style="height:52%"></i><i style="height:66%"></i><i style="height:58%"></i></div></div>
+          <div class="card"><div class="k"></div><div class="v">11 ms</div><div class="bars"><i style="height:30%"></i><i style="height:26%"></i><i style="height:22%"></i><i style="height:20%"></i><i style="height:18%"></i></div></div>
+          <div class="card"><div class="k"></div><div class="v">460</div><div class="bars"><i style="height:56%"></i><i style="height:62%"></i><i style="height:48%"></i><i style="height:70%"></i><i style="height:64%"></i></div></div>
+        </div>
+      </div>
+
+      <div id="open" class="clip" data-start="0" data-duration="2.5" data-track-index="2">
+        <div class="mask"><span class="in h" id="o1">Une application</span></div>
+        <div class="mask"><span class="in h" id="o2">à ta <span class="acc">mesure.</span></span></div>
+      </div>
+
+      <div id="glass" class="clip" data-start="2" data-duration="6" data-track-index="3">
+        <div id="sheen"></div>
+        <div id="gin">
+          <div class="mask"><span class="in eyebrow" id="eb">Développeur · Cotonou</span></div>
+          <div style="height:40px"></div>
+          <div class="mask"><span class="in name" id="n1">Obafemi</span></div>
+          <div class="mask"><span class="in name" id="n2">Euloge</span></div>
+          <div class="mask"><span class="in name" id="n3">Agnoun<span class="acc">.</span></span></div>
+          <div id="rule"></div>
+          <div class="mask" id="tagmask"><span class="in" id="tag">Applications web et mobiles, sur mesure.</span></div>
+          <div id="chips"><span class="chip" id="c1"><span class="d"></span>Web</span><span class="chip" id="c2"><span class="d"></span>Mobile</span><span class="chip" id="c3"><span class="d"></span>Back-office</span></div>
+        </div>
+      </div>
+    </div>
+    <script>
+      const tl = gsap.timeline({ paused: true });
+      // Le plan d'interfaces : incliné en 3D, il défile à vitesse constante tout le film
+      tl.fromTo("#plane", { rotationX: 56, rotationZ: -20, y: 0, transformOrigin: "50% 50%" }, { rotationX: 56, rotationZ: -20, y: -360, duration: 8, ease: "none" }, 0);
+      // Ouverture : la première ligne est déjà là à l'image 0, la seconde monte
+      tl.fromTo("#o1", { yPercent: 0 }, { yPercent: 0, duration: 0.01 }, 0);
+      tl.fromTo("#o2", { yPercent: 110 }, { yPercent: 0, duration: 0.8, ease: "expo.out" }, 0.25);
+      tl.to(["#o1", "#o2"], { yPercent: -112, duration: 0.36, ease: "power3.in", stagger: 0.05 }, 1.95);
+      tl.to(["#o1", "#o2"], { opacity: 0, duration: 0.05 }, 2.3);
+      // La carte de verre monte et se pose
+      tl.fromTo("#glass", { y: 1250 }, { y: 0, duration: 1.15, ease: "expo.out" }, 2.0);
+      tl.fromTo("#eb", { yPercent: 110 }, { yPercent: 0, duration: 0.7, ease: "expo.out" }, 2.55);
+      tl.fromTo(["#n1", "#n2", "#n3"], { yPercent: 110 }, { yPercent: 0, duration: 0.85, ease: "expo.out", stagger: 0.08 }, 2.65);
+      tl.fromTo("#rule", { scaleX: 0 }, { scaleX: 1, duration: 0.8, ease: "expo.out" }, 3.35);
+      tl.fromTo("#tag", { yPercent: 110 }, { yPercent: 0, duration: 0.7, ease: "expo.out" }, 3.5);
+      tl.fromTo(["#c1", "#c2", "#c3"], { y: 26, opacity: 0 }, { y: 0, opacity: 1, duration: 0.6, ease: "expo.out", stagger: 0.07 }, 4.05);
+      // Un seul reflet traverse le verre
+      tl.fromTo("#sheen", { xPercent: -140 }, { xPercent: 360, duration: 1.3, ease: "power2.inOut" }, 4.6);
+      window.__timelines = window.__timelines || {};
+      window.__timelines["main"] = tl;
+      tl.seek(0);
+    </script>
+  </body>
+</html>

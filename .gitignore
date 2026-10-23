@@ -1,0 +1,6 @@
+renders/
+*.mp4
+!references/**/*.mp4
+node_modules/
+.hyperframes/
+__pycache__/
