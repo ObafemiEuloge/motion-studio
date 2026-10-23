@@ -1,0 +1,45 @@
+<template>
+  <style>
+    #root { position: absolute; inset: 0; }
+    #a-plan { position: absolute; left: 0; top: 0; }
+    .g { fill: none; stroke: rgba(245,243,238,0.11); stroke-width: 1.5; }
+    .g.tiret { stroke-dasharray: 6 10; stroke: rgba(245,243,238,0.08); }
+    .rep { fill: none; stroke: rgba(245,243,238,0.42); stroke-width: 2; stroke-linecap: square; }
+    .croix { fill: none; stroke: rgba(245,243,238,0.3); stroke-width: 1.5; }
+  </style>
+  <div id="root" data-composition-id="atelier" data-width="1080" data-height="1920">
+    <svg id="a-plan" width="1080" height="1920" viewBox="0 0 1080 1920" data-layout-ignore>
+      <g id="a-guides">
+        <path class="g" pathLength="1" d="M80 0 V1920" />
+        <path class="g" pathLength="1" d="M1000 0 V1920" />
+        <path class="g tiret" d="M540 0 V1920" />
+        <path class="g" pathLength="1" d="M0 168 H1080" />
+        <path class="g" pathLength="1" d="M0 1330 H1080" />
+        <path class="g" pathLength="1" d="M0 790 H1080" />
+        <path class="g tiret" d="M0 1660 H1080" />
+        <path class="g tiret" d="M300 0 V1920" />
+        <path class="g tiret" d="M780 0 V1920" />
+      </g>
+      <g id="a-reperes">
+        <path class="rep" d="M56 168 H80 V144 M1024 168 H1000 V144 M56 1330 H80 V1354 M1024 1330 H1000 V1354" />
+        <path class="croix" d="M532 790 H548 M540 782 V798 M292 1660 H308 M300 1652 V1668 M772 1660 H788 M780 1652 V1668 M292 790 H308 M300 782 V798 M772 790 H788 M780 782 V798" />
+        <circle class="croix" cx="540" cy="790" r="16" />
+      </g>
+    </svg>
+  </div>
+  <script>
+    (function () {
+      const tl = gsap.timeline({ paused: true });
+      const traits = gsap.utils.toArray("#a-guides path[pathLength]");
+      tl.fromTo("#a-plan", { opacity: 1 }, { opacity: 1, duration: 0.01 }, 0);
+      tl.fromTo(traits, { strokeDasharray: "1 1", strokeDashoffset: 0 }, { strokeDasharray: "1 1", strokeDashoffset: 0, duration: 0.01 }, 0);
+      // L'application quitte l'atelier pour le mur
+      tl.fromTo("#a-plan", { opacity: 1 }, { immediateRender: false, opacity: 0, duration: 0.6, ease: "power1.inOut" }, 4.2);
+      // « Le soin » : l'atelier revient, ses traits se retracent
+      tl.fromTo(traits, { strokeDashoffset: 1 }, { immediateRender: false, strokeDashoffset: 0, duration: 0.9, ease: "power2.inOut", stagger: 0.04 }, 15.2);
+      tl.fromTo("#a-plan", { opacity: 0 }, { immediateRender: false, opacity: 1, duration: 0.4, ease: "power1.out" }, 15.2);
+      tl.fromTo("#a-plan", { opacity: 1 }, { immediateRender: false, opacity: 0, duration: 0.6, ease: "power1.inOut" }, 18.3);
+      window.__timelines["atelier"] = tl;
+    })();
+  </script>
+</template>

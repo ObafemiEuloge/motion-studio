@@ -1,0 +1,99 @@
+<template>
+  <style>
+    @font-face { font-family: "Plus Jakarta Sans"; font-weight: 500; src: url("assets/fonts/plus-jakarta-sans-latin-500-normal.woff2") format("woff2"); }
+    @font-face { font-family: "Plus Jakarta Sans"; font-weight: 600; src: url("assets/fonts/plus-jakarta-sans-latin-600-normal.woff2") format("woff2"); }
+    @font-face { font-family: "Plus Jakarta Sans"; font-weight: 700; src: url("assets/fonts/plus-jakarta-sans-latin-700-normal.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; font-family: "Plus Jakarta Sans", sans-serif; color: #F5F3EE; }
+    .mask { overflow: hidden; padding: 6px 0 16px; margin-bottom: -18px; }
+    .mask > .in { display: block; }
+    .acc { color: #D9C6A3; }
+    .ombre { text-shadow: 0 0 50px rgba(4,6,11,0.95), 0 0 18px rgba(4,6,11,0.9); }
+    #s-titre { position: absolute; left: 80px; top: 236px; }
+    .l-titre { font-weight: 700; font-size: 72px; letter-spacing: -0.045em; line-height: 1.04; white-space: nowrap; }
+    .tel { position: absolute; top: 548px; width: 354px; height: 738px; border-radius: 56px; }
+    #s-tel-a { left: 98px; background: #15171C; border: 1.5px solid rgba(255,255,255,0.18); padding: 12px; box-shadow: 0 50px 140px rgba(0,0,0,0.6); }
+    #s-tel-a .ecran { width: 100%; height: 100%; border-radius: 44px; overflow: hidden; background: #FFFFFF; }
+    #s-tel-a img { display: block; width: 100%; height: 100%; object-fit: cover; }
+    #s-tel-b { left: 628px; }
+    #s-tel-b svg { position: absolute; left: 0; top: 0; overflow: visible; }
+    #s-ton { position: absolute; left: 0; right: 0; top: 330px; text-align: center; font-weight: 700; font-size: 44px; letter-spacing: -0.02em; line-height: 1.1; }
+    #s-reperes { position: absolute; left: 0; top: 0; overflow: visible; }
+    .r { fill: none; stroke: rgba(245,243,238,0.75); stroke-width: 1.8; stroke-linecap: round; }
+    .r.tiret { stroke-dasharray: 5 7; stroke: rgba(245,243,238,0.45); }
+    .pt { fill: #F5F3EE; }
+  </style>
+  <div id="root" data-composition-id="soin" data-width="1080" data-height="1920">
+    <div id="s-titre" class="ombre">
+      <div class="mask"><span class="in l-titre" id="s-1">Le soin que je mets</span></div>
+      <div class="mask"><span class="in l-titre" id="s-2">dans mes produits,</span></div>
+      <div class="mask"><span class="in l-titre" id="s-3">je le mets dans <span class="acc">le tien.</span></span></div>
+    </div>
+
+    <div id="s-tel-a" class="tel"><div class="ecran"><img src="assets/media/ecran-app-accueil.jpg" alt="" /></div></div>
+    <div id="s-tel-b" class="tel">
+      <svg width="354" height="738" viewBox="0 0 354 738">
+        <rect id="s-contour" x="0.75" y="0.75" width="352.5" height="736.5" rx="56" fill="rgba(255,255,255,0.03)" stroke="#F5F3EE" stroke-width="2.5" pathLength="1" />
+        <rect id="s-ilot" x="127" y="24" width="100" height="28" rx="14" fill="none" stroke="rgba(245,243,238,0.6)" stroke-width="2" pathLength="1" />
+      </svg>
+      <div id="s-ton" class="mask"><span class="in" id="s-ton-t">Ton<br />application</span></div>
+    </div>
+
+    <!-- Les repères de précision : posés sur Centime, puis transportés sur ton application -->
+    <svg id="s-reperes" width="1080" height="1920" viewBox="0 0 1080 1920" data-layout-ignore>
+      <g id="s-rep-a">
+        <path class="r" pathLength="1" d="M98 640 V604 A56 56 0 0 1 154 548 H190" />
+        <circle class="pt" cx="114" cy="564" r="4.5" />
+        <path class="r tiret" pathLength="1" d="M128 500 V1336" />
+        <path class="r tiret" pathLength="1" d="M60 846 H500" />
+        <path class="r" pathLength="1" d="M482 732 V761 M474 732 H490 M474 761 H490" />
+        <path class="r tiret" pathLength="1" d="M440 732 H474 M440 761 H474" />
+        <path class="r" pathLength="1" d="M70 1300 H480 M70 1292 V1308 M480 1292 V1308" />
+        <path class="r" pathLength="1" d="M128 606 m-14 0 h28 m-14 -14 v28" />
+      </g>
+      <g id="s-rep-b">
+        <path class="r" pathLength="1" d="M98 640 V604 A56 56 0 0 1 154 548 H190" />
+        <circle class="pt" cx="114" cy="564" r="4.5" />
+        <path class="r tiret" pathLength="1" d="M128 500 V1336" />
+        <path class="r tiret" pathLength="1" d="M60 846 H500" />
+        <path class="r" pathLength="1" d="M482 732 V761 M474 732 H490 M474 761 H490" />
+        <path class="r tiret" pathLength="1" d="M440 732 H474 M440 761 H474" />
+        <path class="r" pathLength="1" d="M70 1300 H480 M70 1292 V1308 M480 1292 V1308" />
+        <path class="r" pathLength="1" d="M128 606 m-14 0 h28 m-14 -14 v28" />
+      </g>
+    </svg>
+  </div>
+  <script>
+    (function () {
+      const tl = gsap.timeline({ paused: true });
+      const repA = gsap.utils.toArray("#s-rep-a path");
+      tl.fromTo(["#s-1", "#s-2", "#s-3"], { yPercent: 130 }, { yPercent: 130, duration: 0.01 }, 0);
+      tl.fromTo("#s-tel-a", { y: 90, opacity: 0 }, { y: 90, opacity: 0, duration: 0.01 }, 0);
+      tl.fromTo(repA, { strokeDasharray: "1 1", strokeDashoffset: 1 }, { strokeDasharray: "1 1", strokeDashoffset: 1, duration: 0.01 }, 0);
+      tl.fromTo("#s-rep-a circle", { opacity: 0 }, { opacity: 0, duration: 0.01 }, 0);
+      tl.fromTo("#s-rep-b", { x: 0, opacity: 0 }, { x: 0, opacity: 0, duration: 0.01 }, 0);
+      tl.fromTo(["#s-contour", "#s-ilot"], { strokeDasharray: "1 1", strokeDashoffset: 1 }, { strokeDasharray: "1 1", strokeDashoffset: 1, duration: 0.01 }, 0);
+      tl.fromTo("#s-contour", { fillOpacity: 0 }, { fillOpacity: 0, duration: 0.01 }, 0);
+      tl.fromTo("#s-ton-t", { yPercent: 130 }, { yPercent: 130, duration: 0.01 }, 0);
+
+      // « Le soin que je mets dans mes produits »
+      tl.fromTo(["#s-1", "#s-2"], { yPercent: 130 }, { immediateRender: false, yPercent: 0, duration: 0.8, ease: "expo.out", stagger: 0.08 }, 0.27);
+      tl.fromTo("#s-tel-a", { y: 90, opacity: 0 }, { immediateRender: false, y: 0, opacity: 1, duration: 0.8, ease: "expo.out" }, 0.1);
+      tl.fromTo(repA, { strokeDashoffset: 1 }, { immediateRender: false, strokeDashoffset: 0, duration: 0.45, ease: "power2.inOut", stagger: 0.13 }, 0.45);
+      tl.fromTo("#s-rep-a circle", { opacity: 0 }, { immediateRender: false, opacity: 1, duration: 0.2 }, 0.75);
+      // « je le mets dans le tien » : un téléphone vide reçoit les mêmes repères
+      tl.fromTo(["#s-contour", "#s-ilot"], { strokeDashoffset: 1 }, { immediateRender: false, strokeDashoffset: 0, duration: 0.55, ease: "power2.inOut", stagger: 0.1 }, 1.9);
+      tl.fromTo("#s-contour", { fillOpacity: 0 }, { immediateRender: false, fillOpacity: 1, duration: 0.4 }, 2.2);
+      tl.fromTo("#s-3", { yPercent: 130 }, { immediateRender: false, yPercent: 0, duration: 0.8, ease: "expo.out" }, 1.99);
+      tl.fromTo("#s-rep-b", { opacity: 0 }, { immediateRender: false, opacity: 1, duration: 0.1 }, 2.0);
+      tl.fromTo("#s-rep-b", { x: 0 }, { immediateRender: false, x: 530, duration: 0.65, ease: "power3.inOut" }, 2.0);
+      tl.fromTo("#s-ton-t", { yPercent: 130 }, { immediateRender: false, yPercent: 0, duration: 0.7, ease: "expo.out" }, 2.3);
+
+      // « Écris » : le reste part, le contour de ton application s'ouvre en carte
+      tl.fromTo(["#s-1", "#s-2", "#s-3"], { yPercent: 0 }, { immediateRender: false, yPercent: -135, duration: 0.35, ease: "power3.in", stagger: 0.04 }, 3.15);
+      tl.fromTo(["#s-tel-a", "#s-rep-a", "#s-rep-b"], { opacity: 1 }, { immediateRender: false, opacity: 0, duration: 0.3, ease: "power1.in" }, 3.0);
+      tl.fromTo("#s-tel-a", { y: 0 }, { immediateRender: false, y: -40, duration: 0.3, ease: "power1.in" }, 3.0);
+      tl.fromTo("#s-tel-b", { opacity: 1 }, { immediateRender: false, opacity: 0, duration: 0.25 }, 3.1);
+      window.__timelines["soin"] = tl;
+    })();
+  </script>
+</template>

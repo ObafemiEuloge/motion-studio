@@ -1,0 +1,470 @@
+{
+ "modele": "eleven_v4",
+ "voice_id": "cEjGxRhK5rId1bacJPJr",
+ "mots": [
+  {
+   "mot": "Avant",
+   "debut": 0.0,
+   "fin": 0.24
+  },
+  {
+   "mot": "de",
+   "debut": 0.32,
+   "fin": 0.4
+  },
+  {
+   "mot": "construire",
+   "debut": 0.48,
+   "fin": 0.8
+  },
+  {
+   "mot": "ton",
+   "debut": 0.88,
+   "fin": 0.96
+  },
+  {
+   "mot": "application...",
+   "debut": 1.28,
+   "fin": 1.917
+  },
+  {
+   "mot": "j'ai",
+   "debut": 1.998,
+   "fin": 2.157
+  },
+  {
+   "mot": "construit",
+   "debut": 2.237,
+   "fin": 2.478
+  },
+  {
+   "mot": "la",
+   "debut": 2.557,
+   "fin": 2.637
+  },
+  {
+   "mot": "mienne.",
+   "debut": 2.677,
+   "fin": 3.037
+  },
+  {
+   "mot": "Elle",
+   "debut": 3.165,
+   "fin": 3.285
+  },
+  {
+   "mot": "s'appelle",
+   "debut": 3.325,
+   "fin": 3.725
+  },
+  {
+   "mot": "Centime.",
+   "debut": 3.965,
+   "fin": 4.525
+  },
+  {
+   "mot": "Un",
+   "debut": 4.747,
+   "fin": 4.827
+  },
+  {
+   "mot": "revenu",
+   "debut": 4.907,
+   "fin": 5.147
+  },
+  {
+   "mot": "arrive",
+   "debut": 5.267,
+   "fin": 5.547
+  },
+  {
+   "mot": ":",
+   "debut": 5.868,
+   "fin": 5.895
+  },
+  {
+   "mot": "il",
+   "debut": 5.921,
+   "fin": 5.948
+  },
+  {
+   "mot": "se",
+   "debut": 6.028,
+   "fin": 6.108
+  },
+  {
+   "mot": "range",
+   "debut": 6.188,
+   "fin": 6.508
+  },
+  {
+   "mot": "tout",
+   "debut": 6.588,
+   "fin": 6.668
+  },
+  {
+   "mot": "seul",
+   "debut": 6.748,
+   "fin": 6.908
+  },
+  {
+   "mot": "dans",
+   "debut": 6.948,
+   "fin": 7.028
+  },
+  {
+   "mot": "les",
+   "debut": 7.068,
+   "fin": 7.148
+  },
+  {
+   "mot": "enveloppes.",
+   "debut": 7.228,
+   "fin": 7.748
+  },
+  {
+   "mot": "Une",
+   "debut": 7.842,
+   "fin": 8.002
+  },
+  {
+   "mot": "dépense",
+   "debut": 8.082,
+   "fin": 8.482
+  },
+  {
+   "mot": "?",
+   "debut": 8.842,
+   "fin": 8.869
+  },
+  {
+   "mot": "Deux",
+   "debut": 8.895,
+   "fin": 9.002
+  },
+  {
+   "mot": "gestes,",
+   "debut": 9.082,
+   "fin": 9.562
+  },
+  {
+   "mot": "et",
+   "debut": 9.602,
+   "fin": 9.642
+  },
+  {
+   "mot": "c'est",
+   "debut": 9.682,
+   "fin": 9.802
+  },
+  {
+   "mot": "noté.",
+   "debut": 9.922,
+   "fin": 10.405
+  },
+  {
+   "mot": "Et",
+   "debut": 10.445,
+   "fin": 10.485
+  },
+  {
+   "mot": "tu",
+   "debut": 10.565,
+   "fin": 10.645
+  },
+  {
+   "mot": "sais",
+   "debut": 10.685,
+   "fin": 10.885
+  },
+  {
+   "mot": "toujours",
+   "debut": 10.925,
+   "fin": 11.285
+  },
+  {
+   "mot": "ce",
+   "debut": 11.325,
+   "fin": 11.365
+  },
+  {
+   "mot": "que",
+   "debut": 11.405,
+   "fin": 11.445
+  },
+  {
+   "mot": "tu",
+   "debut": 11.525,
+   "fin": 11.605
+  },
+  {
+   "mot": "peux",
+   "debut": 11.685,
+   "fin": 11.765
+  },
+  {
+   "mot": "encore",
+   "debut": 11.845,
+   "fin": 12.005
+  },
+  {
+   "mot": "dépenser.",
+   "debut": 12.085,
+   "fin": 12.745
+  },
+  {
+   "mot": "Elle",
+   "debut": 12.785,
+   "fin": 12.905
+  },
+  {
+   "mot": "tourne",
+   "debut": 12.985,
+   "fin": 13.145
+  },
+  {
+   "mot": "depuis",
+   "debut": 13.225,
+   "fin": 13.545
+  },
+  {
+   "mot": "un",
+   "debut": 13.625,
+   "fin": 13.705
+  },
+  {
+   "mot": "an.",
+   "debut": 13.785,
+   "fin": 14.142
+  },
+  {
+   "mot": "J'en",
+   "debut": 14.182,
+   "fin": 14.382
+  },
+  {
+   "mot": "suis",
+   "debut": 14.409,
+   "fin": 14.462
+  },
+  {
+   "mot": "à",
+   "debut": 14.542,
+   "fin": 14.569
+  },
+  {
+   "mot": "la",
+   "debut": 14.595,
+   "fin": 14.622
+  },
+  {
+   "mot": "version",
+   "debut": 14.702,
+   "fin": 15.022
+  },
+  {
+   "mot": "2.",
+   "debut": 15.102,
+   "fin": 15.342
+  },
+  {
+   "mot": "[pause]",
+   "debut": 15.382,
+   "fin": 15.399
+  },
+  {
+   "mot": "Le",
+   "debut": 15.57,
+   "fin": 15.65
+  },
+  {
+   "mot": "soin",
+   "debut": 15.73,
+   "fin": 15.89
+  },
+  {
+   "mot": "que",
+   "debut": 15.93,
+   "fin": 15.97
+  },
+  {
+   "mot": "je",
+   "debut": 16.05,
+   "fin": 16.13
+  },
+  {
+   "mot": "mets",
+   "debut": 16.157,
+   "fin": 16.21
+  },
+  {
+   "mot": "dans",
+   "debut": 16.29,
+   "fin": 16.37
+  },
+  {
+   "mot": "mes",
+   "debut": 16.45,
+   "fin": 16.53
+  },
+  {
+   "mot": "produits,",
+   "debut": 16.69,
+   "fin": 17.25
+  },
+  {
+   "mot": "je",
+   "debut": 17.29,
+   "fin": 17.33
+  },
+  {
+   "mot": "le",
+   "debut": 17.41,
+   "fin": 17.45
+  },
+  {
+   "mot": "mets",
+   "debut": 17.49,
+   "fin": 17.57
+  },
+  {
+   "mot": "dans",
+   "debut": 17.61,
+   "fin": 17.73
+  },
+  {
+   "mot": "le",
+   "debut": 17.77,
+   "fin": 17.81
+  },
+  {
+   "mot": "tien.",
+   "debut": 17.89,
+   "fin": 18.286
+  },
+  {
+   "mot": "Écris",
+   "debut": 18.366,
+   "fin": 18.766
+  },
+  {
+   "mot": "APP",
+   "debut": 18.806,
+   "fin": 19.246
+  },
+  {
+   "mot": "sur",
+   "debut": 19.326,
+   "fin": 19.406
+  },
+  {
+   "mot": "WhatsApp,",
+   "debut": 19.486,
+   "fin": 20.075
+  },
+  {
+   "mot": "je",
+   "debut": 20.155,
+   "fin": 20.235
+  },
+  {
+   "mot": "te",
+   "debut": 20.315,
+   "fin": 20.395
+  },
+  {
+   "mot": "montre",
+   "debut": 20.475,
+   "fin": 20.635
+  },
+  {
+   "mot": "ce",
+   "debut": 20.675,
+   "fin": 20.715
+  },
+  {
+   "mot": "que",
+   "debut": 20.755,
+   "fin": 20.795
+  },
+  {
+   "mot": "ça",
+   "debut": 20.875,
+   "fin": 20.955
+  },
+  {
+   "mot": "donnerait",
+   "debut": 20.995,
+   "fin": 21.275
+  },
+  {
+   "mot": "pour",
+   "debut": 21.355,
+   "fin": 21.435
+  },
+  {
+   "mot": "ton",
+   "debut": 21.515,
+   "fin": 21.595
+  },
+  {
+   "mot": "business.",
+   "debut": 21.835,
+   "fin": 22.315
+  }
+ ],
+ "resserre": {
+  "max_blanc_s": 0.3,
+  "retire_s": 3.045,
+  "coupes": [
+   [
+    1.8340999999999998,
+    2.0766
+   ],
+   [
+    3.2944899999999997,
+    3.4868
+   ],
+   [
+    5.04703,
+    5.22497
+   ],
+   [
+    6.36306,
+    6.44218
+   ],
+   [
+    8.43948,
+    8.545309999999999
+   ],
+   [
+    9.4398,
+    9.48036
+   ],
+   [
+    11.1209,
+    11.238
+   ],
+   [
+    13.5932,
+    13.7325
+   ],
+   [
+    15.1271,
+    15.2507
+   ],
+   [
+    16.6177,
+    18.229200000000002
+   ],
+   [
+    21.0098,
+    21.174000000000003
+   ],
+   [
+    22.9742,
+    23.0255
+   ]
+  ]
+ }
+}

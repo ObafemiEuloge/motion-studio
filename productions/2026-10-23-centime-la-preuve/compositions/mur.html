@@ -1,0 +1,54 @@
+<template>
+  <style>
+    #root { position: absolute; inset: 0; }
+    #w-monde { position: absolute; inset: 0; perspective: 1500px; perspective-origin: 50% 42%; overflow: hidden;
+      -webkit-mask-image: radial-gradient(ellipse 75% 60% at 50% 48%, #000 40%, transparent 100%);
+              mask-image: radial-gradient(ellipse 75% 60% at 50% 48%, #000 40%, transparent 100%); }
+    #w-mur { position: absolute; left: -420px; top: 120px; width: 2550px;
+      display: grid; grid-template-columns: repeat(7, 330px); gap: 40px; }
+    .tuile { width: 330px; height: 575px; border-radius: 40px; overflow: hidden; background: #0B111D;
+      box-shadow: 0 0 0 1.5px rgba(255,255,255,0.10); }
+    .tuile img { display: block; width: 100%; height: 100%; object-fit: cover; }
+  </style>
+  <div id="root" data-composition-id="mur" data-width="1080" data-height="1920">
+    <div id="w-monde" data-layout-ignore>
+      <div id="w-mur">
+          <div class="tuile"><img src="assets/media/mur-site-accueil.jpg" alt="" /></div>
+          <div class="tuile"><img src="assets/media/mur-nouvelle-depense.jpg" alt="" /></div>
+          <div class="tuile"><img src="assets/media/mur-activite.jpg" alt="" /></div>
+          <div class="tuile"><img src="assets/media/mur-app-accueil.jpg" alt="" /></div>
+          <div class="tuile"><img src="assets/media/mur-enveloppes.jpg" alt="" /></div>
+          <div class="tuile"><img src="assets/media/mur-site-accueil.jpg" alt="" /></div>
+          <div class="tuile"><img src="assets/media/mur-nouvelle-depense.jpg" alt="" /></div>
+          <div class="tuile"><img src="assets/media/mur-site-accueil.jpg" alt="" /></div>
+          <div class="tuile"><img src="assets/media/mur-nouvelle-depense.jpg" alt="" /></div>
+          <div class="tuile"><img src="assets/media/mur-activite.jpg" alt="" /></div>
+          <div class="tuile"><img src="assets/media/mur-app-accueil.jpg" alt="" /></div>
+          <div class="tuile"><img src="assets/media/mur-enveloppes.jpg" alt="" /></div>
+          <div class="tuile"><img src="assets/media/mur-site-accueil.jpg" alt="" /></div>
+          <div class="tuile"><img src="assets/media/mur-nouvelle-depense.jpg" alt="" /></div>
+          <div class="tuile"><img src="assets/media/mur-site-accueil.jpg" alt="" /></div>
+          <div class="tuile"><img src="assets/media/mur-nouvelle-depense.jpg" alt="" /></div>
+          <div class="tuile"><img src="assets/media/mur-activite.jpg" alt="" /></div>
+          <div class="tuile"><img src="assets/media/mur-app-accueil.jpg" alt="" /></div>
+          <div class="tuile"><img src="assets/media/mur-enveloppes.jpg" alt="" /></div>
+          <div class="tuile"><img src="assets/media/mur-site-accueil.jpg" alt="" /></div>
+          <div class="tuile"><img src="assets/media/mur-nouvelle-depense.jpg" alt="" /></div>
+      </div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const tl = gsap.timeline({ paused: true });
+      // Le mur des vraies captures de Centime : il fuit vers la gauche et glisse lentement
+      tl.fromTo("#w-mur", { rotationY: 38, rotationX: 6, z: -260, transformOrigin: "50% 50%" }, { rotationY: 38, rotationX: 6, z: -260, duration: 0.01 }, 0);
+      tl.fromTo("#w-mur", { x: 0 }, { x: -620, duration: 22.3, ease: "none" }, 0);
+      tl.fromTo("#w-monde", { opacity: 0 }, { opacity: 0.3, duration: 0.8, ease: "power1.out" }, 0);
+      // « Le soin » : l'atelier reprend le fond
+      tl.fromTo("#w-monde", { opacity: 0.3 }, { immediateRender: false, opacity: 0.06, duration: 0.5, ease: "power1.inOut" }, 11.0);
+      // La signature : le mur revient derrière le verre
+      tl.fromTo("#w-monde", { opacity: 0.06 }, { immediateRender: false, opacity: 0.28, duration: 0.8, ease: "power1.inOut" }, 14.1);
+      window.__timelines["mur"] = tl;
+    })();
+  </script>
+</template>

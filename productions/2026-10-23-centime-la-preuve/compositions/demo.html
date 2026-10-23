@@ -1,0 +1,348 @@
+<template>
+  <style>
+    @font-face { font-family: "Plus Jakarta Sans"; font-weight: 500; src: url("assets/fonts/plus-jakarta-sans-latin-500-normal.woff2") format("woff2"); }
+    @font-face { font-family: "Plus Jakarta Sans"; font-weight: 600; src: url("assets/fonts/plus-jakarta-sans-latin-600-normal.woff2") format("woff2"); }
+    @font-face { font-family: "Plus Jakarta Sans"; font-weight: 700; src: url("assets/fonts/plus-jakarta-sans-latin-700-normal.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; font-family: "Plus Jakarta Sans", sans-serif; color: #F5F3EE;
+      --bleu: #0B6BA3; --nuit: #0F1B2D; --gris: #5B6B7F; --pale: #F1F5F9; --trait: #E3E8EF; --vert: #1E7F4F; }
+    .mask { overflow: hidden; padding: 6px 0 16px; margin-bottom: -18px; }
+    .mask > .in { display: block; }
+    .acc { color: #D9C6A3; }
+    .ombre { text-shadow: 0 0 50px rgba(4,6,11,0.95), 0 0 18px rgba(4,6,11,0.9); }
+    .titre { position: absolute; left: 80px; top: 236px; }
+    .l-titre { font-weight: 700; font-size: 80px; letter-spacing: -0.045em; line-height: 1.04; white-space: nowrap; }
+    .verre { background: rgba(255,255,255,0.065); -webkit-backdrop-filter: blur(34px) saturate(150%); backdrop-filter: blur(34px) saturate(150%);
+      border: 1.5px solid rgba(255,255,255,0.16); box-shadow: inset 0 1.5px 0 rgba(255,255,255,0.28), 0 50px 140px rgba(0,0,0,0.6); }
+
+    /* Les gestes */
+    #d-gestes { position: absolute; left: 80px; top: 372px; display: flex; gap: 14px; }
+    .geste { padding: 14px 28px; border-radius: 999px; font-weight: 600; font-size: 36px; white-space: nowrap; color: rgba(245,243,238,0.6); }
+    .geste .d { display: inline-block; width: 12px; height: 12px; border-radius: 50%; margin-right: 14px; vertical-align: middle; background: rgba(245,243,238,0.35); position: relative; }
+    .geste .d i { position: absolute; inset: 0; border-radius: 50%; background: #D9C6A3; }
+    .geste .on { position: absolute; inset: 0; border-radius: 999px; padding: 14px 28px; color: #F5F3EE; }
+
+    /* La carte de verre et l'écran de Centime */
+    #d-carte { position: absolute; left: 80px; top: 470px; width: 920px; height: 860px; border-radius: 64px; }
+    #d-ecran { position: absolute; left: 20px; top: 20px; width: 880px; height: 820px; border-radius: 46px; overflow: hidden; background: #FFFFFF; color: var(--nuit); }
+    .couche { position: absolute; inset: 0; }
+    .tete { position: absolute; left: 36px; top: 34px; display: flex; align-items: center; gap: 22px; }
+    .avatar { width: 76px; height: 76px; border-radius: 50%; background: #E3F1FB; color: var(--bleu); font-weight: 700; font-size: 34px; display: flex; align-items: center; justify-content: center; }
+    .bonjour { font-weight: 700; font-size: 44px; letter-spacing: -0.02em; }
+    .ico { fill: none; stroke: var(--nuit); stroke-width: 2.6; stroke-linecap: round; stroke-linejoin: round; }
+
+    #d-revenu { position: absolute; left: 36px; top: 140px; width: 808px; height: 130px; border-radius: 30px; background: var(--pale); }
+    #d-revenu .rond { position: absolute; left: 22px; top: 22px; width: 86px; height: 86px; border-radius: 50%; background: #FFFFFF; display: flex; align-items: center; justify-content: center; }
+    #d-revenu .lab { position: absolute; left: 130px; top: 18px; height: 42px; overflow: hidden; font-weight: 500; font-size: 32px; color: var(--gris); white-space: nowrap; }
+    #d-revenu .lab > div { height: 42px; line-height: 42px; }
+    #d-revenu .mont { position: absolute; left: 130px; top: 60px; font-weight: 700; font-size: 52px; letter-spacing: -0.03em; white-space: nowrap; line-height: 1; }
+
+    .env { position: absolute; left: 0; width: 880px; height: 116px; }
+    .env .rond { position: absolute; left: 36px; top: 10px; width: 68px; height: 68px; border-radius: 50%; background: var(--pale); display: flex; align-items: center; justify-content: center; }
+    .env .rond.actif { background: #DCEBF6; }
+    .env .nom { position: absolute; left: 126px; top: 14px; font-weight: 600; font-size: 36px; letter-spacing: -0.015em; white-space: nowrap; }
+    .env .mont { position: absolute; right: 36px; top: 14px; font-weight: 700; font-size: 38px; letter-spacing: -0.02em; white-space: nowrap; line-height: 1; }
+    .env .piste { position: absolute; left: 126px; top: 76px; width: 718px; height: 12px; border-radius: 6px; background: var(--trait); overflow: hidden; }
+    .env .plein { position: absolute; inset: 0; border-radius: 6px; background: var(--bleu); transform-origin: 0 50%; }
+    #d-courant { position: absolute; left: 0; top: 0; overflow: visible; }
+
+    /* Les chiffres qui roulent */
+    .roule { display: inline-block; white-space: nowrap; line-height: 1; }
+    .roule .col { display: inline-block; width: 0.64em; height: 1em; overflow: hidden; vertical-align: top; text-align: center; }
+    .roule .col > span { display: block; }
+    .roule .col > span > span { display: block; height: 1em; }
+    .unite { font-weight: 600; color: var(--gris); }
+
+    /* La feuille « Nouvelle dépense » */
+    #d-voile { position: absolute; inset: 0; background: rgba(15,27,45,0.38); }
+    #d-feuille { position: absolute; left: 0; top: 70px; width: 880px; height: 750px; border-radius: 40px 40px 0 0; background: #FFFFFF; box-shadow: 0 -20px 60px rgba(15,27,45,0.25); }
+    #d-feuille .poignee { position: absolute; left: 400px; top: 14px; width: 80px; height: 8px; border-radius: 4px; background: #D5DCE4; }
+    #d-feuille .t1 { position: absolute; left: 40px; top: 40px; font-weight: 700; font-size: 44px; letter-spacing: -0.02em; }
+    #d-feuille .t2 { position: absolute; left: 40px; top: 98px; font-weight: 500; font-size: 30px; color: var(--gris); }
+    #d-montant { position: absolute; left: 0; right: 0; top: 150px; height: 110px; }
+    #d-montant > div { position: absolute; left: 0; right: 0; top: 0; text-align: center; font-weight: 700; font-size: 96px; letter-spacing: -0.04em; line-height: 110px; white-space: nowrap; }
+    #d-montant .vide { color: #9AA6B4; }
+    #d-pave { position: absolute; left: 53px; top: 272px; width: 774px; display: grid; grid-template-columns: repeat(3, 250px); gap: 12px; }
+    .touche { height: 74px; border-radius: 22px; background: var(--pale); display: flex; align-items: center; justify-content: center; font-weight: 600; font-size: 40px; }
+    .touche.nu { background: transparent; }
+    .puce { position: absolute; top: 650px; height: 90px; border-radius: 26px; border: 2px solid var(--trait); display: flex; align-items: center; gap: 16px; padding: 0 24px; font-weight: 600; font-size: 36px; white-space: nowrap; }
+    #d-puce1 { left: 40px; width: 470px; }
+    #d-puce2 { left: 526px; width: 314px; }
+    #d-puce1-on { position: absolute; inset: -2px; border-radius: 26px; border: 3px solid var(--bleu); background: rgba(11,107,163,0.08); }
+    .doigt { position: absolute; left: 0; top: 0; width: 96px; height: 96px; margin: -48px 0 0 -48px; border-radius: 50%; background: rgba(15,27,45,0.16); border: 2px solid rgba(15,27,45,0.25); }
+
+    /* L'accueil : ce que tu peux encore dépenser */
+    .bouton { position: absolute; top: 140px; width: 396px; height: 110px; border-radius: 30px; display: flex; align-items: center; justify-content: center; gap: 18px; font-weight: 700; font-size: 40px; }
+    #d-b-dep { left: 36px; background: var(--bleu); color: #FFFFFF; }
+    #d-b-rev { left: 448px; background: var(--pale); color: var(--nuit); }
+    #d-dispo { position: absolute; left: 36px; top: 286px; width: 808px; height: 420px; border-radius: 40px; border: 2px solid var(--trait); }
+    #d-dispo .lab { position: absolute; left: 44px; top: 40px; font-weight: 500; font-size: 34px; color: var(--gris); white-space: nowrap; }
+    #d-dispo .grand { position: absolute; left: 44px; top: 98px; font-weight: 700; font-size: 128px; letter-spacing: -0.045em; white-space: nowrap; }
+    #d-dispo .grand .unite { font-size: 48px; letter-spacing: -0.02em; margin-left: 10px; }
+    #d-dispo .cols { position: absolute; left: 44px; top: 270px; display: flex; gap: 70px; }
+    #d-dispo .cl { font-weight: 500; font-size: 30px; color: var(--gris); white-space: nowrap; display: flex; align-items: center; gap: 10px; }
+    #d-dispo .cv { margin-top: 10px; font-weight: 700; font-size: 46px; letter-spacing: -0.03em; white-space: nowrap; }
+    #d-dispo .cv .unite { font-size: 30px; margin-left: 6px; }
+
+    /* L'anneau d'une année et les versions */
+    #d-anneau { position: absolute; left: 290px; top: 610px; width: 500px; height: 500px; }
+    #d-anneau svg { position: absolute; left: 0; top: 0; overflow: visible; }
+    #d-anneau .logo { position: absolute; left: 175px; top: 175px; width: 150px; height: 150px; border-radius: 38px; background: #1BA0E2; display: flex; align-items: center; justify-content: center; }
+    .carte-v { position: absolute; left: 240px; top: 600px; width: 600px; height: 552px; border-radius: 48px; }
+    #d-v1 { background: rgba(255,255,255,0.04); border: 2px dashed rgba(245,243,238,0.32); }
+    #d-v2 { padding: 16px; }
+    #d-v2 .img { width: 100%; height: 100%; border-radius: 34px; overflow: hidden; }
+    #d-v2 img { display: block; width: 100%; height: 100%; object-fit: cover; object-position: top; }
+    #d-version { position: absolute; left: 50%; top: 1200px; transform: translateX(-50%); padding: 18px 44px; border-radius: 999px; font-weight: 700; font-size: 64px; letter-spacing: -0.03em; white-space: nowrap; }
+  </style>
+  <div id="root" data-composition-id="demo" data-width="1080" data-height="1920">
+    <div id="d-titre1" class="titre ombre"><div class="mask"><span class="in l-titre" id="d-t1">Un revenu arrive.</span></div></div>
+    <div id="d-titre2" class="titre ombre"><div class="mask"><span class="in l-titre" id="d-t2">Rangé <span class="acc">tout seul.</span></span></div></div>
+    <div id="d-titre3" class="titre ombre"><div class="mask"><span class="in l-titre" id="d-t3">Deux gestes.</span></div></div>
+    <div id="d-titre4" class="titre ombre"><div class="mask"><span class="in l-titre" id="d-t4">Chaque franc a <span class="acc">un rôle.</span></span></div></div>
+    <div id="d-titre5" class="titre ombre"><div class="mask"><span class="in l-titre" id="d-t5">En ligne depuis un an</span></div></div>
+
+    <div id="d-gestes">
+      <div class="geste verre" id="d-g1" style="position:relative"><span class="d"><i id="d-g1-d"></i></span>1 · Le montant</div>
+      <div class="geste verre" id="d-g2" style="position:relative"><span class="d"><i id="d-g2-d"></i></span>2 · L'enveloppe</div>
+    </div>
+
+    <div id="d-carte" class="verre">
+      <div id="d-ecran" data-layout-allow-overlap>
+        <!-- Écran 1 : le revenu et les enveloppes -->
+        <div class="couche" id="d-s1">
+          <div class="tete"><div class="avatar">E</div><div class="bonjour">Bonjour</div></div>
+          <div id="d-revenu">
+            <div class="rond"><svg width="44" height="44" viewBox="0 0 44 44"><path d="M32 12 L13 31 M13 17 V31 H27" fill="none" stroke="#1E7F4F" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round" /></svg></div>
+            <div class="lab"><div id="d-lab-rail"><div>Revenu reçu</div><div>Rangé dans 4 enveloppes</div></div></div>
+            <div class="mont"><span class="roule" id="d-r-rev">100 000</span><span class="unite" style="font-size:34px; margin-left:8px">F</span></div>
+          </div>
+          <div class="env" style="top:300px" id="d-e1">
+            <div class="rond" id="d-e1-r"><svg width="34" height="34" viewBox="0 0 34 34"><path class="ico" d="M6 15 L17 6 L28 15 V28 H6 Z" /></svg></div>
+            <div class="nom">Dépenses fixes</div><div class="mont"><span class="roule" id="d-r-e1">58 000</span><span class="unite" style="font-size:28px; margin-left:6px">F</span></div>
+            <div class="piste"><div class="plein" id="d-e1-p"></div></div>
+          </div>
+          <div class="env" style="top:428px" id="d-e2">
+            <div class="rond" id="d-e2-r"><svg width="34" height="34" viewBox="0 0 34 34"><path class="ico" d="M7 11 H27 L25 29 H9 Z M12 14 V10 a5 5 0 0 1 10 0 V14" /></svg></div>
+            <div class="nom">Nourriture et eau</div><div class="mont"><span class="roule" id="d-r-e2">25 000</span><span class="unite" style="font-size:28px; margin-left:6px">F</span></div>
+            <div class="piste"><div class="plein" id="d-e2-p"></div></div>
+          </div>
+          <div class="env" style="top:556px" id="d-e3">
+            <div class="rond" id="d-e3-r"><svg width="34" height="34" viewBox="0 0 34 34"><path class="ico" d="M6 21 L9 12 H25 L28 21 V27 H6 Z M6 21 H28 M10 27 V30 M24 27 V30" /><circle cx="11" cy="24" r="1.4" fill="#0F1B2D" /><circle cx="23" cy="24" r="1.4" fill="#0F1B2D" /></svg></div>
+            <div class="nom">Transport et entretien</div><div class="mont"><span class="roule" id="d-r-e3">2 000</span><span class="unite" style="font-size:28px; margin-left:6px">F</span></div>
+            <div class="piste"><div class="plein" id="d-e3-p"></div></div>
+          </div>
+          <div class="env" style="top:684px" id="d-e4">
+            <div class="rond" id="d-e4-r"><svg width="34" height="34" viewBox="0 0 34 34"><path class="ico" d="M7 17 a10 8 0 0 1 20 0 a10 8 0 0 1 -20 0 Z M27 15 L30 13 M12 25 V29 M22 25 V29 M14 11 H20" /></svg></div>
+            <div class="nom">Épargne de sécurité</div><div class="mont"><span class="roule" id="d-r-e4">15 000</span><span class="unite" style="font-size:28px; margin-left:6px">F</span></div>
+            <div class="piste"><div class="plein" id="d-e4-p"></div></div>
+          </div>
+          <svg id="d-courant" width="880" height="820" viewBox="0 0 880 820" data-layout-ignore>
+            <path id="d-tronc" d="M65 270 V718" fill="none" stroke="#0B6BA3" stroke-width="4" stroke-linecap="round" pathLength="1" />
+            <circle class="goutte" id="d-go1" cx="65" cy="270" r="9" fill="#0B6BA3" />
+            <circle class="goutte" id="d-go2" cx="65" cy="270" r="7" fill="#0B6BA3" />
+            <circle class="goutte" id="d-go3" cx="65" cy="270" r="5" fill="#0B6BA3" />
+          </svg>
+        </div>
+
+        <!-- Écran 2 : l'accueil, ce que tu peux encore dépenser -->
+        <div class="couche" id="d-s4">
+          <div class="tete"><div class="avatar">E</div><div class="bonjour">Bonjour</div></div>
+          <div class="bouton" id="d-b-dep"><svg width="36" height="36" viewBox="0 0 36 36"><path d="M10 26 L26 10 M14 10 H26 V22" fill="none" stroke="#FFFFFF" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round" /></svg>Dépense</div>
+          <div class="bouton" id="d-b-rev"><svg width="36" height="36" viewBox="0 0 36 36"><path d="M26 10 L10 26 M10 14 V26 H22" fill="none" stroke="#1E7F4F" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round" /></svg>Revenu</div>
+          <div id="d-dispo">
+            <div class="lab">Disponible dans tes enveloppes</div>
+            <div class="grand"><span class="roule" id="d-r-dispo">57 325</span><span class="unite">F</span></div>
+            <div class="cols">
+              <div><div class="cl"><svg width="28" height="28" viewBox="0 0 28 28"><path d="M21 7 L7 21 M7 11 V21 H17" fill="none" stroke="#1E7F4F" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round" /></svg>Reçu ce mois</div><div class="cv">100 000<span class="unite">F</span></div></div>
+              <div><div class="cl"><svg width="28" height="28" viewBox="0 0 28 28"><path d="M7 21 L21 7 M11 7 H21 V17" fill="none" stroke="#B4442B" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round" /></svg>Dépensé ce mois</div><div class="cv"><span class="roule" id="d-r-dep">27 675</span><span class="unite">F</span></div></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- La feuille « Nouvelle dépense » -->
+        <div id="d-voile"></div>
+        <div id="d-feuille">
+          <div class="poignee"></div>
+          <div class="t1">Nouvelle dépense</div>
+          <div class="t2">Le montant, puis où il est parti.</div>
+          <div id="d-montant">
+            <div id="d-m0"><span class="vide">0</span><span class="unite" style="font-size:44px; margin-left:10px">F</span></div>
+            <div id="d-m1">5<span class="unite" style="font-size:44px; margin-left:10px">F</span></div>
+            <div id="d-m2">5 000<span class="unite" style="font-size:44px; margin-left:10px">F</span></div>
+          </div>
+          <div id="d-pave">
+            <div class="touche">1</div><div class="touche" id="d-k5-0">2</div><div class="touche">3</div>
+            <div class="touche">4</div><div class="touche" id="d-k5">5</div><div class="touche">6</div>
+            <div class="touche">7</div><div class="touche">8</div><div class="touche">9</div>
+            <div class="touche nu" id="d-k000">000</div><div class="touche">0</div><div class="touche nu">‹</div>
+          </div>
+          <div class="puce" id="d-puce1"><div id="d-puce1-on"></div><svg width="40" height="40" viewBox="0 0 34 34" style="position:relative"><path class="ico" d="M7 11 H27 L25 29 H9 Z M12 14 V10 a5 5 0 0 1 10 0 V14" /></svg><span style="position:relative">Nourriture et eau</span></div>
+          <div class="puce" id="d-puce2"><svg width="40" height="40" viewBox="0 0 34 34"><path class="ico" d="M6 21 L9 12 H25 L28 21 V27 H6 Z M6 21 H28" /></svg>Transport</div>
+          <div class="doigt" id="d-doigt"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Un an en ligne : douze mois autour du logo -->
+    <div id="d-anneau">
+      <svg width="500" height="500" viewBox="0 0 500 500" id="d-anneau-svg"></svg>
+      <div class="logo"><svg width="100" height="100" viewBox="0 0 84 84"><circle cx="42" cy="42" r="31" fill="none" stroke="#FFFFFF" stroke-width="7" /><path d="M53 31.5 A15 15 0 1 0 53 52.5" fill="none" stroke="#FFFFFF" stroke-width="7" stroke-linecap="round" /><path d="M42 20 V27 M42 57 V64" stroke="#FFFFFF" stroke-width="6" stroke-linecap="round" /></svg></div>
+    </div>
+
+    <!-- Les versions -->
+    <div id="d-v1" class="carte-v"></div>
+    <div id="d-v2" class="carte-v verre"><div class="img"><img src="assets/media/site-haut.jpg" alt="" /></div></div>
+    <div id="d-version" class="verre">Version <span class="acc">2</span></div>
+  </div>
+  <script>
+    (function () {
+      // Chiffres qui roulent : une colonne de 0 à 9 par chiffre
+      const rouleaux = {};
+      document.querySelectorAll("#root .roule").forEach((el) => {
+        const txt = el.textContent; el.textContent = ""; const rails = [];
+        for (const ch of txt) {
+          if (/[0-9]/.test(ch)) {
+            const col = document.createElement("span"); col.className = "col";
+            const rail = document.createElement("span");
+            for (let d = 0; d < 10; d++) { const s = document.createElement("span"); s.textContent = d; rail.appendChild(s); }
+            col.appendChild(rail); el.appendChild(col); rails.push({ rail, d: +ch });
+          } else { const s = document.createElement("span"); s.textContent = ch === " " ? " " : ch; s.style.display = "inline-block"; s.style.width = "0.24em"; el.appendChild(s); }
+        }
+        rouleaux[el.id] = rails;
+      });
+      // L'anneau : douze mois, un segment par mois
+      const NS = "http://www.w3.org/2000/svg", svg = document.getElementById("d-anneau-svg"), mois = [];
+      const arc = (a0, a1, r) => { const p = (a) => [250 + r * Math.cos((a - 90) * Math.PI / 180), 250 + r * Math.sin((a - 90) * Math.PI / 180)];
+        const [x0, y0] = p(a0), [x1, y1] = p(a1); return `M${x0.toFixed(2)} ${y0.toFixed(2)} A${r} ${r} 0 0 1 ${x1.toFixed(2)} ${y1.toFixed(2)}`; };
+      for (let m = 0; m < 12; m++) {
+        const a0 = m * 30 + 3, a1 = m * 30 + 27;
+        const fond = document.createElementNS(NS, "path"); fond.setAttribute("d", arc(a0, a1, 228)); fond.setAttribute("fill", "none");
+        fond.setAttribute("stroke", "rgba(245,243,238,0.14)"); fond.setAttribute("stroke-width", "22"); fond.setAttribute("stroke-linecap", "round"); svg.appendChild(fond);
+        const plein = document.createElementNS(NS, "path"); plein.setAttribute("d", arc(a0, a1, 228)); plein.setAttribute("fill", "none"); plein.setAttribute("pathLength", "1");
+        plein.setAttribute("stroke", "#F5F3EE"); plein.setAttribute("stroke-width", "22"); plein.setAttribute("stroke-linecap", "round"); svg.appendChild(plein); mois.push(plein);
+      }
+
+      const tl = gsap.timeline({ paused: true });
+      const pose = (id, chiffres) => rouleaux[id].forEach((r, i) => tl.fromTo(r.rail, { yPercent: -chiffres[i] * 10 }, { yPercent: -chiffres[i] * 10, duration: 0.01 }, 0));
+      const roule = (id, de, vers, t, dur, dec) => rouleaux[id].forEach((r, i) => {
+        if (de[i] === vers[i]) return;
+        tl.fromTo(r.rail, { yPercent: -de[i] * 10 }, { immediateRender: false, yPercent: -vers[i] * 10, duration: dur, ease: "expo.out" }, t + i * (dec || 0));
+      });
+      const titres = ["#d-t1", "#d-t2", "#d-t3", "#d-t4", "#d-t5"];
+
+      // État de départ
+      tl.fromTo(titres, { yPercent: 130 }, { yPercent: 130, duration: 0.01 }, 0);
+      tl.fromTo("#d-carte", { x: -320, y: -80, rotationY: 40, scale: 0.55, opacity: 0, transformPerspective: 1500 },
+        { x: -320, y: -80, rotationY: 40, scale: 0.55, opacity: 0, transformPerspective: 1500, duration: 0.01 }, 0);
+      tl.fromTo("#d-revenu", { y: -40, opacity: 0 }, { y: -40, opacity: 0, duration: 0.01 }, 0);
+      tl.fromTo("#d-lab-rail", { yPercent: 0 }, { yPercent: 0, duration: 0.01 }, 0);
+      pose("d-r-rev", [0, 0, 0, 0, 0, 0]);
+      ["d-r-e1", "d-r-e2", "d-r-e3", "d-r-e4"].forEach((id) => pose(id, rouleaux[id].map(() => 0)));
+      tl.fromTo([".env .plein"], { scaleX: 0 }, { scaleX: 0, duration: 0.01 }, 0);
+      tl.fromTo(".env", { opacity: 0.35 }, { opacity: 0.35, duration: 0.01 }, 0);
+      tl.fromTo(".env .mont", { opacity: 0 }, { opacity: 0, duration: 0.01 }, 0);
+      tl.fromTo("#d-tronc", { strokeDasharray: "1 1", strokeDashoffset: 1 }, { strokeDasharray: "1 1", strokeDashoffset: 1, duration: 0.01 }, 0);
+      tl.fromTo(".goutte", { y: 0, opacity: 0 }, { y: 0, opacity: 0, duration: 0.01 }, 0);
+      tl.fromTo("#d-s4", { opacity: 0 }, { opacity: 0, duration: 0.01 }, 0);
+      tl.fromTo("#d-voile", { opacity: 0 }, { opacity: 0, duration: 0.01 }, 0);
+      tl.fromTo("#d-feuille", { y: 780 }, { y: 780, duration: 0.01 }, 0);
+      tl.fromTo(["#d-m1", "#d-m2"], { opacity: 0 }, { opacity: 0, duration: 0.01 }, 0);
+      tl.fromTo("#d-puce1-on", { opacity: 0 }, { opacity: 0, duration: 0.01 }, 0);
+      tl.fromTo("#d-doigt", { x: 440, y: 393, scale: 0.6, opacity: 0 }, { x: 440, y: 393, scale: 0.6, opacity: 0, duration: 0.01 }, 0);
+      tl.fromTo(["#d-g1", "#d-g2"], { y: 30, opacity: 0 }, { y: 30, opacity: 0, duration: 0.01 }, 0);
+      tl.fromTo(["#d-g1-d", "#d-g2-d"], { scale: 0 }, { scale: 0, duration: 0.01 }, 0);
+      pose("d-r-dispo", [5, 7, 3, 2, 5]);
+      pose("d-r-dep", [2, 7, 6, 7, 5]);
+      tl.fromTo("#d-anneau", { scale: 0.8, opacity: 0 }, { scale: 0.8, opacity: 0, duration: 0.01 }, 0);
+      tl.fromTo(mois, { strokeDasharray: "1 1", strokeDashoffset: 1 }, { strokeDasharray: "1 1", strokeDashoffset: 1, duration: 0.01 }, 0);
+      tl.fromTo("#d-v1", { x: 0, y: 0, rotation: -5, scale: 1, opacity: 0, zIndex: 2 }, { x: 0, y: 0, rotation: -5, scale: 1, opacity: 0, zIndex: 2, duration: 0.01 }, 0);
+      tl.fromTo("#d-v2", { x: 90, y: 60, rotation: 4, scale: 0.9, opacity: 0, zIndex: 1 }, { x: 90, y: 60, rotation: 4, scale: 0.9, opacity: 0, zIndex: 1, duration: 0.01 }, 0);
+      tl.fromTo("#d-version", { y: 40, opacity: 0 }, { y: 40, opacity: 0, duration: 0.01 }, 0);
+
+      // Plan 3 (4,75) : la carte sort du mur ; « Un revenu arrive. »
+      tl.fromTo("#d-carte", { x: -320, y: -80, rotationY: 40, scale: 0.55, opacity: 0 },
+        { immediateRender: false, x: 0, y: 0, rotationY: 0, scale: 1, opacity: 1, duration: 0.9, ease: "expo.out" }, 0.05);
+      tl.fromTo("#d-t1", { yPercent: 130 }, { immediateRender: false, yPercent: 0, duration: 0.8, ease: "expo.out" }, 0.25);
+      // « revenu » : il arrive
+      tl.fromTo("#d-revenu", { y: -40, opacity: 0 }, { immediateRender: false, y: 0, opacity: 1, duration: 0.6, ease: "expo.out" }, 0.41);
+      roule("d-r-rev", [0, 0, 0, 0, 0, 0], [1, 0, 0, 0, 0, 0], 0.5, 0.8, 0.04);
+      // « il se range tout seul dans les enveloppes »
+      tl.fromTo("#d-t1", { yPercent: 0 }, { immediateRender: false, yPercent: -135, duration: 0.35, ease: "power3.in" }, 1.38);
+      tl.fromTo("#d-t2", { yPercent: 130 }, { immediateRender: false, yPercent: 0, duration: 0.8, ease: "expo.out" }, 1.69);
+      tl.fromTo("#d-tronc", { strokeDashoffset: 1 }, { immediateRender: false, strokeDashoffset: 0, duration: 0.9, ease: "power2.inOut" }, 1.45);
+      [["#d-go1", 1.5], ["#d-go2", 1.62], ["#d-go3", 1.74]].forEach(([id, t]) => {
+        tl.fromTo(id, { y: 0, opacity: 0 }, { immediateRender: false, keyframes: { y: [0, 448], opacity: [1, 1, 1, 0] }, duration: 1.0, ease: "power1.inOut" }, t);
+      });
+      const envs = [["d-e1", "d-r-e1", [5, 8, 0, 0, 0]], ["d-e2", "d-r-e2", [2, 5, 0, 0, 0]], ["d-e3", "d-r-e3", [2, 0, 0, 0]], ["d-e4", "d-r-e4", [1, 5, 0, 0, 0]]];
+      envs.forEach(([e, r, ch], i) => {
+        const t = 1.72 + i * 0.2;
+        tl.fromTo("#" + e, { opacity: 0.35 }, { immediateRender: false, opacity: 1, duration: 0.3 }, t);
+        tl.fromTo("#" + e + " .mont", { opacity: 0 }, { immediateRender: false, opacity: 1, duration: 0.2 }, t);
+        tl.fromTo("#" + e + "-r", { backgroundColor: "#F1F5F9" }, { backgroundColor: "#DCEBF6", duration: 0.3 }, t);
+        tl.fromTo("#" + e + "-p", { scaleX: 0 }, { immediateRender: false, scaleX: 1, duration: 0.8, ease: "expo.out" }, t);
+        roule(r, ch.map(() => 0), ch, t, 0.8, 0.04);
+      });
+      tl.fromTo("#d-lab-rail", { yPercent: 0 }, { immediateRender: false, yPercent: -50, duration: 0.6, ease: "expo.out" }, 2.65);
+
+      // Plan 4 (7,84) : « Une dépense ? » la feuille monte
+      tl.fromTo("#d-t2", { yPercent: 0 }, { immediateRender: false, yPercent: -135, duration: 0.35, ease: "power3.in" }, 3.2);
+      tl.fromTo("#d-voile", { opacity: 0 }, { immediateRender: false, opacity: 1, duration: 0.4 }, 3.36);
+      tl.fromTo("#d-feuille", { y: 780 }, { immediateRender: false, y: 0, duration: 0.7, ease: "expo.out" }, 3.38);
+      // Sous la feuille, l'application revient à l'accueil
+      tl.fromTo("#d-s1", { opacity: 1 }, { opacity: 0, duration: 0.05 }, 4.0);
+      tl.fromTo("#d-s4", { opacity: 0 }, { immediateRender: false, opacity: 1, duration: 0.05 }, 4.0);
+      // « Deux gestes »
+      tl.fromTo("#d-t3", { yPercent: 130 }, { immediateRender: false, yPercent: 0, duration: 0.8, ease: "expo.out" }, 4.39);
+      tl.fromTo(["#d-g1", "#d-g2"], { y: 30, opacity: 0 }, { immediateRender: false, y: 0, opacity: 1, duration: 0.5, ease: "expo.out", stagger: 0.08 }, 4.25);
+      // Geste 1 : le montant (5, puis 000)
+      tl.fromTo("#d-g1-d", { scale: 0 }, { immediateRender: false, scale: 1, duration: 0.3, ease: "back.out(2)" }, 4.39);
+      tl.fromTo("#d-doigt", { opacity: 0, scale: 0.6 }, { immediateRender: false, opacity: 1, scale: 1, duration: 0.12, ease: "power2.out" }, 4.33);
+      tl.fromTo("#d-k5", { backgroundColor: "#F1F5F9" }, { immediateRender: false, keyframes: { backgroundColor: ["#F1F5F9", "#D5E0EA", "#F1F5F9"] }, duration: 0.3, ease: "none" }, 4.39);
+      tl.fromTo("#d-doigt", { scale: 1 }, { immediateRender: false, keyframes: { scale: [1, 0.82, 1] }, duration: 0.16, ease: "none" }, 4.39);
+      tl.fromTo("#d-m0", { opacity: 1 }, { opacity: 0, duration: 0.05 }, 4.42);
+      tl.fromTo("#d-m1", { opacity: 0 }, { immediateRender: false, opacity: 1, duration: 0.05 }, 4.42);
+      tl.fromTo("#d-doigt", { x: 440, y: 393 }, { immediateRender: false, x: 178, y: 565, duration: 0.14, ease: "power2.inOut" }, 4.48);
+      tl.fromTo("#d-k000", { backgroundColor: "rgba(241,245,249,0)" }, { immediateRender: false, keyframes: { backgroundColor: ["rgba(241,245,249,0)", "#D5E0EA", "rgba(241,245,249,0)"] }, duration: 0.3, ease: "none" }, 4.6);
+      tl.fromTo("#d-doigt", { scale: 1 }, { immediateRender: false, keyframes: { scale: [1, 0.82, 1] }, duration: 0.16, ease: "none" }, 4.6);
+      tl.fromTo("#d-m1", { opacity: 1 }, { immediateRender: false, opacity: 0, duration: 0.05 }, 4.63);
+      tl.fromTo("#d-m2", { opacity: 0 }, { immediateRender: false, opacity: 1, duration: 0.05 }, 4.63);
+      // Geste 2 : l'enveloppe
+      tl.fromTo("#d-doigt", { x: 178, y: 565 }, { immediateRender: false, x: 275, y: 695, duration: 0.3, ease: "power2.inOut" }, 4.78);
+      tl.fromTo("#d-doigt", { scale: 1 }, { immediateRender: false, keyframes: { scale: [1, 0.82, 1] }, duration: 0.16, ease: "none" }, 5.1);
+      tl.fromTo("#d-puce1-on", { opacity: 0 }, { immediateRender: false, opacity: 1, duration: 0.15 }, 5.12);
+      tl.fromTo("#d-g2-d", { scale: 0 }, { immediateRender: false, scale: 1, duration: 0.3, ease: "back.out(2)" }, 5.1);
+      tl.fromTo("#d-doigt", { opacity: 1 }, { immediateRender: false, opacity: 0, duration: 0.15 }, 5.3);
+      // « c'est noté » : la feuille redescend
+      tl.fromTo("#d-feuille", { y: 0 }, { immediateRender: false, y: 780, duration: 0.45, ease: "power3.in" }, 5.4);
+      tl.fromTo("#d-voile", { opacity: 1 }, { immediateRender: false, opacity: 0, duration: 0.4 }, 5.5);
+
+      // Plan 5 (10,45) : « Chaque franc a un rôle. » ce que tu peux encore dépenser
+      tl.fromTo("#d-t3", { yPercent: 0 }, { immediateRender: false, yPercent: -135, duration: 0.35, ease: "power3.in" }, 5.8);
+      tl.fromTo(["#d-g1", "#d-g2"], { y: 0, opacity: 1 }, { immediateRender: false, y: -30, opacity: 0, duration: 0.3, ease: "power3.in", stagger: 0.05 }, 5.82);
+      tl.fromTo("#d-t4", { yPercent: 130 }, { immediateRender: false, yPercent: 0, duration: 0.8, ease: "expo.out" }, 5.95);
+      roule("d-r-dispo", [5, 7, 3, 2, 5], [5, 2, 3, 2, 5], 6.25, 0.9, 0);
+      roule("d-r-dep", [2, 7, 6, 7, 5], [3, 2, 6, 7, 5], 6.3, 0.9, 0.06);
+
+      // Plan 6 (12,79) : la carte recule dans le mur ; un an en ligne
+      tl.fromTo("#d-t4", { yPercent: 0 }, { immediateRender: false, yPercent: -135, duration: 0.35, ease: "power3.in" }, 8.12);
+      tl.fromTo("#d-carte", { x: 0, y: 0, rotationY: 0, scale: 1, opacity: 1 },
+        { immediateRender: false, x: 330, y: -60, rotationY: -40, scale: 0.5, opacity: 0, duration: 0.5, ease: "power2.in" }, 8.15);
+      tl.fromTo("#d-t5", { yPercent: 130 }, { immediateRender: false, yPercent: 0, duration: 0.8, ease: "expo.out" }, 8.48);
+      tl.fromTo("#d-anneau", { scale: 0.8, opacity: 0 }, { immediateRender: false, scale: 1, opacity: 1, duration: 0.7, ease: "expo.out" }, 8.62);
+      tl.fromTo(mois, { strokeDashoffset: 1 }, { immediateRender: false, strokeDashoffset: 0, duration: 0.16, ease: "power1.out", stagger: 0.055 }, 8.72);
+      // « J'en suis à la version 2 »
+      tl.fromTo("#d-anneau", { scale: 1, opacity: 1 }, { immediateRender: false, scale: 0.7, opacity: 0, duration: 0.4, ease: "power3.in" }, 9.62);
+      tl.fromTo("#d-v1", { opacity: 0 }, { immediateRender: false, opacity: 1, duration: 0.3, ease: "power1.out" }, 9.68);
+      tl.fromTo("#d-v2", { opacity: 0 }, { immediateRender: false, opacity: 1, duration: 0.4, ease: "power1.out" }, 9.8);
+      tl.fromTo("#d-v2", { x: 90, y: 60, rotation: 4, scale: 0.9, zIndex: 1 }, { immediateRender: false, keyframes: { x: [90, 380, 0], y: [60, 30, 0], rotation: [4, 8, 0], scale: [0.9, 0.95, 1], zIndex: [1, 3, 3] }, duration: 0.62, ease: "power2.inOut" }, 10.0);
+      tl.fromTo("#d-v1", { x: 0, y: 0, rotation: -5, scale: 1, opacity: 1 }, { immediateRender: false, x: -70, y: -60, rotation: -8, scale: 0.9, opacity: 0.55, duration: 0.6, ease: "power2.inOut" }, 10.02);
+      tl.fromTo("#d-version", { y: 40, opacity: 0 }, { immediateRender: false, y: 0, opacity: 1, duration: 0.55, ease: "expo.out" }, 10.2);
+      // Sortie avant « le soin »
+      tl.fromTo("#d-t5", { yPercent: 0 }, { immediateRender: false, yPercent: -135, duration: 0.35, ease: "power3.in" }, 10.72);
+      tl.fromTo("#d-v1", { y: -60, opacity: 0.55 }, { immediateRender: false, y: -120, opacity: 0, duration: 0.35, ease: "power3.in" }, 10.72);
+      tl.fromTo(["#d-v2", "#d-version"], { y: 0, opacity: 1 }, { immediateRender: false, y: -60, opacity: 0, duration: 0.35, ease: "power3.in", stagger: 0.03 }, 10.75);
+
+      window.__timelines["demo"] = tl;
+    })();
+  </script>
+</template>

@@ -1,0 +1,119 @@
+<template>
+  <style>
+    @font-face { font-family: "Plus Jakarta Sans"; font-weight: 500; src: url("assets/fonts/plus-jakarta-sans-latin-500-normal.woff2") format("woff2"); }
+    @font-face { font-family: "Plus Jakarta Sans"; font-weight: 600; src: url("assets/fonts/plus-jakarta-sans-latin-600-normal.woff2") format("woff2"); }
+    @font-face { font-family: "Plus Jakarta Sans"; font-weight: 700; src: url("assets/fonts/plus-jakarta-sans-latin-700-normal.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; font-family: "Plus Jakarta Sans", sans-serif; color: #F5F3EE; }
+    .mask { overflow: hidden; padding: 6px 0 16px; margin-bottom: -18px; }
+    .mask > .in { display: block; }
+    .acc { color: #D9C6A3; }
+
+    #h-texte { position: absolute; left: 80px; top: 236px; }
+    .l-moy { font-weight: 700; font-size: 90px; letter-spacing: -0.045em; line-height: 1.06; white-space: nowrap; }
+    .l-geant { font-weight: 700; font-size: 178px; letter-spacing: -0.055em; line-height: 1.0; white-space: nowrap; }
+
+    .t { fill: none; stroke: #F5F3EE; stroke-width: 2.5; stroke-linecap: round; stroke-linejoin: round; }
+    .t.doux { stroke: rgba(245,243,238,0.45); }
+    .barre { fill: none; stroke: rgba(245,243,238,0.7); stroke-linecap: round; }
+    .cote { fill: none; stroke: rgba(245,243,238,0.55); stroke-width: 1.5; }
+
+    #h-cotes { position: absolute; left: 0; top: 0; overflow: visible; }
+    #h-tel { position: absolute; left: 520px; top: 850px; width: 380px; height: 780px; }
+    #h-tel svg { position: absolute; left: 0; top: 0; overflow: visible; }
+    #h-ecran { position: absolute; left: 14px; top: 14px; width: 352px; height: 752px; border-radius: 44px; overflow: hidden; background: #FFFFFF; }
+    #h-ecran img { display: block; width: 100%; height: 100%; object-fit: cover; }
+    #h-scan { position: absolute; left: 0; right: 0; top: 0; height: 3px; background: #D9C6A3; }
+
+    #h-marque { position: absolute; left: 80px; top: 300px; display: flex; align-items: center; gap: 34px; }
+    #h-logo { width: 128px; height: 128px; border-radius: 32px; background: #1BA0E2; display: flex; align-items: center; justify-content: center; }
+    .l-marque { font-weight: 700; font-size: 150px; letter-spacing: -0.05em; line-height: 1.0; white-space: nowrap; }
+  </style>
+  <div id="root" data-composition-id="accroche" data-width="1080" data-height="1920">
+    <div id="h-texte">
+      <div class="mask"><span class="in l-moy" id="h-1">Avant de construire</span></div>
+      <div class="mask"><span class="in l-moy" id="h-2">ton application,</span></div>
+      <div class="mask"><span class="in l-moy" id="h-3">j'ai construit</span></div>
+      <div class="mask"><span class="in l-geant acc" id="h-4">la mienne.</span></div>
+    </div>
+
+    <!-- Les cotes du dessin -->
+    <svg id="h-cotes" width="1080" height="1920" viewBox="0 0 1080 1920" data-layout-ignore>
+      <path id="h-cote-h" class="cote" pathLength="1" d="M520 812 H900 M520 802 V822 M900 802 V822 M534 806 L520 812 L534 818 M886 806 L900 812 L886 818" />
+      <path id="h-cote-v" class="cote" pathLength="1" d="M474 850 V1630 M464 850 H484 M464 1630 H484 M468 864 L474 850 L480 864 M468 1616 L474 1630 L480 1616" />
+      <path id="h-rayon" class="cote" pathLength="1" d="M900 906 A56 56 0 0 0 844 850 M884 866 L958 792 H1000" stroke-dasharray="4 6" />
+      <circle id="h-rayon-pt" cx="884" cy="866" r="5" fill="rgba(245,243,238,0.7)" />
+    </svg>
+
+    <div id="h-tel">
+      <div id="h-ecran"><img src="assets/media/ecran-site-accueil.jpg" alt="" /><div id="h-scan"></div></div>
+      <svg width="380" height="780" viewBox="0 0 380 780">
+        <rect class="t" x="1.5" y="1.5" width="377" height="777" rx="56" />
+        <g id="h-esquisse">
+          <rect class="t doux" x="14" y="14" width="352" height="752" rx="44" pathLength="1" />
+          <rect class="t" x="140" y="26" width="100" height="28" rx="14" pathLength="1" />
+          <path class="barre" d="M38 31 H77" style="stroke-width:7" pathLength="1" />
+          <rect class="t" x="33" y="65" width="31" height="31" rx="8" pathLength="1" />
+          <path class="barre" d="M74 81 H136" style="stroke-width:10" pathLength="1" />
+          <rect class="t" x="212" y="63" width="135" height="41" rx="20.5" pathLength="1" />
+          <rect class="t doux" x="55" y="172" width="269" height="33" rx="16.5" pathLength="1" />
+          <path class="barre" d="M64 255 H319" style="stroke-width:22" pathLength="1" />
+          <path class="barre" d="M81 300 H302" style="stroke-width:22" pathLength="1" />
+          <path class="barre" d="M75 344 H307" style="stroke-width:22" pathLength="1" />
+          <path class="barre" d="M70 405 H310 M65 432 H315 M80 458 H300 M72 485 H308 M95 511 H285" style="stroke-width:6; stroke: rgba(245,243,238,0.45)" pathLength="1" />
+          <rect class="t" x="33" y="550" width="314" height="49" rx="24.5" pathLength="1" />
+          <rect class="t doux" x="33" y="611" width="314" height="48" rx="24" pathLength="1" />
+          <rect class="t doux" x="46" y="695" width="288" height="44" rx="22" pathLength="1" />
+        </g>
+        <path class="t" d="M-1.5 150 V196 M-1.5 222 V290 M381.5 200 V290" />
+      </svg>
+    </div>
+
+    <div id="h-marque">
+      <div id="h-logo">
+        <svg width="84" height="84" viewBox="0 0 84 84"><circle cx="42" cy="42" r="31" fill="none" stroke="#FFFFFF" stroke-width="7" /><path d="M53 31.5 A15 15 0 1 0 53 52.5" fill="none" stroke="#FFFFFF" stroke-width="7" stroke-linecap="round" /><path d="M42 20 V27 M42 57 V64" stroke="#FFFFFF" stroke-width="6" stroke-linecap="round" /></svg>
+      </div>
+      <div class="mask"><span class="in l-marque" id="h-nom">Centime</span></div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const tl = gsap.timeline({ paused: true });
+      const esquisse = gsap.utils.toArray("#h-esquisse > *");
+
+      // État de départ : le contour est là, l'intérieur reste à dessiner
+      tl.fromTo(esquisse, { strokeDasharray: "1 1", strokeDashoffset: 1 }, { strokeDasharray: "1 1", strokeDashoffset: 1, duration: 0.01 }, 0);
+      tl.fromTo(["#h-cote-h", "#h-cote-v"], { strokeDasharray: "1 1", strokeDashoffset: 1 }, { strokeDasharray: "1 1", strokeDashoffset: 1, duration: 0.01 }, 0);
+      tl.fromTo(["#h-rayon", "#h-rayon-pt"], { opacity: 0 }, { opacity: 0, duration: 0.01 }, 0);
+      tl.fromTo("#h-ecran", { clipPath: "inset(0% 0% 100% 0%)" }, { clipPath: "inset(0% 0% 100% 0%)", duration: 0.01 }, 0);
+      tl.fromTo("#h-scan", { y: 0, opacity: 0 }, { y: 0, opacity: 0, duration: 0.01 }, 0);
+      tl.fromTo("#h-logo", { scale: 0.4, opacity: 0 }, { scale: 0.4, opacity: 0, duration: 0.01 }, 0);
+      tl.fromTo("#h-nom", { yPercent: 130 }, { yPercent: 130, duration: 0.01 }, 0);
+      tl.fromTo("#h-tel", { x: 0, y: 0, rotationY: 0, scale: 1, opacity: 1, transformPerspective: 1500 },
+        { x: 0, y: 0, rotationY: 0, scale: 1, opacity: 1, transformPerspective: 1500, duration: 0.01 }, 0);
+
+      // Plan 1 : le téléphone se dessine au trait, avec ses cotes
+      tl.fromTo(["#h-cote-h", "#h-cote-v"], { strokeDashoffset: 1 }, { immediateRender: false, strokeDashoffset: 0, duration: 0.7, ease: "power2.inOut", stagger: 0.15 }, 0.15);
+      tl.fromTo(["#h-rayon", "#h-rayon-pt"], { opacity: 0 }, { immediateRender: false, opacity: 1, duration: 0.3 }, 0.7);
+      tl.fromTo(esquisse, { strokeDashoffset: 1 }, { immediateRender: false, strokeDashoffset: 0, duration: 0.5, ease: "power2.inOut", stagger: 0.17 }, 0.3);
+
+      // Plan 2 : « Elle s'appelle Centime » : le dessin devient la vraie application
+      tl.fromTo("#h-scan", { opacity: 0 }, { immediateRender: false, opacity: 1, duration: 0.05 }, 3.15);
+      tl.fromTo("#h-ecran", { clipPath: "inset(0% 0% 100% 0%)" }, { immediateRender: false, clipPath: "inset(0% 0% 0% 0%)", duration: 0.62, ease: "power2.inOut" }, 3.17);
+      tl.fromTo("#h-scan", { y: 0 }, { immediateRender: false, y: 749, duration: 0.62, ease: "power2.inOut" }, 3.17);
+      tl.fromTo("#h-scan", { opacity: 1 }, { immediateRender: false, opacity: 0, duration: 0.15 }, 3.79);
+      tl.fromTo("#h-esquisse", { opacity: 1 }, { opacity: 0, duration: 0.4 }, 3.5);
+      tl.fromTo(["#h-1", "#h-2", "#h-3", "#h-4"], { yPercent: 0 }, { immediateRender: false, yPercent: -135, duration: 0.42, ease: "power3.in", stagger: 0.05 }, 3.22);
+      tl.fromTo("#h-cotes", { opacity: 1 }, { opacity: 0, duration: 0.3 }, 3.35);
+      tl.fromTo("#h-logo", { scale: 0.4, opacity: 0 }, { immediateRender: false, scale: 1, opacity: 1, duration: 0.6, ease: "expo.out" }, 3.85);
+      tl.fromTo("#h-nom", { yPercent: 130 }, { immediateRender: false, yPercent: 0, duration: 0.75, ease: "expo.out" }, 3.96);
+      tl.fromTo("#h-tel", { x: 0, y: 0 }, { immediateRender: false, x: -140, y: -40, duration: 0.8, ease: "power2.inOut" }, 3.6);
+
+      // Le téléphone rejoint le mur des captures
+      tl.fromTo("#h-tel", { x: -140, y: -40, rotationY: 0, scale: 1, opacity: 1 },
+        { immediateRender: false, x: -520, y: -120, rotationY: 40, scale: 0.55, opacity: 0, duration: 0.55, ease: "power2.in" }, 4.4);
+      tl.fromTo("#h-logo", { y: 0, opacity: 1 }, { immediateRender: false, y: -70, opacity: 0, duration: 0.35, ease: "power3.in" }, 4.55);
+      tl.fromTo("#h-nom", { yPercent: 0 }, { immediateRender: false, yPercent: -135, duration: 0.3, ease: "power3.in" }, 4.72);
+      window.__timelines["accroche"] = tl;
+    })();
+  </script>
+</template>

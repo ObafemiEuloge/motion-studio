@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="fr" data-resolution="portrait"
+  data-composition-variables='[
+  {"id":"color-ground","type":"color","label":"Fond","default":"#04060B"},
+  {"id":"color-ink","type":"color","label":"Texte","default":"#F5F3EE"},
+  {"id":"color-accent","type":"color","label":"Champagne","default":"#D9C6A3"}
+]'>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=1080, height=1920" />
+    <script src="assets/js/gsap.min.js"></script>
+    <style>
+      :root { --color-ground: #04060B; --color-ink: #F5F3EE; --color-accent: #D9C6A3; }
+      * { margin: 0; padding: 0; box-sizing: border-box; }
+      html, body { width: 1080px; height: 1920px; overflow: hidden; background: var(--color-ground); }
+      #bg { position: absolute; inset: 0; background: var(--color-ground); }
+      .scene { position: absolute; inset: 0; }
+    </style>
+  </head>
+  <body>
+    <div id="root" data-composition-id="main" data-start="0" data-duration="26.5" data-width="1080" data-height="1920">
+      <div id="bg" class="clip" data-start="0" data-duration="26.5" data-track-index="0"></div>
+
+      <!-- Le fond change avec l'histoire : l'atelier, puis le mur des vraies captures de Centime -->
+      <div id="atelier" class="scene" data-composition-id="atelier" data-composition-src="compositions/atelier.html" data-start="0" data-duration="19.0" data-track-index="1" data-track-kind="graphics" data-width="1080" data-height="1920" style="z-index:1"></div>
+      <div id="mur" class="scene" data-composition-id="mur" data-composition-src="compositions/mur.html" data-start="4.2" data-duration="22.3" data-track-index="2" data-track-kind="graphics" data-width="1080" data-height="1920" style="z-index:2"></div>
+
+      <div id="accroche" class="scene" data-composition-id="accroche" data-composition-src="compositions/accroche.html" data-start="0" data-duration="5.0" data-track-index="10" data-track-kind="graphics" data-width="1080" data-height="1920" style="z-index:10"></div>
+      <div id="demo" class="scene" data-composition-id="demo" data-composition-src="compositions/demo.html" data-start="4.5" data-duration="11.1" data-track-index="11" data-track-kind="graphics" data-width="1080" data-height="1920" style="z-index:11"></div>
+      <div id="soin" class="scene" data-composition-id="soin" data-composition-src="compositions/soin.html" data-start="15.3" data-duration="3.6" data-track-index="12" data-track-kind="graphics" data-width="1080" data-height="1920" style="z-index:12"></div>
+      <div id="signature" class="scene" data-composition-id="signature" data-composition-src="compositions/signature.html" data-start="18.3" data-duration="8.2" data-track-index="13" data-track-kind="graphics" data-width="1080" data-height="1920" style="z-index:13"></div>
+
+      <!-- Voix : l'horloge du film -->
+      <audio id="voix" class="clip" data-start="0" data-track-index="20" data-volume="0.9" src="audio/voix_mix.mp3"></audio>
+
+      <!-- Musique : un seul lit, remonté après la voix -->
+      <audio id="musique" class="clip" data-start="0" data-duration="26.5" data-track-index="21" data-fade-out="1.0"
+        data-automation='{"version":1,"lanes":[{"target":"volume","points":[{"t":0,"v":0.15},{"t":22.3,"v":0.15},{"t":22.8,"v":0.3},{"t":26.5,"v":0.3}]}]}'
+        src="assets/audio/musique.mp3"></audio>
+
+      <!-- Bruitages : sur leur action visible -->
+      <audio id="sfx-crayon" class="clip" data-start="0.1" data-duration="1.65" data-track-index="23" data-volume="0.3" src="assets/audio/crayon.mp3"></audio>
+      <audio id="sfx-revele" class="clip" data-start="3.17" data-duration="1.04" data-track-index="24" data-volume="0.35" src="assets/audio/revele.mp3"></audio>
+      <audio id="sfx-revenu" class="clip" data-start="4.93" data-duration="1.04" data-track-index="23" data-volume="0.4" src="assets/audio/paye.mp3"></audio>
+      <audio id="sfx-courants" class="clip" data-start="6.2" data-duration="1.52" data-track-index="24" data-volume="0.35" src="assets/audio/courants.mp3"></audio>
+      <audio id="sfx-feuille" class="clip" data-start="7.88" data-duration="0.84" data-track-index="23" data-volume="0.3" src="assets/audio/feuille.mp3"></audio>
+      <audio id="sfx-touche-1" class="clip" data-start="8.9" data-duration="0.63" data-track-index="24" data-volume="0.35" src="assets/audio/touche.mp3"></audio>
+      <audio id="sfx-touche-2" class="clip" data-start="9.09" data-duration="0.52" data-track-index="23" data-volume="0.35" src="assets/audio/tic_b.mp3"></audio>
+      <audio id="sfx-touche-3" class="clip" data-start="9.62" data-duration="0.63" data-track-index="24" data-volume="0.35" src="assets/audio/touche.mp3"></audio>
+      <audio id="sfx-decompte" class="clip" data-start="11.87" data-duration="1.04" data-track-index="23" data-volume="0.35" src="assets/audio/chiffre_a.mp3"></audio>
+      <audio id="sfx-anneau" class="clip" data-start="13.0" data-duration="1.23" data-track-index="24" data-volume="0.35" src="assets/audio/anneau.mp3"></audio>
+      <audio id="sfx-cartes" class="clip" data-start="14.68" data-duration="0.91" data-track-index="23" data-volume="0.35" src="assets/audio/cartes.mp3"></audio>
+      <audio id="sfx-declic-1" class="clip" data-start="15.75" data-duration="0.52" data-track-index="24" data-volume="0.3" src="assets/audio/declic.mp3"></audio>
+      <audio id="sfx-declic-2" class="clip" data-start="17.32" data-duration="1.04" data-track-index="23" data-volume="0.3" src="assets/audio/tic_a.mp3"></audio>
+      <audio id="sfx-signature" class="clip" data-start="18.4" data-duration="2.04" data-track-index="24" data-volume="0.4" src="assets/audio/signature.mp3"></audio>
+    </div>
+    <script>
+      const tl = gsap.timeline({ paused: true });
+      window.__timelines = window.__timelines || {};
+      window.__timelines["main"] = tl;
+    </script>
+  </body>
+</html>
