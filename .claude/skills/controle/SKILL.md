@@ -19,12 +19,16 @@ description: Contrôle qualité d'une vidéo du studio avant rendu final et livr
 - [ ] Le verre a toujours quelque chose derrière à flouter.
 
 ## Mouvement et lecture
+- [ ] Test du pouce : l'image 0 réduite à 270 px de large reste lisible et dit le problème.
+- [ ] Le visage d'Oba, s'il apparaît, est net et éclairé ; sinon le plan est retiré.
+- [ ] L'appel final contient le mot-clé de l'offre (APP, PAGE, MOTION) et la raison d'écrire.
 - [ ] `npx hyperframes check --json` : zéro erreur ; avertissements lus et justifiés.
 - [ ] `npx hyperframes snapshot --review` puis `/hyperframes` `references/review.md` : aucun titre qui bouge après son arrivée, aucun saut aux coupes.
 - [ ] Image 0 lisible sans le son. Tout texte entre 168 et 1330 px, taille ≥ 28 px.
 - [ ] Chaque ligne tient au moins 0,5 s + 0,3 s par mot. Signature finale ≥ 2,5 s.
 
 ## Son
+- [ ] Aucun silence de plus de 0,35 s : `ffmpeg -i renders/<slug>.mp4 -af silencedetect=n=-35dB:d=0.35 -f null - 2>&1 | grep silence_start` ne renvoie rien (sauf la fin).
 - [ ] Voix calée : chaque texte arrive sur son mot (écart ≤ 0,1 s).
 - [ ] `npx hyperframes audio renders/<slug>.mp4 --json` : son présent, −16 à −14 LUFS, crête ≤ −1 dBTP.
 - [ ] Bruitages seulement sur des actions visibles ; pas deux fois le même fichier d'affilée.
