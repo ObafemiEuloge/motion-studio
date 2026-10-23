@@ -28,6 +28,11 @@ Plans disponibles. Varie : jamais deux fois le même type d'entrée à la suite.
 
 ## Rythme
 
+- **L'image 0 est l'accroche en très grand** : 120 px minimum, 60 % de la largeur au moins, au centre de la bande lisible. Une bulle de message seule, petite, ne suffit pas.
+- **Jamais un trou de son ou d'image de plus de 0,35 s** entre deux phrases.
+- **Les infos clés à 36 px minimum** (montants, statuts, la preuve). Les détails d'interface peuvent être plus petits, mais rien d'important.
+- **Le fond reste le monde de la charte** (plan d'interfaces, `ground`). Une séquence d'Oba ne sert jamais de fond flou : soit son visage est net et éclairé dans une carte, soit on ne l'utilise pas.
+
 - Un nouveau temps toutes les 2 à 4 s, plans de 1 à 3 s, sauf le plan « interface qui travaille ».
 - Le texte arrive sur le mot qui le dit (après la voix : recaler chaque début sur `audio/voix.alignment.json`).
 - Tenue d'une ligne à lire : 0,5 s + 0,3 s par mot.

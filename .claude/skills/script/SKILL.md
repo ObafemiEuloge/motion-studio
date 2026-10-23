@@ -28,6 +28,13 @@ Sortie : `script.md` dans le dossier de production, avec deux colonnes par temps
 
 ## Interdits (en plus de `scripts/verifier_texte.py`)
 
+## Ce qui fait vendre (leçons de la vidéo 1, 23 oct. 2026)
+
+- **L'appel donne une raison d'écrire maintenant et un geste minuscule** : « Écris APP sur WhatsApp, je te montre ce que ça donnerait pour ton business. » Un mot-clé par offre (APP, PAGE, MOTION) : Oba sait d'où vient chaque contact.
+- **La preuve se dit en résultat pour le client, pas en nom de projet** : « Sur 1Peu 1Peu, chaque paiement est vérifié sans que personne ne regarde. » Le nom seul ne dit rien à la cible.
+- **Le bénéfice final est concret et visible** : ce que la personne fait de son temps ou de son argent une fois l'application là (« le soir, tu fermes la boutique, les comptes sont déjà faits »).
+- Pas plus de 2 phrases sur le problème avant de montrer la solution : au-delà, le spectateur décroche.
+
 - Aucun tiret cadratin ni demi-cadratin. Aucun emoji.
 - Pas de questions rhétoriques en série (« Et si… ? Et si… ? »).
 - Pas de triades automatiques (« simple, rapide, efficace »).
