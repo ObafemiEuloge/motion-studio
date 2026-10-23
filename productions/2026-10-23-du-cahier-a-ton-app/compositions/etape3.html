@@ -1,0 +1,61 @@
+<template>
+  <style>
+    @font-face { font-family: "Plus Jakarta Sans"; font-weight: 500; src: url("assets/fonts/plus-jakarta-sans-latin-500-normal.woff2") format("woff2"); }
+    @font-face { font-family: "Plus Jakarta Sans"; font-weight: 600; src: url("assets/fonts/plus-jakarta-sans-latin-600-normal.woff2") format("woff2"); }
+    @font-face { font-family: "Plus Jakarta Sans"; font-weight: 700; src: url("assets/fonts/plus-jakarta-sans-latin-700-normal.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; font-family: "Plus Jakarta Sans", sans-serif; color: #F5F3EE; }
+    .mask { overflow: hidden; padding: 6px 0 14px; margin-bottom: -16px; }
+    .mask > .in { display: block; }
+    .acc { color: #D9C6A3; }
+    .ombre { text-shadow: 0 0 50px rgba(4,6,11,0.95), 0 0 18px rgba(4,6,11,0.9); }
+    .verre { background: rgba(255,255,255,0.055); -webkit-backdrop-filter: blur(34px) saturate(150%); backdrop-filter: blur(34px) saturate(150%);
+      border: 1.5px solid rgba(255,255,255,0.16); box-shadow: inset 0 1.5px 0 rgba(255,255,255,0.28), 0 50px 140px rgba(0,0,0,0.6); }
+    .etape { position: absolute; left: 220px; right: 70px; top: 196px; }
+    .eyebrow { font-weight: 600; font-size: 36px; letter-spacing: 0.2em; text-transform: uppercase; color: rgba(245,243,238,0.62); }
+    .titre { font-weight: 700; font-size: 62px; letter-spacing: -0.035em; line-height: 1.05; }
+    .trait { fill: none; stroke: #F5F3EE; stroke-width: 3.5; stroke-linecap: round; stroke-linejoin: round; }
+    .trait.doux { stroke: rgba(245,243,238,0.55); }
+    .trait.pointille { stroke-dasharray: 10 12; }
+    .pastille { display: inline-block; padding: 14px 28px; border-radius: 999px; font-weight: 600; font-size: 36px; white-space: nowrap;
+      background: rgba(255,255,255,0.07); border: 1.5px solid rgba(255,255,255,0.16); }
+    .pastille .d { display: inline-block; width: 12px; height: 12px; border-radius: 50%; margin-right: 14px; background: currentColor; vertical-align: middle; }
+    .l { margin-top: 18px; height: 96px; border-radius: 18px; background: rgba(255,255,255,0.06); padding: 18px 18px; }
+    .l i { display: block; height: 14px; border-radius: 7px; background: rgba(255,255,255,0.22); }
+    .l b { display: block; margin-top: 16px; font-weight: 600; font-size: 28px; color: rgba(245,243,238,0.7); }
+  </style>
+  <div id="root" data-composition-id="etape3" data-width="1080" data-height="1920">
+    <div class="etape" id="e3-tete" data-layout-allow-overlap>
+      <div class="mask"><span class="in eyebrow" id="e3-e">Étape 3</span></div>
+      <div style="height:18px"></div>
+      <div class="mask"><span class="in titre" id="e3-t0">Je construis,</span></div><div class="mask"><span class="in titre" id="e3-t1">tu testes.</span></div>
+    </div>
+    <div id="e3-carte" style="position:absolute;left:220px;top:440px;width:560px;height:560px;border-radius:56px;overflow:hidden;border:1.5px solid rgba(255,255,255,0.16);box-shadow:0 50px 140px rgba(0,0,0,0.6)">
+      <video data-color-grading="{&quot;preset&quot;:null,&quot;intensity&quot;:1,&quot;adjust&quot;:{&quot;exposure&quot;:-0.4,&quot;contrast&quot;:0.2,&quot;highlights&quot;:-0.4,&quot;shadows&quot;:0,&quot;whites&quot;:0,&quot;blacks&quot;:-0.25,&quot;temperature&quot;:-0.35,&quot;tint&quot;:0,&quot;vibrance&quot;:-0.1,&quot;saturation&quot;:-0.3},&quot;details&quot;:{&quot;vignette&quot;:0,&quot;vignetteMidpoint&quot;:0.5,&quot;vignetteRoundness&quot;:0,&quot;vignetteFeather&quot;:0.65,&quot;grain&quot;:0.05,&quot;grainSize&quot;:0.25,&quot;grainRoughness&quot;:0.5},&quot;effects&quot;:{&quot;blur&quot;:0,&quot;pixelate&quot;:0,&quot;chromaBleed&quot;:0,&quot;tapeDamage&quot;:0,&quot;tapeTracking&quot;:0,&quot;tapeNoise&quot;:1,&quot;tapeSpeed&quot;:0.5,&quot;filmArtifacts&quot;:0,&quot;halftone&quot;:0,&quot;halftoneSize&quot;:0,&quot;twoInkPrint&quot;:0,&quot;twoInkPrintSize&quot;:0,&quot;ascii&quot;:0,&quot;asciiSize&quot;:0.06578947368421052,&quot;asciiInvert&quot;:0,&quot;asciiStyle&quot;:0,&quot;asciiColor&quot;:1,&quot;asciiRotation&quot;:0,&quot;dither&quot;:0,&quot;ditherSize&quot;:0,&quot;bloom&quot;:0,&quot;bloomRadius&quot;:8,&quot;monoScreen&quot;:0,&quot;monoScreenSize&quot;:0,&quot;monoScreenAngle&quot;:0,&quot;monoScreenSpread&quot;:0,&quot;monoScreenShape&quot;:0,&quot;monoScreenInvert&quot;:0,&quot;scanlines&quot;:0,&quot;scanlineCount&quot;:0,&quot;scanlineSoftness&quot;:0,&quot;chromaticAberration&quot;:0,&quot;chromaticAngle&quot;:0,&quot;crtCurvature&quot;:0,&quot;digitalGlitch&quot;:0,&quot;digitalGlitchColorSplit&quot;:0,&quot;digitalGlitchLineTear&quot;:0,&quot;digitalGlitchPixelate&quot;:0,&quot;digitalGlitchBlockAmount&quot;:0,&quot;digitalGlitchBlockDisplacement&quot;:0,&quot;digitalGlitchBlockOpacity&quot;:0,&quot;digitalGlitchSpeed&quot;:0,&quot;engraving&quot;:0,&quot;engravingSpacing&quot;:0.4117647058823529,&quot;engravingMinThickness&quot;:0.2,&quot;engravingMaxThickness&quot;:0.4571428571428572,&quot;engravingAngle&quot;:0.25,&quot;engravingContrast&quot;:0.4666666666666667,&quot;engravingSharpness&quot;:0.59,&quot;engravingWave&quot;:0.2,&quot;engravingWaveFrequency&quot;:0.2222222222222222,&quot;crosshatch&quot;:0,&quot;crosshatchSpacing&quot;:0.28,&quot;crosshatchThickness&quot;:0.25,&quot;crosshatchAngle&quot;:0.25,&quot;crosshatchContrast&quot;:0.3333333333333333,&quot;crosshatchEdges&quot;:0.5,&quot;crosshatchLineWeight&quot;:0,&quot;crosshatchWave&quot;:0.33,&quot;crosshatchWaveFrequency&quot;:0.2222222222222222,&quot;kuwahara&quot;:0,&quot;kuwaharaRadius&quot;:0.14285714285714285,&quot;kuwaharaSharpness&quot;:0.3125,&quot;kuwaharaSaturation&quot;:0.5},&quot;lut&quot;:null,&quot;colorSpace&quot;:&quot;rec709&quot;}" id="e3-video" class="clip" data-start="0.9" data-duration="3.75" data-media-start="0.3" data-track-index="1"
+        src="assets/media/2026-10-23-ecran-code.mp4" muted playsinline style="position:absolute;left:0;top:0;width:560px;height:560px;object-fit:cover"></video>
+    </div>
+    <div id="e3-tel" style="position:absolute;left:660px;top:620px;width:320px;height:660px;border-radius:52px;padding:10px;background:#15171C;border:1.5px solid rgba(255,255,255,0.18);box-shadow:inset 0 1.5px 0 rgba(255,255,255,0.22),0 60px 160px rgba(0,0,0,0.7)">
+      <div style="position:relative;width:100%;height:100%;border-radius:42px;overflow:hidden;background:#0B111D">
+        <i style="position:absolute;left:50%;top:12px;width:88px;height:24px;margin-left:-44px;border-radius:12px;background:#000"></i>
+        <div style="position:absolute;left:22px;right:22px;top:60px">
+          <div class="pastille acc" id="e3-v1" style="font-size:30px;padding:10px 20px"><span class="d"></span>Version 1</div>
+          <div style="margin-top:22px;font-weight:700;font-size:32px;letter-spacing:-0.02em">Mes commandes</div>
+          <div class="l"><i style="width:70%"></i><b>Payé</b></div>
+          <div class="l"><i style="width:55%"></i><b>Payé</b></div>
+          <div class="l"><i style="width:62%"></i><b>À préparer</b></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script>
+    const tl = gsap.timeline({ paused: true });
+    tl.fromTo(["#e3-e", "#e3-t0", "#e3-t1"], { yPercent: 130 }, { yPercent: 0, duration: 0.8, ease: "expo.out", stagger: 0.07 }, 0.15);
+    tl.fromTo(["#e3-e", "#e3-t0", "#e3-t1"], { yPercent: 0 }, { immediateRender: false, yPercent: -135, duration: 0.38, ease: "power3.in", stagger: 0.04 }, 4.2);
+    // « je construis »
+    tl.fromTo("#e3-carte", { y: 1500 }, { y: 0, duration: 1.0, ease: "expo.out" }, 0.8);
+    // « tu la testes »
+    tl.fromTo("#e3-tel", { y: 1400 }, { y: 0, duration: 0.9, ease: "expo.out" }, 2.56);
+    tl.fromTo("#e3-v1", { opacity: 0, y: 16 }, { opacity: 1, y: 0, duration: 0.5, ease: "expo.out" }, 2.95);
+    tl.fromTo(["#e3-carte", "#e3-tel"], { y: 0, opacity: 1 }, { immediateRender: false, y: -160, opacity: 0, duration: 0.4, ease: "power3.in", stagger: 0.04 }, 4.2);
+    window.__timelines["etape3"] = tl;
+  </script>
+</template>

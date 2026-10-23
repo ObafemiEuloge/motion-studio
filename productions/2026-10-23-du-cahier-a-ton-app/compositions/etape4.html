@@ -1,0 +1,57 @@
+<template>
+  <style>
+    @font-face { font-family: "Plus Jakarta Sans"; font-weight: 500; src: url("assets/fonts/plus-jakarta-sans-latin-500-normal.woff2") format("woff2"); }
+    @font-face { font-family: "Plus Jakarta Sans"; font-weight: 600; src: url("assets/fonts/plus-jakarta-sans-latin-600-normal.woff2") format("woff2"); }
+    @font-face { font-family: "Plus Jakarta Sans"; font-weight: 700; src: url("assets/fonts/plus-jakarta-sans-latin-700-normal.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; font-family: "Plus Jakarta Sans", sans-serif; color: #F5F3EE; }
+    .mask { overflow: hidden; padding: 6px 0 14px; margin-bottom: -16px; }
+    .mask > .in { display: block; }
+    .acc { color: #D9C6A3; }
+    .ombre { text-shadow: 0 0 50px rgba(4,6,11,0.95), 0 0 18px rgba(4,6,11,0.9); }
+    .verre { background: rgba(255,255,255,0.055); -webkit-backdrop-filter: blur(34px) saturate(150%); backdrop-filter: blur(34px) saturate(150%);
+      border: 1.5px solid rgba(255,255,255,0.16); box-shadow: inset 0 1.5px 0 rgba(255,255,255,0.28), 0 50px 140px rgba(0,0,0,0.6); }
+    .etape { position: absolute; left: 220px; right: 70px; top: 196px; }
+    .eyebrow { font-weight: 600; font-size: 36px; letter-spacing: 0.2em; text-transform: uppercase; color: rgba(245,243,238,0.62); }
+    .titre { font-weight: 700; font-size: 62px; letter-spacing: -0.035em; line-height: 1.05; }
+    .trait { fill: none; stroke: #F5F3EE; stroke-width: 3.5; stroke-linecap: round; stroke-linejoin: round; }
+    .trait.doux { stroke: rgba(245,243,238,0.55); }
+    .trait.pointille { stroke-dasharray: 10 12; }
+    .pastille { display: inline-block; padding: 14px 28px; border-radius: 999px; font-weight: 600; font-size: 36px; white-space: nowrap;
+      background: rgba(255,255,255,0.07); border: 1.5px solid rgba(255,255,255,0.16); }
+    .pastille .d { display: inline-block; width: 12px; height: 12px; border-radius: 50%; margin-right: 14px; background: currentColor; vertical-align: middle; }
+    .notif { position: absolute; left: 260px; width: 740px; padding: 30px 40px; border-radius: 40px; }
+    .notif .nt { font-weight: 700; font-size: 44px; letter-spacing: -0.02em; }
+    .notif .ns { margin-top: 8px; font-weight: 500; font-size: 38px; color: rgba(245,243,238,0.82); }
+    .l { margin-top: 18px; height: 110px; border-radius: 20px; background: rgba(255,255,255,0.06); padding: 22px; }
+    .l i { display: block; height: 16px; border-radius: 8px; background: rgba(255,255,255,0.2); }
+  </style>
+  <div id="root" data-composition-id="etape4" data-width="1080" data-height="1920">
+    <div class="etape" id="e4-tete" data-layout-allow-overlap>
+      <div class="mask"><span class="in eyebrow" id="e4-e">Étape 4</span></div>
+      <div style="height:18px"></div>
+      <div class="mask"><span class="in titre" id="e4-t0">En ligne.</span></div>
+    </div>
+    <div id="e4-tel" style="position:absolute;left:430px;top:400px;width:400px;height:840px;border-radius:64px;padding:12px;background:#15171C;border:1.5px solid rgba(255,255,255,0.18);box-shadow:inset 0 1.5px 0 rgba(255,255,255,0.22),0 60px 160px rgba(0,0,0,0.7)">
+      <div style="position:relative;width:100%;height:100%;border-radius:52px;overflow:hidden;background:#0B111D">
+        <i style="position:absolute;left:50%;top:14px;width:110px;height:30px;margin-left:-55px;border-radius:15px;background:#000"></i>
+        <div style="position:absolute;left:28px;right:28px;top:300px">
+          <div class="l"><i style="width:70%"></i></div><div class="l"><i style="width:55%"></i></div><div class="l"><i style="width:62%"></i></div><div class="l"><i style="width:48%"></i></div>
+        </div>
+      </div>
+    </div>
+    <div id="e4-n1" class="verre notif" style="top:470px"><div class="nt">Paiement reçu</div><div class="ns">Mobile Money · <span class="acc">15 000 F</span></div></div>
+    <div id="e4-n2" class="verre notif" style="top:690px"><div class="nt">Nouvelle commande</div></div>
+  </div>
+  <script>
+    const tl = gsap.timeline({ paused: true });
+    tl.fromTo(["#e4-e", "#e4-t0"], { yPercent: 130 }, { yPercent: 0, duration: 0.8, ease: "expo.out", stagger: 0.07 }, 0.11);
+    tl.fromTo(["#e4-e", "#e4-t0"], { yPercent: 0 }, { immediateRender: false, yPercent: -135, duration: 0.38, ease: "power3.in", stagger: 0.04 }, 2.95);
+    tl.fromTo("#e4-tel", { y: 1500 }, { y: 0, duration: 1.0, ease: "expo.out" }, 0.15);
+    // « en ligne »
+    tl.fromTo("#e4-n1", { y: -60, opacity: 0 }, { y: 0, opacity: 1, duration: 0.55, ease: "expo.out" }, 1.12);
+    // « tes clients »
+    tl.fromTo("#e4-n2", { y: -60, opacity: 0 }, { y: 0, opacity: 1, duration: 0.55, ease: "expo.out" }, 1.86);
+    tl.fromTo(["#e4-n1", "#e4-n2", "#e4-tel"], { y: 0, opacity: 1 }, { immediateRender: false, y: -160, opacity: 0, duration: 0.4, ease: "power3.in", stagger: 0.03 }, 2.96);
+    window.__timelines["etape4"] = tl;
+  </script>
+</template>
