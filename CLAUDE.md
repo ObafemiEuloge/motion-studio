@@ -1,6 +1,6 @@
 # Studio motion d'Obafemi Euloge AGNOUN
 
-Ce dépôt produit les vidéos courtes (Instagram Reels, TikTok, 1080 × 1920) d'Obafemi Euloge AGNOUN, développeur basé à Cotonou. Une vidéo = un dossier dans `productions/AAAA-MM-JJ-<slug>/`.
+Ce dépôt produit les vidéos courtes (Instagram Reels, TikTok, 1080 × 1920) d'Obafemi Euloge AGNOUN, développeur qui travaille à distance. Une vidéo = un dossier dans `productions/AAAA-MM-JJ-<slug>/`.
 
 ## Avant toute production
 
@@ -13,6 +13,7 @@ Ce dépôt produit les vidéos courtes (Instagram Reels, TikTok, 1080 × 1920) d
 ## Règles qui ne se discutent pas
 
 - **Aucun tiret cadratin (U+2014) ni demi-cadratin (U+2013)** dans les textes, scripts, légendes, sous-titres. Vérifié par `scripts/verifier_texte.py`.
+- Aucune mention du Bénin, de Cotonou ni d'une ville (vidéos, légendes, hashtags).
 - Tutoiement. Français naturel parlé, pas écrit. Aucun prix affiché.
 - Appel à l'action : écrire à Oba sur WhatsApp, **+229 01 96 25 66 94**.
 - Nom à l'écran : **Obafemi Euloge AGNOUN** (trois mots, même taille, même graisse).

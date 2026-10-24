@@ -4,7 +4,8 @@ Seuls ces faits peuvent apparaître dans une vidéo. Pour tout autre chiffre ou 
 
 ## Qui
 
-- Obafemi Euloge AGNOUN, développeur, basé à Cotonou (Bénin), travaille à distance.
+- Obafemi Euloge AGNOUN, développeur, travaille à distance avec des clients partout.
+- **Règle (24 oct. 2026) : ne jamais citer le Bénin, Cotonou ni une ville dans les vidéos, légendes ou hashtags.** Oba travaille depuis n'importe où ; la géographie ne doit pas le restreindre. Mobile Money reste citable (c'est un moyen de paiement, pas un lieu).
 - Spécialité : le backend en Python (Django, FastAPI). Plus de 3 ans en développement web, dont 2 ans en Python. Ne jamais écrire « 3 ans de Python ».
 - Aussi : PostgreSQL, Redis, Docker, Nginx, Next.js, React, PHP (Laravel).
 - Portfolio : obafemiagnoun.cloud

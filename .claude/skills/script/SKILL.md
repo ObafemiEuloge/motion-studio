@@ -21,9 +21,9 @@ Sortie : `script.md` dans le dossier de production, avec deux colonnes par temps
 
 - Tutoiement. Phrases de 4 à 12 mots. Une idée par phrase.
 - Le concret avant l'abstrait : « tu notes tes commandes dans un cahier » plutôt que « ta gestion manque d'efficacité ».
-- Des mots qu'on dit à Cotonou, pas des mots de plaquette. « Ton business », « tes clients », « ça te coûte des ventes ».
+- Des mots qu'on dit à l'oral entre entrepreneurs, pas des mots de plaquette. « Ton business », « tes clients », « ça te coûte des ventes ».
 - Le rythme vient des longueurs variées : une phrase courte. Puis une un peu plus longue qui explique. Puis une très courte.
-- Au moins une phrase qui ne pourrait être écrite par personne d'autre (Cotonou, Mobile Money, un projet réel).
+- Au moins une phrase qui ne pourrait être écrite par personne d'autre (Mobile Money, un projet réel, une situation vécue). Jamais de ville ni de pays.
 - Le texte à l'écran ne répète pas la voix mot pour mot : il en garde 2 à 5 mots clés, ou montre ce que la voix décrit.
 
 ## Ce qui fait vendre (leçons de la vidéo 1, 23 oct. 2026)
