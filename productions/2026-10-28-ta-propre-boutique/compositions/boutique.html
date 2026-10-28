@@ -54,7 +54,8 @@
     .compte .eb { font-weight: 600; font-size: 30px; letter-spacing: 0.18em; text-transform: uppercase; color: rgba(245,243,238,0.6); }
     .compte .n { font-weight: 700; font-size: 150px; letter-spacing: -0.05em; line-height: 1.0; white-space: nowrap; }
     .compte .lab { font-weight: 600; font-size: 40px; letter-spacing: -0.02em; white-space: nowrap; }
-    #b-k1 { left: 80px; } #b-k2 { left: 560px; }
+    #b-k1 { left: 80px; }
+    .l-pays { font-weight: 700; font-size: 60px; letter-spacing: -0.04em; line-height: 1.08; white-space: nowrap; }
     #b-acces { position: absolute; left: 80px; top: 1236px; }
     .l-acces { font-weight: 700; font-size: 58px; letter-spacing: -0.04em; line-height: 1.05; white-space: nowrap; }
   </style>
@@ -90,14 +91,8 @@
       <g id="b-cle"><circle cx="0" cy="0" r="13" fill="none" stroke="#F5F3EE" stroke-width="3.5" /><path d="M13 0 H40 M30 0 V9 M37 0 V7" fill="none" stroke="#F5F3EE" stroke-width="3.5" stroke-linecap="round" /></g>
     </svg>
     <div class="compte" id="b-k1" data-layout-allow-overlap>
-      <div class="mask"><span class="in eb" id="b-k1a">Près de</span></div>
-      <div class="mask"><span class="in n" id="b-k1b"><span class="roule" id="b-r17">17</span></span></div>
-      <div class="mask"><span class="in lab" id="b-k1c">pays africains</span></div>
-    </div>
-    <div class="compte" id="b-k2" data-layout-allow-overlap>
-      <div class="mask"><span class="in eb" id="b-k2a">Près de</span></div>
-      <div class="mask"><span class="in n" id="b-k2b"><span class="roule" id="b-r50">50</span></span></div>
-      <div class="mask"><span class="in lab" id="b-k2c">opérateurs</span></div>
+      <div class="mask"><span class="in l-pays" id="b-k1a">Mobile Money et carte,</span></div>
+      <div class="mask"><span class="in l-pays" id="b-k1c">dans plusieurs pays d’Afrique.</span></div>
     </div>
     <div id="b-acces" class="ombre"><div class="mask"><span class="in l-acces" id="b-a">Je t'aide à obtenir tes accès.</span></div></div>
   </div>
@@ -144,7 +139,7 @@
       const sort = (sel, t) => tl.fromTo(sel, { yPercent: 0 }, { immediateRender: false, yPercent: -135, duration: 0.38, ease: "power3.in", stagger: 0.04 }, t);
       const cache = (sel) => tl.fromTo(sel, { yPercent: 130 }, { yPercent: 130, duration: 0.01 }, 0);
 
-      cache(["#b-t1", "#b-t2", "#b-m1", "#b-m2", "#b-k1a", "#b-k1b", "#b-k1c", "#b-k2a", "#b-k2b", "#b-k2c", "#b-a"]);
+      cache(["#b-t1", "#b-t2", "#b-m1", "#b-m2", "#b-k1a", "#b-k1c", "#b-a"]);
       tl.fromTo("#b-tel", { y: 220, opacity: 0, x: 0, scale: 1 }, { y: 220, opacity: 0, x: 0, scale: 1, duration: 0.01 }, 0);
       tl.fromTo("#b-url-t", { clipPath: "inset(0 100% 0 0)" }, { clipPath: "inset(0 100% 0 0)", duration: 0.01 }, 0);
       tl.fromTo(["#b-nav", "#b-h1", "#b-h2", "#b-h3", "#b-h4", "#b-btn", "#b-c1", "#b-c2"], { y: 26, opacity: 0 }, { y: 26, opacity: 0, duration: 0.01 }, 0);
@@ -152,7 +147,6 @@
       tl.fromTo(feux, { scale: 0, transformOrigin: "50% 50%" }, { scale: 0, transformOrigin: "50% 50%", duration: 0.01 }, 0);
       tl.fromTo(anneaux, { scale: 0.5, opacity: 0, transformOrigin: "50% 50%" }, { scale: 0.5, opacity: 0, transformOrigin: "50% 50%", duration: 0.01 }, 0);
       tl.fromTo("#b-cle", { x: ALLUMES[0][0] - 60, y: ALLUMES[0][1] - 50, opacity: 0 }, { x: ALLUMES[0][0] - 60, y: ALLUMES[0][1] - 50, opacity: 0, duration: 0.01 }, 0);
-      pose("b-r17", [0, 0]); pose("b-r50", [0, 0]);
 
       // « Alors je te propose autre chose » : ta boutique se monte
       tl.fromTo("#b-tel", { y: 220, opacity: 0 }, { immediateRender: false, y: 0, opacity: 1, duration: 1.0, ease: "expo.out" }, at(36.65));
@@ -170,17 +164,14 @@
       tl.fromTo("#b-tel", { x: 0, scale: 1 }, { immediateRender: false, x: -230, scale: 0.84, duration: 0.8, ease: "power3.inOut" }, at(40.9));
       entre("#b-m1", at(41.79));
       entre("#b-m2", at(42.67));
-      // « Près de dix-sept pays africains » : la boutique s'efface, l'Afrique s'allume
+      // La boutique s'efface, l'Afrique s'allume : « Mobile Money et carte, dans plusieurs pays d'Afrique »
       sort(["#b-m1", "#b-m2"], at(43.2));
       tl.fromTo("#b-tel", { opacity: 1, y: 0 }, { immediateRender: false, opacity: 0, y: 60, duration: 0.4, ease: "power3.in" }, at(43.15));
       tl.fromTo("#b-trame", { opacity: 0 }, { immediateRender: false, opacity: 1, duration: 0.6, ease: "power1.out" }, at(43.3));
-      entre(["#b-k1a", "#b-k1b", "#b-k1c"], at(43.44), 0.07);
-      roule("b-r17", [0, 0], [1, 7], at(43.92), 1.0, 0.05);
+      entre("#b-k1a", at(43.44));
       tl.fromTo(feux, { scale: 0 }, { immediateRender: false, scale: 1, duration: 0.35, ease: "back.out(2.5)", stagger: 0.035 }, at(43.92));
       tl.fromTo(anneaux, { scale: 0.5, opacity: 0 }, { immediateRender: false, keyframes: { scale: [0.5, 1.4], opacity: [0, 0.9, 0] }, duration: 0.8, ease: "power1.out", stagger: 0.035 }, at(43.95));
-      // « près de cinquante opérateurs »
-      entre(["#b-k2a", "#b-k2b", "#b-k2c"], at(45.32), 0.07);
-      roule("b-r50", [0, 0], [5, 0], at(45.76), 1.0, 0.05);
+      entre("#b-k1c", at(45.32));
 
       // « Et je t'aide à obtenir tes accès » : une clé ouvre les pays un à un
       entre("#b-a", at(47.23));
@@ -194,7 +185,7 @@
       });
 
       // Sortie
-      sort(["#b-k1a", "#b-k1b", "#b-k1c", "#b-k2a", "#b-k2b", "#b-k2c", "#b-a"], at(49.9));
+      sort(["#b-k1a", "#b-k1c", "#b-a"], at(49.9));
       tl.fromTo(["#b-carte"], { opacity: 1 }, { immediateRender: false, opacity: 0, duration: 0.4, ease: "power1.in" }, at(49.9));
       window.__timelines["boutique"] = tl;
     })();

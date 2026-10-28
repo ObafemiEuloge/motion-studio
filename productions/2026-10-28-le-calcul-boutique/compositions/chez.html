@@ -59,8 +59,7 @@
     .pil .s { position: absolute; left: -14px; top: -14px; width: 28px; height: 28px; border-radius: 50%; border: 2px solid rgba(245,243,238,0.7); }
     #h-moyens { position: absolute; left: 80px; top: 236px; display: flex; gap: 14px; }
     #h-pays { position: absolute; left: 80px; top: 1180px; width: 920px; }
-    #h-pays .nb { font-weight: 700; font-size: 110px; letter-spacing: -0.04em; display: flex; align-items: baseline; gap: 22px; white-space: nowrap; }
-    #h-pays .nb .lab { font-size: 52px; letter-spacing: -0.03em; }
+    .l-pays { font-weight: 700; font-size: 60px; letter-spacing: -0.04em; line-height: 1.08; white-space: nowrap; }
   </style>
   <div id="root" data-composition-id="chez" data-width="1080" data-height="1920">
     <div id="h-texte" class="ombre">
@@ -87,8 +86,8 @@
       </div>
     </div>
     <div id="h-pays" class="ombre" data-layout-allow-overlap>
-      <div class="mask"><span class="in eyebrow" id="h-p1" data-layout-ignore>Près de</span></div>
-      <div class="nb" id="h-p2"><span class="tambours" id="h-t17">17</span><span class="lab">pays africains</span></div>
+      <div class="mask"><span class="in l-pays" id="h-p1" data-layout-ignore>Mobile Money et carte,</span></div>
+      <div class="mask"><span class="in l-pays" id="h-p2">dans plusieurs pays d’Afrique.</span></div>
     </div>
   </div>
   <script>
@@ -151,15 +150,13 @@
       });
       const chiffresT = (id) => tambours[id].map((c) => c.d);
 
-      cache(["#h-t", "#h-e", "#h-c", "#h-l1", "#h-l2", "#h-m1", "#h-m2", "#h-p1"]);
+      cache(["#h-t", "#h-e", "#h-c", "#h-l1", "#h-l2", "#h-m1", "#h-m2", "#h-p1", "#h-p2"]);
       tl.fromTo("#h-piste", { clipPath: "inset(0 100% 0 0 round 56px)" }, { clipPath: "inset(0 100% 0 0 round 56px)", duration: 0.01 }, 0);
       tl.fromTo("#h-plein", { scaleX: 0 }, { scaleX: 0, duration: 0.01 }, 0);
       tl.fromTo("#h-scene3d", { opacity: 0 }, { opacity: 0, duration: 0.01 }, 0);
       tl.fromTo("#h-plan", { rotationX: 62, rotationZ: -14, y: 120, scale: 0.9 }, { rotationX: 62, rotationZ: -14, y: 120, scale: 0.9, duration: 0.01 }, 0);
       tl.fromTo(".pil .b", { rotationX: -90, scaleY: 0 }, { rotationX: -90, scaleY: 0, duration: 0.01 }, 0);
       tl.fromTo(".pil .s", { scale: 0, opacity: 0 }, { scale: 0, opacity: 0, duration: 0.01 }, 0);
-      tl.fromTo("#h-p2", { opacity: 0, y: 30 }, { opacity: 0, y: 30, duration: 0.01 }, 0);
-      posTambour("h-t17", [0, 0]);
 
       // « Avec ta propre boutique, presque tout reste chez toi »
       entre("#h-t", at(6.39));
@@ -170,7 +167,7 @@
       entre("#h-c", at(8.95));
       entre(["#h-l1", "#h-l2"], at(9.05), 0.1);
 
-      // « Mobile Money, carte, près de dix-sept pays africains » : l'Afrique se couche, 17 piliers se lèvent
+      // « Mobile Money, carte » : l'Afrique se couche, des piliers se lèvent
       sort(["#h-t", "#h-e", "#h-c", "#h-l1", "#h-l2"], at(9.55));
       tl.fromTo("#h-piste", { opacity: 1 }, { immediateRender: false, opacity: 0, y: -40, duration: 0.35, ease: "power3.in" }, at(9.55));
       entre("#h-m1", at(9.71));
@@ -180,12 +177,11 @@
       tl.fromTo(".pil .s", { scale: 0, opacity: 0 }, { immediateRender: false, scale: 1, opacity: 1, duration: 0.3, ease: "back.out(2)", stagger: 0.03 }, at(11.5));
       tl.fromTo(".pil .b", { scaleY: 0 }, { immediateRender: false, scaleY: 1, duration: 0.7, ease: "expo.out", stagger: 0.035 }, at(11.59));
       entre("#h-p1", at(11.19));
-      tl.fromTo("#h-p2", { opacity: 0, y: 30 }, { immediateRender: false, opacity: 1, y: 0, duration: 0.5, ease: "expo.out" }, at(11.4));
-      tourne("h-t17", [0, 0], [1, 7], at(11.59), 1.0, 0.06, 1);
+      entre("#h-p2", at(11.4));
 
       // Sortie vers le calcul
-      sort(["#h-m1", "#h-m2", "#h-p1"], at(12.82));
-      tl.fromTo(["#h-scene3d", "#h-p2"], { opacity: 1 }, { immediateRender: false, opacity: 0, duration: 0.35, ease: "power1.in" }, at(12.82));
+      sort(["#h-m1", "#h-m2", "#h-p1", "#h-p2"], at(12.82));
+      tl.fromTo(["#h-scene3d"], { opacity: 1 }, { immediateRender: false, opacity: 0, duration: 0.35, ease: "power1.in" }, at(12.82));
       window.__timelines["chez"] = tl;
     })();
   </script>

@@ -47,9 +47,8 @@
       <div id="f-sig" data-layout-allow-overlap>
         <div class="mask"><span class="in eyebrow" id="f-s1" style="font-size:28px;letter-spacing:0.15em;white-space:nowrap">Développeur · Partout, à distance</span></div>
         <div style="height:40px"></div>
-        <div class="mask"><span class="in name" id="f-n1">Obafemi</span></div>
-        <div class="mask"><span class="in name" id="f-n2">Euloge</span></div>
-        <div class="mask"><span class="in name" id="f-n3">Agnoun.</span></div>
+        <div class="mask"><span class="in name" id="f-n1">Fèmi</span></div>
+        <div class="mask"><span class="in name" id="f-n2">Agnoun.</span></div>
         <div id="f-trait"></div>
         <div class="mask" id="f-tagmask"><span class="in" id="f-tag">On fait ton calcul ensemble.</span></div>
         <div id="f-wa">
@@ -62,7 +61,7 @@
   </div>
   <script>
     const tl = gsap.timeline({ paused: true });
-    tl.fromTo(["#f-s1", "#f-n1", "#f-n2", "#f-n3", "#f-tag"], { yPercent: 110 }, { yPercent: 110, duration: 0.01 }, 0);
+    tl.fromTo(["#f-s1", "#f-n1", "#f-n2", "#f-tag"], { yPercent: 110 }, { yPercent: 110, duration: 0.01 }, 0);
     tl.fromTo(["#f-cta", "#f-num"], { yPercent: 140 }, { yPercent: 140, duration: 0.01 }, 0);
     tl.fromTo("#f-trait", { scaleX: 0 }, { scaleX: 0, duration: 0.01 }, 0);
     tl.fromTo("#f-reflet", { xPercent: -140 }, { xPercent: -140, duration: 0.01 }, 0);
@@ -72,7 +71,7 @@
     // Sans découpe, le verre floute de nouveau le mur derrière lui
     tl.fromTo("#f-carte", { clipPath: "circle(1400px at 80px 670px)" }, { immediateRender: false, clipPath: "none", duration: 0.01 }, 0.95);
     tl.fromTo("#f-s1", { yPercent: 110 }, { immediateRender: false, yPercent: 0, duration: 0.7, ease: "expo.out" }, 0.3);
-    tl.fromTo(["#f-n1", "#f-n2", "#f-n3"], { yPercent: 110 }, { immediateRender: false, yPercent: 0, duration: 0.85, ease: "expo.out", stagger: 0.08 }, 0.36);
+    tl.fromTo(["#f-n1", "#f-n2"], { yPercent: 110 }, { immediateRender: false, yPercent: 0, duration: 0.85, ease: "expo.out", stagger: 0.08 }, 0.36);
     tl.fromTo("#f-trait", { scaleX: 0 }, { immediateRender: false, scaleX: 1, duration: 0.8, ease: "expo.out" }, 0.75);
     // « BOUTIQUE » puis « WhatsApp »
     tl.fromTo("#f-cta", { yPercent: 140 }, { immediateRender: false, yPercent: 0, duration: 0.8, ease: "expo.out" }, 0.62);
