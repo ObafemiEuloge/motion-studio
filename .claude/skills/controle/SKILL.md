@@ -9,7 +9,8 @@ description: Contrôle qualité d'une vidéo du studio avant rendu final et livr
 
 ## Texte
 - [ ] `python3 scripts/verifier_texte.py script.md audio/voix.txt publication.md index.html compositions/*.html` affiche OK.
-- [ ] Chaque fait vient de `brand/faits.md`. Aucun prix. EducaPro dit « pour un client ».
+- [ ] Chaque fait vient de `brand/faits.md`. Aucun prix (sauf le calcul d'économie de l'offre Boutique en ligne). EducaPro dit « pour un client ». Aucune ville ni le nom d'un pays.
+- [ ] Les chiffres affichés sont exactement ceux dits par la voix, et le calcul tombe juste.
 - [ ] Nom à l'écran : Obafemi Euloge AGNOUN, trois mots, même taille.
 - [ ] Numéro WhatsApp exact : +229 01 96 25 66 94.
 
@@ -21,7 +22,8 @@ description: Contrôle qualité d'une vidéo du studio avant rendu final et livr
 ## Mouvement et lecture
 - [ ] Test du pouce : l'image 0 réduite à 270 px de large reste lisible et dit le problème.
 - [ ] Le visage d'Oba, s'il apparaît, est net et éclairé ; sinon le plan est retiré.
-- [ ] L'appel final contient le mot-clé de l'offre (APP, PAGE, MOTION) et la raison d'écrire.
+- [ ] L'appel final contient le mot-clé de l'offre (APP, BOUTIQUE, PAGE, MOTION) et la raison d'écrire.
+- [ ] Format long : chaque chapitre se comprend sans le son (un titre ou un chiffre clé à l'écran), et aucune séquence d'Oba ne garde son son d'origine.
 - [ ] `npx hyperframes check --json` : zéro erreur ; avertissements lus et justifiés.
 - [ ] `npx hyperframes snapshot --review` puis `/hyperframes` `references/review.md` : aucun titre qui bouge après son arrivée, aucun saut aux coupes.
 - [ ] Image 0 lisible sans le son. Tout texte entre 168 et 1330 px, taille ≥ 28 px.

@@ -1,0 +1,145 @@
+<template>
+  <style>
+/*COMMUN*/
+    /* Le téléphone et ta boutique à toi */
+    #b-tel { position: absolute; left: 330px; top: 480px; width: 420px; height: 840px; border-radius: 64px; padding: 12px; }
+    #b-ecran { position: relative; width: 100%; height: 100%; border-radius: 52px; overflow: hidden; background: #0E131C; }
+    #b-ilot { position: absolute; left: 148px; top: 14px; width: 100px; height: 28px; border-radius: 14px; background: #000; }
+    #b-url { position: absolute; left: 28px; top: 58px; width: 340px; height: 58px; border-radius: 29px; background: rgba(245,243,238,0.08); display: flex; align-items: center; gap: 12px; padding: 0 22px; }
+    #b-url-t { font-weight: 600; font-size: 28px; white-space: nowrap; }
+    #b-nav { position: absolute; left: 28px; right: 28px; top: 144px; display: flex; justify-content: space-between; align-items: center; }
+    #b-logo { font-weight: 700; font-size: 32px; letter-spacing: 0.18em; white-space: nowrap; }
+    #b-hero { position: absolute; left: 28px; right: 28px; top: 214px; }
+    #b-hero .eb { font-weight: 600; font-size: 28px; color: rgba(245,243,238,0.55); }
+    #b-hero .h { margin-top: 8px; font-weight: 700; font-size: 50px; letter-spacing: -0.035em; line-height: 1.02; }
+    #b-hero i { display: block; height: 12px; border-radius: 6px; background: rgba(245,243,238,0.28); margin-top: 16px; }
+    #b-btn { display: inline-block; margin-top: 24px; padding: 14px 34px; border-radius: 999px; background: #F5F3EE; color: #04060B; font-weight: 700; font-size: 30px; }
+    .b-carte { position: absolute; top: 560px; width: 162px; height: 220px; border-radius: 22px; background: rgba(245,243,238,0.06); border: 1.5px solid rgba(245,243,238,0.14); padding: 12px; }
+    .b-carte div { height: 96px; border-radius: 14px; background: rgba(245,243,238,0.1); }
+    .b-carte i { display: block; height: 10px; border-radius: 5px; background: rgba(245,243,238,0.35); margin-top: 14px; }
+    #b-c1 { left: 28px; } #b-c2 { left: 206px; }
+    #b-moyens { position: absolute; left: 600px; top: 720px; }
+    #b-moyens .mask { margin-bottom: 4px; }
+
+    /* L'Afrique en points */
+    #b-carte { position: absolute; left: 0; top: 0; overflow: visible; }
+    #b-carte .pt { fill: rgba(245,243,238,0.24); }
+    .compte { position: absolute; top: 210px; }
+    .compte .eb { font-weight: 600; font-size: 30px; letter-spacing: 0.18em; text-transform: uppercase; color: rgba(245,243,238,0.6); }
+    .compte .n { font-weight: 700; font-size: 150px; letter-spacing: -0.05em; line-height: 1.0; white-space: nowrap; }
+    .compte .lab { font-weight: 600; font-size: 40px; letter-spacing: -0.02em; white-space: nowrap; }
+    #b-k1 { left: 80px; } #b-k2 { left: 560px; }
+    #b-acces { position: absolute; left: 80px; top: 1236px; }
+    .l-acces { font-weight: 700; font-size: 58px; letter-spacing: -0.04em; line-height: 1.05; white-space: nowrap; }
+  </style>
+  <div id="root" data-composition-id="boutique" data-width="1080" data-height="1920">
+    <div class="titre ombre" id="b-titre" data-layout-allow-overlap>
+      <div class="mask"><span class="in l-titre" id="b-t1">Ta propre boutique.</span></div>
+      <div class="mask"><span class="in l-titre acc" id="b-t2">À ton nom.</span></div>
+    </div>
+
+    <div id="b-tel" class="verre">
+      <div id="b-ecran">
+        <div id="b-ilot"></div>
+        <div id="b-url"><svg width="26" height="26" viewBox="0 0 26 26"><path class="t fin" d="M7 12 V9 a6 6 0 0 1 12 0 V12 M5 12 H21 V23 H5 Z" /></svg><span id="b-url-t">tonnom.com</span></div>
+        <div id="b-nav"><span id="b-logo">TON NOM</span><svg width="34" height="34" viewBox="0 0 34 34"><path class="t fin" d="M6 11 H28 M6 17 H28 M6 23 H28" /></svg></div>
+        <div id="b-hero">
+          <div class="eb" id="b-h1">Formation</div>
+          <div class="h" id="b-h2">Ta formation,<br />chez toi.</div>
+          <i style="width:90%" id="b-h3"></i><i style="width:70%" id="b-h4"></i>
+          <span id="b-btn">Acheter</span>
+        </div>
+        <div class="b-carte" id="b-c1"><div></div><i style="width:80%"></i><i style="width:56%"></i></div>
+        <div class="b-carte" id="b-c2"><div></div><i style="width:70%"></i><i style="width:48%"></i></div>
+      </div>
+    </div>
+    <div id="b-moyens">
+      <div class="mask"><span class="in pastille verre" id="b-m1"><span class="d"></span>Mobile Money</span></div>
+      <div class="mask"><span class="in pastille verre" id="b-m2"><span class="d"></span>Carte</span></div>
+    </div>
+
+    <svg id="b-carte" width="1080" height="1920" viewBox="0 0 1080 1920" data-layout-ignore>
+      <g id="b-trame">@@CARTE@@</g>
+      <g id="b-allumes"></g>
+      <g id="b-cle"><circle cx="0" cy="0" r="13" fill="none" stroke="#F5F3EE" stroke-width="3.5" /><path d="M13 0 H40 M30 0 V9 M37 0 V7" fill="none" stroke="#F5F3EE" stroke-width="3.5" stroke-linecap="round" /></g>
+    </svg>
+    <div class="compte" id="b-k1" data-layout-allow-overlap>
+      <div class="mask"><span class="in eb" id="b-k1a">Près de</span></div>
+      <div class="mask"><span class="in n" id="b-k1b"><span class="roule" id="b-r17">17</span></span></div>
+      <div class="mask"><span class="in lab" id="b-k1c">pays africains</span></div>
+    </div>
+    <div class="compte" id="b-k2" data-layout-allow-overlap>
+      <div class="mask"><span class="in eb" id="b-k2a">Près de</span></div>
+      <div class="mask"><span class="in n" id="b-k2b"><span class="roule" id="b-r50">50</span></span></div>
+      <div class="mask"><span class="in lab" id="b-k2c">opérateurs</span></div>
+    </div>
+    <div id="b-acces" class="ombre"><div class="mask"><span class="in l-acces" id="b-a">Je t'aide à obtenir tes accès.</span></div></div>
+  </div>
+  <script>
+    (function () {
+      const DEBUT = 36.4;
+      // Les 17 pays allumés (coordonnées de la trame, calculées par outils/carte.py)
+      const ALLUMES = @@ALLUMES@@;
+      const NS = "http://www.w3.org/2000/svg", g = document.getElementById("b-allumes"), feux = [], anneaux = [];
+      ALLUMES.forEach(([x, y]) => {
+        const a = document.createElementNS(NS, "circle"); a.setAttribute("cx", x); a.setAttribute("cy", y); a.setAttribute("r", "16");
+        a.setAttribute("fill", "none"); a.setAttribute("stroke", "#F5F3EE"); a.setAttribute("stroke-width", "2"); g.appendChild(a); anneaux.push(a);
+        const f = document.createElementNS(NS, "circle"); f.setAttribute("cx", x); f.setAttribute("cy", y); f.setAttribute("r", "8"); f.setAttribute("fill", "#F5F3EE"); g.appendChild(f); feux.push(f);
+      });
+//COMMUN
+      cache(["#b-t1", "#b-t2", "#b-m1", "#b-m2", "#b-k1a", "#b-k1b", "#b-k1c", "#b-k2a", "#b-k2b", "#b-k2c", "#b-a"]);
+      tl.fromTo("#b-tel", { y: 220, opacity: 0, x: 0, scale: 1 }, { y: 220, opacity: 0, x: 0, scale: 1, duration: 0.01 }, 0);
+      tl.fromTo("#b-url-t", { clipPath: "inset(0 100% 0 0)" }, { clipPath: "inset(0 100% 0 0)", duration: 0.01 }, 0);
+      tl.fromTo(["#b-nav", "#b-h1", "#b-h2", "#b-h3", "#b-h4", "#b-btn", "#b-c1", "#b-c2"], { y: 26, opacity: 0 }, { y: 26, opacity: 0, duration: 0.01 }, 0);
+      tl.fromTo("#b-trame", { opacity: 0 }, { opacity: 0, duration: 0.01 }, 0);
+      tl.fromTo(feux, { scale: 0, transformOrigin: "50% 50%" }, { scale: 0, transformOrigin: "50% 50%", duration: 0.01 }, 0);
+      tl.fromTo(anneaux, { scale: 0.5, opacity: 0, transformOrigin: "50% 50%" }, { scale: 0.5, opacity: 0, transformOrigin: "50% 50%", duration: 0.01 }, 0);
+      tl.fromTo("#b-cle", { x: ALLUMES[0][0] - 60, y: ALLUMES[0][1] - 50, opacity: 0 }, { x: ALLUMES[0][0] - 60, y: ALLUMES[0][1] - 50, opacity: 0, duration: 0.01 }, 0);
+      pose("b-r17", [0, 0]); pose("b-r50", [0, 0]);
+
+      // « Alors je te propose autre chose » : ta boutique se monte
+      tl.fromTo("#b-tel", { y: 220, opacity: 0 }, { immediateRender: false, y: 0, opacity: 1, duration: 1.0, ease: "expo.out" }, at(36.65));
+      tl.fromTo("#b-url-t", { clipPath: "inset(0 100% 0 0)" }, { immediateRender: false, clipPath: "inset(0 0% 0 0)", duration: 0.9, ease: "steps(10)" }, at(37.1));
+      tl.fromTo("#b-nav", { y: 26, opacity: 0 }, { immediateRender: false, y: 0, opacity: 1, duration: 0.6, ease: "expo.out" }, at(38.2));
+      entre("#b-t1", at(38.67));
+      tl.fromTo(["#b-h1", "#b-h2", "#b-h3", "#b-h4", "#b-btn"], { y: 26, opacity: 0 }, { immediateRender: false, y: 0, opacity: 1, duration: 0.6, ease: "expo.out", stagger: 0.09 }, at(38.85));
+      tl.fromTo(["#b-c1", "#b-c2"], { y: 26, opacity: 0 }, { immediateRender: false, y: 0, opacity: 1, duration: 0.6, ease: "expo.out", stagger: 0.1 }, at(39.4));
+      // « À ton nom » : l'adresse et le nom de la boutique battent une fois
+      entre("#b-t2", at(40.04));
+      tl.fromTo(["#b-url", "#b-logo"], { scale: 1 }, { immediateRender: false, keyframes: { scale: [1, 1.07, 1] }, duration: 0.45, ease: "power2.out", stagger: 0.08 }, at(40.04));
+
+      // « Tes clients paient par Mobile Money ou par carte »
+      sort(["#b-t1", "#b-t2"], at(40.85));
+      tl.fromTo("#b-tel", { x: 0, scale: 1 }, { immediateRender: false, x: -230, scale: 0.84, duration: 0.8, ease: "power3.inOut" }, at(40.9));
+      entre("#b-m1", at(41.79));
+      entre("#b-m2", at(42.67));
+      // « Près de dix-sept pays africains » : la boutique s'efface, l'Afrique s'allume
+      sort(["#b-m1", "#b-m2"], at(43.2));
+      tl.fromTo("#b-tel", { opacity: 1, y: 0 }, { immediateRender: false, opacity: 0, y: 60, duration: 0.4, ease: "power3.in" }, at(43.15));
+      tl.fromTo("#b-trame", { opacity: 0 }, { immediateRender: false, opacity: 1, duration: 0.6, ease: "power1.out" }, at(43.3));
+      entre(["#b-k1a", "#b-k1b", "#b-k1c"], at(43.44), 0.07);
+      roule("b-r17", [0, 0], [1, 7], at(43.92), 1.0, 0.05);
+      tl.fromTo(feux, { scale: 0 }, { immediateRender: false, scale: 1, duration: 0.35, ease: "back.out(2.5)", stagger: 0.035 }, at(43.92));
+      tl.fromTo(anneaux, { scale: 0.5, opacity: 0 }, { immediateRender: false, keyframes: { scale: [0.5, 1.4], opacity: [0, 0.9, 0] }, duration: 0.8, ease: "power1.out", stagger: 0.035 }, at(43.95));
+      // « près de cinquante opérateurs »
+      entre(["#b-k2a", "#b-k2b", "#b-k2c"], at(45.32), 0.07);
+      roule("b-r50", [0, 0], [5, 0], at(45.76), 1.0, 0.05);
+
+      // « Et je t'aide à obtenir tes accès » : une clé ouvre les pays un à un
+      entre("#b-a", at(47.23));
+      const visites = [0, 4, 8, 9, 12, 14];
+      tl.fromTo("#b-cle", { opacity: 0 }, { immediateRender: false, opacity: 1, duration: 0.25 }, at(47.0));
+      visites.forEach((k, i) => {
+        const [x, y] = ALLUMES[k], t = at(47.1 + i * 0.44);
+        if (i > 0) { const [px, py] = ALLUMES[visites[i - 1]];
+          tl.fromTo("#b-cle", { x: px - 60, y: py - 50 }, { immediateRender: false, x: x - 60, y: y - 50, duration: 0.3, ease: "power2.inOut" }, t - 0.3); }
+        tl.fromTo(anneaux[k], { scale: 0.5, opacity: 0 }, { immediateRender: false, scale: 1.1, opacity: 1, duration: 0.3, ease: "back.out(2)" }, t);
+      });
+
+      // Sortie
+      sort(["#b-k1a", "#b-k1b", "#b-k1c", "#b-k2a", "#b-k2b", "#b-k2c", "#b-a"], at(49.9));
+      tl.fromTo(["#b-carte"], { opacity: 1 }, { immediateRender: false, opacity: 0, duration: 0.4, ease: "power1.in" }, at(49.9));
+      window.__timelines["boutique"] = tl;
+    })();
+  </script>
+</template>

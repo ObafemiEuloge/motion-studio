@@ -33,6 +33,17 @@ Interdits techniques : animer `letter-spacing`, `width`, `top`, `left` ; un `tra
 
 Pour montrer une application, utilise une capture réelle (`npx hyperframes capture <url> --json` pour un site public comme mescentimes.cloud) ou reconstruis l'écran en HTML avec de vraies données plausibles en FCFA. Jamais de faux logo de client.
 
+## Pièges techniques déjà rencontrés (à ne pas refaire)
+
+- **Verre qui ne floute plus** : un `clip-path`, un `filter`, un `mask` ou une `opacity` < 1 sur un parent du verre l'empêche de flouter ce qui est derrière. Après une ouverture par `clip-path`, remets `clipPath: "none"`.
+- **Tracés de cercle** : `pathLength="1"` est peu fiable sur un cercle fait d'arcs (le trait n'apparaît qu'à la fin). Utilise la longueur réelle (2 × π × r) en `stroke-dasharray` et `stroke-dashoffset`.
+- **Ligne qui relie des icônes** : elle passe derrière les icônes (placée avant dans le DOM), centrée sur elles, à vitesse constante (`ease: "none"`), et chaque icône s'allume quand la ligne l'atteint (temps calculé, pas estimé).
+- **Grandir une carte** : jamais `width`, `height`, `left`, `top` ; une découpe `clip-path: inset(...)` puis `none`.
+- **Caméra dans un dessin** : animer la `viewBox` du SVG et une variable CSS d'épaisseur de trait (`--sw`) pour garder un trait constant.
+- **Chiffres qui roulent** : une colonne 0 à 9 par chiffre (`yPercent: -chiffre × 10`), colonnes de 0,64 em ; masquer le montant tant qu'il n'a pas commencé à rouler (sinon « 00 000 »).
+- **Lettres qui débordent des caches** : état caché à 130 %, sortie à −135 %.
+- **Séquences d'Oba** : toujours sans le son d'origine (`-an`), étalonnées, recadrées dans une carte arrondie.
+
 ## Vérifier puis rendre
 
 ```bash

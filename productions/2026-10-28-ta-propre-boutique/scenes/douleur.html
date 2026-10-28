@@ -1,0 +1,123 @@
+<template>
+  <style>
+/*COMMUN*/
+    #d-noeud { position: absolute; left: 620px; top: 520px; width: 380px; height: 100px; border-radius: 50px; display: flex; align-items: center; gap: 18px; padding: 0 30px; }
+    #d-noeud .lab { font-weight: 700; font-size: 40px; letter-spacing: -0.02em; white-space: nowrap; }
+
+    /* Une vente, et la part qui part */
+    .vente { position: absolute; left: 200px; top: 700px; width: 680px; height: 180px; border-radius: 40px; }
+    .vente .fond { position: absolute; inset: 0; border-radius: 40px; background: #0E141F; border: 1.5px solid rgba(255,255,255,0.14); }
+    .vente .lab { position: absolute; left: 44px; top: 36px; font-weight: 500; font-size: 34px; color: rgba(245,243,238,0.62); }
+    .vente .mont { position: absolute; left: 44px; top: 80px; font-weight: 700; font-size: 66px; letter-spacing: -0.03em; white-space: nowrap; }
+    #d-v-reste { clip-path: inset(0 120px 0 0 round 40px); }
+    #d-v-part { clip-path: inset(0 0 0 560px round 40px); }
+    #d-pct { position: absolute; left: 80px; top: 950px; height: 230px; width: 920px; }
+    #d-pct .mask { position: absolute; left: 0; top: 0; }
+    .l-pct { font-weight: 700; font-size: 200px; letter-spacing: -0.06em; line-height: 1.0; white-space: nowrap; }
+
+    /* Un mois de ventes */
+    #d-compteur { position: absolute; left: 80px; top: 660px; }
+    .l-compteur { font-weight: 700; font-size: 132px; letter-spacing: -0.05em; line-height: 1.0; white-space: nowrap; }
+    #d-barre { position: absolute; left: 80px; top: 860px; width: 920px; height: 96px; }
+    #d-barre .plein { position: absolute; inset: 0; border-radius: 28px; background: rgba(245,243,238,0.9); transform-origin: 0 50%; }
+    #d-part { position: absolute; left: 782px; top: 0; width: 138px; height: 96px; border-radius: 0 28px 28px 0; background: #D9C6A3; }
+    #d-part i { position: absolute; left: 92px; top: 0; width: 3px; height: 96px; background: #04060B; }
+    #d-pub { position: absolute; left: 662px; top: 0; width: 120px; height: 96px; border: 3px dashed rgba(245,243,238,0.7); border-radius: 0 28px 28px 0; }
+    #d-perte { position: absolute; left: 80px; top: 1000px; }
+    .l-perte { font-weight: 700; font-size: 84px; letter-spacing: -0.045em; line-height: 1.04; white-space: nowrap; }
+    #d-puce { position: absolute; left: 80px; top: 1236px; }
+  </style>
+  <div id="root" data-composition-id="douleur" data-width="1080" data-height="1920">
+    <div class="titre ombre" id="d-ta">
+      <div class="mask"><span class="in l-titre" id="d-t1">À chaque vente,</span></div>
+      <div class="mask"><span class="in l-titre" id="d-t2">elle garde sa part.</span></div>
+    </div>
+    <div class="titre ombre" id="d-tb">
+      <div class="mask"><span class="in l-titre" id="d-t3">Sur un mois,</span></div>
+    </div>
+
+    <div id="d-noeud" class="verre">
+      <svg width="44" height="44" viewBox="0 0 44 44"><path class="t" d="M6 6 H18 V18 H6 Z M26 6 H38 V18 H26 Z M6 26 H18 V38 H6 Z M26 26 H38 V38 H26 Z" /></svg>
+      <span class="lab">Plateforme</span>
+    </div>
+
+    <div class="vente" id="d-v-reste" data-layout-allow-overlap><div class="fond"></div><div class="lab">Vente</div><div class="mont">25 000 F</div></div>
+    <div class="vente" id="d-v-part" data-layout-allow-overlap><div class="fond"></div></div>
+
+    <div id="d-pct" data-layout-allow-overlap>
+      <div class="mask"><span class="in l-pct" id="d-p5">− 5 %</span></div>
+      <div class="mask"><span class="in l-pct" id="d-p10">− 10 %</span></div>
+      <div class="mask"><span class="in l-pct acc" id="d-p15">− 15 %</span></div>
+    </div>
+
+    <div id="d-compteur" class="mask"><span class="in l-compteur" id="d-c"><span class="roule" id="d-r">2 000 000</span> F</span></div>
+    <div id="d-barre">
+      <div class="plein" id="d-plein"></div>
+      <div id="d-pub"></div>
+      <div id="d-part"><i></i></div>
+    </div>
+    <div id="d-perte">
+      <div class="mask"><span class="in l-perte acc" id="d-pe1">100 000 à 300 000 F</span></div>
+      <div class="mask"><span class="in l-perte" id="d-pe2">qui partent.</span></div>
+    </div>
+    <div id="d-puce"><div class="mask"><span class="in pastille verre" id="d-pu">
+      <svg width="40" height="40" viewBox="0 0 40 40"><path class="t" d="M6 16 V24 H12 L26 32 V8 L12 16 Z M31 14 a8 8 0 0 1 0 12" /></svg>
+      Et tes publicités</span></div></div>
+  </div>
+  <script>
+    (function () {
+      const DEBUT = 18.2;
+//COMMUN
+      cache(["#d-t1", "#d-t2", "#d-t3", "#d-p5", "#d-p10", "#d-p15", "#d-c", "#d-pe1", "#d-pe2", "#d-pu"]);
+      tl.fromTo("#d-noeud", { scale: 0.7, opacity: 0 }, { scale: 0.7, opacity: 0, duration: 0.01 }, 0);
+      tl.fromTo([".vente"], { y: 60, opacity: 0 }, { y: 60, opacity: 0, duration: 0.01 }, 0);
+      tl.fromTo("#d-v-part", { x: 0, y: 60, rotation: 0 }, { x: 0, y: 60, rotation: 0, duration: 0.01 }, 0);
+      pose("d-r", zeros("d-r"));
+      tl.fromTo("#d-plein", { scaleX: 0 }, { scaleX: 0, duration: 0.01 }, 0);
+      tl.fromTo("#d-part", { clipPath: "inset(0 0 0 100%)", x: 0, y: 0, opacity: 1 }, { clipPath: "inset(0 0 0 100%)", x: 0, y: 0, opacity: 1, duration: 0.01 }, 0);
+      tl.fromTo("#d-pub", { opacity: 0 }, { opacity: 0, duration: 0.01 }, 0);
+
+      // « Mais à chaque vente, la plateforme garde sa part »
+      tl.fromTo("#d-noeud", { scale: 0.7, opacity: 0 }, { immediateRender: false, scale: 1, opacity: 1, duration: 0.6, ease: "expo.out" }, at(18.4));
+      entre("#d-t1", at(18.7));
+      tl.fromTo(".vente", { y: 60, opacity: 0 }, { immediateRender: false, y: 0, opacity: 1, duration: 0.7, ease: "expo.out" }, at(18.94));
+      entre("#d-t2", at(20.22));
+      // la part se détache et monte vers la plateforme
+      tl.fromTo("#d-v-part", { x: 0, y: 0, rotation: 0, opacity: 1 }, { immediateRender: false, x: 0, y: -220, rotation: -6, opacity: 0, duration: 0.7, ease: "power2.in" }, at(20.3));
+      tl.fromTo("#d-noeud", { scale: 1 }, { immediateRender: false, keyframes: { scale: [1, 1.08, 1] }, duration: 0.35, ease: "power2.out" }, at(20.95));
+      // « Cinq, dix, parfois quinze pour cent »
+      entre("#d-p5", at(21.4));
+      sort("#d-p5", at(22.0));
+      entre("#d-p10", at(22.08));
+      sort("#d-p10", at(22.98));
+      entre("#d-p15", at(23.08));
+      // « Sur une vente, tu ne sens rien » : tout se fait discret
+      tl.fromTo(["#d-pct", ".vente"], { opacity: 1 }, { immediateRender: false, opacity: 0.35, duration: 0.6, ease: "power1.inOut" }, at(24.3));
+
+      // « Mais le mois où tu vends pour deux millions »
+      sort(["#d-t1", "#d-t2"], at(25.85));
+      tl.fromTo(["#d-pct", "#d-v-reste"], { opacity: 0.35 }, { immediateRender: false, opacity: 0, duration: 0.3, ease: "power1.in" }, at(25.85));
+      entre("#d-t3", at(26.3));
+      entre("#d-c", at(26.6));
+      tl.fromTo("#d-plein", { scaleX: 0 }, { immediateRender: false, scaleX: 1, duration: 1.1, ease: "expo.out" }, at(26.75));
+      roule("d-r", zeros("d-r"), [2, 0, 0, 0, 0, 0, 0], at(27.26), 1.0, 0.04);
+      // « cent mille à trois cent mille francs » : la part de la plateforme (5 à 15 %) s'allume
+      tl.fromTo("#d-part", { clipPath: "inset(0 0 0 100%)" }, { immediateRender: false, clipPath: "inset(0 0 0 0%)", duration: 0.5, ease: "power2.out" }, at(28.64));
+      entre("#d-pe1", at(28.64));
+      // « qui partent » : elle se détache et part vers la plateforme ; la barre recule
+      entre("#d-pe2", at(30.24));
+      tl.fromTo("#d-part", { x: 0, y: 0, opacity: 1 }, { immediateRender: false, x: -121, y: -338, opacity: 0, duration: 0.55, ease: "power2.in" }, at(30.3));
+      tl.fromTo("#d-plein", { scaleX: 1 }, { immediateRender: false, scaleX: 0.85, duration: 0.6, ease: "power3.inOut" }, at(30.35));
+      tl.fromTo("#d-noeud", { scale: 1 }, { immediateRender: false, keyframes: { scale: [1, 1.08, 1] }, duration: 0.35, ease: "power2.out" }, at(30.82));
+      // « avant même de payer tes publicités » : la publicité mange encore un morceau
+      entre("#d-pu", at(32.51));
+      tl.fromTo("#d-pub", { opacity: 0 }, { immediateRender: false, opacity: 1, duration: 0.3 }, at(32.6));
+      tl.fromTo("#d-plein", { scaleX: 0.85 }, { immediateRender: false, scaleX: 0.72, duration: 0.6, ease: "power3.inOut" }, at(32.7));
+
+      // Sortie vers « C'est ton travail »
+      sort(["#d-t3", "#d-c", "#d-pe1", "#d-pe2", "#d-pu"], at(33.3));
+      tl.fromTo(["#d-barre", "#d-noeud"], { opacity: 1 }, { immediateRender: false, opacity: 0, duration: 0.35, ease: "power1.in" }, at(33.3));
+      window.__timelines["douleur"] = tl;
+    })();
+  </script>
+</template>

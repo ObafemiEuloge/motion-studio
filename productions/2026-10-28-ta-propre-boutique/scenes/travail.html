@@ -1,0 +1,39 @@
+<template>
+  <style>
+/*COMMUN*/
+    #w-texte { position: absolute; left: 80px; top: 236px; }
+    .l-w1 { font-weight: 700; font-size: 104px; letter-spacing: -0.05em; line-height: 1.02; white-space: nowrap; }
+    .l-w2 { font-weight: 600; font-size: 58px; letter-spacing: -0.035em; line-height: 1.1; white-space: nowrap; color: rgba(245,243,238,0.72); }
+    #w-carte { position: absolute; left: 250px; top: 560px; width: 580px; height: 726px; border-radius: 60px; padding: 14px; }
+    #w-cadre { width: 100%; height: 100%; border-radius: 48px; overflow: hidden; background: #0B111D; }
+    #w-video { display: block; width: 100%; height: 100%; object-fit: cover; }
+  </style>
+  <div id="root" data-composition-id="travail" data-width="1080" data-height="1920">
+    <div id="w-texte" class="ombre">
+      <div class="mask"><span class="in l-w1" id="w-1">C'est ton travail...</span></div>
+      <div class="mask"><span class="in l-w2" id="w-2">qui part chez quelqu'un d'autre.</span></div>
+    </div>
+    <div id="w-carte" class="verre">
+      <div id="w-cadre">
+        <video id="w-video" class="clip" data-start="0.15" data-duration="3.2" data-track-index="1" muted playsinline src="assets/media/2026-10-28-pensif.mp4"></video>
+      </div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const DEBUT = 33.3;
+//COMMUN
+      cache(["#w-1", "#w-2"]);
+      tl.fromTo("#w-carte", { y: 160, opacity: 0, scale: 0.96 }, { y: 160, opacity: 0, scale: 0.96, duration: 0.01 }, 0);
+      // Oba, pensif : le moment où l'on mesure ce qui part
+      tl.fromTo("#w-carte", { y: 160, opacity: 0, scale: 0.96 }, { immediateRender: false, y: 0, opacity: 1, scale: 1, duration: 1.0, ease: "expo.out" }, at(33.45));
+      tl.fromTo("#w-video", { scale: 1.0 }, { scale: 1.06, duration: 3.4, ease: "none" }, at(33.45));
+      entre("#w-1", at(34.09));
+      entre("#w-2", at(35.26));
+      // « Alors je te propose autre chose »
+      sort(["#w-1", "#w-2"], at(36.5));
+      tl.fromTo("#w-carte", { y: 0, opacity: 1, scale: 1 }, { immediateRender: false, y: -80, opacity: 0, scale: 0.94, duration: 0.4, ease: "power3.in" }, at(36.5));
+      window.__timelines["travail"] = tl;
+    })();
+  </script>
+</template>

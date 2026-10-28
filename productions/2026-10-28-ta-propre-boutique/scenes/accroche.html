@@ -1,0 +1,68 @@
+<template>
+  <style>
+/*COMMUN*/
+    #a-texte { position: absolute; left: 80px; top: 250px; }
+    .l-a { font-weight: 700; font-size: 100px; letter-spacing: -0.05em; line-height: 1.04; white-space: nowrap; }
+    .l-b { font-weight: 700; font-size: 156px; letter-spacing: -0.055em; line-height: 1.0; white-space: nowrap; }
+
+    /* La notification de vente, en deux morceaux : ce qui te reste, et la part qui part */
+    .notif { position: absolute; left: 140px; top: 930px; width: 800px; height: 200px; border-radius: 44px; }
+    .notif .fond { position: absolute; inset: 0; border-radius: 44px; background: #0E141F; border: 1.5px solid rgba(255,255,255,0.14);
+      box-shadow: inset 0 1.5px 0 rgba(255,255,255,0.14), 0 50px 140px rgba(0,0,0,0.6); }
+    .notif .rond { position: absolute; left: 40px; top: 50px; width: 100px; height: 100px; border-radius: 50%; background: rgba(245,243,238,0.08); display: flex; align-items: center; justify-content: center; }
+    .notif .lab { position: absolute; left: 172px; top: 46px; font-weight: 500; font-size: 36px; color: rgba(245,243,238,0.62); white-space: nowrap; }
+    .notif .mont { position: absolute; left: 172px; top: 96px; font-weight: 700; font-size: 58px; letter-spacing: -0.03em; white-space: nowrap; }
+    .notif .pt { position: absolute; right: 44px; top: 50px; width: 16px; height: 16px; border-radius: 50%; background: #F5F3EE; }
+    #a-reste { clip-path: polygon(0 0, 640px 0, 596px 100%, 0 100%); }
+    #a-part { clip-path: polygon(640px 0, 100% 0, 100% 100%, 596px 100%); }
+    #a-lame { position: absolute; left: 0; top: 0; overflow: visible; }
+  </style>
+  <div id="root" data-composition-id="accroche" data-width="1080" data-height="1920">
+    <div id="a-texte" class="ombre">
+      <div class="mask"><span class="in l-a" id="a-1">Sur chaque vente,</span></div>
+      <div class="mask"><span class="in l-a" id="a-2">quelqu'un se sert</span></div>
+      <div class="mask"><span class="in l-b acc" id="a-3">avant toi.</span></div>
+    </div>
+
+    <div class="notif" id="a-autre" data-layout-allow-overlap><div class="fond"></div></div>
+    <div class="notif" id="a-reste" data-layout-allow-overlap>
+      <div class="fond"></div>
+      <div class="rond"><svg width="52" height="52" viewBox="0 0 52 52"><path class="t" d="M12 18 H40 L37 44 H15 Z M19 22 V15 a7 7 0 0 1 14 0 V22" /></svg></div>
+      <div class="lab">Nouvelle vente</div>
+      <div class="mont">Ta formation · 25 000 F</div>
+      <div class="pt"></div>
+    </div>
+    <div class="notif" id="a-part" data-layout-allow-overlap>
+      <div class="fond"></div>
+      <div class="mont" style="left:172px">Ta formation · 25 000 F</div>
+      <div class="pt"></div>
+    </div>
+    <svg id="a-lame" width="1080" height="1920" viewBox="0 0 1080 1920" data-layout-ignore>
+      <path id="a-trait" d="M792 892 L724 1168" fill="none" stroke="#F5F3EE" stroke-width="3" stroke-linecap="round" pathLength="1" />
+    </svg>
+  </div>
+  <script>
+    (function () {
+      const DEBUT = 0;
+//COMMUN
+      // État de départ : tout est lisible dès l'image 0
+      tl.fromTo("#a-trait", { strokeDasharray: "1 1", strokeDashoffset: 1, opacity: 1 }, { strokeDasharray: "1 1", strokeDashoffset: 1, opacity: 1, duration: 0.01 }, 0);
+      tl.fromTo("#a-part", { x: 0, y: 0, rotation: 0, opacity: 1 }, { x: 0, y: 0, rotation: 0, opacity: 1, duration: 0.01 }, 0);
+      tl.fromTo("#a-autre", { y: 0, scale: 1, opacity: 0 }, { y: 0, scale: 1, opacity: 0, duration: 0.01 }, 0);
+      // « sur chaque vente » : une autre vente arrive derrière, puis une troisième
+      tl.fromTo("#a-autre", { y: 0, scale: 1, opacity: 0 }, { immediateRender: false, y: 34, scale: 0.94, opacity: 0.55, duration: 0.6, ease: "expo.out" }, at(2.28));
+      tl.fromTo("#a-reste", { y: 0 }, { immediateRender: false, keyframes: { y: [0, -10, 0] }, duration: 0.5, ease: "power2.out" }, at(2.28));
+      // La vente vient d'arriver : le point de notification bat une fois
+      tl.fromTo(".notif .pt", { scale: 1 }, { keyframes: { scale: [1, 1.6, 1] }, duration: 0.5, ease: "power2.out" }, 0.25);
+      // « sert » : une lame fine découpe la part de la plateforme
+      tl.fromTo("#a-trait", { strokeDashoffset: 1 }, { immediateRender: false, strokeDashoffset: 0, duration: 0.16, ease: "power2.in" }, at(3.9));
+      tl.fromTo("#a-trait", { opacity: 1 }, { immediateRender: false, opacity: 0, duration: 0.25 }, at(4.12));
+      tl.fromTo("#a-part", { x: 0, y: 0, rotation: 0, opacity: 1 },
+        { immediateRender: false, x: 150, y: 330, rotation: 14, opacity: 0, duration: 0.85, ease: "power2.in" }, at(4.1));
+      // Sortie vers l'histoire
+      sort(["#a-1", "#a-2", "#a-3"], at(4.62));
+      tl.fromTo(["#a-reste", "#a-autre"], { opacity: 1 }, { immediateRender: false, y: -40, opacity: 0, duration: 0.35, ease: "power3.in" }, at(4.68));
+      window.__timelines["accroche"] = tl;
+    })();
+  </script>
+</template>

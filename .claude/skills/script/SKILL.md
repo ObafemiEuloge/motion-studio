@@ -17,6 +17,25 @@ Sortie : `script.md` dans le dossier de production, avec deux colonnes par temps
 | La preuve | 18 à 25 s | crédibilité | UN fait de `brand/faits.md`, dit simplement |
 | L'appel | 25 à 30 s | agir | « Écris-moi sur WhatsApp », le numéro à l'écran, et la signature Obafemi Euloge AGNOUN |
 
+## Le format long (60 à 120 s, vidéo explicative d'une offre)
+
+Même voix, même ton, mais une vraie histoire. 2,7 à 3,2 mots par seconde une fois la voix resserrée : 90 s = 230 à 260 mots.
+
+| Chapitre | Part | Rôle | Règle |
+|---|---|---|---|
+| Accroche | 0 à 4 s | arrêter le pouce | une phrase qui fait mal, lisible en très grand dès l'image 0 |
+| L'histoire | 10 à 15 % | « c'est moi » | raconter au « tu » ce que la personne a vécu (le travail, l'espoir), jamais un client inventé |
+| La raison d'être | 5 à 10 % | être juste | dire honnêtement pourquoi la solution actuelle plaît ; c'est ce qui rend crédible la suite |
+| La douleur | 15 à 20 % | la sentir | la mécanique (un pourcentage, un geste perdu), puis UN chiffre concret qui fait mal, puis une phrase courte qui la nomme |
+| Le basculement | 20 à 25 % | ce qui change | la solution en 3 bénéfices concrets, chacun montré à l'écran |
+| Le calcul | 10 à 15 % | la preuve par les chiffres | un calcul posé ligne par ligne, avec un seul résultat mis en avant |
+| La preuve | 5 à 10 % | crédibilité | un projet réel de `brand/faits.md`, dit en résultat |
+| L'appel | 8 à 12 % | agir | mot-clé + raison d'écrire, puis la signature tenue 4 s au moins |
+
+- Une relance toutes les 15 à 20 s : une phrase courte qui ouvre la suite (« Faisons le calcul. », « Et c'est là que ça change. »). Jamais de « reste jusqu'à la fin ».
+- Les chiffres dits sont exactement ceux affichés, dans le même ordre.
+- Mots-clés d'appel : APP (application sur mesure), BOUTIQUE (boutique en ligne), PAGE, MOTION.
+
 ## Écrire comme Oba parle
 
 - Tutoiement. Phrases de 4 à 12 mots. Une idée par phrase.

@@ -1,0 +1,174 @@
+<template>
+  <style>
+/*COMMUN*/
+    /* A. Affiché = payé */
+    .montant { position: absolute; top: 600px; width: 400px; height: 300px; border-radius: 44px; padding: 40px; }
+    .montant .eb { font-weight: 600; font-size: 30px; letter-spacing: 0.18em; text-transform: uppercase; color: rgba(245,243,238,0.6); }
+    .montant .v { margin-top: 40px; font-weight: 700; font-size: 82px; letter-spacing: -0.045em; white-space: nowrap; }
+    .montant .v span { font-size: 44px; color: rgba(245,243,238,0.6); margin-left: 8px; }
+    .montant .s { margin-top: 16px; font-weight: 500; font-size: 30px; color: rgba(245,243,238,0.6); white-space: nowrap; }
+    #c-aff { left: 80px; } #c-pay { left: 600px; }
+    #c-egal { position: absolute; left: 480px; top: 690px; width: 120px; text-align: center; font-weight: 700; font-size: 110px; line-height: 1; }
+    #c-pres { position: absolute; left: 80px; top: 960px; }
+
+    /* B. Le trajet de l'argent */
+    #c-flux { position: absolute; left: 0; top: 0; overflow: visible; }
+    .noeud { position: absolute; height: 96px; border-radius: 48px; display: flex; align-items: center; justify-content: center; gap: 14px; font-weight: 700; font-size: 40px; white-space: nowrap; }
+    #c-n-client { left: 380px; top: 500px; width: 320px; }
+    #c-n-moi { left: 90px; top: 830px; width: 300px; }
+    #c-n-plat { left: 690px; top: 830px; width: 300px; }
+    #c-n-compte { left: 340px; top: 1180px; width: 400px; }
+    #c-n-compte .rail { position: relative; height: 52px; overflow: hidden; }
+    #c-n-compte .rail > span { display: block; height: 52px; line-height: 52px; }
+    #c-piece { position: absolute; left: 0; top: 0; width: 64px; height: 64px; margin: -32px 0 0 -32px; border-radius: 50%; background: #F5F3EE; color: #04060B;
+      font-weight: 700; font-size: 32px; line-height: 64px; text-align: center; }
+
+    /* C. Ton espace vendeur */
+    #c-espace { position: absolute; left: 80px; top: 480px; width: 920px; height: 830px; border-radius: 56px; padding: 40px; }
+    #c-espace .tete { display: flex; justify-content: space-between; align-items: center; }
+    #c-espace .tete b { font-weight: 700; font-size: 44px; letter-spacing: -0.03em; }
+    #c-courbe { display: block; margin-top: 26px; }
+    .onglets { display: flex; gap: 12px; margin-top: 26px; }
+    .onglet { position: relative; padding: 14px 30px; border-radius: 999px; font-weight: 600; font-size: 38px; color: rgba(245,243,238,0.55); border: 1.5px solid rgba(245,243,238,0.14); }
+    .onglet .on { position: absolute; inset: -1.5px; border-radius: 999px; background: #F5F3EE; color: #04060B; padding: 14px 30px; }
+    .liste { position: absolute; left: 40px; right: 40px; top: 470px; }
+    .rang { height: 96px; display: flex; align-items: center; gap: 22px; border-bottom: 1.5px solid rgba(245,243,238,0.1); }
+    .rang .ic { width: 60px; height: 60px; border-radius: 18px; background: rgba(245,243,238,0.08); }
+    .rang .ic.rond { border-radius: 50%; }
+    .rang .nom { font-weight: 600; font-size: 36px; white-space: nowrap; }
+    .rang .sq { display: block; height: 18px; border-radius: 9px; background: rgba(245,243,238,0.45); }
+    .rang .etat { margin-left: auto; font-weight: 600; font-size: 30px; padding: 8px 20px; border-radius: 999px; background: rgba(245,243,238,0.08); white-space: nowrap; }
+  </style>
+  <div id="root" data-composition-id="confiance" data-width="1080" data-height="1920">
+    <!-- A -->
+    <div class="titre ombre"><div class="mask"><span class="in l-titre" id="c-ta">Affiché = payé.</span></div></div>
+    <div class="montant verre" id="c-aff"><div class="eb">Affiché</div><div class="v">10 000<span>F</span></div><div class="s">sur ta boutique</div></div>
+    <div id="c-egal">=</div>
+    <div class="montant verre" id="c-pay"><div class="eb">Payé</div><div class="v">10 000<span>F</span></div><div class="s">par ton client</div></div>
+    <div id="c-pres"><div class="mask"><span class="in pastille verre" id="c-pr"><svg width="36" height="36" viewBox="0 0 36 36"><path d="M8 19 L15 26 L29 11" fill="none" stroke="#F5F3EE" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round" /></svg>Au franc près</span></div></div>
+
+    <!-- B -->
+    <div class="titre ombre" id="c-tb">
+      <div class="mask"><span class="in l-titre" id="c-tb1">L'argent arrive</span></div>
+      <div class="mask"><span class="in l-titre" id="c-tb2">sur ton compte.</span></div>
+    </div>
+    <svg id="c-flux" width="1080" height="1920" viewBox="0 0 1080 1920" data-layout-ignore>
+      <path id="c-ligne" d="M540 596 V1180" stroke="#F5F3EE" stroke-width="3" stroke-linecap="round" fill="none" pathLength="1" />
+      <path id="c-b-moi" d="M540 878 H390" stroke="rgba(245,243,238,0.6)" stroke-width="3" stroke-dasharray="8 10" fill="none" />
+      <path id="c-b-plat" d="M540 878 H690" stroke="rgba(245,243,238,0.6)" stroke-width="3" stroke-dasharray="8 10" fill="none" />
+      <path id="c-x-moi" d="M450 862 L482 894 M482 862 L450 894" stroke="#F5F3EE" stroke-width="4" stroke-linecap="round" fill="none" pathLength="1" />
+      <path id="c-x-plat" d="M598 862 L630 894 M630 862 L598 894" stroke="#F5F3EE" stroke-width="4" stroke-linecap="round" fill="none" pathLength="1" />
+    </svg>
+    <div class="noeud verre" id="c-n-client"><svg width="40" height="40" viewBox="0 0 40 40"><circle class="t" cx="20" cy="14" r="7" /><path class="t" d="M7 34 a13 11 0 0 1 26 0" /></svg>Ton client</div>
+    <div class="noeud verre" id="c-n-moi">Moi</div>
+    <div class="noeud verre" id="c-n-plat">Plateforme</div>
+    <div class="noeud verre" id="c-n-compte"><div class="rail"><span id="c-c1">Ton compte</span><span id="c-c2" class="acc">Chez toi</span></div></div>
+    <div id="c-piece">F</div>
+
+    <!-- C -->
+    <div class="titre ombre" id="c-tc">
+      <div class="mask"><span class="in l-titre" id="c-tc1">Tu vois tout.</span></div>
+      <div class="mask"><span class="in l-titre" id="c-tc2">Tu gères tout.</span></div>
+    </div>
+    <div id="c-espace" class="verre" data-layout-allow-overlap>
+      <div class="tete"><b>Ton espace</b><span class="pastille" style="font-size:30px;padding:10px 24px;background:rgba(245,243,238,0.08)">Ce mois</span></div>
+      <svg id="c-courbe" width="840" height="180" viewBox="0 0 840 180">
+        <path d="M0 178 H840" stroke="rgba(245,243,238,0.14)" stroke-width="2" />
+        <path id="c-cb" d="M0 150 C 90 146, 150 140, 230 132 S 380 120, 460 100 S 610 70, 690 52 S 800 24, 840 14" fill="none" stroke="#F5F3EE" stroke-width="4" stroke-linecap="round" />
+        <circle id="c-cb-pt" cx="840" cy="14" r="9" fill="#F5F3EE" />
+      </svg>
+      <div class="onglets">
+        <div class="onglet">Produits<span class="on" id="c-o1">Produits</span></div>
+        <div class="onglet">Ventes<span class="on" id="c-o2">Ventes</span></div>
+        <div class="onglet">Clients<span class="on" id="c-o3">Clients</span></div>
+      </div>
+      <div class="liste" id="c-l1">
+        <div class="rang"><span class="ic"></span><span class="nom">Ta formation</span><span class="etat">En ligne</span></div>
+        <div class="rang"><span class="ic"></span><span class="nom">Ton ebook</span><span class="etat">En ligne</span></div>
+        <div class="rang"><span class="ic"></span><span class="nom">Ton coaching</span><span class="etat">5 places</span></div>
+      </div>
+      <div class="liste" id="c-l2">
+        <div class="rang"><span class="ic"></span><span class="nom">Ta formation</span><span class="etat">Payée</span></div>
+        <div class="rang"><span class="ic"></span><span class="nom">Ton ebook</span><span class="etat">Payée</span></div>
+        <div class="rang"><span class="ic"></span><span class="nom">Ta formation</span><span class="etat">En attente</span></div>
+      </div>
+      <div class="liste" id="c-l3">
+        <div class="rang"><span class="ic rond"></span><span class="sq" style="width:210px"></span><span class="etat">2 achats</span></div>
+        <div class="rang"><span class="ic rond"></span><span class="sq" style="width:170px"></span><span class="etat">1 achat</span></div>
+        <div class="rang"><span class="ic rond"></span><span class="sq" style="width:240px"></span><span class="etat">3 achats</span></div>
+      </div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const DEBUT = 50.0;
+//COMMUN
+      cache(["#c-ta", "#c-pr", "#c-tb1", "#c-tb2", "#c-tc1", "#c-tc2"]);
+      tl.fromTo([".montant"], { y: 80, opacity: 0 }, { y: 80, opacity: 0, duration: 0.01 }, 0);
+      tl.fromTo("#c-egal", { scale: 0.5, opacity: 0 }, { scale: 0.5, opacity: 0, duration: 0.01 }, 0);
+      tl.fromTo(["#c-ligne", "#c-x-moi", "#c-x-plat"], { strokeDasharray: "1 1", strokeDashoffset: 1 }, { strokeDasharray: "1 1", strokeDashoffset: 1, duration: 0.01 }, 0);
+      tl.fromTo(["#c-b-moi", "#c-b-plat"], { opacity: 0 }, { opacity: 0, duration: 0.01 }, 0);
+      tl.fromTo(".noeud", { scale: 0.8, opacity: 0 }, { scale: 0.8, opacity: 0, duration: 0.01 }, 0);
+      tl.fromTo("#c-piece", { x: 540, y: 640, scale: 0, opacity: 1 }, { x: 540, y: 640, scale: 0, opacity: 1, duration: 0.01 }, 0);
+      tl.fromTo(["#c-c1", "#c-c2"], { yPercent: 0 }, { yPercent: 0, duration: 0.01 }, 0);
+      tl.fromTo("#c-espace", { y: 120, opacity: 0 }, { y: 120, opacity: 0, duration: 0.01 }, 0);
+      tl.fromTo("#c-courbe", { clipPath: "inset(0px 520px 0px 0px)" }, { clipPath: "inset(0px 520px 0px 0px)", duration: 0.01 }, 0);
+      tl.fromTo("#c-cb-pt", { opacity: 0 }, { opacity: 0, duration: 0.01 }, 0);
+      tl.fromTo(["#c-o1", "#c-o2", "#c-o3"], { opacity: 0 }, { opacity: 0, duration: 0.01 }, 0);
+      tl.fromTo(["#c-l1", "#c-l2", "#c-l3"], { opacity: 0, y: 20 }, { opacity: 0, y: 20, duration: 0.01 }, 0);
+
+      // A. « Ton client paie exactement le montant affiché, au franc près »
+      tl.fromTo("#c-aff", { y: 80, opacity: 0 }, { immediateRender: false, y: 0, opacity: 1, duration: 0.8, ease: "expo.out" }, at(50.3));
+      tl.fromTo("#c-pay", { y: 80, opacity: 0 }, { immediateRender: false, y: 0, opacity: 1, duration: 0.8, ease: "expo.out" }, at(50.71));
+      entre("#c-ta", at(51.03));
+      tl.fromTo("#c-egal", { scale: 0.5, opacity: 0 }, { immediateRender: false, scale: 1, opacity: 1, duration: 0.5, ease: "back.out(2)" }, at(51.79));
+      entre("#c-pr", at(52.91));
+      sort(["#c-ta", "#c-pr"], at(53.62));
+      tl.fromTo([".montant", "#c-egal"], { opacity: 1 }, { immediateRender: false, opacity: 0, y: -40, duration: 0.35, ease: "power3.in", stagger: 0.03 }, at(53.62));
+
+      // B. « Et l'argent arrive sur ton compte. Pas chez moi, pas chez une plateforme : chez toi. »
+      entre(["#c-tb1", "#c-tb2"], at(53.99));
+      tl.fromTo(["#c-n-client", "#c-n-compte"], { scale: 0.8, opacity: 0 }, { immediateRender: false, scale: 1, opacity: 1, duration: 0.6, ease: "expo.out", stagger: 0.1 }, at(54.0));
+      tl.fromTo("#c-ligne", { strokeDashoffset: 1 }, { immediateRender: false, strokeDashoffset: 0, duration: 0.7, ease: "power2.inOut" }, at(54.2));
+      tl.fromTo("#c-piece", { scale: 0 }, { immediateRender: false, scale: 1, duration: 0.4, ease: "back.out(2)" }, at(54.47));
+      tl.fromTo("#c-piece", { y: 640 }, { immediateRender: false, y: 878, duration: 0.9, ease: "power2.inOut" }, at(54.79));
+      // « Pas chez moi » : le détour vers moi est barré
+      tl.fromTo("#c-n-moi", { scale: 0.8, opacity: 0 }, { immediateRender: false, scale: 1, opacity: 1, duration: 0.5, ease: "expo.out" }, at(55.75));
+      tl.fromTo("#c-b-moi", { opacity: 0 }, { immediateRender: false, opacity: 1, duration: 0.25 }, at(55.85));
+      tl.fromTo("#c-x-moi", { strokeDashoffset: 1 }, { immediateRender: false, strokeDashoffset: 0, duration: 0.3, ease: "power2.out" }, at(56.13));
+      tl.fromTo(["#c-n-moi", "#c-b-moi"], { opacity: 1 }, { immediateRender: false, opacity: 0.35, duration: 0.3 }, at(56.4));
+      // « pas chez une plateforme »
+      tl.fromTo("#c-n-plat", { scale: 0.8, opacity: 0 }, { immediateRender: false, scale: 1, opacity: 1, duration: 0.5, ease: "expo.out" }, at(56.62));
+      tl.fromTo("#c-b-plat", { opacity: 0 }, { immediateRender: false, opacity: 1, duration: 0.25 }, at(56.72));
+      tl.fromTo("#c-x-plat", { strokeDashoffset: 1 }, { immediateRender: false, strokeDashoffset: 0, duration: 0.3, ease: "power2.out" }, at(57.06));
+      tl.fromTo(["#c-n-plat", "#c-b-plat"], { opacity: 1 }, { immediateRender: false, opacity: 0.35, duration: 0.3 }, at(57.35));
+      // « chez toi » : l'argent arrive
+      tl.fromTo("#c-piece", { y: 878 }, { immediateRender: false, y: 1228, duration: 0.5, ease: "power3.in" }, at(57.35));
+      tl.fromTo("#c-piece", { scale: 1 }, { immediateRender: false, scale: 0, duration: 0.15, ease: "power2.in" }, at(57.8));
+      tl.fromTo(["#c-c1", "#c-c2"], { yPercent: 0 }, { immediateRender: false, yPercent: -100, duration: 0.5, ease: "expo.out" }, at(57.84));
+      tl.fromTo("#c-n-compte", { scale: 1 }, { immediateRender: false, keyframes: { scale: [1, 1.08, 1] }, duration: 0.4, ease: "power2.out" }, at(57.84));
+      sort(["#c-tb1", "#c-tb2"], at(58.5));
+      tl.fromTo(["#c-flux", ".noeud"], { opacity: 1 }, { immediateRender: false, opacity: 0, duration: 0.35, ease: "power1.in" }, at(58.5));
+
+      // C. « Tes produits, tes ventes, tes clients : tu vois tout, tu gères tout. Et ta boutique grandit avec toi. »
+      tl.fromTo("#c-espace", { y: 120, opacity: 0 }, { immediateRender: false, y: 0, opacity: 1, duration: 0.9, ease: "expo.out" }, at(58.55));
+      [["#c-o1", "#c-l1", 58.91], ["#c-o2", "#c-l2", 59.63], ["#c-o3", "#c-l3", 60.43]].forEach(([o, l, t], i, tout) => {
+        tl.fromTo(o, { opacity: 0 }, { immediateRender: false, opacity: 1, duration: 0.2 }, at(t));
+        tl.fromTo(l, { opacity: 0, y: 20 }, { immediateRender: false, opacity: 1, y: 0, duration: 0.45, ease: "expo.out" }, at(t + (i > 0 ? 0.12 : 0)));
+        if (i > 0) {
+          tl.fromTo(tout[i - 1][0], { opacity: 1 }, { immediateRender: false, opacity: 0, duration: 0.2 }, at(t));
+          tl.fromTo(tout[i - 1][1], { opacity: 1, y: 0 }, { immediateRender: false, opacity: 0, y: -20, duration: 0.12, ease: "power2.in" }, at(t));
+        }
+      });
+      entre("#c-tc1", at(61.11));
+      entre("#c-tc2", at(62.02));
+      // « grandit avec toi » : la courbe des ventes monte
+      tl.fromTo("#c-courbe", { clipPath: "inset(0px 520px 0px 0px)" }, { immediateRender: false, clipPath: "inset(0px 0px 0px 0px)", duration: 1.0, ease: "power2.inOut" }, at(63.29));
+      tl.fromTo("#c-cb-pt", { opacity: 0 }, { immediateRender: false, opacity: 1, duration: 0.2 }, at(64.2));
+      // Sortie vers le calcul
+      sort(["#c-tc1", "#c-tc2"], at(64.55));
+      tl.fromTo("#c-espace", { opacity: 1, y: 0 }, { immediateRender: false, opacity: 0, y: -60, duration: 0.35, ease: "power3.in" }, at(64.55));
+      window.__timelines["confiance"] = tl;
+    })();
+  </script>
+</template>

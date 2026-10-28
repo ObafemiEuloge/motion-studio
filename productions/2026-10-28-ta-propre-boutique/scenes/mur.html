@@ -1,0 +1,72 @@
+<template>
+  <style>
+/*COMMUN*/
+    #m-monde { position: absolute; inset: 0; perspective: 1500px; perspective-origin: 50% 45%; overflow: hidden;
+      -webkit-mask-image: radial-gradient(ellipse 80% 62% at 50% 50%, #000 40%, transparent 100%);
+              mask-image: radial-gradient(ellipse 80% 62% at 50% 50%, #000 40%, transparent 100%); }
+    #m-mur { position: absolute; left: -380px; top: 60px; width: 2000px; display: grid; grid-template-columns: repeat(5, 300px); gap: 64px; }
+    .ecran { height: 560px; border-radius: 40px; background: #0E131C; border: 1.5px solid rgba(255,255,255,0.12); padding: 22px; overflow: hidden; }
+    .ecran > i, .e-hero i { display: block; height: 14px; border-radius: 7px; background: rgba(245,243,238,0.55); margin-top: 16px; }
+    .ecran > i.p, .e-hero i.p { height: 10px; background: rgba(245,243,238,0.22); }
+    .e-nav { display: flex; justify-content: space-between; align-items: center; }
+    .e-nav b { width: 70px; height: 16px; border-radius: 8px; background: #F5F3EE; }
+    .e-nav i { width: 34px; height: 34px; border-radius: 50%; border: 2px solid rgba(245,243,238,0.4); }
+    .e-hero { margin-top: 30px; }
+    .btn { display: block; width: 150px; height: 44px; border-radius: 22px; background: #F5F3EE; margin-top: 24px; }
+    .e-cartes { display: flex; gap: 12px; margin-top: 30px; }
+    .e-cartes div { flex: 1; height: 150px; border-radius: 18px; background: rgba(245,243,238,0.08); border: 1.5px solid rgba(245,243,238,0.14); }
+    .e-couv { height: 170px; border-radius: 22px; background: rgba(245,243,238,0.08); margin-top: 22px; }
+    .e-champ { height: 54px; border-radius: 16px; border: 1.5px solid rgba(245,243,238,0.22); margin-top: 18px; }
+    .e-moyens { display: flex; gap: 12px; margin-top: 18px; }
+    .e-moyens div { flex: 1; height: 70px; border-radius: 16px; background: rgba(245,243,238,0.1); }
+    .e-kpi { display: flex; gap: 12px; margin-top: 22px; }
+    .e-kpi div { flex: 1; height: 90px; border-radius: 18px; background: rgba(245,243,238,0.08); }
+    .ecran svg { display: block; margin-top: 22px; }
+    .e-ligne { height: 46px; border-bottom: 1.5px solid rgba(245,243,238,0.12); }
+  </style>
+  <div id="root" data-composition-id="mur" data-width="1080" data-height="1920">
+    <div id="m-monde" data-layout-ignore>
+      <div id="m-mur">
+        <div class="ecran"><div class="e-nav"><b></b><i></i></div><div class="e-hero"><i style="width:80%"></i><i style="width:62%"></i><i class="p" style="width:46%"></i><span class="btn"></span></div><div class="e-cartes"><div></div><div></div></div></div>
+        <div class="ecran"><div class="e-nav"><b></b><i></i></div><div class="e-kpi"><div></div><div></div></div><svg width="236" height="90" viewBox="0 0 236 90"><path d="M0 80 L40 62 L80 66 L120 44 L160 40 L200 20 L236 12" fill="none" stroke="#F5F3EE" stroke-width="3" stroke-linecap="round" /></svg><div class="e-ligne"></div><div class="e-ligne"></div><div class="e-ligne"></div></div>
+        <div class="ecran"><div class="e-nav"><b></b><i></i></div><i style="width:58%"></i><div class="e-champ"></div><div class="e-champ"></div><div class="e-moyens"><div></div><div></div></div><span class="btn"></span></div>
+        <div class="ecran"><div class="e-nav"><b></b><i></i></div><div class="e-couv"></div><i style="width:74%"></i><i class="p" style="width:52%"></i><i class="p" style="width:66%"></i><span class="btn"></span></div>
+        <div class="ecran"><div class="e-nav"><b></b><i></i></div><div class="e-hero"><i style="width:80%"></i><i style="width:62%"></i><i class="p" style="width:46%"></i><span class="btn"></span></div><div class="e-cartes"><div></div><div></div></div></div>
+        <div class="ecran"><div class="e-nav"><b></b><i></i></div><div class="e-hero"><i style="width:80%"></i><i style="width:62%"></i><i class="p" style="width:46%"></i><span class="btn"></span></div><div class="e-cartes"><div></div><div></div></div></div>
+        <div class="ecran"><div class="e-nav"><b></b><i></i></div><div class="e-kpi"><div></div><div></div></div><svg width="236" height="90" viewBox="0 0 236 90"><path d="M0 80 L40 62 L80 66 L120 44 L160 40 L200 20 L236 12" fill="none" stroke="#F5F3EE" stroke-width="3" stroke-linecap="round" /></svg><div class="e-ligne"></div><div class="e-ligne"></div><div class="e-ligne"></div></div>
+        <div class="ecran"><div class="e-nav"><b></b><i></i></div><i style="width:58%"></i><div class="e-champ"></div><div class="e-champ"></div><div class="e-moyens"><div></div><div></div></div><span class="btn"></span></div>
+        <div class="ecran"><div class="e-nav"><b></b><i></i></div><div class="e-couv"></div><i style="width:74%"></i><i class="p" style="width:52%"></i><i class="p" style="width:66%"></i><span class="btn"></span></div>
+        <div class="ecran"><div class="e-nav"><b></b><i></i></div><div class="e-hero"><i style="width:80%"></i><i style="width:62%"></i><i class="p" style="width:46%"></i><span class="btn"></span></div><div class="e-cartes"><div></div><div></div></div></div>
+        <div class="ecran"><div class="e-nav"><b></b><i></i></div><div class="e-hero"><i style="width:80%"></i><i style="width:62%"></i><i class="p" style="width:46%"></i><span class="btn"></span></div><div class="e-cartes"><div></div><div></div></div></div>
+        <div class="ecran"><div class="e-nav"><b></b><i></i></div><div class="e-kpi"><div></div><div></div></div><svg width="236" height="90" viewBox="0 0 236 90"><path d="M0 80 L40 62 L80 66 L120 44 L160 40 L200 20 L236 12" fill="none" stroke="#F5F3EE" stroke-width="3" stroke-linecap="round" /></svg><div class="e-ligne"></div><div class="e-ligne"></div><div class="e-ligne"></div></div>
+        <div class="ecran"><div class="e-nav"><b></b><i></i></div><i style="width:58%"></i><div class="e-champ"></div><div class="e-champ"></div><div class="e-moyens"><div></div><div></div></div><span class="btn"></span></div>
+        <div class="ecran"><div class="e-nav"><b></b><i></i></div><div class="e-couv"></div><i style="width:74%"></i><i class="p" style="width:52%"></i><i class="p" style="width:66%"></i><span class="btn"></span></div>
+        <div class="ecran"><div class="e-nav"><b></b><i></i></div><div class="e-hero"><i style="width:80%"></i><i style="width:62%"></i><i class="p" style="width:46%"></i><span class="btn"></span></div><div class="e-cartes"><div></div><div></div></div></div>
+        <div class="ecran"><div class="e-nav"><b></b><i></i></div><div class="e-hero"><i style="width:80%"></i><i style="width:62%"></i><i class="p" style="width:46%"></i><span class="btn"></span></div><div class="e-cartes"><div></div><div></div></div></div>
+        <div class="ecran"><div class="e-nav"><b></b><i></i></div><div class="e-kpi"><div></div><div></div></div><svg width="236" height="90" viewBox="0 0 236 90"><path d="M0 80 L40 62 L80 66 L120 44 L160 40 L200 20 L236 12" fill="none" stroke="#F5F3EE" stroke-width="3" stroke-linecap="round" /></svg><div class="e-ligne"></div><div class="e-ligne"></div><div class="e-ligne"></div></div>
+        <div class="ecran"><div class="e-nav"><b></b><i></i></div><i style="width:58%"></i><div class="e-champ"></div><div class="e-champ"></div><div class="e-moyens"><div></div><div></div></div><span class="btn"></span></div>
+        <div class="ecran"><div class="e-nav"><b></b><i></i></div><div class="e-couv"></div><i style="width:74%"></i><i class="p" style="width:52%"></i><i class="p" style="width:66%"></i><span class="btn"></span></div>
+        <div class="ecran"><div class="e-nav"><b></b><i></i></div><div class="e-hero"><i style="width:80%"></i><i style="width:62%"></i><i class="p" style="width:46%"></i><span class="btn"></span></div><div class="e-cartes"><div></div><div></div></div></div>
+        <div class="ecran"><div class="e-nav"><b></b><i></i></div><div class="e-hero"><i style="width:80%"></i><i style="width:62%"></i><i class="p" style="width:46%"></i><span class="btn"></span></div><div class="e-cartes"><div></div><div></div></div></div>
+        <div class="ecran"><div class="e-nav"><b></b><i></i></div><div class="e-kpi"><div></div><div></div></div><svg width="236" height="90" viewBox="0 0 236 90"><path d="M0 80 L40 62 L80 66 L120 44 L160 40 L200 20 L236 12" fill="none" stroke="#F5F3EE" stroke-width="3" stroke-linecap="round" /></svg><div class="e-ligne"></div><div class="e-ligne"></div><div class="e-ligne"></div></div>
+        <div class="ecran"><div class="e-nav"><b></b><i></i></div><i style="width:58%"></i><div class="e-champ"></div><div class="e-champ"></div><div class="e-moyens"><div></div><div></div></div><span class="btn"></span></div>
+        <div class="ecran"><div class="e-nav"><b></b><i></i></div><div class="e-couv"></div><i style="width:74%"></i><i class="p" style="width:52%"></i><i class="p" style="width:66%"></i><span class="btn"></span></div>
+        <div class="ecran"><div class="e-nav"><b></b><i></i></div><div class="e-hero"><i style="width:80%"></i><i style="width:62%"></i><i class="p" style="width:46%"></i><span class="btn"></span></div><div class="e-cartes"><div></div><div></div></div></div>
+      </div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const DEBUT = 36.3;
+//COMMUN
+      // Le mur de ta boutique : tes écrans à toi, aérés, qui glissent lentement dans l'autre sens
+      tl.fromTo("#m-mur", { rotationY: 30, rotationX: 4, z: -260, transformOrigin: "50% 50%" }, { rotationY: 30, rotationX: 4, z: -260, duration: 0.01 }, 0);
+      tl.fromTo("#m-mur", { x: 0, y: 0 }, { x: -520, y: -120, duration: 63.2, ease: "none" }, 0);
+      tl.fromTo("#m-monde", { opacity: 0 }, { opacity: 0.55, duration: 1.1, ease: "power1.inOut" }, at(36.4));
+      // La carte de l'Afrique a besoin de calme : le mur s'efface pendant qu'elle s'allume
+      tl.fromTo("#m-monde", { opacity: 0.55 }, { immediateRender: false, opacity: 0.16, duration: 0.6, ease: "power1.inOut" }, at(43.1));
+      tl.fromTo("#m-monde", { opacity: 0.16 }, { immediateRender: false, opacity: 0.55, duration: 0.8, ease: "power1.inOut" }, at(50.0));
+      window.__timelines["mur"] = tl;
+    })();
+  </script>
+</template>

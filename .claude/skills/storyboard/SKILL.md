@@ -39,6 +39,14 @@ Plans disponibles. Varie : jamais deux fois le même type d'entrée à la suite.
 - Tout le texte dans la bande 168 à 1330 px de haut. Rien sous 1330 px sauf du décor.
 - Image 0 = l'accroche déjà lisible. Jamais un écran vide ni le nom en ouverture.
 
+## Le format long (60 à 120 s)
+
+- Un chapitre = un monde de fond différent, choisi pour l'histoire (la vitrine encombrée de la plateforme, sa propre boutique, une carte, l'atelier…), toujours fait de vraies interfaces ou d'illustrations au trait, jamais un décor abstrait. On change de monde par une transition causée par l'image.
+- Chaque chapitre a son plan clé, plus long, où une interface ou une illustration travaille (4 à 8 s).
+- Les séquences d'Oba se placent sur un mot précis qui les justifie (« je l'ai déjà construit » sur ses mains au clavier), 2 à 4 s chacune, dans une carte, jamais en fond.
+- Le calcul se pose ligne par ligne, chaque ligne sur le mot qui la dit ; le résultat arrive seul, en très grand.
+- Pas plus de 2 éléments de texte nouveaux à lire en même temps.
+
 ## Son prévu par plan
 
 Dans la colonne son : seulement les actions visibles (une carte qui se pose = souffle doux, un chiffre qui s'arrête = petit clic, une pastille = tic léger, la signature = une seule montée). Pas de son sur chaque coupe.

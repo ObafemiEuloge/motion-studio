@@ -1,0 +1,26 @@
+<template>
+  <style>
+/*COMMUN*/
+    #c-feuille { position: absolute; inset: 0; background: #04060B; }
+    #c-feuille svg { position: absolute; left: 0; top: 0; }
+  </style>
+  <div id="root" data-composition-id="cahier" data-width="1080" data-height="1920">
+    <div id="c-feuille" data-layout-ignore>
+      <svg width="1080" height="1920" viewBox="0 0 1080 1920">
+        <g id="c-lignes" stroke="rgba(245,243,238,0.07)" stroke-width="1.5"><path d="M0 80 H1080" /><path d="M0 176 H1080" /><path d="M0 272 H1080" /><path d="M0 368 H1080" /><path d="M0 464 H1080" /><path d="M0 560 H1080" /><path d="M0 656 H1080" /><path d="M0 752 H1080" /><path d="M0 848 H1080" /><path d="M0 944 H1080" /><path d="M0 1040 H1080" /><path d="M0 1136 H1080" /><path d="M0 1232 H1080" /><path d="M0 1328 H1080" /><path d="M0 1424 H1080" /><path d="M0 1520 H1080" /><path d="M0 1616 H1080" /><path d="M0 1712 H1080" /><path d="M0 1808 H1080" /><path d="M0 1904 H1080" /></g>
+        <path id="c-marge" d="M56 0 V1920" stroke="rgba(245,243,238,0.14)" stroke-width="1.5" />
+      </svg>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const DEBUT = 64.3;
+//COMMUN
+      // La feuille de calcul : un cahier de comptes, sobre, qui couvre le mur le temps du calcul
+      tl.fromTo("#c-feuille", { opacity: 0 }, { opacity: 1, duration: 0.6, ease: "power1.inOut" }, 0);
+      tl.fromTo("#c-lignes", { y: 0 }, { y: -60, duration: 14.6, ease: "none" }, 0);
+      tl.fromTo("#c-feuille", { opacity: 1 }, { immediateRender: false, opacity: 0, duration: 0.5, ease: "power1.inOut" }, at(78.35));
+      window.__timelines["cahier"] = tl;
+    })();
+  </script>
+</template>

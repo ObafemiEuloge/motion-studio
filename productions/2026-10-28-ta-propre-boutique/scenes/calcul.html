@@ -1,0 +1,90 @@
+<template>
+  <style>
+/*COMMUN*/
+    #k-ventes { position: absolute; left: 80px; top: 396px; }
+    .l-ventes { font-weight: 700; font-size: 112px; letter-spacing: -0.05em; line-height: 1.0; white-space: nowrap; }
+    .ligne { position: absolute; left: 80px; width: 920px; }
+    .ligne .tete { display: flex; justify-content: space-between; align-items: baseline; }
+    .ligne .lab { font-weight: 600; font-size: 38px; letter-spacing: -0.02em; white-space: nowrap; }
+    .ligne .val { font-weight: 700; font-size: 52px; letter-spacing: -0.035em; white-space: nowrap; }
+    .ligne .piste { position: relative; margin-top: 16px; width: 760px; height: 64px; }
+    .ligne .barre { position: absolute; left: 0; top: 0; height: 64px; border-radius: 20px; transform-origin: 0 50%; }
+    #k-la { top: 640px; } #k-lb { top: 820px; }
+    #k-ba { width: 760px; background: rgba(245,243,238,0.88); }
+    #k-bb { width: 317px; background: rgba(245,243,238,0.5); }
+    #k-ecart { position: absolute; left: 317px; top: -6px; width: 443px; height: 76px; border-radius: 0 24px 24px 0; border: 3.5px solid #D9C6A3; }
+    #k-detail { position: absolute; left: 80px; top: 978px; display: flex; gap: 14px; }
+    #k-detail .pastille { font-size: 32px; padding: 12px 24px; }
+    #k-res { position: absolute; left: 80px; top: 1040px; }
+    .l-res { font-weight: 700; font-size: 150px; letter-spacing: -0.055em; line-height: 1.0; white-space: nowrap; }
+    #k-mois { position: absolute; left: 80px; top: 1200px; }
+    .l-mois { font-weight: 600; font-size: 46px; letter-spacing: -0.03em; white-space: nowrap; }
+  </style>
+  <div id="root" data-composition-id="calcul" data-width="1080" data-height="1920">
+    <div class="titre"><div class="mask"><span class="in l-titre" id="k-t">Faisons le calcul.</span></div></div>
+
+    <div id="k-ventes">
+      <div class="mask"><span class="in eyebrow" id="k-v1">Tes ventes du mois</span></div>
+      <div class="mask"><span class="in l-ventes" id="k-v2"><span class="roule" id="k-r1">3 000 000</span> F</span></div>
+    </div>
+
+    <div class="ligne" id="k-la">
+      <div class="tete"><div class="mask"><span class="in lab" id="k-a1">Ta plateforme · 10 %</span></div><div class="mask"><span class="in val" id="k-a2">− <span class="roule" id="k-r2">300 000</span> F</span></div></div>
+      <div class="piste"><div class="barre" id="k-ba"></div><div id="k-ecart"></div></div>
+    </div>
+    <div class="ligne" id="k-lb">
+      <div class="tete"><div class="mask"><span class="in lab" id="k-b1">Ta boutique</span></div><div class="mask"><span class="in val" id="k-b2">− <span class="roule" id="k-r3">125 000</span> F</span></div></div>
+      <div class="piste"><div class="barre" id="k-bb"></div></div>
+    </div>
+    <div id="k-detail">
+      <div class="mask"><span class="in pastille verre" id="k-d1">Frais de paiement 75 000 F</span></div>
+      <div class="mask"><span class="in pastille verre" id="k-d2">Forfait 50 000 F</span></div>
+    </div>
+
+    <div id="k-res"><div class="mask"><span class="in l-res acc" id="k-g">+ <span class="roule" id="k-r4">175 000</span> F</span></div></div>
+    <div id="k-mois">
+      <div class="mask"><span class="in l-mois" id="k-m1">de plus, chaque mois.</span></div>
+      <div class="mask"><span class="in l-mois doux" id="k-m2">Soit plus de 2 100 000 F sur un an.</span></div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const DEBUT = 64.7;
+//COMMUN
+      cache(["#k-t", "#k-v1", "#k-v2", "#k-a1", "#k-a2", "#k-b1", "#k-b2", "#k-d1", "#k-d2", "#k-g", "#k-m1", "#k-m2"]);
+      ["k-r1", "k-r2", "k-r3", "k-r4"].forEach((id) => pose(id, zeros(id)));
+      tl.fromTo(["#k-ba", "#k-bb"], { scaleX: 0 }, { scaleX: 0, duration: 0.01 }, 0);
+      tl.fromTo("#k-ecart", { opacity: 0, scaleX: 0.9, transformOrigin: "0% 50%" }, { opacity: 0, scaleX: 0.9, transformOrigin: "0% 50%", duration: 0.01 }, 0);
+
+      // « Faisons le calcul. »
+      entre("#k-t", at(64.94));
+      // « Tu vends pour trois millions par mois »
+      entre(["#k-v1", "#k-v2"], at(65.86));
+      roule("k-r1", zeros("k-r1"), chiffres("k-r1"), at(66.38), 1.1, 0.04);
+      // « La plateforme te prend trois cent mille »
+      entre("#k-a1", at(67.62));
+      tl.fromTo("#k-ba", { scaleX: 0 }, { immediateRender: false, scaleX: 1, duration: 1.1, ease: "expo.out" }, at(67.78));
+      entre("#k-a2", at(68.46));
+      roule("k-r2", zeros("k-r2"), chiffres("k-r2"), at(68.66), 1.0, 0.04);
+      // « Ta boutique, frais de paiement et forfait compris : cent vingt-cinq mille »
+      entre("#k-b1", at(69.47));
+      tl.fromTo("#k-bb", { scaleX: 0 }, { immediateRender: false, scaleX: 1, duration: 1.1, ease: "expo.out" }, at(69.59));
+      entre("#k-d1", at(70.19));
+      entre("#k-d2", at(71.03));
+      entre("#k-b2", at(71.95));
+      roule("k-r3", zeros("k-r3"), chiffres("k-r3"), at(72.12), 1.0, 0.04);
+      // « Tu gardes cent soixante-quinze mille francs de plus »
+      sort(["#k-d1", "#k-d2"], at(72.95));
+      tl.fromTo("#k-ecart", { opacity: 0, scaleX: 0.9 }, { immediateRender: false, opacity: 1, scaleX: 1, duration: 0.6, ease: "expo.out" }, at(73.19));
+      entre("#k-g", at(73.39));
+      roule("k-r4", zeros("k-r4"), chiffres("k-r4"), at(73.83), 1.2, 0.05);
+      // « Chaque mois. Plus de deux millions sur l'année. »
+      entre("#k-m1", at(76.03));
+      entre("#k-m2", at(76.84));
+      // Sortie vers la preuve
+      sort(["#k-t", "#k-v1", "#k-v2", "#k-a1", "#k-a2", "#k-b1", "#k-b2", "#k-g", "#k-m1", "#k-m2"], at(78.25));
+      tl.fromTo([".piste"], { opacity: 1 }, { immediateRender: false, opacity: 0, duration: 0.3 }, at(78.25));
+      window.__timelines["calcul"] = tl;
+    })();
+  </script>
+</template>

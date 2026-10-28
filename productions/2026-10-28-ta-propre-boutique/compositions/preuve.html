@@ -1,0 +1,170 @@
+<template>
+  <style>
+    @font-face { font-family: "Plus Jakarta Sans"; font-weight: 500; src: url("assets/fonts/plus-jakarta-sans-latin-500-normal.woff2") format("woff2"); }
+    @font-face { font-family: "Plus Jakarta Sans"; font-weight: 600; src: url("assets/fonts/plus-jakarta-sans-latin-600-normal.woff2") format("woff2"); }
+    @font-face { font-family: "Plus Jakarta Sans"; font-weight: 700; src: url("assets/fonts/plus-jakarta-sans-latin-700-normal.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; font-family: "Plus Jakarta Sans", sans-serif; color: #F5F3EE; }
+    .mask { overflow: hidden; padding: 6px 0 16px; margin-bottom: -18px; }
+    .mask > .in { display: block; }
+    .acc { color: #D9C6A3; }
+    .doux { color: rgba(245,243,238,0.6); }
+    .ombre { text-shadow: 0 0 50px rgba(4,6,11,0.95), 0 0 18px rgba(4,6,11,0.9); }
+    .titre { position: absolute; left: 80px; top: 236px; }
+    .l-titre { font-weight: 700; font-size: 80px; letter-spacing: -0.045em; line-height: 1.04; white-space: nowrap; }
+    .l-geant { font-weight: 700; font-size: 128px; letter-spacing: -0.05em; line-height: 1.0; white-space: nowrap; }
+    .eyebrow { font-weight: 600; font-size: 30px; letter-spacing: 0.22em; text-transform: uppercase; color: rgba(245,243,238,0.6); }
+    .verre { background: rgba(255,255,255,0.065); -webkit-backdrop-filter: blur(34px) saturate(150%); backdrop-filter: blur(34px) saturate(150%);
+      border: 1.5px solid rgba(255,255,255,0.16); box-shadow: inset 0 1.5px 0 rgba(255,255,255,0.28), 0 50px 140px rgba(0,0,0,0.6); }
+    .opaque { background: #0B111D; border: 1.5px solid rgba(255,255,255,0.10); box-shadow: inset 0 1.5px 0 rgba(255,255,255,0.12), 0 50px 140px rgba(0,0,0,0.6); }
+    .pastille { display: inline-flex; align-items: center; gap: 14px; padding: 16px 30px; border-radius: 999px; font-weight: 600; font-size: 38px; white-space: nowrap; }
+    .pastille .d { width: 12px; height: 12px; border-radius: 50%; background: #F5F3EE; }
+    .t { fill: none; stroke: #F5F3EE; stroke-width: 3; stroke-linecap: round; stroke-linejoin: round; }
+    .t.fin { stroke-width: 2; }
+    .t.mi { stroke: rgba(245,243,238,0.45); }
+    .roule { display: inline-block; white-space: nowrap; line-height: 1; }
+    .roule .col { display: inline-block; width: 0.68em; height: 1em; overflow: hidden; vertical-align: top; text-align: center; }
+    .roule .col > span { display: block; }
+    .roule .col > span > span { display: block; height: 1em; }
+    .roule .sep { display: inline-block; width: 0.26em; }
+
+    /* A. Ses mains au clavier */
+    #r-carte { position: absolute; left: 270px; top: 500px; width: 540px; height: 584px; border-radius: 56px; padding: 14px; }
+    #r-cadre { width: 100%; height: 100%; border-radius: 44px; overflow: hidden; background: #0B111D; }
+    #r-video { display: block; width: 100%; height: 100%; object-fit: cover; }
+
+    /* B. 1Peu 1Peu : chaque paiement vérifié, sans personne */
+    #r-1p { position: absolute; left: 80px; top: 480px; width: 920px; height: 620px; border-radius: 56px; padding: 44px; }
+    #r-1p .tete { display: flex; justify-content: space-between; align-items: center; }
+    #r-1p .tete b { font-weight: 700; font-size: 56px; letter-spacing: -0.04em; }
+    .pay { height: 110px; display: flex; align-items: center; gap: 22px; border-bottom: 1.5px solid rgba(245,243,238,0.1); }
+    .pay:first-of-type { margin-top: 24px; }
+    .pay .ic { width: 64px; height: 64px; border-radius: 50%; background: rgba(245,243,238,0.08); display: flex; align-items: center; justify-content: center; }
+    .pay .lab { font-weight: 600; font-size: 36px; white-space: nowrap; }
+    .pay .lab span { display: block; font-weight: 500; font-size: 30px; color: rgba(245,243,238,0.55); }
+    .pay .statut { margin-left: auto; position: relative; width: 236px; height: 60px; border-radius: 30px; overflow: hidden; border: 1.5px solid rgba(245,243,238,0.22); }
+    .pay .rail { position: absolute; left: 0; top: 0; width: 100%; }
+    .pay .rail > div { height: 60px; display: flex; align-items: center; justify-content: center; gap: 10px; font-weight: 600; font-size: 30px; white-space: nowrap; }
+    .pay .rail > div.ok { background: #F5F3EE; color: #04060B; font-weight: 700; }
+    .pay.dernier .rail > div.ok { background: #D9C6A3; }
+    #r-pers { position: absolute; left: 80px; top: 1150px; }
+    .l-pers { font-weight: 600; font-size: 50px; letter-spacing: -0.035em; white-space: nowrap; }
+
+    /* C. Trois semaines, avec toi */
+    #r-frise { position: absolute; left: 0; top: 0; overflow: visible; }
+    .etape { position: absolute; left: 230px; }
+    .etape .n { font-weight: 600; font-size: 30px; letter-spacing: 0.18em; text-transform: uppercase; color: rgba(245,243,238,0.6); }
+    .etape .lab { font-weight: 700; font-size: 50px; letter-spacing: -0.035em; white-space: nowrap; }
+    #r-e1 { top: 478px; } #r-e2 { top: 638px; } #r-e3 { top: 798px; } #r-e4 { top: 976px; }
+    #r-avec { position: absolute; left: 80px; top: 1170px; }
+    .l-avec { font-weight: 700; font-size: 60px; letter-spacing: -0.04em; white-space: nowrap; }
+  </style>
+  <div id="root" data-composition-id="preuve" data-width="1080" data-height="1920">
+    <div class="titre ombre" id="r-ta"><div class="mask"><span class="in l-titre" id="r-t1">Déjà construit.</span></div></div>
+    <div class="titre ombre" id="r-tb"><div class="mask"><span class="in l-geant" id="r-t2"><span class="acc">3</span> semaines.</span></div></div>
+
+    <div id="r-carte" class="verre"><div id="r-cadre">
+      <video id="r-video" class="clip" data-start="0.12" data-duration="3.2" data-track-index="1" muted playsinline src="assets/media/2026-10-28-mains-clavier.mp4"></video>
+    </div></div>
+
+    <div id="r-1p" class="verre" data-layout-allow-overlap>
+      <div class="tete"><b>1Peu 1Peu</b><span class="pastille" style="font-size:30px;padding:10px 24px;background:rgba(245,243,238,0.08)"><span class="d"></span>En production</span></div>
+      <div class="pay" id="r-p1"><span class="ic"><svg width="30" height="30" viewBox="0 0 30 30"><rect class="t fin" x="8" y="3" width="14" height="24" rx="3" /></svg></span><span class="lab">Paiement Mobile Money<span>vérifié par le serveur</span></span>
+        <span class="statut"><span class="rail"><div>En attente</div><div class="ok"><svg width="26" height="26" viewBox="0 0 26 26"><path d="M5 13.5 L11 19.5 L21 8" fill="none" stroke="#04060B" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round" /></svg>Vérifié</div></span></span></div>
+      <div class="pay" id="r-p2"><span class="ic"><svg width="30" height="30" viewBox="0 0 30 30"><rect class="t fin" x="8" y="3" width="14" height="24" rx="3" /></svg></span><span class="lab">Paiement Mobile Money<span>vérifié par le serveur</span></span>
+        <span class="statut"><span class="rail"><div>En attente</div><div class="ok"><svg width="26" height="26" viewBox="0 0 26 26"><path d="M5 13.5 L11 19.5 L21 8" fill="none" stroke="#04060B" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round" /></svg>Vérifié</div></span></span></div>
+      <div class="pay" id="r-p3"><span class="ic"><svg width="30" height="30" viewBox="0 0 30 30"><rect class="t fin" x="8" y="3" width="14" height="24" rx="3" /></svg></span><span class="lab">Paiement Mobile Money<span>vérifié par le serveur</span></span>
+        <span class="statut"><span class="rail"><div>En attente</div><div class="ok"><svg width="26" height="26" viewBox="0 0 26 26"><path d="M5 13.5 L11 19.5 L21 8" fill="none" stroke="#04060B" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round" /></svg>Vérifié</div></span></span></div>
+      <div class="pay dernier" id="r-p4"><span class="ic"><svg width="30" height="30" viewBox="0 0 30 30"><rect class="t fin" x="8" y="3" width="14" height="24" rx="3" /></svg></span><span class="lab">Paiement Mobile Money<span>vérifié par le serveur</span></span>
+        <span class="statut"><span class="rail"><div>En attente</div><div class="ok"><svg width="26" height="26" viewBox="0 0 26 26"><path d="M5 13.5 L11 19.5 L21 8" fill="none" stroke="#04060B" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round" /></svg>Vérifié</div></span></span></div>
+    </div>
+    <div id="r-pers" class="ombre"><div class="mask"><span class="in l-pers" id="r-ps">Sans que personne ne regarde.</span></div></div>
+
+    <svg id="r-frise" width="1080" height="1920" viewBox="0 0 1080 1920" data-layout-ignore>
+      <path d="M150 520 V1030" stroke="rgba(245,243,238,0.16)" stroke-width="3" fill="none" />
+      <path id="r-ligne" d="M150 520 V1030" stroke="#F5F3EE" stroke-width="3" fill="none" stroke-dasharray="510 510" />
+      <circle class="r-nd" cx="150" cy="520" r="14" fill="#04060B" stroke="#F5F3EE" stroke-width="3" />
+      <circle class="r-nd" cx="150" cy="680" r="14" fill="#04060B" stroke="#F5F3EE" stroke-width="3" />
+      <circle class="r-nd" cx="150" cy="840" r="14" fill="#04060B" stroke="#F5F3EE" stroke-width="3" />
+      <circle id="r-fin" cx="150" cy="1030" r="20" fill="#D9C6A3" />
+      <g id="r-duo"><circle cx="150" cy="520" r="9" fill="#F5F3EE" /><circle cx="176" cy="520" r="9" fill="none" stroke="#F5F3EE" stroke-width="3" /></g>
+    </svg>
+    <div class="etape" id="r-e1"><div class="mask"><span class="in n" id="r-e1a">Semaine 1</span></div><div class="mask"><span class="in lab" id="r-e1b">Lancement</span></div></div>
+    <div class="etape" id="r-e2"><div class="mask"><span class="in n" id="r-e2a">Semaine 2</span></div><div class="mask"><span class="in lab" id="r-e2b">Construction</span></div></div>
+    <div class="etape" id="r-e3"><div class="mask"><span class="in n" id="r-e3a">Semaine 3</span></div><div class="mask"><span class="in lab" id="r-e3b">Mise en ligne</span></div></div>
+    <div class="etape" id="r-e4"><div class="mask"><span class="in lab acc" id="r-e4b">Ta boutique est en ligne.</span></div></div>
+    <div id="r-avec" class="ombre"><div class="mask"><span class="in l-avec" id="r-av">Avec toi, à chaque étape.</span></div></div>
+  </div>
+  <script>
+    (function () {
+      const DEBUT = 78.5;
+      // Outils communs : temps du film -> temps de la scène, chiffres qui roulent
+      const at = (g) => +(g - DEBUT).toFixed(3);
+      const rouleaux = {};
+      document.querySelectorAll("#root .roule").forEach((el) => {
+        const txt = el.textContent; el.textContent = ""; const rails = [];
+        for (const ch of txt) {
+          if (/[0-9]/.test(ch)) {
+            const col = document.createElement("span"); col.className = "col";
+            const rail = document.createElement("span");
+            for (let d = 0; d < 10; d++) { const s = document.createElement("span"); s.textContent = d; rail.appendChild(s); }
+            col.appendChild(rail); el.appendChild(col); rails.push({ rail, d: +ch });
+          } else { const s = document.createElement("span"); s.className = ch === " " ? "sep" : ""; s.textContent = ch === " " ? " " : ch; el.appendChild(s); }
+        }
+        rouleaux[el.id] = rails;
+      });
+      const tl = gsap.timeline({ paused: true });
+      const pose = (id, chiffres) => rouleaux[id].forEach((r, i) => tl.fromTo(r.rail, { yPercent: -chiffres[i] * 10 }, { yPercent: -chiffres[i] * 10, duration: 0.01 }, 0));
+      const roule = (id, de, vers, t, dur, dec) => rouleaux[id].forEach((r, i) => {
+        if (de[i] === vers[i]) return;
+        tl.fromTo(r.rail, { yPercent: -de[i] * 10 }, { immediateRender: false, yPercent: -vers[i] * 10, duration: dur || 1.0, ease: "expo.out" }, t + i * (dec === undefined ? 0.05 : dec));
+      });
+      const chiffres = (id) => rouleaux[id].map((r) => r.d);
+      const zeros = (id) => rouleaux[id].map(() => 0);
+      // Entrée et sortie de texte par cache
+      const entre = (sel, t, dec) => tl.fromTo(sel, { yPercent: 130 }, { immediateRender: false, yPercent: 0, duration: 0.8, ease: "expo.out", stagger: dec === undefined ? 0.08 : dec }, t);
+      const sort = (sel, t) => tl.fromTo(sel, { yPercent: 0 }, { immediateRender: false, yPercent: -135, duration: 0.38, ease: "power3.in", stagger: 0.04 }, t);
+      const cache = (sel) => tl.fromTo(sel, { yPercent: 130 }, { yPercent: 130, duration: 0.01 }, 0);
+
+      cache(["#r-t1", "#r-t2", "#r-ps", "#r-e1a", "#r-e1b", "#r-e2a", "#r-e2b", "#r-e3a", "#r-e3b", "#r-e4b", "#r-av"]);
+      tl.fromTo("#r-carte", { y: 140, opacity: 0, scale: 0.96, x: 0 }, { y: 140, opacity: 0, scale: 0.96, x: 0, duration: 0.01 }, 0);
+      tl.fromTo("#r-1p", { y: 120, opacity: 0 }, { y: 120, opacity: 0, duration: 0.01 }, 0);
+      tl.fromTo(".pay .rail", { yPercent: 0 }, { yPercent: 0, duration: 0.01 }, 0);
+      tl.fromTo("#r-ligne", { strokeDashoffset: 510 }, { strokeDashoffset: 510, duration: 0.01 }, 0);
+      tl.fromTo(".r-nd", { scale: 0, transformOrigin: "50% 50%" }, { scale: 0, transformOrigin: "50% 50%", duration: 0.01 }, 0);
+      tl.fromTo("#r-fin", { scale: 0, transformOrigin: "50% 50%" }, { scale: 0, transformOrigin: "50% 50%", duration: 0.01 }, 0);
+      tl.fromTo("#r-duo", { y: 0, opacity: 0 }, { y: 0, opacity: 0, duration: 0.01 }, 0);
+
+      // A. « Ce moteur de paiement, je l'ai déjà construit »
+      tl.fromTo("#r-carte", { y: 140, opacity: 0, scale: 0.96 }, { immediateRender: false, y: 0, opacity: 1, scale: 1, duration: 1.0, ease: "expo.out" }, at(78.62));
+      tl.fromTo("#r-video", { scale: 1.0 }, { scale: 1.05, duration: 3.0, ease: "none" }, at(78.62));
+      entre("#r-t1", at(79.69));
+      // B. « Sur Un Peu Un Peu, chaque paiement Mobile Money est vérifié... sans que personne ne regarde »
+      tl.fromTo("#r-carte", { x: 0, opacity: 1, scale: 1 }, { immediateRender: false, x: -160, opacity: 0, scale: 0.9, duration: 0.45, ease: "power3.in" }, at(80.95));
+      tl.fromTo("#r-1p", { y: 120, opacity: 0 }, { immediateRender: false, y: 0, opacity: 1, duration: 0.9, ease: "expo.out" }, at(81.1));
+      ["#r-p1", "#r-p2", "#r-p3", "#r-p4"].forEach((p, i) => {
+        tl.fromTo(p + " .rail", { yPercent: 0 }, { immediateRender: false, yPercent: -50, duration: 0.5, ease: "expo.out" }, at(82.25 + i * 0.48));
+      });
+      entre("#r-ps", at(84.62));
+      sort(["#r-t1", "#r-ps"], at(85.75));
+      tl.fromTo("#r-1p", { y: 0, opacity: 1 }, { immediateRender: false, y: -60, opacity: 0, duration: 0.38, ease: "power3.in" }, at(85.75));
+
+      // C. « Trois semaines, et ta boutique est en ligne. Et je suis avec toi à chaque étape. »
+      entre("#r-t2", at(86.15));
+      tl.fromTo("#r-ligne", { strokeDashoffset: 510 }, { immediateRender: false, strokeDashoffset: 0, duration: 1.5, ease: "none" }, at(86.3));
+      [[".r-nd:nth-of-type(1)", "#r-e1a", "#r-e1b", 86.3], [".r-nd:nth-of-type(2)", "#r-e2a", "#r-e2b", 86.77], [".r-nd:nth-of-type(3)", "#r-e3a", "#r-e3b", 87.24]].forEach(([n, a, b, t]) => {
+        entre([a, b], at(t), 0.06);
+      });
+      tl.fromTo(".r-nd", { scale: 0 }, { immediateRender: false, scale: 1, duration: 0.35, ease: "back.out(2)", stagger: 0.47 }, at(86.3));
+      tl.fromTo("#r-fin", { scale: 0 }, { immediateRender: false, scale: 1, duration: 0.45, ease: "back.out(2.2)" }, at(87.75));
+      entre("#r-e4b", at(87.75));
+      // « avec toi » : deux points font le chemin ensemble
+      tl.fromTo("#r-duo", { opacity: 0 }, { immediateRender: false, opacity: 1, duration: 0.2 }, at(88.21));
+      tl.fromTo("#r-duo", { y: 0 }, { immediateRender: false, y: 510, duration: 1.5, ease: "power1.inOut" }, at(88.3));
+      entre("#r-av", at(88.43));
+      // Sortie vers la signature
+      sort(["#r-t2", "#r-e1a", "#r-e1b", "#r-e2a", "#r-e2b", "#r-e3a", "#r-e3b", "#r-e4b", "#r-av"], at(90.0));
+      tl.fromTo("#r-frise", { opacity: 1 }, { immediateRender: false, opacity: 0, duration: 0.35 }, at(90.0));
+      window.__timelines["preuve"] = tl;
+    })();
+  </script>
+</template>

@@ -24,6 +24,17 @@ Seuls ces faits peuvent apparaître dans une vidéo. Pour tout autre chiffre ou 
 - **Logiciel de gestion de production** pour une usine : application Django multi-entités (ventes, production, rôles et permissions).
 - **SCAR-SOFT** : services Django d'une plateforme de facturation électronique multi-entreprises (standard Peppol).
 
+## Offre « Boutique en ligne » (donnée par Oba le 28 oct. 2026)
+
+Une boutique en ligne à son nom pour les coachs et formateurs qui vendent formations et produits digitaux sur une plateforme de vente (ne jamais nommer les plateformes ni les agrégateurs de paiement).
+- Le constat : ces plateformes prélèvent 5 à 15 % sur chaque vente. Exemple d'Oba : 2 000 000 F de ventes par mois = 100 000 à 300 000 F partis. Sans compter la publicité.
+- Pourquoi les vendeurs y restent : encaisser facilement, plusieurs opérateurs et plusieurs pays, boutique montée vite.
+- Ce que fait la boutique : paiement par Mobile Money ou par carte ; agrégateurs de paiement intégrés, près de 17 pays africains et près de 50 opérateurs ; l'acheteur paie exactement le prix affiché ; l'argent arrive sur le compte du vendeur, jamais chez Oba ; domaine et compte de paiement au nom du vendeur dès le premier jour ; espace vendeur (ventes, commandes, clients, produits ajoutés soi-même) ; livraison automatique après paiement vérifié ; elle évolue comme le vendeur veut ; Oba aide à obtenir les clés et accompagne à chaque étape ; un seul interlocuteur.
+- Délai : 3 semaines de l'acompte à la mise en ligne.
+- Calcul d'économie autorisé à l'écran (exemple de sa page) : 3 000 000 F de ventes par mois ; la plateforme prend 300 000 F (10 %) ; la boutique coûte 125 000 F (frais de paiement estimés 2,5 % = 75 000 F + forfait 50 000 F) ; tu gardes 175 000 F de plus par mois, soit 2 100 000 F sur un an. C'est le seul endroit où un montant de l'offre apparaît ; les tarifs d'installation ne s'affichent pas.
+- Preuve : le même moteur de paiement tourne en production sur 1Peu 1Peu.
+- Mot-clé WhatsApp : BOUTIQUE.
+
 ## Offres
 
 1. Applications web et mobiles sur mesure (offre principale).

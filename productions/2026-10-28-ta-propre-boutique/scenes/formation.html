@@ -1,0 +1,101 @@
+<template>
+  <style>
+/*COMMUN*/
+    /* La fiche « Ta formation » qui se construit */
+    #f-fiche { position: absolute; left: 190px; top: 470px; width: 700px; height: 620px; border-radius: 48px; overflow: hidden; }
+    #f-fiche .couv { position: absolute; left: 24px; top: 24px; width: 652px; height: 300px; border-radius: 30px; background: rgba(245,243,238,0.06); }
+    #f-fiche .couv svg { position: absolute; left: 0; top: 0; }
+    #f-fiche .nom { position: absolute; left: 44px; top: 352px; font-weight: 700; font-size: 50px; letter-spacing: -0.03em; white-space: nowrap; }
+    .module { position: absolute; left: 44px; width: 612px; height: 52px; display: flex; align-items: center; gap: 18px; }
+    .module .n { width: 46px; height: 46px; border-radius: 50%; border: 2px solid rgba(245,243,238,0.4); display: flex; align-items: center; justify-content: center; font-weight: 600; font-size: 28px; color: rgba(245,243,238,0.75); }
+    .module i { display: block; height: 14px; border-radius: 7px; background: rgba(245,243,238,0.4); }
+    .module b { margin-left: auto; width: 74px; height: 14px; border-radius: 7px; background: rgba(245,243,238,0.2); }
+
+    /* L'établi : ce que tu y as mis */
+    .outil { position: absolute; top: 1140px; width: 290px; height: 190px; }
+    .outil svg { position: absolute; left: 0; top: 0; overflow: visible; }
+    .outil .lab { position: absolute; left: 0; right: 0; top: 136px; text-align: center; font-weight: 600; font-size: 36px; white-space: nowrap; }
+    #f-o1 { left: 80px; } #f-o2 { left: 395px; } #f-o3 { left: 710px; }
+  </style>
+  <div id="root" data-composition-id="formation" data-width="1080" data-height="1920">
+    <div class="titre ombre"><div class="mask"><span class="in l-titre" id="f-t">Des semaines de travail.</span></div></div>
+
+    <div id="f-fiche" class="opaque">
+      <div class="couv" id="f-couv"><svg width="652" height="300" viewBox="0 0 652 300">
+        <circle id="f-play-c" cx="326" cy="150" r="58" fill="none" stroke="#F5F3EE" stroke-width="3" pathLength="1" />
+        <path id="f-play" d="M310 124 L350 150 L310 176 Z" fill="none" stroke="#F5F3EE" stroke-width="3" stroke-linejoin="round" pathLength="1" />
+      </svg></div>
+      <div class="nom" id="f-nom">Ta formation</div>
+      <div class="module" style="top:430px" id="f-m1"><span class="n">1</span><i style="width:300px"></i><b></b></div>
+      <div class="module" style="top:490px" id="f-m2"><span class="n">2</span><i style="width:250px"></i><b></b></div>
+      <div class="module" style="top:550px" id="f-m3"><span class="n">3</span><i style="width:330px"></i><b></b></div>
+    </div>
+
+    <div class="outil" id="f-o1">
+      <svg width="290" height="130" viewBox="0 0 290 130">
+        <g id="f-v2"><rect class="t mi" x="84" y="8" width="170" height="96" rx="14" /></g>
+        <g id="f-v1"><rect x="40" y="24" width="170" height="96" rx="14" fill="#0B111D" stroke="#F5F3EE" stroke-width="3" /><path class="t" d="M115 56 L139 72 L115 88 Z" /></g>
+      </svg>
+      <div class="mask"><span class="in lab" id="f-l1">Les vidéos</span></div>
+    </div>
+    <div class="outil" id="f-o2">
+      <svg width="290" height="130" viewBox="0 0 290 130">
+        <g id="f-p3"><rect class="t mi" x="128" y="0" width="86" height="112" rx="10" /></g>
+        <g id="f-p2"><rect x="110" y="8" width="86" height="112" rx="10" fill="#0B111D" stroke="rgba(245,243,238,0.7)" stroke-width="3" /></g>
+        <g id="f-p1"><rect x="92" y="16" width="86" height="112" rx="10" fill="#0B111D" stroke="#F5F3EE" stroke-width="3" /><path class="t fin" d="M106 44 H164 M106 60 H164 M106 76 H150 M106 92 H158" /></g>
+      </svg>
+      <div class="mask"><span class="in lab" id="f-l2">Les fiches</span></div>
+    </div>
+    <div class="outil" id="f-o3">
+      <svg width="290" height="130" viewBox="0 0 290 130">
+        <path id="f-lune" class="t" d="M118 22 a44 44 0 1 0 44 66 a34 34 0 1 1 -44 -66 Z" pathLength="1" />
+        <circle class="t" cx="196" cy="86" r="34" />
+        <path id="f-aiguille" class="t" d="M196 86 V62" />
+        <path id="f-petite" class="t" d="M196 86 L212 92" />
+      </svg>
+      <div class="mask"><span class="in lab" id="f-l3">Les nuits</span></div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const DEBUT = 4.6;
+//COMMUN
+      cache(["#f-t", "#f-l1", "#f-l2", "#f-l3"]);
+      tl.fromTo("#f-fiche", { y: 120, opacity: 0, scale: 0.94 }, { y: 120, opacity: 0, scale: 0.94, duration: 0.01 }, 0);
+      tl.fromTo(["#f-play-c", "#f-play", "#f-lune"], { strokeDasharray: "1 1", strokeDashoffset: 1 }, { strokeDasharray: "1 1", strokeDashoffset: 1, duration: 0.01 }, 0);
+      tl.fromTo(["#f-nom", "#f-m1", "#f-m2", "#f-m3"], { y: 24, opacity: 0 }, { y: 24, opacity: 0, duration: 0.01 }, 0);
+      tl.fromTo(["#f-o1", "#f-o2", "#f-o3"], { y: 40, opacity: 0 }, { y: 40, opacity: 0, duration: 0.01 }, 0);
+      tl.fromTo(["#f-v1", "#f-v2", "#f-p1", "#f-p2", "#f-p3"], { y: 30, opacity: 0 }, { y: 30, opacity: 0, duration: 0.01 }, 0);
+      tl.fromTo(["#f-aiguille", "#f-petite"], { rotation: 0, svgOrigin: "196 86" }, { rotation: 0, svgOrigin: "196 86", duration: 0.01 }, 0);
+
+      // « Tu as passé des semaines sur ta formation »
+      entre("#f-t", at(4.84));
+      tl.fromTo("#f-fiche", { y: 120, opacity: 0, scale: 0.94 }, { immediateRender: false, y: 0, opacity: 1, scale: 1, duration: 1.0, ease: "expo.out" }, at(4.9));
+      tl.fromTo(["#f-play-c", "#f-play"], { strokeDashoffset: 1 }, { immediateRender: false, strokeDashoffset: 0, duration: 0.6, ease: "power2.inOut", stagger: 0.15 }, at(5.3));
+      tl.fromTo("#f-nom", { y: 24, opacity: 0 }, { immediateRender: false, y: 0, opacity: 1, duration: 0.6, ease: "expo.out" }, at(6.28));
+      tl.fromTo(["#f-m1", "#f-m2", "#f-m3"], { y: 24, opacity: 0 }, { immediateRender: false, y: 0, opacity: 1, duration: 0.6, ease: "expo.out", stagger: 0.12 }, at(6.5));
+      // « Les vidéos »
+      tl.fromTo("#f-o1", { y: 40, opacity: 0 }, { immediateRender: false, y: 0, opacity: 1, duration: 0.6, ease: "expo.out" }, at(7.3));
+      tl.fromTo(["#f-v2", "#f-v1"], { y: 30, opacity: 0 }, { immediateRender: false, y: 0, opacity: 1, duration: 0.6, ease: "expo.out", stagger: 0.1 }, at(7.37));
+      entre("#f-l1", at(7.37));
+      // « les fiches »
+      tl.fromTo("#f-o2", { y: 40, opacity: 0 }, { immediateRender: false, y: 0, opacity: 1, duration: 0.6, ease: "expo.out" }, at(8.26));
+      tl.fromTo(["#f-p3", "#f-p2", "#f-p1"], { y: 30, opacity: 0 }, { immediateRender: false, y: 0, opacity: 1, duration: 0.6, ease: "expo.out", stagger: 0.09 }, at(8.33));
+      entre("#f-l2", at(8.33));
+      // « les nuits à tout reprendre » : la lune se dessine, l'heure tourne
+      tl.fromTo("#f-o3", { y: 40, opacity: 0 }, { immediateRender: false, y: 0, opacity: 1, duration: 0.6, ease: "expo.out" }, at(9.22));
+      tl.fromTo("#f-lune", { strokeDashoffset: 1 }, { immediateRender: false, strokeDashoffset: 0, duration: 0.7, ease: "power2.inOut" }, at(9.29));
+      entre("#f-l3", at(9.29));
+      tl.fromTo("#f-aiguille", { rotation: 0 }, { immediateRender: false, rotation: 720, duration: 1.4, ease: "power1.inOut" }, at(9.4));
+      tl.fromTo("#f-petite", { rotation: 0 }, { immediateRender: false, rotation: 60, duration: 1.4, ease: "power1.inOut" }, at(9.4));
+
+      // « Tu l'as mise sur une plateforme » : l'établi se range, la fiche rapetisse et part vers la vitrine
+      sort(["#f-t", "#f-l1", "#f-l2", "#f-l3"], at(10.62));
+      tl.fromTo(["#f-o1", "#f-o2", "#f-o3"], { y: 0, opacity: 1 }, { immediateRender: false, y: -40, opacity: 0, duration: 0.35, ease: "power3.in", stagger: 0.04 }, at(10.62));
+      tl.fromTo("#f-fiche", { x: 0, y: 0, scale: 1 }, { immediateRender: false, x: 0, y: 60, scale: 0.38, duration: 0.55, ease: "power3.inOut" }, at(10.62));
+      // la scène suivante reprend la fiche au même endroit
+      tl.fromTo("#f-fiche", { opacity: 1 }, { immediateRender: false, opacity: 0, duration: 0.02 }, at(11.17));
+      window.__timelines["formation"] = tl;
+    })();
+  </script>
+</template>

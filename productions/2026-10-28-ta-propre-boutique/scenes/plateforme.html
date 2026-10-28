@@ -1,0 +1,95 @@
+<template>
+  <style>
+/*COMMUN*/
+    /* La vitrine d'une plateforme de vente, sans nom */
+    #p-cadre { position: absolute; left: 140px; top: 470px; width: 800px; height: 820px; border-radius: 48px; overflow: hidden; background: #F3F5F8;
+      box-shadow: 0 50px 140px rgba(0,0,0,0.6); }
+    #p-barre { position: absolute; left: 24px; right: 24px; top: 24px; height: 80px; display: flex; align-items: center; gap: 18px; }
+    #p-barre .logo { width: 56px; height: 56px; border-radius: 16px; background: #C3CAD4; }
+    #p-barre .nom { font-weight: 700; font-size: 42px; color: #5E6876; letter-spacing: -0.02em; }
+    #p-barre .cherche { margin-left: auto; width: 300px; height: 56px; border-radius: 28px; background: #E3E7ED; }
+    .p-fiche { position: absolute; width: 232px; height: 210px; border-radius: 22px; background: #E6EAF0; padding: 12px; }
+    .p-fiche .couv { height: 100px; border-radius: 14px; background: #D3D9E1; }
+    .p-fiche i { display: block; height: 12px; border-radius: 6px; background: #C3CAD4; margin-top: 12px; }
+    .p-fiche b { display: block; width: 70px; height: 16px; border-radius: 8px; background: #AEB7C3; margin-top: 16px; }
+    #p-trou { position: absolute; left: 276px; top: 360px; width: 232px; height: 210px; border-radius: 22px; border: 3px dashed #AEB7C3; }
+
+    /* Ta fiche, qui arrive de l'établi */
+    #p-ta { position: absolute; left: 190px; top: 470px; width: 700px; height: 620px; border-radius: 48px; overflow: hidden; }
+    #p-ta .couv { position: absolute; left: 24px; top: 24px; width: 652px; height: 300px; border-radius: 30px; background: rgba(245,243,238,0.06); }
+    #p-ta .couv svg { position: absolute; left: 0; top: 0; }
+    #p-ta .nom { position: absolute; left: 44px; top: 352px; font-weight: 700; font-size: 50px; letter-spacing: -0.03em; white-space: nowrap; }
+    #p-ta .mod { position: absolute; left: 44px; width: 420px; height: 14px; border-radius: 7px; background: rgba(245,243,238,0.4); }
+
+    .coche { position: absolute; left: 200px; display: flex; align-items: center; gap: 26px; }
+    .coche svg { flex: 0 0 auto; }
+    .coche .lab { font-weight: 700; font-size: 50px; letter-spacing: -0.03em; white-space: nowrap; }
+    #p-c1 { top: 1066px; } #p-c2 { top: 1158px; } #p-c3 { top: 1250px; }
+  </style>
+  <div id="root" data-composition-id="plateforme" data-width="1080" data-height="1920">
+    <div class="titre ombre"><div class="mask"><span class="in l-titre" id="p-t">C'est pratique.</span></div></div>
+
+    <div id="p-cadre" data-layout-allow-overlap>
+      <div id="p-barre"><div class="logo"></div><div class="nom">Plateforme</div><div class="cherche"></div></div>
+      <div class="p-fiche" style="left:24px;top:130px"><div class="couv"></div><i style="width:80%"></i><b></b></div>
+      <div class="p-fiche" style="left:276px;top:130px"><div class="couv"></div><i style="width:66%"></i><b></b></div>
+      <div class="p-fiche" style="left:528px;top:130px"><div class="couv"></div><i style="width:74%"></i><b></b></div>
+      <div class="p-fiche" style="left:24px;top:360px"><div class="couv"></div><i style="width:58%"></i><b></b></div>
+      <div id="p-trou"></div>
+      <div class="p-fiche" style="left:528px;top:360px"><div class="couv"></div><i style="width:82%"></i><b></b></div>
+      <div class="p-fiche" style="left:24px;top:590px"><div class="couv"></div><i style="width:70%"></i><b></b></div>
+      <div class="p-fiche" style="left:276px;top:590px"><div class="couv"></div><i style="width:62%"></i><b></b></div>
+      <div class="p-fiche" style="left:528px;top:590px"><div class="couv"></div><i style="width:76%"></i><b></b></div>
+      <!-- Ta fiche, une fois rangée dans la vitrine -->
+      <div id="p-rangee" class="p-fiche" style="left:276px;top:360px;background:#0B111D"><div class="couv" style="background:#1A212E"></div><i style="width:72%;background:#F5F3EE"></i><b style="background:rgba(245,243,238,0.5)"></b></div>
+    </div>
+
+    <div id="p-ta" class="opaque">
+      <div class="couv"><svg width="652" height="300" viewBox="0 0 652 300"><circle cx="326" cy="150" r="58" fill="none" stroke="#F5F3EE" stroke-width="3" /><path d="M310 124 L350 150 L310 176 Z" fill="none" stroke="#F5F3EE" stroke-width="3" stroke-linejoin="round" /></svg></div>
+      <div class="nom">Ta formation</div>
+      <div class="mod" style="top:452px"></div><div class="mod" style="top:512px;width:360px"></div><div class="mod" style="top:572px;width:440px"></div>
+    </div>
+
+    <div class="coche" id="p-c1"><svg width="64" height="64" viewBox="0 0 64 64"><circle class="rond" cx="32" cy="32" r="29" fill="none" stroke="#D9C6A3" stroke-width="3" /><path class="v" d="M19 33 L28 42 L45 23" fill="none" stroke="#D9C6A3" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" pathLength="1" /></svg><div class="mask"><span class="in lab" id="p-l1">Prête vite</span></div></div>
+    <div class="coche" id="p-c2"><svg width="64" height="64" viewBox="0 0 64 64"><circle class="rond" cx="32" cy="32" r="29" fill="none" stroke="#D9C6A3" stroke-width="3" /><path class="v" d="M19 33 L28 42 L45 23" fill="none" stroke="#D9C6A3" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" pathLength="1" /></svg><div class="mask"><span class="in lab" id="p-l2">Mobile Money</span></div></div>
+    <div class="coche" id="p-c3"><svg width="64" height="64" viewBox="0 0 64 64"><circle class="rond" cx="32" cy="32" r="29" fill="none" stroke="#D9C6A3" stroke-width="3" /><path class="v" d="M19 33 L28 42 L45 23" fill="none" stroke="#D9C6A3" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" pathLength="1" /></svg><div class="mask"><span class="in lab" id="p-l3">Plusieurs pays</span></div></div>
+  </div>
+  <script>
+    (function () {
+      const DEBUT = 10.6;
+//COMMUN
+      cache(["#p-t", "#p-l1", "#p-l2", "#p-l3"]);
+      tl.fromTo("#p-cadre", { opacity: 0, scale: 1.06, x: 0, y: 0 }, { opacity: 0, scale: 1.06, x: 0, y: 0, duration: 0.01 }, 0);
+      tl.fromTo("#p-rangee", { opacity: 0 }, { opacity: 0, duration: 0.01 }, 0);
+      // La fiche de l'établi : même taille et même place qu'à la fin de la scène précédente
+      tl.fromTo("#p-ta", { x: 0, y: 60, scale: 0.38, opacity: 0 }, { x: 0, y: 60, scale: 0.38, opacity: 0, duration: 0.01 }, 0);
+      tl.fromTo(".coche .v", { strokeDasharray: "1 1", strokeDashoffset: 1 }, { strokeDasharray: "1 1", strokeDashoffset: 1, duration: 0.01 }, 0);
+      tl.fromTo(".coche svg", { scale: 0.6, opacity: 0 }, { scale: 0.6, opacity: 0, duration: 0.01 }, 0);
+      tl.fromTo([".coche .rond", ".coche .v"], { stroke: "#D9C6A3" }, { stroke: "#D9C6A3", duration: 0.01 }, 0);
+
+      // « Tu l'as mise sur une plateforme de vente » : la vitrine apparaît, ta fiche s'y range
+      tl.fromTo("#p-cadre", { opacity: 0, scale: 1.06 }, { immediateRender: false, opacity: 1, scale: 1, duration: 0.8, ease: "expo.out" }, at(10.8));
+      tl.fromTo("#p-ta", { opacity: 0 }, { immediateRender: false, opacity: 1, duration: 0.02 }, at(11.17));
+      // Centre du trou : (532, 935) ; ta fiche (700 × 620) devient une fiche de 232 × 210
+      tl.fromTo("#p-ta", { x: 0, y: 60, scale: 0.38 }, { immediateRender: false, x: -8, y: 155, scale: 0.335, duration: 0.5, ease: "power3.inOut" }, at(11.17));
+      tl.fromTo("#p-rangee", { opacity: 0 }, { immediateRender: false, opacity: 1, duration: 0.15 }, at(11.6));
+      tl.fromTo("#p-ta", { opacity: 1 }, { immediateRender: false, opacity: 0, duration: 0.15 }, at(11.62));
+      // « c'est pratique » : la vitrine recule et monte, les coches arrivent sur leurs mots
+      tl.fromTo("#p-cadre", { scale: 1, y: 0 }, { immediateRender: false, scale: 0.66, y: -140, duration: 0.9, ease: "power3.inOut" }, at(12.5));
+      entre("#p-t", at(13.25));
+      [["#p-c1", "#p-l1", 14.65], ["#p-c2", "#p-l2", 16.45], ["#p-c3", "#p-l3", 17.53]].forEach(([c, l, t], i, tout) => {
+        tl.fromTo(c + " svg", { scale: 0.6, opacity: 0 }, { immediateRender: false, scale: 1, opacity: 1, duration: 0.4, ease: "back.out(2)" }, at(t));
+        tl.fromTo(c + " .v", { strokeDashoffset: 1 }, { immediateRender: false, strokeDashoffset: 0, duration: 0.3, ease: "power2.out" }, at(t + 0.1));
+        entre(l, at(t));
+        // la coche précédente redevient blanc cassé : une seule coche champagne à la fois
+        if (i > 0) tl.fromTo([tout[i - 1][0] + " .rond", tout[i - 1][0] + " .v"], { stroke: "#D9C6A3" }, { immediateRender: false, stroke: "#F5F3EE", duration: 0.3 }, at(t));
+      });
+
+      // « Mais à chaque vente » : tout part, la vitrine se réduit au point « Plateforme »
+      sort(["#p-t", "#p-l1", "#p-l2", "#p-l3"], at(18.2));
+      tl.fromTo(".coche svg", { opacity: 1 }, { immediateRender: false, opacity: 0, duration: 0.3 }, at(18.2));
+      tl.fromTo("#p-cadre", { x: 0, y: -140, scale: 0.66, opacity: 1 }, { immediateRender: false, x: 260, y: -310, scale: 0.12, opacity: 0, duration: 0.5, ease: "power3.in" }, at(18.25));
+      window.__timelines["plateforme"] = tl;
+    })();
+  </script>
+</template>

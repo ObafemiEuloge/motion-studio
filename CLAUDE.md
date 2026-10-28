@@ -14,7 +14,7 @@ Ce dépôt produit les vidéos courtes (Instagram Reels, TikTok, 1080 × 1920) d
 
 - **Aucun tiret cadratin (U+2014) ni demi-cadratin (U+2013)** dans les textes, scripts, légendes, sous-titres. Vérifié par `scripts/verifier_texte.py`.
 - Aucune mention du Bénin, de Cotonou ni d'une ville (vidéos, légendes, hashtags).
-- Tutoiement. Français naturel parlé, pas écrit. Aucun prix affiché.
+- Tutoiement. Français naturel parlé, pas écrit. Aucun prix affiché (seule exception : le calcul d'économie de l'offre Boutique en ligne, décrit dans `brand/faits.md`).
 - Appel à l'action : écrire à Oba sur WhatsApp, **+229 01 96 25 66 94**.
 - Nom à l'écran : **Obafemi Euloge AGNOUN** (trois mots, même taille, même graisse).
 - EducaPro = un projet **client** sur lequel Oba a travaillé (jamais « mon produit »). Centime (mescentimes.cloud) = **son propre** projet d'envergure. Spyral n'apparaît jamais.
