@@ -9,1563 +9,1578 @@
   },
   {
    "mot": "vends",
-   "debut": 0.24,
-   "fin": 0.4
+   "debut": 0.2,
+   "fin": 0.32
   },
   {
    "mot": "tes",
-   "debut": 0.48,
-   "fin": 0.56
+   "debut": 0.4,
+   "fin": 0.48
   },
   {
    "mot": "formations",
-   "debut": 0.64,
-   "fin": 0.96
-  },
-  {
-   "mot": "en",
-   "debut": 1.04,
-   "fin": 1.08
-  },
-  {
-   "mot": "ligne",
-   "debut": 1.12,
-   "fin": 1.36
-  },
-  {
-   "mot": "?",
-   "debut": 1.44,
-   "fin": 1.467
-  },
-  {
-   "mot": "[pause]",
-   "debut": 1.493,
-   "fin": 1.637
-  },
-  {
-   "mot": "Alors",
-   "debut": 1.717,
-   "fin": 1.957
-  },
-  {
-   "mot": "sur",
-   "debut": 2.037,
-   "fin": 2.197
-  },
-  {
-   "mot": "chaque",
-   "debut": 2.277,
-   "fin": 2.517
-  },
-  {
-   "mot": "vente...",
-   "debut": 2.597,
-   "fin": 3.297
-  },
-  {
-   "mot": "quelqu'un",
-   "debut": 3.417,
-   "fin": 3.697
-  },
-  {
-   "mot": "se",
-   "debut": 3.777,
-   "fin": 3.857
-  },
-  {
-   "mot": "sert",
-   "debut": 3.937,
-   "fin": 4.097
-  },
-  {
-   "mot": "avant",
-   "debut": 4.177,
-   "fin": 4.337
-  },
-  {
-   "mot": "toi.",
-   "debut": 4.417,
-   "fin": 4.657
-  },
-  {
-   "mot": "Tu",
-   "debut": 4.837,
-   "fin": 4.917
-  },
-  {
-   "mot": "as",
-   "debut": 4.957,
-   "fin": 4.997
-  },
-  {
-   "mot": "passé",
-   "debut": 5.077,
-   "fin": 5.317
-  },
-  {
-   "mot": "des",
-   "debut": 5.437,
-   "fin": 5.557
-  },
-  {
-   "mot": "semaines",
-   "debut": 5.677,
-   "fin": 6.037
-  },
-  {
-   "mot": "sur",
-   "debut": 6.117,
-   "fin": 6.197
-  },
-  {
-   "mot": "ta",
-   "debut": 6.277,
-   "fin": 6.357
-  },
-  {
-   "mot": "formation.",
-   "debut": 6.597,
-   "fin": 7.128
-  },
-  {
-   "mot": "Les",
-   "debut": 7.208,
-   "fin": 7.288
-  },
-  {
-   "mot": "vidéos,",
-   "debut": 7.368,
-   "fin": 8.008
-  },
-  {
-   "mot": "les",
-   "debut": 8.088,
-   "fin": 8.168
-  },
-  {
-   "mot": "fiches,",
-   "debut": 8.328,
-   "fin": 8.968
-  },
-  {
-   "mot": "les",
-   "debut": 9.048,
-   "fin": 9.208
-  },
-  {
-   "mot": "nuits",
-   "debut": 9.288,
-   "fin": 9.608
-  },
-  {
-   "mot": "à",
-   "debut": 9.688,
-   "fin": 9.768
-  },
-  {
-   "mot": "tout",
-   "debut": 9.848,
-   "fin": 9.928
-  },
-  {
-   "mot": "reprendre.",
-   "debut": 10.008,
-   "fin": 10.726
-  },
-  {
-   "mot": "Tu",
-   "debut": 10.766,
-   "fin": 10.806
-  },
-  {
-   "mot": "l'as",
-   "debut": 10.886,
-   "fin": 10.966
-  },
-  {
-   "mot": "mise",
-   "debut": 11.046,
-   "fin": 11.206
-  },
-  {
-   "mot": "sur",
-   "debut": 11.286,
-   "fin": 11.366
-  },
-  {
-   "mot": "une",
-   "debut": 11.406,
-   "fin": 11.446
-  },
-  {
-   "mot": "plateforme",
-   "debut": 11.526,
-   "fin": 11.846
-  },
-  {
-   "mot": "de",
-   "debut": 11.926,
-   "fin": 12.006
-  },
-  {
-   "mot": "vente.",
-   "debut": 12.126,
-   "fin": 12.567
-  },
-  {
-   "mot": "Et",
-   "debut": 12.607,
-   "fin": 12.647
-  },
-  {
-   "mot": "c'est",
-   "debut": 12.727,
-   "fin": 12.807
-  },
-  {
-   "mot": "vrai,",
-   "debut": 12.847,
-   "fin": 13.207
-  },
-  {
-   "mot": "c'est",
-   "debut": 13.247,
-   "fin": 13.367
-  },
-  {
-   "mot": "pratique",
-   "debut": 13.407,
-   "fin": 13.767
-  },
-  {
-   "mot": ":",
-   "debut": 14.051,
-   "fin": 14.078
-  },
-  {
-   "mot": "ta",
-   "debut": 14.104,
-   "fin": 14.131
-  },
-  {
-   "mot": "boutique",
-   "debut": 14.211,
-   "fin": 14.451
-  },
-  {
-   "mot": "est",
-   "debut": 14.531,
-   "fin": 14.611
-  },
-  {
-   "mot": "prête",
-   "debut": 14.651,
-   "fin": 14.851
-  },
-  {
-   "mot": "vite,",
-   "debut": 14.891,
-   "fin": 15.411
-  },
-  {
-   "mot": "et",
-   "debut": 15.451,
-   "fin": 15.491
-  },
-  {
-   "mot": "tes",
-   "debut": 15.571,
-   "fin": 15.651
-  },
-  {
-   "mot": "clients",
-   "debut": 15.811,
-   "fin": 15.971
-  },
-  {
-   "mot": "paient",
-   "debut": 16.051,
-   "fin": 16.211
-  },
-  {
-   "mot": "par",
-   "debut": 16.291,
-   "fin": 16.371
-  },
-  {
-   "mot": "Mobile",
-   "debut": 16.451,
-   "fin": 16.691
-  },
-  {
-   "mot": "Money,",
-   "debut": 16.771,
-   "fin": 17.171
-  },
-  {
-   "mot": "dans",
-   "debut": 17.251,
-   "fin": 17.411
-  },
-  {
-   "mot": "plusieurs",
-   "debut": 17.531,
-   "fin": 17.811
-  },
-  {
-   "mot": "pays.",
-   "debut": 17.851,
-   "fin": 18.298
-  },
-  {
-   "mot": "Mais",
-   "debut": 18.378,
-   "fin": 18.458
-  },
-  {
-   "mot": "à",
-   "debut": 18.538,
-   "fin": 18.618
-  },
-  {
-   "mot": "chaque",
-   "debut": 18.698,
-   "fin": 18.858
-  },
-  {
-   "mot": "vente,",
-   "debut": 18.938,
-   "fin": 19.498
-  },
-  {
-   "mot": "la",
-   "debut": 19.538,
-   "fin": 19.578
-  },
-  {
-   "mot": "plateforme",
-   "debut": 19.658,
-   "fin": 20.138
-  },
-  {
-   "mot": "garde",
-   "debut": 20.218,
-   "fin": 20.538
-  },
-  {
-   "mot": "sa",
-   "debut": 20.618,
-   "fin": 20.698
-  },
-  {
-   "mot": "part.",
-   "debut": 20.778,
-   "fin": 21.318
-  },
-  {
-   "mot": "Cinq,",
-   "debut": 21.398,
-   "fin": 22.038
-  },
-  {
-   "mot": "dix,",
-   "debut": 22.078,
-   "fin": 22.598
-  },
-  {
-   "mot": "parfois",
-   "debut": 22.678,
-   "fin": 22.998
-  },
-  {
-   "mot": "quinze",
-   "debut": 23.078,
-   "fin": 23.238
-  },
-  {
-   "mot": "pour",
-   "debut": 23.318,
-   "fin": 23.478
-  },
-  {
-   "mot": "cent.",
-   "debut": 23.558,
-   "fin": 23.98
-  },
-  {
-   "mot": "Sur",
-   "debut": 24.1,
-   "fin": 24.22
-  },
-  {
-   "mot": "une",
-   "debut": 24.3,
-   "fin": 24.46
-  },
-  {
-   "mot": "vente,",
-   "debut": 24.54,
-   "fin": 25.07
-  },
-  {
-   "mot": "tu",
-   "debut": 25.15,
-   "fin": 25.23
-  },
-  {
-   "mot": "ne",
-   "debut": 25.27,
-   "fin": 25.31
-  },
-  {
-   "mot": "sens",
-   "debut": 25.35,
-   "fin": 25.47
-  },
-  {
-   "mot": "rien.",
-   "debut": 25.55,
-   "fin": 25.817
-  },
-  {
-   "mot": "[pause]",
-   "debut": 25.843,
-   "fin": 25.979
-  },
-  {
-   "mot": "Mais",
-   "debut": 26.059,
-   "fin": 26.139
-  },
-  {
-   "mot": "le",
-   "debut": 26.219,
-   "fin": 26.299
-  },
-  {
-   "mot": "mois",
-   "debut": 26.339,
-   "fin": 26.459
-  },
-  {
-   "mot": "où",
-   "debut": 26.499,
-   "fin": 26.579
-  },
-  {
-   "mot": "tu",
-   "debut": 26.619,
-   "fin": 26.699
-  },
-  {
-   "mot": "vends",
-   "debut": 26.779,
-   "fin": 26.939
-  },
-  {
-   "mot": "pour",
-   "debut": 27.019,
-   "fin": 27.099
-  },
-  {
-   "mot": "deux",
-   "debut": 27.259,
-   "fin": 27.379
-  },
-  {
-   "mot": "millions...",
-   "debut": 27.419,
-   "fin": 28.079
-  },
-  {
-   "mot": "ce",
-   "debut": 28.159,
-   "fin": 28.239
-  },
-  {
-   "mot": "sont",
-   "debut": 28.319,
-   "fin": 28.479
-  },
-  {
-   "mot": "cent",
-   "debut": 28.639,
-   "fin": 28.719
-  },
-  {
-   "mot": "mille",
-   "debut": 28.879,
-   "fin": 29.039
-  },
-  {
-   "mot": "à",
-   "debut": 29.119,
-   "fin": 29.359
-  },
-  {
-   "mot": "trois",
-   "debut": 29.439,
-   "fin": 29.599
-  },
-  {
-   "mot": "cent",
-   "debut": 29.679,
-   "fin": 29.759
-  },
-  {
-   "mot": "mille",
-   "debut": 29.839,
-   "fin": 29.919
-  },
-  {
-   "mot": "francs",
-   "debut": 29.999,
-   "fin": 30.199
-  },
-  {
-   "mot": "qui",
-   "debut": 30.239,
-   "fin": 30.319
-  },
-  {
-   "mot": "partent.",
-   "debut": 30.399,
-   "fin": 30.794
-  },
-  {
-   "mot": "Et",
-   "debut": 30.874,
-   "fin": 30.954
-  },
-  {
-   "mot": "ça,",
-   "debut": 31.034,
-   "fin": 31.354
-  },
-  {
-   "mot": "c'est",
-   "debut": 31.394,
-   "fin": 31.594
-  },
-  {
-   "mot": "avant",
-   "debut": 31.674,
-   "fin": 31.994
-  },
-  {
-   "mot": "même",
-   "debut": 32.114,
-   "fin": 32.234
-  },
-  {
-   "mot": "de",
-   "debut": 32.314,
-   "fin": 32.394
-  },
-  {
-   "mot": "payer",
-   "debut": 32.514,
-   "fin": 32.634
-  },
-  {
-   "mot": "tes",
-   "debut": 32.674,
-   "fin": 32.714
-  },
-  {
-   "mot": "publicités.",
-   "debut": 32.794,
-   "fin": 33.427
-  },
-  {
-   "mot": "[sighs]",
-   "debut": 33.493,
-   "fin": 34.054
-  },
-  {
-   "mot": "C'est",
-   "debut": 34.094,
-   "fin": 34.214
-  },
-  {
-   "mot": "ton",
-   "debut": 34.294,
-   "fin": 34.374
-  },
-  {
-   "mot": "travail...",
-   "debut": 34.454,
-   "fin": 35.221
-  },
-  {
-   "mot": "qui",
-   "debut": 35.261,
-   "fin": 35.301
-  },
-  {
-   "mot": "part",
-   "debut": 35.381,
-   "fin": 35.541
-  },
-  {
-   "mot": "chez",
-   "debut": 35.621,
-   "fin": 35.701
-  },
-  {
-   "mot": "quelqu'un",
-   "debut": 35.781,
-   "fin": 36.021
-  },
-  {
-   "mot": "d'autre.",
-   "debut": 36.061,
-   "fin": 36.421
-  },
-  {
-   "mot": "Alors",
-   "debut": 36.601,
-   "fin": 36.841
-  },
-  {
-   "mot": "je",
-   "debut": 36.881,
-   "fin": 36.921
-  },
-  {
-   "mot": "te",
-   "debut": 37.001,
-   "fin": 37.081
-  },
-  {
-   "mot": "propose",
-   "debut": 37.161,
-   "fin": 37.561
-  },
-  {
-   "mot": "autre",
-   "debut": 37.641,
-   "fin": 37.881
-  },
-  {
-   "mot": "chose",
-   "debut": 37.961,
-   "fin": 38.201
-  },
-  {
-   "mot": ":",
-   "debut": 38.509,
-   "fin": 38.589
-  },
-  {
-   "mot": "ta",
-   "debut": 38.669,
-   "fin": 38.749
-  },
-  {
-   "mot": "propre",
-   "debut": 38.869,
-   "fin": 39.149
-  },
-  {
-   "mot": "boutique",
-   "debut": 39.229,
-   "fin": 39.469
-  },
-  {
-   "mot": "en",
-   "debut": 39.549,
-   "fin": 39.629
-  },
-  {
-   "mot": "ligne.",
-   "debut": 39.709,
-   "fin": 39.906
-  },
-  {
-   "mot": "À",
-   "debut": 40.038,
-   "fin": 40.118
-  },
-  {
-   "mot": "ton",
-   "debut": 40.278,
-   "fin": 40.438
-  },
-  {
-   "mot": "nom.",
-   "debut": 40.518,
-   "fin": 40.772
-  },
-  {
-   "mot": "Tes",
-   "debut": 40.906,
-   "fin": 40.986
-  },
-  {
-   "mot": "clients",
-   "debut": 41.066,
-   "fin": 41.306
-  },
-  {
-   "mot": "paient",
-   "debut": 41.386,
-   "fin": 41.546
-  },
-  {
-   "mot": "par",
-   "debut": 41.626,
-   "fin": 41.706
-  },
-  {
-   "mot": "Mobile",
-   "debut": 41.786,
-   "fin": 42.106
-  },
-  {
-   "mot": "Money",
-   "debut": 42.186,
-   "fin": 42.506
+   "debut": 0.6,
+   "fin": 1.12
   },
   {
    "mot": "ou",
-   "debut": 42.546,
-   "fin": 42.586
-  },
-  {
-   "mot": "par",
-   "debut": 42.666,
-   "fin": 42.826
-  },
-  {
-   "mot": "carte.",
-   "debut": 42.906,
-   "fin": 43.226
-  },
-  {
-   "mot": "Près",
-   "debut": 43.444,
-   "fin": 43.604
-  },
-  {
-   "mot": "de",
-   "debut": 43.684,
-   "fin": 43.764
-  },
-  {
-   "mot": "dix-sept",
-   "debut": 43.924,
-   "fin": 44.244
-  },
-  {
-   "mot": "pays",
-   "debut": 44.324,
-   "fin": 44.484
-  },
-  {
-   "mot": "africains,",
-   "debut": 44.564,
-   "fin": 45.284
-  },
-  {
-   "mot": "près",
-   "debut": 45.324,
-   "fin": 45.444
-  },
-  {
-   "mot": "de",
-   "debut": 45.564,
-   "fin": 45.684
-  },
-  {
-   "mot": "cinquante",
-   "debut": 45.764,
-   "fin": 46.084
-  },
-  {
-   "mot": "opérateurs.",
-   "debut": 46.164,
-   "fin": 46.912
-  },
-  {
-   "mot": "Et",
-   "debut": 46.952,
-   "fin": 46.992
-  },
-  {
-   "mot": "je",
-   "debut": 47.072,
-   "fin": 47.152
-  },
-  {
-   "mot": "t'aide",
-   "debut": 47.232,
-   "fin": 47.392
-  },
-  {
-   "mot": "à",
-   "debut": 47.432,
-   "fin": 47.472
-  },
-  {
-   "mot": "obtenir",
-   "debut": 47.552,
-   "fin": 47.872
+   "debut": 1.2,
+   "fin": 1.36
   },
   {
    "mot": "tes",
-   "debut": 47.952,
-   "fin": 48.032
+   "debut": 1.44,
+   "fin": 1.52
   },
   {
-   "mot": "accès,",
-   "debut": 48.112,
-   "fin": 48.672
+   "mot": "produits",
+   "debut": 1.6,
+   "fin": 1.92
   },
   {
-   "mot": "pour",
-   "debut": 48.752,
-   "fin": 48.832
-  },
-  {
-   "mot": "chaque",
-   "debut": 48.992,
-   "fin": 49.232
-  },
-  {
-   "mot": "pays",
-   "debut": 49.312,
-   "fin": 49.472
-  },
-  {
-   "mot": "que",
-   "debut": 49.552,
-   "fin": 49.632
-  },
-  {
-   "mot": "tu",
-   "debut": 49.712,
-   "fin": 49.792
-  },
-  {
-   "mot": "veux.",
-   "debut": 49.832,
-   "fin": 50.032
-  },
-  {
-   "mot": "Ton",
-   "debut": 50.151,
-   "fin": 50.311
-  },
-  {
-   "mot": "client",
-   "debut": 50.391,
-   "fin": 50.631
-  },
-  {
-   "mot": "paie",
-   "debut": 50.711,
-   "fin": 50.951
-  },
-  {
-   "mot": "exactement",
-   "debut": 51.031,
-   "fin": 51.751
-  },
-  {
-   "mot": "le",
-   "debut": 51.791,
-   "fin": 51.831
-  },
-  {
-   "mot": "montant",
-   "debut": 51.911,
-   "fin": 52.151
-  },
-  {
-   "mot": "affiché,",
-   "debut": 52.231,
-   "fin": 52.871
-  },
-  {
-   "mot": "au",
-   "debut": 52.911,
-   "fin": 52.951
-  },
-  {
-   "mot": "franc",
-   "debut": 53.111,
-   "fin": 53.351
-  },
-  {
-   "mot": "près.",
-   "debut": 53.431,
-   "fin": 53.831
-  },
-  {
-   "mot": "Et",
-   "debut": 53.871,
-   "fin": 53.911
-  },
-  {
-   "mot": "l'argent",
-   "debut": 53.991,
-   "fin": 54.391
-  },
-  {
-   "mot": "arrive",
-   "debut": 54.471,
-   "fin": 54.711
-  },
-  {
-   "mot": "sur",
-   "debut": 54.791,
-   "fin": 54.951
-  },
-  {
-   "mot": "ton",
-   "debut": 55.031,
-   "fin": 55.191
-  },
-  {
-   "mot": "compte.",
-   "debut": 55.271,
-   "fin": 55.591
-  },
-  {
-   "mot": "Pas",
-   "debut": 55.812,
-   "fin": 55.892
-  },
-  {
-   "mot": "chez",
-   "debut": 55.972,
-   "fin": 56.052
-  },
-  {
-   "mot": "moi,",
-   "debut": 56.132,
-   "fin": 56.579
-  },
-  {
-   "mot": "pas",
-   "debut": 56.619,
-   "fin": 56.659
-  },
-  {
-   "mot": "chez",
-   "debut": 56.739,
-   "fin": 56.899
-  },
-  {
-   "mot": "une",
-   "debut": 56.939,
-   "fin": 56.979
-  },
-  {
-   "mot": "plateforme",
-   "debut": 57.059,
-   "fin": 57.539
-  },
-  {
-   "mot": ":",
-   "debut": 57.765,
-   "fin": 57.805
-  },
-  {
-   "mot": "chez",
-   "debut": 57.845,
-   "fin": 58.005
-  },
-  {
-   "mot": "toi.",
-   "debut": 58.085,
-   "fin": 58.405
-  },
-  {
-   "mot": "Tes",
-   "debut": 58.588,
-   "fin": 58.748
-  },
-  {
-   "mot": "produits,",
-   "debut": 58.908,
-   "fin": 59.468
-  },
-  {
-   "mot": "tes",
-   "debut": 59.508,
-   "fin": 59.548
-  },
-  {
-   "mot": "ventes,",
-   "debut": 59.628,
-   "fin": 60.188
-  },
-  {
-   "mot": "tes",
-   "debut": 60.268,
-   "fin": 60.348
-  },
-  {
-   "mot": "clients",
-   "debut": 60.428,
-   "fin": 60.748
-  },
-  {
-   "mot": ":",
-   "debut": 61.058,
-   "fin": 61.085
-  },
-  {
-   "mot": "tu",
-   "debut": 61.111,
-   "fin": 61.138
-  },
-  {
-   "mot": "vois",
-   "debut": 61.218,
-   "fin": 61.458
-  },
-  {
-   "mot": "tout,",
-   "debut": 61.538,
-   "fin": 61.938
-  },
-  {
-   "mot": "tu",
-   "debut": 62.018,
-   "fin": 62.098
-  },
-  {
-   "mot": "gères",
-   "debut": 62.178,
-   "fin": 62.498
-  },
-  {
-   "mot": "tout.",
-   "debut": 62.578,
-   "fin": 62.968
-  },
-  {
-   "mot": "Et",
-   "debut": 63.008,
-   "fin": 63.048
-  },
-  {
-   "mot": "ta",
-   "debut": 63.128,
-   "fin": 63.208
-  },
-  {
-   "mot": "boutique",
-   "debut": 63.288,
-   "fin": 63.608
-  },
-  {
-   "mot": "grandit",
-   "debut": 63.768,
-   "fin": 64.168
-  },
-  {
-   "mot": "avec",
-   "debut": 64.248,
-   "fin": 64.408
-  },
-  {
-   "mot": "toi.",
-   "debut": 64.488,
-   "fin": 64.886
-  },
-  {
-   "mot": "Faisons",
-   "debut": 64.939,
-   "fin": 65.126
-  },
-  {
-   "mot": "le",
-   "debut": 65.166,
-   "fin": 65.206
-  },
-  {
-   "mot": "calcul.",
-   "debut": 65.406,
-   "fin": 65.821
-  },
-  {
-   "mot": "Tu",
-   "debut": 65.861,
-   "fin": 65.901
-  },
-  {
-   "mot": "vends",
-   "debut": 65.981,
-   "fin": 66.141
-  },
-  {
-   "mot": "pour",
-   "debut": 66.221,
-   "fin": 66.301
-  },
-  {
-   "mot": "trois",
-   "debut": 66.381,
-   "fin": 66.541
-  },
-  {
-   "mot": "millions",
-   "debut": 66.621,
-   "fin": 66.861
-  },
-  {
-   "mot": "par",
-   "debut": 66.941,
-   "fin": 67.101
-  },
-  {
-   "mot": "mois.",
-   "debut": 67.181,
-   "fin": 67.537
-  },
-  {
-   "mot": "La",
-   "debut": 67.617,
-   "fin": 67.697
-  },
-  {
-   "mot": "plateforme",
-   "debut": 67.777,
-   "fin": 68.177
-  },
-  {
-   "mot": "te",
-   "debut": 68.257,
-   "fin": 68.337
-  },
-  {
-   "mot": "prend",
-   "debut": 68.457,
-   "fin": 68.577
-  },
-  {
-   "mot": "trois",
-   "debut": 68.657,
-   "fin": 68.817
-  },
-  {
-   "mot": "cent",
-   "debut": 68.897,
-   "fin": 68.977
-  },
-  {
-   "mot": "mille.",
-   "debut": 69.057,
-   "fin": 69.432
-  },
-  {
-   "mot": "Ta",
-   "debut": 69.472,
-   "fin": 69.512
-  },
-  {
-   "mot": "boutique,",
-   "debut": 69.592,
-   "fin": 70.152
-  },
-  {
-   "mot": "frais",
-   "debut": 70.192,
-   "fin": 70.312
-  },
-  {
-   "mot": "de",
-   "debut": 70.392,
-   "fin": 70.472
-  },
-  {
-   "mot": "paiement",
-   "debut": 70.552,
-   "fin": 70.792
-  },
-  {
-   "mot": "et",
-   "debut": 70.872,
-   "fin": 70.952
-  },
-  {
-   "mot": "forfait",
-   "debut": 71.032,
-   "fin": 71.272
-  },
-  {
-   "mot": "compris",
-   "debut": 71.352,
-   "fin": 71.672
-  },
-  {
-   "mot": ":",
-   "debut": 72.072,
-   "fin": 72.099
-  },
-  {
-   "mot": "cent",
-   "debut": 72.125,
-   "fin": 72.152
-  },
-  {
-   "mot": "vingt-cinq",
-   "debut": 72.232,
-   "fin": 72.552
-  },
-  {
-   "mot": "mille.",
-   "debut": 72.712,
-   "fin": 73.11
-  },
-  {
-   "mot": "Tu",
-   "debut": 73.19,
-   "fin": 73.27
-  },
-  {
-   "mot": "gardes",
-   "debut": 73.39,
-   "fin": 73.75
-  },
-  {
-   "mot": "cent",
-   "debut": 73.83,
-   "fin": 73.91
-  },
-  {
-   "mot": "soixante-quinze",
-   "debut": 73.99,
-   "fin": 74.55
-  },
-  {
-   "mot": "mille",
-   "debut": 74.63,
-   "fin": 74.71
-  },
-  {
-   "mot": "francs",
-   "debut": 74.79,
-   "fin": 74.99
-  },
-  {
-   "mot": "de",
-   "debut": 75.03,
-   "fin": 75.19
-  },
-  {
-   "mot": "plus.",
-   "debut": 75.39,
-   "fin": 75.99
-  },
-  {
-   "mot": "Chaque",
-   "debut": 76.03,
-   "fin": 76.23
-  },
-  {
-   "mot": "mois.",
-   "debut": 76.31,
-   "fin": 76.758
-  },
-  {
-   "mot": "Plus",
-   "debut": 76.838,
-   "fin": 76.918
-  },
-  {
-   "mot": "de",
-   "debut": 76.998,
-   "fin": 77.238
-  },
-  {
-   "mot": "deux",
-   "debut": 77.278,
-   "fin": 77.398
-  },
-  {
-   "mot": "millions",
-   "debut": 77.478,
-   "fin": 77.878
-  },
-  {
-   "mot": "sur",
-   "debut": 77.958,
-   "fin": 78.038
-  },
-  {
-   "mot": "l'année.",
-   "debut": 78.065,
-   "fin": 78.606
-  },
-  {
-   "mot": "Ce",
-   "debut": 78.646,
-   "fin": 78.686
-  },
-  {
-   "mot": "moteur",
-   "debut": 78.766,
-   "fin": 79.006
-  },
-  {
-   "mot": "de",
-   "debut": 79.046,
-   "fin": 79.086
-  },
-  {
-   "mot": "paiement,",
-   "debut": 79.166,
-   "fin": 79.646
-  },
-  {
-   "mot": "je",
-   "debut": 79.686,
-   "fin": 79.726
-  },
-  {
-   "mot": "l'ai",
-   "debut": 79.766,
-   "fin": 79.966
-  },
-  {
-   "mot": "déjà",
-   "debut": 80.046,
-   "fin": 80.206
-  },
-  {
-   "mot": "construit.",
-   "debut": 80.286,
-   "fin": 80.94
-  },
-  {
-   "mot": "Sur",
-   "debut": 81.02,
-   "fin": 81.18
-  },
-  {
-   "mot": "Un",
-   "debut": 81.26,
-   "fin": 81.34
-  },
-  {
-   "mot": "Peu",
-   "debut": 81.42,
-   "fin": 81.54
-  },
-  {
-   "mot": "Un",
-   "debut": 81.58,
-   "fin": 81.66
-  },
-  {
-   "mot": "Peu,",
-   "debut": 81.74,
-   "fin": 82.14
-  },
-  {
-   "mot": "chaque",
-   "debut": 82.22,
-   "fin": 82.46
-  },
-  {
-   "mot": "paiement",
-   "debut": 82.5,
-   "fin": 82.78
-  },
-  {
-   "mot": "Mobile",
-   "debut": 82.94,
-   "fin": 83.1
-  },
-  {
-   "mot": "Money",
-   "debut": 83.18,
-   "fin": 83.5
-  },
-  {
-   "mot": "est",
-   "debut": 83.58,
-   "fin": 83.66
-  },
-  {
-   "mot": "vérifié...",
-   "debut": 83.7,
-   "fin": 84.54
-  },
-  {
-   "mot": "sans",
-   "debut": 84.62,
-   "fin": 84.7
-  },
-  {
-   "mot": "que",
-   "debut": 84.82,
-   "fin": 84.94
-  },
-  {
-   "mot": "personne",
-   "debut": 85.14,
-   "fin": 85.38
-  },
-  {
-   "mot": "ne",
-   "debut": 85.42,
-   "fin": 85.5
-  },
-  {
-   "mot": "regarde.",
-   "debut": 85.58,
-   "fin": 86.072
-  },
-  {
-   "mot": "Trois",
-   "debut": 86.152,
-   "fin": 86.272
-  },
-  {
-   "mot": "semaines,",
-   "debut": 86.312,
-   "fin": 86.872
-  },
-  {
-   "mot": "et",
-   "debut": 86.912,
-   "fin": 86.952
-  },
-  {
-   "mot": "ta",
-   "debut": 87.032,
-   "fin": 87.112
-  },
-  {
-   "mot": "boutique",
-   "debut": 87.192,
-   "fin": 87.432
-  },
-  {
-   "mot": "est",
-   "debut": 87.512,
-   "fin": 87.592
+   "mot": "digitaux",
+   "debut": 2.0,
+   "fin": 2.32
   },
   {
    "mot": "en",
-   "debut": 87.672,
-   "fin": 87.712
+   "debut": 2.36,
+   "fin": 2.4
   },
   {
-   "mot": "ligne.",
-   "debut": 87.752,
-   "fin": 88.187
+   "mot": "ligne",
+   "debut": 2.48,
+   "fin": 2.72
   },
   {
-   "mot": "Et",
-   "debut": 88.214,
-   "fin": 88.24
+   "mot": "?",
+   "debut": 2.76,
+   "fin": 2.8
   },
   {
-   "mot": "je",
-   "debut": 88.267,
-   "fin": 88.347
-  },
-  {
-   "mot": "suis",
-   "debut": 88.427,
-   "fin": 88.587
-  },
-  {
-   "mot": "avec",
-   "debut": 88.707,
-   "fin": 88.827
-  },
-  {
-   "mot": "toi",
-   "debut": 88.907,
-   "fin": 89.147
-  },
-  {
-   "mot": "à",
-   "debut": 89.267,
-   "fin": 89.387
-  },
-  {
-   "mot": "chaque",
-   "debut": 89.427,
-   "fin": 89.627
-  },
-  {
-   "mot": "étape.",
-   "debut": 89.707,
-   "fin": 90.287
-  },
-  {
-   "mot": "Écris",
-   "debut": 90.327,
-   "fin": 90.607
-  },
-  {
-   "mot": "BOUTIQUE",
-   "debut": 90.687,
-   "fin": 91.087
+   "mot": "Alors",
+   "debut": 3.057,
+   "fin": 3.297
   },
   {
    "mot": "sur",
-   "debut": 91.167,
-   "fin": 91.247
+   "debut": 3.377,
+   "fin": 3.537
   },
   {
-   "mot": "WhatsApp.",
-   "debut": 91.487,
-   "fin": 91.836
+   "mot": "chaque",
+   "debut": 3.617,
+   "fin": 3.857
   },
   {
-   "mot": "On",
-   "debut": 91.876,
-   "fin": 91.916
+   "mot": "vente...",
+   "debut": 3.937,
+   "fin": 4.637
   },
   {
-   "mot": "fait",
-   "debut": 91.996,
-   "fin": 92.076
+   "mot": "quelqu'un",
+   "debut": 4.757,
+   "fin": 5.037
   },
   {
-   "mot": "ton",
-   "debut": 92.156,
-   "fin": 92.236
+   "mot": "se",
+   "debut": 5.117,
+   "fin": 5.197
   },
   {
-   "mot": "calcul",
-   "debut": 92.396,
-   "fin": 92.556
+   "mot": "sert",
+   "debut": 5.277,
+   "fin": 5.437
   },
   {
-   "mot": "ensemble,",
-   "debut": 92.796,
-   "fin": 93.196
+   "mot": "avant",
+   "debut": 5.517,
+   "fin": 5.677
   },
   {
-   "mot": "avec",
-   "debut": 93.316,
-   "fin": 93.436
+   "mot": "toi.",
+   "debut": 5.757,
+   "fin": 5.997
+  },
+  {
+   "mot": "Tu",
+   "debut": 6.177,
+   "fin": 6.257
+  },
+  {
+   "mot": "as",
+   "debut": 6.297,
+   "fin": 6.337
+  },
+  {
+   "mot": "passé",
+   "debut": 6.417,
+   "fin": 6.657
+  },
+  {
+   "mot": "des",
+   "debut": 6.777,
+   "fin": 6.897
+  },
+  {
+   "mot": "semaines",
+   "debut": 7.017,
+   "fin": 7.377
+  },
+  {
+   "mot": "sur",
+   "debut": 7.457,
+   "fin": 7.537
+  },
+  {
+   "mot": "ta",
+   "debut": 7.617,
+   "fin": 7.697
+  },
+  {
+   "mot": "formation.",
+   "debut": 7.937,
+   "fin": 8.468
+  },
+  {
+   "mot": "Les",
+   "debut": 8.548,
+   "fin": 8.628
+  },
+  {
+   "mot": "vidéos,",
+   "debut": 8.708,
+   "fin": 9.348
+  },
+  {
+   "mot": "les",
+   "debut": 9.428,
+   "fin": 9.508
+  },
+  {
+   "mot": "fiches,",
+   "debut": 9.668,
+   "fin": 10.308
+  },
+  {
+   "mot": "les",
+   "debut": 10.388,
+   "fin": 10.548
+  },
+  {
+   "mot": "nuits",
+   "debut": 10.628,
+   "fin": 10.948
+  },
+  {
+   "mot": "à",
+   "debut": 11.028,
+   "fin": 11.108
+  },
+  {
+   "mot": "tout",
+   "debut": 11.188,
+   "fin": 11.268
+  },
+  {
+   "mot": "reprendre.",
+   "debut": 11.348,
+   "fin": 12.066
+  },
+  {
+   "mot": "Tu",
+   "debut": 12.106,
+   "fin": 12.146
+  },
+  {
+   "mot": "l'as",
+   "debut": 12.226,
+   "fin": 12.306
+  },
+  {
+   "mot": "mise",
+   "debut": 12.386,
+   "fin": 12.546
+  },
+  {
+   "mot": "sur",
+   "debut": 12.626,
+   "fin": 12.706
+  },
+  {
+   "mot": "une",
+   "debut": 12.746,
+   "fin": 12.786
+  },
+  {
+   "mot": "plateforme",
+   "debut": 12.866,
+   "fin": 13.186
+  },
+  {
+   "mot": "de",
+   "debut": 13.266,
+   "fin": 13.346
+  },
+  {
+   "mot": "vente.",
+   "debut": 13.466,
+   "fin": 13.907
+  },
+  {
+   "mot": "Et",
+   "debut": 13.947,
+   "fin": 13.987
+  },
+  {
+   "mot": "c'est",
+   "debut": 14.067,
+   "fin": 14.147
+  },
+  {
+   "mot": "vrai,",
+   "debut": 14.187,
+   "fin": 14.547
+  },
+  {
+   "mot": "c'est",
+   "debut": 14.587,
+   "fin": 14.707
+  },
+  {
+   "mot": "pratique",
+   "debut": 14.747,
+   "fin": 15.107
+  },
+  {
+   "mot": ":",
+   "debut": 15.391,
+   "fin": 15.418
+  },
+  {
+   "mot": "ta",
+   "debut": 15.444,
+   "fin": 15.471
+  },
+  {
+   "mot": "boutique",
+   "debut": 15.551,
+   "fin": 15.791
+  },
+  {
+   "mot": "est",
+   "debut": 15.871,
+   "fin": 15.951
+  },
+  {
+   "mot": "prête",
+   "debut": 15.991,
+   "fin": 16.191
+  },
+  {
+   "mot": "vite,",
+   "debut": 16.231,
+   "fin": 16.751
+  },
+  {
+   "mot": "et",
+   "debut": 16.791,
+   "fin": 16.831
   },
   {
    "mot": "tes",
-   "debut": 93.516,
-   "fin": 93.676
+   "debut": 16.911,
+   "fin": 16.991
+  },
+  {
+   "mot": "clients",
+   "debut": 17.151,
+   "fin": 17.311
+  },
+  {
+   "mot": "paient",
+   "debut": 17.391,
+   "fin": 17.551
+  },
+  {
+   "mot": "par",
+   "debut": 17.631,
+   "fin": 17.711
+  },
+  {
+   "mot": "Mobile",
+   "debut": 17.791,
+   "fin": 18.031
+  },
+  {
+   "mot": "Money,",
+   "debut": 18.111,
+   "fin": 18.511
+  },
+  {
+   "mot": "dans",
+   "debut": 18.591,
+   "fin": 18.751
+  },
+  {
+   "mot": "plusieurs",
+   "debut": 18.871,
+   "fin": 19.151
+  },
+  {
+   "mot": "pays.",
+   "debut": 19.191,
+   "fin": 19.638
+  },
+  {
+   "mot": "Mais",
+   "debut": 19.718,
+   "fin": 19.798
+  },
+  {
+   "mot": "à",
+   "debut": 19.878,
+   "fin": 19.958
+  },
+  {
+   "mot": "chaque",
+   "debut": 20.038,
+   "fin": 20.198
+  },
+  {
+   "mot": "vente,",
+   "debut": 20.278,
+   "fin": 20.838
+  },
+  {
+   "mot": "la",
+   "debut": 20.878,
+   "fin": 20.918
+  },
+  {
+   "mot": "plateforme",
+   "debut": 20.998,
+   "fin": 21.478
+  },
+  {
+   "mot": "garde",
+   "debut": 21.558,
+   "fin": 21.878
+  },
+  {
+   "mot": "sa",
+   "debut": 21.958,
+   "fin": 22.038
+  },
+  {
+   "mot": "part.",
+   "debut": 22.118,
+   "fin": 22.658
+  },
+  {
+   "mot": "Cinq,",
+   "debut": 22.738,
+   "fin": 23.378
+  },
+  {
+   "mot": "dix,",
+   "debut": 23.418,
+   "fin": 23.938
+  },
+  {
+   "mot": "parfois",
+   "debut": 24.018,
+   "fin": 24.338
+  },
+  {
+   "mot": "quinze",
+   "debut": 24.418,
+   "fin": 24.578
+  },
+  {
+   "mot": "pour",
+   "debut": 24.658,
+   "fin": 24.818
+  },
+  {
+   "mot": "cent.",
+   "debut": 24.898,
+   "fin": 25.32
+  },
+  {
+   "mot": "Sur",
+   "debut": 25.44,
+   "fin": 25.56
+  },
+  {
+   "mot": "une",
+   "debut": 25.64,
+   "fin": 25.8
+  },
+  {
+   "mot": "vente,",
+   "debut": 25.88,
+   "fin": 26.41
+  },
+  {
+   "mot": "tu",
+   "debut": 26.49,
+   "fin": 26.57
+  },
+  {
+   "mot": "ne",
+   "debut": 26.61,
+   "fin": 26.65
+  },
+  {
+   "mot": "sens",
+   "debut": 26.69,
+   "fin": 26.81
+  },
+  {
+   "mot": "rien.",
+   "debut": 26.89,
+   "fin": 27.157
+  },
+  {
+   "mot": "[pause]",
+   "debut": 27.183,
+   "fin": 27.319
+  },
+  {
+   "mot": "Mais",
+   "debut": 27.399,
+   "fin": 27.479
+  },
+  {
+   "mot": "le",
+   "debut": 27.559,
+   "fin": 27.639
+  },
+  {
+   "mot": "mois",
+   "debut": 27.679,
+   "fin": 27.799
+  },
+  {
+   "mot": "où",
+   "debut": 27.839,
+   "fin": 27.919
+  },
+  {
+   "mot": "tu",
+   "debut": 27.959,
+   "fin": 28.039
+  },
+  {
+   "mot": "vends",
+   "debut": 28.119,
+   "fin": 28.279
+  },
+  {
+   "mot": "pour",
+   "debut": 28.359,
+   "fin": 28.439
+  },
+  {
+   "mot": "deux",
+   "debut": 28.599,
+   "fin": 28.719
+  },
+  {
+   "mot": "millions...",
+   "debut": 28.759,
+   "fin": 29.419
+  },
+  {
+   "mot": "ce",
+   "debut": 29.499,
+   "fin": 29.579
+  },
+  {
+   "mot": "sont",
+   "debut": 29.659,
+   "fin": 29.819
+  },
+  {
+   "mot": "cent",
+   "debut": 29.979,
+   "fin": 30.059
+  },
+  {
+   "mot": "mille",
+   "debut": 30.219,
+   "fin": 30.379
+  },
+  {
+   "mot": "à",
+   "debut": 30.459,
+   "fin": 30.699
+  },
+  {
+   "mot": "trois",
+   "debut": 30.779,
+   "fin": 30.939
+  },
+  {
+   "mot": "cent",
+   "debut": 31.019,
+   "fin": 31.099
+  },
+  {
+   "mot": "mille",
+   "debut": 31.179,
+   "fin": 31.259
+  },
+  {
+   "mot": "francs",
+   "debut": 31.339,
+   "fin": 31.539
+  },
+  {
+   "mot": "qui",
+   "debut": 31.579,
+   "fin": 31.659
+  },
+  {
+   "mot": "partent.",
+   "debut": 31.739,
+   "fin": 32.134
+  },
+  {
+   "mot": "Et",
+   "debut": 32.214,
+   "fin": 32.294
+  },
+  {
+   "mot": "ça,",
+   "debut": 32.374,
+   "fin": 32.694
+  },
+  {
+   "mot": "c'est",
+   "debut": 32.734,
+   "fin": 32.934
+  },
+  {
+   "mot": "avant",
+   "debut": 33.014,
+   "fin": 33.334
+  },
+  {
+   "mot": "même",
+   "debut": 33.454,
+   "fin": 33.574
+  },
+  {
+   "mot": "de",
+   "debut": 33.654,
+   "fin": 33.734
+  },
+  {
+   "mot": "payer",
+   "debut": 33.854,
+   "fin": 33.974
+  },
+  {
+   "mot": "tes",
+   "debut": 34.014,
+   "fin": 34.054
+  },
+  {
+   "mot": "publicités.",
+   "debut": 34.134,
+   "fin": 34.767
+  },
+  {
+   "mot": "[sighs]",
+   "debut": 34.833,
+   "fin": 35.394
+  },
+  {
+   "mot": "C'est",
+   "debut": 35.434,
+   "fin": 35.554
+  },
+  {
+   "mot": "ton",
+   "debut": 35.634,
+   "fin": 35.714
+  },
+  {
+   "mot": "travail...",
+   "debut": 35.794,
+   "fin": 36.561
+  },
+  {
+   "mot": "qui",
+   "debut": 36.601,
+   "fin": 36.641
+  },
+  {
+   "mot": "part",
+   "debut": 36.721,
+   "fin": 36.881
+  },
+  {
+   "mot": "chez",
+   "debut": 36.961,
+   "fin": 37.041
+  },
+  {
+   "mot": "quelqu'un",
+   "debut": 37.121,
+   "fin": 37.361
+  },
+  {
+   "mot": "d'autre.",
+   "debut": 37.401,
+   "fin": 37.761
+  },
+  {
+   "mot": "Alors",
+   "debut": 37.941,
+   "fin": 38.181
+  },
+  {
+   "mot": "je",
+   "debut": 38.221,
+   "fin": 38.261
+  },
+  {
+   "mot": "te",
+   "debut": 38.341,
+   "fin": 38.421
+  },
+  {
+   "mot": "propose",
+   "debut": 38.501,
+   "fin": 38.901
+  },
+  {
+   "mot": "autre",
+   "debut": 38.981,
+   "fin": 39.221
+  },
+  {
+   "mot": "chose",
+   "debut": 39.301,
+   "fin": 39.541
+  },
+  {
+   "mot": ":",
+   "debut": 39.849,
+   "fin": 39.929
+  },
+  {
+   "mot": "ta",
+   "debut": 40.009,
+   "fin": 40.089
+  },
+  {
+   "mot": "propre",
+   "debut": 40.209,
+   "fin": 40.489
+  },
+  {
+   "mot": "boutique",
+   "debut": 40.569,
+   "fin": 40.809
+  },
+  {
+   "mot": "en",
+   "debut": 40.889,
+   "fin": 40.969
+  },
+  {
+   "mot": "ligne.",
+   "debut": 41.049,
+   "fin": 41.246
+  },
+  {
+   "mot": "À",
+   "debut": 41.378,
+   "fin": 41.458
+  },
+  {
+   "mot": "ton",
+   "debut": 41.618,
+   "fin": 41.778
+  },
+  {
+   "mot": "nom.",
+   "debut": 41.858,
+   "fin": 42.112
+  },
+  {
+   "mot": "Tes",
+   "debut": 42.246,
+   "fin": 42.326
+  },
+  {
+   "mot": "clients",
+   "debut": 42.406,
+   "fin": 42.646
+  },
+  {
+   "mot": "paient",
+   "debut": 42.726,
+   "fin": 42.886
+  },
+  {
+   "mot": "par",
+   "debut": 42.966,
+   "fin": 43.046
+  },
+  {
+   "mot": "Mobile",
+   "debut": 43.126,
+   "fin": 43.446
+  },
+  {
+   "mot": "Money",
+   "debut": 43.526,
+   "fin": 43.846
+  },
+  {
+   "mot": "ou",
+   "debut": 43.886,
+   "fin": 43.926
+  },
+  {
+   "mot": "par",
+   "debut": 44.006,
+   "fin": 44.166
+  },
+  {
+   "mot": "carte.",
+   "debut": 44.246,
+   "fin": 44.566
+  },
+  {
+   "mot": "Près",
+   "debut": 44.784,
+   "fin": 44.944
+  },
+  {
+   "mot": "de",
+   "debut": 45.024,
+   "fin": 45.104
+  },
+  {
+   "mot": "dix-sept",
+   "debut": 45.264,
+   "fin": 45.584
+  },
+  {
+   "mot": "pays",
+   "debut": 45.664,
+   "fin": 45.824
+  },
+  {
+   "mot": "africains,",
+   "debut": 45.904,
+   "fin": 46.624
+  },
+  {
+   "mot": "près",
+   "debut": 46.664,
+   "fin": 46.784
+  },
+  {
+   "mot": "de",
+   "debut": 46.904,
+   "fin": 47.024
+  },
+  {
+   "mot": "cinquante",
+   "debut": 47.104,
+   "fin": 47.424
+  },
+  {
+   "mot": "opérateurs.",
+   "debut": 47.504,
+   "fin": 48.252
+  },
+  {
+   "mot": "Et",
+   "debut": 48.292,
+   "fin": 48.332
+  },
+  {
+   "mot": "je",
+   "debut": 48.412,
+   "fin": 48.492
+  },
+  {
+   "mot": "t'aide",
+   "debut": 48.572,
+   "fin": 48.732
+  },
+  {
+   "mot": "à",
+   "debut": 48.772,
+   "fin": 48.812
+  },
+  {
+   "mot": "obtenir",
+   "debut": 48.892,
+   "fin": 49.212
+  },
+  {
+   "mot": "tes",
+   "debut": 49.292,
+   "fin": 49.372
+  },
+  {
+   "mot": "accès,",
+   "debut": 49.452,
+   "fin": 50.012
+  },
+  {
+   "mot": "pour",
+   "debut": 50.092,
+   "fin": 50.172
+  },
+  {
+   "mot": "chaque",
+   "debut": 50.332,
+   "fin": 50.572
+  },
+  {
+   "mot": "pays",
+   "debut": 50.652,
+   "fin": 50.812
+  },
+  {
+   "mot": "que",
+   "debut": 50.892,
+   "fin": 50.972
+  },
+  {
+   "mot": "tu",
+   "debut": 51.052,
+   "fin": 51.132
+  },
+  {
+   "mot": "veux.",
+   "debut": 51.172,
+   "fin": 51.372
+  },
+  {
+   "mot": "Ton",
+   "debut": 51.491,
+   "fin": 51.651
+  },
+  {
+   "mot": "client",
+   "debut": 51.731,
+   "fin": 51.971
+  },
+  {
+   "mot": "paie",
+   "debut": 52.051,
+   "fin": 52.291
+  },
+  {
+   "mot": "exactement",
+   "debut": 52.371,
+   "fin": 53.091
+  },
+  {
+   "mot": "le",
+   "debut": 53.131,
+   "fin": 53.171
+  },
+  {
+   "mot": "montant",
+   "debut": 53.251,
+   "fin": 53.491
+  },
+  {
+   "mot": "affiché,",
+   "debut": 53.571,
+   "fin": 54.211
+  },
+  {
+   "mot": "au",
+   "debut": 54.251,
+   "fin": 54.291
+  },
+  {
+   "mot": "franc",
+   "debut": 54.451,
+   "fin": 54.691
+  },
+  {
+   "mot": "près.",
+   "debut": 54.771,
+   "fin": 55.171
+  },
+  {
+   "mot": "Et",
+   "debut": 55.211,
+   "fin": 55.251
+  },
+  {
+   "mot": "l'argent",
+   "debut": 55.331,
+   "fin": 55.731
+  },
+  {
+   "mot": "arrive",
+   "debut": 55.811,
+   "fin": 56.051
+  },
+  {
+   "mot": "sur",
+   "debut": 56.131,
+   "fin": 56.291
+  },
+  {
+   "mot": "ton",
+   "debut": 56.371,
+   "fin": 56.531
+  },
+  {
+   "mot": "compte.",
+   "debut": 56.611,
+   "fin": 56.931
+  },
+  {
+   "mot": "Pas",
+   "debut": 57.152,
+   "fin": 57.232
+  },
+  {
+   "mot": "chez",
+   "debut": 57.312,
+   "fin": 57.392
+  },
+  {
+   "mot": "moi,",
+   "debut": 57.472,
+   "fin": 57.919
+  },
+  {
+   "mot": "pas",
+   "debut": 57.959,
+   "fin": 57.999
+  },
+  {
+   "mot": "chez",
+   "debut": 58.079,
+   "fin": 58.239
+  },
+  {
+   "mot": "une",
+   "debut": 58.279,
+   "fin": 58.319
+  },
+  {
+   "mot": "plateforme",
+   "debut": 58.399,
+   "fin": 58.879
+  },
+  {
+   "mot": ":",
+   "debut": 59.105,
+   "fin": 59.145
+  },
+  {
+   "mot": "chez",
+   "debut": 59.185,
+   "fin": 59.345
+  },
+  {
+   "mot": "toi.",
+   "debut": 59.425,
+   "fin": 59.745
+  },
+  {
+   "mot": "Tes",
+   "debut": 59.928,
+   "fin": 60.088
+  },
+  {
+   "mot": "produits,",
+   "debut": 60.248,
+   "fin": 60.808
+  },
+  {
+   "mot": "tes",
+   "debut": 60.848,
+   "fin": 60.888
+  },
+  {
+   "mot": "ventes,",
+   "debut": 60.968,
+   "fin": 61.528
+  },
+  {
+   "mot": "tes",
+   "debut": 61.608,
+   "fin": 61.688
+  },
+  {
+   "mot": "clients",
+   "debut": 61.768,
+   "fin": 62.088
+  },
+  {
+   "mot": ":",
+   "debut": 62.398,
+   "fin": 62.425
+  },
+  {
+   "mot": "tu",
+   "debut": 62.451,
+   "fin": 62.478
+  },
+  {
+   "mot": "vois",
+   "debut": 62.558,
+   "fin": 62.798
+  },
+  {
+   "mot": "tout,",
+   "debut": 62.878,
+   "fin": 63.278
+  },
+  {
+   "mot": "tu",
+   "debut": 63.358,
+   "fin": 63.438
+  },
+  {
+   "mot": "gères",
+   "debut": 63.518,
+   "fin": 63.838
+  },
+  {
+   "mot": "tout.",
+   "debut": 63.918,
+   "fin": 64.308
+  },
+  {
+   "mot": "Et",
+   "debut": 64.348,
+   "fin": 64.388
+  },
+  {
+   "mot": "ta",
+   "debut": 64.468,
+   "fin": 64.548
+  },
+  {
+   "mot": "boutique",
+   "debut": 64.628,
+   "fin": 64.948
+  },
+  {
+   "mot": "grandit",
+   "debut": 65.108,
+   "fin": 65.508
+  },
+  {
+   "mot": "avec",
+   "debut": 65.588,
+   "fin": 65.748
+  },
+  {
+   "mot": "toi.",
+   "debut": 65.828,
+   "fin": 66.226
+  },
+  {
+   "mot": "Faisons",
+   "debut": 66.279,
+   "fin": 66.466
+  },
+  {
+   "mot": "le",
+   "debut": 66.506,
+   "fin": 66.546
+  },
+  {
+   "mot": "calcul.",
+   "debut": 66.746,
+   "fin": 67.161
+  },
+  {
+   "mot": "Tu",
+   "debut": 67.201,
+   "fin": 67.241
+  },
+  {
+   "mot": "vends",
+   "debut": 67.321,
+   "fin": 67.481
+  },
+  {
+   "mot": "pour",
+   "debut": 67.561,
+   "fin": 67.641
+  },
+  {
+   "mot": "trois",
+   "debut": 67.721,
+   "fin": 67.881
+  },
+  {
+   "mot": "millions",
+   "debut": 67.961,
+   "fin": 68.201
+  },
+  {
+   "mot": "par",
+   "debut": 68.281,
+   "fin": 68.441
+  },
+  {
+   "mot": "mois.",
+   "debut": 68.521,
+   "fin": 68.877
+  },
+  {
+   "mot": "La",
+   "debut": 68.957,
+   "fin": 69.037
+  },
+  {
+   "mot": "plateforme",
+   "debut": 69.117,
+   "fin": 69.517
+  },
+  {
+   "mot": "te",
+   "debut": 69.597,
+   "fin": 69.677
+  },
+  {
+   "mot": "prend",
+   "debut": 69.797,
+   "fin": 69.917
+  },
+  {
+   "mot": "trois",
+   "debut": 69.997,
+   "fin": 70.157
+  },
+  {
+   "mot": "cent",
+   "debut": 70.237,
+   "fin": 70.317
+  },
+  {
+   "mot": "mille.",
+   "debut": 70.397,
+   "fin": 70.772
+  },
+  {
+   "mot": "Ta",
+   "debut": 70.812,
+   "fin": 70.852
+  },
+  {
+   "mot": "boutique,",
+   "debut": 70.932,
+   "fin": 71.492
+  },
+  {
+   "mot": "frais",
+   "debut": 71.532,
+   "fin": 71.652
+  },
+  {
+   "mot": "de",
+   "debut": 71.732,
+   "fin": 71.812
+  },
+  {
+   "mot": "paiement",
+   "debut": 71.892,
+   "fin": 72.132
+  },
+  {
+   "mot": "et",
+   "debut": 72.212,
+   "fin": 72.292
+  },
+  {
+   "mot": "forfait",
+   "debut": 72.372,
+   "fin": 72.612
+  },
+  {
+   "mot": "compris",
+   "debut": 72.692,
+   "fin": 73.012
+  },
+  {
+   "mot": ":",
+   "debut": 73.412,
+   "fin": 73.439
+  },
+  {
+   "mot": "cent",
+   "debut": 73.465,
+   "fin": 73.492
+  },
+  {
+   "mot": "vingt-cinq",
+   "debut": 73.572,
+   "fin": 73.892
+  },
+  {
+   "mot": "mille.",
+   "debut": 74.052,
+   "fin": 74.45
+  },
+  {
+   "mot": "Tu",
+   "debut": 74.53,
+   "fin": 74.61
+  },
+  {
+   "mot": "gardes",
+   "debut": 74.73,
+   "fin": 75.09
+  },
+  {
+   "mot": "cent",
+   "debut": 75.17,
+   "fin": 75.25
+  },
+  {
+   "mot": "soixante-quinze",
+   "debut": 75.33,
+   "fin": 75.89
+  },
+  {
+   "mot": "mille",
+   "debut": 75.97,
+   "fin": 76.05
+  },
+  {
+   "mot": "francs",
+   "debut": 76.13,
+   "fin": 76.33
+  },
+  {
+   "mot": "de",
+   "debut": 76.37,
+   "fin": 76.53
+  },
+  {
+   "mot": "plus.",
+   "debut": 76.73,
+   "fin": 77.33
+  },
+  {
+   "mot": "Chaque",
+   "debut": 77.37,
+   "fin": 77.57
+  },
+  {
+   "mot": "mois.",
+   "debut": 77.65,
+   "fin": 78.098
+  },
+  {
+   "mot": "Plus",
+   "debut": 78.178,
+   "fin": 78.258
+  },
+  {
+   "mot": "de",
+   "debut": 78.338,
+   "fin": 78.578
+  },
+  {
+   "mot": "deux",
+   "debut": 78.618,
+   "fin": 78.738
+  },
+  {
+   "mot": "millions",
+   "debut": 78.818,
+   "fin": 79.218
+  },
+  {
+   "mot": "sur",
+   "debut": 79.298,
+   "fin": 79.378
+  },
+  {
+   "mot": "l'année.",
+   "debut": 79.405,
+   "fin": 79.946
+  },
+  {
+   "mot": "Ce",
+   "debut": 79.986,
+   "fin": 80.026
+  },
+  {
+   "mot": "moteur",
+   "debut": 80.106,
+   "fin": 80.346
+  },
+  {
+   "mot": "de",
+   "debut": 80.386,
+   "fin": 80.426
+  },
+  {
+   "mot": "paiement,",
+   "debut": 80.506,
+   "fin": 80.986
+  },
+  {
+   "mot": "je",
+   "debut": 81.026,
+   "fin": 81.066
+  },
+  {
+   "mot": "l'ai",
+   "debut": 81.106,
+   "fin": 81.306
+  },
+  {
+   "mot": "déjà",
+   "debut": 81.386,
+   "fin": 81.546
+  },
+  {
+   "mot": "construit.",
+   "debut": 81.626,
+   "fin": 82.28
+  },
+  {
+   "mot": "Sur",
+   "debut": 82.36,
+   "fin": 82.52
+  },
+  {
+   "mot": "Un",
+   "debut": 82.6,
+   "fin": 82.68
+  },
+  {
+   "mot": "Peu",
+   "debut": 82.76,
+   "fin": 82.88
+  },
+  {
+   "mot": "Un",
+   "debut": 82.92,
+   "fin": 83.0
+  },
+  {
+   "mot": "Peu,",
+   "debut": 83.08,
+   "fin": 83.48
+  },
+  {
+   "mot": "chaque",
+   "debut": 83.56,
+   "fin": 83.8
+  },
+  {
+   "mot": "paiement",
+   "debut": 83.84,
+   "fin": 84.12
+  },
+  {
+   "mot": "Mobile",
+   "debut": 84.28,
+   "fin": 84.44
+  },
+  {
+   "mot": "Money",
+   "debut": 84.52,
+   "fin": 84.84
+  },
+  {
+   "mot": "est",
+   "debut": 84.92,
+   "fin": 85.0
+  },
+  {
+   "mot": "vérifié...",
+   "debut": 85.04,
+   "fin": 85.88
+  },
+  {
+   "mot": "sans",
+   "debut": 85.96,
+   "fin": 86.04
+  },
+  {
+   "mot": "que",
+   "debut": 86.16,
+   "fin": 86.28
+  },
+  {
+   "mot": "personne",
+   "debut": 86.48,
+   "fin": 86.72
+  },
+  {
+   "mot": "ne",
+   "debut": 86.76,
+   "fin": 86.84
+  },
+  {
+   "mot": "regarde.",
+   "debut": 86.92,
+   "fin": 87.412
+  },
+  {
+   "mot": "Trois",
+   "debut": 87.492,
+   "fin": 87.612
+  },
+  {
+   "mot": "semaines,",
+   "debut": 87.652,
+   "fin": 88.212
+  },
+  {
+   "mot": "et",
+   "debut": 88.252,
+   "fin": 88.292
+  },
+  {
+   "mot": "ta",
+   "debut": 88.372,
+   "fin": 88.452
+  },
+  {
+   "mot": "boutique",
+   "debut": 88.532,
+   "fin": 88.772
+  },
+  {
+   "mot": "est",
+   "debut": 88.852,
+   "fin": 88.932
+  },
+  {
+   "mot": "en",
+   "debut": 89.012,
+   "fin": 89.052
+  },
+  {
+   "mot": "ligne.",
+   "debut": 89.092,
+   "fin": 89.527
+  },
+  {
+   "mot": "Et",
+   "debut": 89.554,
+   "fin": 89.58
+  },
+  {
+   "mot": "je",
+   "debut": 89.607,
+   "fin": 89.687
+  },
+  {
+   "mot": "suis",
+   "debut": 89.767,
+   "fin": 89.927
+  },
+  {
+   "mot": "avec",
+   "debut": 90.047,
+   "fin": 90.167
+  },
+  {
+   "mot": "toi",
+   "debut": 90.247,
+   "fin": 90.487
+  },
+  {
+   "mot": "à",
+   "debut": 90.607,
+   "fin": 90.727
+  },
+  {
+   "mot": "chaque",
+   "debut": 90.767,
+   "fin": 90.967
+  },
+  {
+   "mot": "étape.",
+   "debut": 91.047,
+   "fin": 91.627
+  },
+  {
+   "mot": "Écris",
+   "debut": 91.667,
+   "fin": 91.947
+  },
+  {
+   "mot": "BOUTIQUE",
+   "debut": 92.027,
+   "fin": 92.427
+  },
+  {
+   "mot": "sur",
+   "debut": 92.507,
+   "fin": 92.587
+  },
+  {
+   "mot": "WhatsApp.",
+   "debut": 92.827,
+   "fin": 93.176
+  },
+  {
+   "mot": "On",
+   "debut": 93.216,
+   "fin": 93.256
+  },
+  {
+   "mot": "fait",
+   "debut": 93.336,
+   "fin": 93.416
+  },
+  {
+   "mot": "ton",
+   "debut": 93.496,
+   "fin": 93.576
+  },
+  {
+   "mot": "calcul",
+   "debut": 93.736,
+   "fin": 93.896
+  },
+  {
+   "mot": "ensemble,",
+   "debut": 94.136,
+   "fin": 94.536
+  },
+  {
+   "mot": "avec",
+   "debut": 94.656,
+   "fin": 94.776
+  },
+  {
+   "mot": "tes",
+   "debut": 94.856,
+   "fin": 95.016
   },
   {
    "mot": "vrais",
-   "debut": 93.756,
-   "fin": 93.916
+   "debut": 95.096,
+   "fin": 95.256
   },
   {
    "mot": "chiffres.",
-   "debut": 93.996,
-   "fin": 94.556
+   "debut": 95.336,
+   "fin": 95.896
   }
  ],
  "resserre": {
@@ -1745,5 +1760,9 @@
     99.0997
    ]
   ]
+ },
+ "ouverture_v2": {
+  "decalage_s": 1.34,
+  "note": "phrase 1 régénérée seule (« ou tes produits digitaux »), recollée à 2,74 s sur la prise v1 coupée à 1,40 s"
  }
 }

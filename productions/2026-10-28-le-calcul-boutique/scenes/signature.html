@@ -1,0 +1,86 @@
+<template>
+  <style>
+    @font-face { font-family: "Plus Jakarta Sans"; font-weight: 500; src: url("assets/fonts/plus-jakarta-sans-latin-500-normal.woff2") format("woff2"); }
+    @font-face { font-family: "Plus Jakarta Sans"; font-weight: 600; src: url("assets/fonts/plus-jakarta-sans-latin-600-normal.woff2") format("woff2"); }
+    @font-face { font-family: "Plus Jakarta Sans"; font-weight: 700; src: url("assets/fonts/plus-jakarta-sans-latin-700-normal.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; font-family: "Plus Jakarta Sans", sans-serif; color: #F5F3EE; }
+    #f-carte { position: absolute; left: 70px; top: 360px; width: 940px; height: 960px; }
+    #f-verre {
+      position: absolute; inset: 0; border-radius: 64px; overflow: hidden;
+      background: rgba(255,255,255,0.055);
+      -webkit-backdrop-filter: blur(34px) saturate(150%); backdrop-filter: blur(34px) saturate(150%);
+      box-shadow: inset 0 1.5px 0 rgba(255,255,255,0.28);
+      
+    }
+    #f-bord { position: absolute; left: 0; top: 0; overflow: visible; }
+    #f-reflet { position: absolute; top: -20%; left: 0; width: 34%; height: 140%;
+      background: linear-gradient(100deg, rgba(255,255,255,0) 0%, rgba(255,255,255,0.10) 50%, rgba(255,255,255,0) 100%); }
+    .mask { overflow: hidden; padding: 6px 0 10px; margin-bottom: -12px; }
+    .mask > .in { display: block; }
+    .eyebrow { font-weight: 600; font-size: 30px; letter-spacing: 0.22em; text-transform: uppercase; color: rgba(245,243,238,0.55); }
+    .acc { color: #D9C6A3; }
+
+    #f-preuve { position: absolute; left: 80px; right: 80px; top: 256px; }
+    .titre { font-weight: 700; font-size: 124px; letter-spacing: -0.045em; line-height: 1.0; }
+    .corps { font-weight: 500; font-size: 42px; letter-spacing: -0.01em; line-height: 1.22; color: rgba(245,243,238,0.78); }
+    #f-chips { display: flex; gap: 14px; margin-top: 44px; white-space: nowrap; }
+    .chip { flex: 0 0 auto; padding: 18px 30px; border-radius: 999px; font-weight: 600; font-size: 36px; letter-spacing: -0.01em;
+      background: rgba(255,255,255,0.07); border: 1.5px solid rgba(255,255,255,0.14); box-shadow: inset 0 1px 0 rgba(255,255,255,0.22); }
+    .chip .d { display: inline-block; width: 12px; height: 12px; border-radius: 50%; background: #D9C6A3; margin-right: 14px; vertical-align: middle; }
+
+    #f-sig { position: absolute; left: 80px; right: 80px; top: 92px; }
+    .name { font-weight: 700; font-size: 132px; letter-spacing: -0.05em; line-height: 0.98; }
+    #f-trait { height: 2px; background: rgba(255,255,255,0.16); margin-top: 48px; transform-origin: 0 50%; }
+    #f-tag { font-weight: 500; font-size: 40px; color: rgba(245,243,238,0.78); letter-spacing: -0.01em; }
+    #f-tagmask { margin-top: 32px; }
+    #f-wa { margin-top: 40px; }
+    #f-cta { font-weight: 700; font-size: 50px; letter-spacing: -0.03em; line-height: 1.05; white-space: nowrap; }
+    #f-num { font-weight: 700; font-size: 64px; letter-spacing: -0.03em; line-height: 1.05; white-space: nowrap; }
+  </style>
+  <div id="root" data-composition-id="signature" data-width="1080" data-height="1920">
+    <div id="f-carte">
+      <div id="f-verre"><div id="f-reflet"></div></div>
+      <svg id="f-bord" width="940" height="960" viewBox="0 0 940 960">
+        <rect id="f-rect" x="0.75" y="0.75" width="938.5" height="958.5" rx="64" ry="64" fill="none" stroke="rgba(255,255,255,0.16)" stroke-width="1.5" />
+      </svg>
+
+      <div id="f-sig" data-layout-allow-overlap>
+        <div class="mask"><span class="in eyebrow" id="f-s1" style="font-size:28px;letter-spacing:0.15em;white-space:nowrap">Développeur · Partout, à distance</span></div>
+        <div style="height:40px"></div>
+        <div class="mask"><span class="in name" id="f-n1">Obafemi</span></div>
+        <div class="mask"><span class="in name" id="f-n2">Euloge</span></div>
+        <div class="mask"><span class="in name" id="f-n3">Agnoun.</span></div>
+        <div id="f-trait"></div>
+        <div class="mask" id="f-tagmask"><span class="in" id="f-tag">On fait ton calcul ensemble.</span></div>
+        <div id="f-wa">
+          <div class="mask"><span class="in" id="f-cta">Écris <span class="acc">BOUTIQUE</span> sur WhatsApp</span></div>
+          <div style="height:6px"></div>
+          <div class="mask"><span class="in" id="f-num">+229 01 96 25 66 94</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script>
+    const tl = gsap.timeline({ paused: true });
+    tl.fromTo(["#f-s1", "#f-n1", "#f-n2", "#f-n3", "#f-tag"], { yPercent: 110 }, { yPercent: 110, duration: 0.01 }, 0);
+    tl.fromTo(["#f-cta", "#f-num"], { yPercent: 140 }, { yPercent: 140, duration: 0.01 }, 0);
+    tl.fromTo("#f-trait", { scaleX: 0 }, { scaleX: 0, duration: 0.01 }, 0);
+    tl.fromTo("#f-reflet", { xPercent: -140 }, { xPercent: -140, duration: 0.01 }, 0);
+    // La carte se redresse depuis la profondeur
+    tl.fromTo("#f-carte", { rotationX: 38, z: -520, y: 260, opacity: 0, transformPerspective: 1600, transformOrigin: "50% 100%" },
+      { rotationX: 38, z: -520, y: 260, opacity: 0, transformPerspective: 1600, transformOrigin: "50% 100%", duration: 0.01 }, 0);
+    tl.fromTo("#f-carte", { opacity: 0 }, { immediateRender: false, opacity: 1, duration: 0.25 }, 0.05);
+    tl.fromTo("#f-carte", { rotationX: 38, z: -520, y: 260 }, { immediateRender: false, rotationX: 0, z: 0, y: 0, duration: 1.0, ease: "expo.out" }, 0.05);
+    tl.fromTo("#f-s1", { yPercent: 110 }, { immediateRender: false, yPercent: 0, duration: 0.7, ease: "expo.out" }, 0.3);
+    tl.fromTo(["#f-n1", "#f-n2", "#f-n3"], { yPercent: 110 }, { immediateRender: false, yPercent: 0, duration: 0.85, ease: "expo.out", stagger: 0.08 }, 0.36);
+    tl.fromTo("#f-trait", { scaleX: 0 }, { immediateRender: false, scaleX: 1, duration: 0.8, ease: "expo.out" }, 0.75);
+    // « BOUTIQUE » puis « WhatsApp »
+    tl.fromTo("#f-cta", { yPercent: 140 }, { immediateRender: false, yPercent: 0, duration: 0.8, ease: "expo.out" }, 0.42);
+    tl.fromTo("#f-num", { yPercent: 140 }, { immediateRender: false, yPercent: 0, duration: 0.8, ease: "expo.out" }, 1.06);
+    // « On fait ton calcul ensemble »
+    tl.fromTo("#f-tag", { yPercent: 110 }, { immediateRender: false, yPercent: 0, duration: 0.7, ease: "expo.out" }, 1.67);
+    // Le seul reflet du film
+    tl.fromTo("#f-reflet", { xPercent: -140 }, { immediateRender: false, xPercent: 360, duration: 1.3, ease: "power2.inOut" }, 4.0);
+    window.__timelines["signature"] = tl;
+  </script>
+</template>

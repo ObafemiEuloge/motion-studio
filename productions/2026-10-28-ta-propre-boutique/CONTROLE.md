@@ -1,6 +1,11 @@
 # Contrôle : ta propre boutique (offre Boutique en ligne)
 
-Rendu contrôlé : `renders/ta-propre-boutique.mp4`, 99,5 s, 1080 × 1920, 30 i/s, H.264 + AAC (7 min 16 s de rendu).
+Rendu contrôlé : `renders/ta-propre-boutique.mp4`, 100,8 s, 1080 × 1920, 30 i/s, H.264 + AAC (version corrigée du 28 oct.).
+
+Corrections demandées par Oba après la première livraison :
+- [x] Une ligne verticale traversait la carte 1Peu 1Peu (et la carte des mains au clavier) : c'était la frise des 3 semaines, visible avant son chapitre. Elle n'apparaît plus qu'à « Trois semaines ».
+- [x] Première phrase : « Tu vends tes formations ou tes produits digitaux en ligne ? ». Seule cette phrase a été régénérée (même voix, même réglage) puis recollée à la prise ; tout ce qui suit est décalé de 1,34 s (`audio/voix.alignment.json`, champ `ouverture_v2`). Les temps ci-dessous sont ceux de la première prise : ajouter 1,34 s après 1,5 s.
+- [x] La musique a été prolongée (fondu enchaîné de 2,5 s sur un passage du même lit) pour couvrir les 1,34 s de plus.
 
 ## Texte
 - [x] `python3 scripts/verifier_texte.py brief.md script.md storyboard.md audio/voix.txt publication.md index.html compositions/*.html` : OK.

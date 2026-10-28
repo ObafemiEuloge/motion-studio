@@ -1,0 +1,135 @@
+<template>
+  <style>
+    @font-face { font-family: "Plus Jakarta Sans"; font-weight: 500; src: url("assets/fonts/plus-jakarta-sans-latin-500-normal.woff2") format("woff2"); }
+    @font-face { font-family: "Plus Jakarta Sans"; font-weight: 600; src: url("assets/fonts/plus-jakarta-sans-latin-600-normal.woff2") format("woff2"); }
+    @font-face { font-family: "Plus Jakarta Sans"; font-weight: 700; src: url("assets/fonts/plus-jakarta-sans-latin-700-normal.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; font-family: "Plus Jakarta Sans", sans-serif; color: #F5F3EE; }
+    .mask { overflow: hidden; padding: 6px 0 16px; margin-bottom: -18px; }
+    .mask > .in { display: block; }
+    .acc { color: #D9C6A3; }
+    .doux { color: rgba(245,243,238,0.6); }
+    .ombre { text-shadow: 0 0 50px rgba(4,6,11,0.95), 0 0 18px rgba(4,6,11,0.9); }
+    .titre { position: absolute; left: 80px; top: 236px; }
+    .l-titre { font-weight: 700; font-size: 80px; letter-spacing: -0.045em; line-height: 1.04; white-space: nowrap; }
+    .l-geant { font-weight: 700; font-size: 128px; letter-spacing: -0.05em; line-height: 1.0; white-space: nowrap; }
+    .eyebrow { font-weight: 600; font-size: 30px; letter-spacing: 0.22em; text-transform: uppercase; color: rgba(245,243,238,0.6); }
+    .verre { background: rgba(255,255,255,0.065); -webkit-backdrop-filter: blur(34px) saturate(150%); backdrop-filter: blur(34px) saturate(150%);
+      border: 1.5px solid rgba(255,255,255,0.16); box-shadow: inset 0 1.5px 0 rgba(255,255,255,0.28), 0 50px 140px rgba(0,0,0,0.6); }
+    .opaque { background: #0B111D; border: 1.5px solid rgba(255,255,255,0.10); box-shadow: inset 0 1.5px 0 rgba(255,255,255,0.12), 0 50px 140px rgba(0,0,0,0.6); }
+    .pastille { display: inline-flex; align-items: center; gap: 14px; padding: 16px 30px; border-radius: 999px; font-weight: 600; font-size: 38px; white-space: nowrap; }
+    .pastille .d { width: 12px; height: 12px; border-radius: 50%; background: #F5F3EE; }
+    .t { fill: none; stroke: #F5F3EE; stroke-width: 3; stroke-linecap: round; stroke-linejoin: round; }
+    .t.fin { stroke-width: 2; }
+    .t.mi { stroke: rgba(245,243,238,0.45); }
+    .roule { display: inline-block; white-space: nowrap; line-height: 1; }
+    .roule .col { display: inline-block; width: 0.68em; height: 1em; overflow: hidden; vertical-align: top; text-align: center; }
+    .roule .col > span { display: block; }
+    .roule .col > span > span { display: block; height: 1em; }
+    .roule .sep { display: inline-block; width: 0.26em; }
+    .tambours { display: inline-flex; align-items: center; line-height: 1; white-space: nowrap; perspective: 1400px;
+      -webkit-mask-image: linear-gradient(180deg, transparent 12%, #000 21%, #000 79%, transparent 85%);
+              mask-image: linear-gradient(180deg, transparent 12%, #000 21%, #000 79%, transparent 85%); padding: 0.36em 0.5em; margin: 0 -0.5em; }
+    .tambours .tb { position: relative; display: inline-block; width: 0.66em; height: 1em; transform-style: preserve-3d; transform: translateZ(-1.54em); }
+    .tambours .cyl { position: absolute; inset: 0; transform-style: preserve-3d; }
+    .tambours .fa { position: absolute; left: 0; top: 0; width: 100%; height: 1em; text-align: center; backface-visibility: hidden; -webkit-backface-visibility: hidden; }
+    .tambours .sep { display: inline-block; width: 0.26em; }
+    .tambours .sym { display: inline-block; }
+
+    #w-titre { position: absolute; left: 80px; top: 236px; }
+    .l-w { font-weight: 700; font-size: 110px; letter-spacing: -0.05em; line-height: 1.0; white-space: nowrap; }
+    #w-url { position: absolute; left: 80px; top: 420px; display: inline-flex; align-items: center; gap: 16px; padding: 22px 40px; border-radius: 999px; }
+    #w-url-t { font-weight: 700; font-size: 52px; letter-spacing: -0.03em; white-space: nowrap; }
+    #w-cartes { position: absolute; left: 80px; top: 680px; width: 920px; display: flex; gap: 22px; perspective: 1600px; }
+    .wc { position: relative; width: 292px; height: 340px; transform-style: preserve-3d; }
+    .wc > div { position: absolute; inset: 0; border-radius: 40px; backface-visibility: hidden; -webkit-backface-visibility: hidden; padding: 34px; }
+    .wc .dos { transform: rotateY(180deg); background: #0B111D; border: 1.5px solid rgba(255,255,255,0.10); }
+    .wc .face { background: #121925; border: 1.5px solid rgba(255,255,255,0.16); box-shadow: inset 0 1.5px 0 rgba(255,255,255,0.2); }
+    .wc .face .eyebrow { display: block; }
+    .wc .face .n { margin-top: 30px; font-weight: 700; font-size: 170px; letter-spacing: -0.06em; line-height: 1.0; }
+    #w-ligne { position: absolute; left: 80px; top: 1080px; }
+    .l-ligne { display: inline-flex; align-items: center; gap: 18px; padding: 22px 40px; border-radius: 999px; background: #D9C6A3; color: #04060B; font-weight: 700; font-size: 52px; letter-spacing: -0.03em; white-space: nowrap; }
+    .l-ligne i { width: 16px; height: 16px; border-radius: 50%; background: #04060B; }
+  </style>
+  <div id="root" data-composition-id="semaines" data-width="1080" data-height="1920">
+    <div id="w-titre" class="ombre"><div class="mask"><span class="in l-w" id="w-t">Ta boutique,</span></div></div>
+    <div id="w-url" class="verre"><svg width="40" height="40" viewBox="0 0 26 26"><path class="t fin" d="M7 12 V9 a6 6 0 0 1 12 0 V12 M5 12 H21 V23 H5 Z" /></svg><span id="w-url-t">tonnom.com</span></div>
+    <div id="w-cartes">
+      <div class="wc" id="w-c1"><div class="dos"></div><div class="face"><span class="eyebrow">Semaine</span><div class="n">1</div></div></div>
+      <div class="wc" id="w-c2"><div class="dos"></div><div class="face"><span class="eyebrow">Semaine</span><div class="n">2</div></div></div>
+      <div class="wc" id="w-c3"><div class="dos"></div><div class="face"><span class="eyebrow">Semaine</span><div class="n">3</div></div></div>
+    </div>
+    <div id="w-ligne"><div class="mask"><span class="in l-ligne" id="w-l"><i></i>En ligne</span></div></div>
+  </div>
+  <script>
+    (function () {
+      const DEBUT = 17.25;
+      // Outils communs : temps du film -> temps de la scène, chiffres qui roulent
+      const at = (g) => +(g - DEBUT).toFixed(3);
+      const rouleaux = {};
+      document.querySelectorAll("#root .roule").forEach((el) => {
+        const txt = el.textContent; el.textContent = ""; const rails = [];
+        for (const ch of txt) {
+          if (/[0-9]/.test(ch)) {
+            const col = document.createElement("span"); col.className = "col";
+            const rail = document.createElement("span");
+            for (let d = 0; d < 10; d++) { const s = document.createElement("span"); s.textContent = d; rail.appendChild(s); }
+            col.appendChild(rail); el.appendChild(col); rails.push({ rail, d: +ch });
+          } else { const s = document.createElement("span"); s.className = ch === " " ? "sep" : ""; s.textContent = ch === " " ? " " : ch; el.appendChild(s); }
+        }
+        rouleaux[el.id] = rails;
+      });
+      const tl = gsap.timeline({ paused: true });
+      const pose = (id, chiffres) => rouleaux[id].forEach((r, i) => tl.fromTo(r.rail, { yPercent: -chiffres[i] * 10 }, { yPercent: -chiffres[i] * 10, duration: 0.01 }, 0));
+      const roule = (id, de, vers, t, dur, dec) => rouleaux[id].forEach((r, i) => {
+        if (de[i] === vers[i]) return;
+        tl.fromTo(r.rail, { yPercent: -de[i] * 10 }, { immediateRender: false, yPercent: -vers[i] * 10, duration: dur || 1.0, ease: "expo.out" }, t + i * (dec === undefined ? 0.05 : dec));
+      });
+      const chiffres = (id) => rouleaux[id].map((r) => r.d);
+      const zeros = (id) => rouleaux[id].map(() => 0);
+      // Entrée et sortie de texte par cache
+      const entre = (sel, t, dec) => tl.fromTo(sel, { yPercent: 130 }, { immediateRender: false, yPercent: 0, duration: 0.8, ease: "expo.out", stagger: dec === undefined ? 0.08 : dec }, t);
+      const sort = (sel, t) => tl.fromTo(sel, { yPercent: 0 }, { immediateRender: false, yPercent: -135, duration: 0.38, ease: "power3.in", stagger: 0.04 }, t);
+      const cache = (sel) => tl.fromTo(sel, { yPercent: 130 }, { yPercent: 130, duration: 0.01 }, 0);
+      // Compteurs à tambours 3D : chaque chiffre est un cylindre de dix faces (rayon 1,54 em)
+      const tambours = {};
+      document.querySelectorAll("#root .tambours").forEach((el) => {
+        // les dix faces d'un cylindre se superposent par construction : le contrôle de mise en page ne doit pas les compter
+        el.setAttribute("data-layout-ignore", "");
+        const txt = el.textContent; el.textContent = ""; const cyls = [];
+        for (const ch of txt) {
+          if (/[0-9]/.test(ch)) {
+            const t = document.createElement("span"); t.className = "tb";
+            const c = document.createElement("span"); c.className = "cyl";
+            for (let d = 0; d < 10; d++) { const f = document.createElement("span"); f.className = "fa"; f.textContent = d;
+              f.style.transform = `rotateX(${-36 * d}deg) translateZ(1.54em)`; c.appendChild(f); }
+            t.appendChild(c); el.appendChild(t); cyls.push({ cyl: c, d: +ch });
+          } else { const s = document.createElement("span"); s.className = ch === " " ? "sep" : "sym"; s.textContent = ch === " " ? "\u00A0" : ch; el.appendChild(s); }
+        }
+        tambours[el.id] = cyls;
+      });
+      const posTambour = (id, ch) => tambours[id].forEach((c, i) => tl.fromTo(c.cyl, { rotationX: 36 * ch[i] }, { rotationX: 36 * ch[i], duration: 0.01 }, 0));
+      const tourne = (id, de, vers, t, dur, dec, tours) => tambours[id].forEach((c, i) => {
+        tl.fromTo(c.cyl, { rotationX: 36 * de[i] }, { immediateRender: false, rotationX: 36 * vers[i] + 360 * (tours === undefined ? 1 : tours), duration: dur || 1.4, ease: "power3.out" }, t + i * (dec === undefined ? 0.06 : dec));
+      });
+      const chiffresT = (id) => tambours[id].map((c) => c.d);
+
+      cache(["#w-t", "#w-l"]);
+      tl.fromTo("#w-url", { y: 40, opacity: 0 }, { y: 40, opacity: 0, duration: 0.01 }, 0);
+      tl.fromTo("#w-url-t", { clipPath: "inset(0 100% 0 0)" }, { clipPath: "inset(0 100% 0 0)", duration: 0.01 }, 0);
+      tl.fromTo(".wc", { rotationY: 180, y: 60, opacity: 0 }, { rotationY: 180, y: 60, opacity: 0, duration: 0.01 }, 0);
+
+      // « Ta boutique, à ton nom »
+      entre("#w-t", at(17.39));
+      tl.fromTo("#w-url", { y: 40, opacity: 0 }, { immediateRender: false, y: 0, opacity: 1, duration: 0.5, ease: "expo.out" }, at(17.9));
+      tl.fromTo("#w-url-t", { clipPath: "inset(0 100% 0 0)" }, { immediateRender: false, clipPath: "inset(0 0% 0 0)", duration: 0.6, ease: "steps(10)" }, at(18.1));
+      // « en trois semaines » : trois cartes se retournent, puis « En ligne »
+      tl.fromTo(".wc", { y: 60, opacity: 0 }, { immediateRender: false, y: 0, opacity: 1, duration: 0.35, ease: "expo.out", stagger: 0.09 }, at(18.85));
+      tl.fromTo(".wc", { rotationY: 180 }, { immediateRender: false, rotationY: 0, duration: 0.6, ease: "power3.out", stagger: 0.09 }, at(19.0));
+      entre("#w-l", at(19.42));
+      // Sortie vers la signature
+      sort(["#w-t", "#w-l"], at(19.92));
+      tl.fromTo(["#w-url", "#w-cartes"], { opacity: 1 }, { immediateRender: false, opacity: 0, y: -50, duration: 0.25, ease: "power3.in" }, at(19.92));
+      window.__timelines["semaines"] = tl;
+    })();
+  </script>
+</template>

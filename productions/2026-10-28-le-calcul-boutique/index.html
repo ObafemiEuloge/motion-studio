@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="fr" data-resolution="portrait"
+  data-composition-variables='[
+  {"id":"color-ground","type":"color","label":"Fond","default":"#04060B"},
+  {"id":"color-ink","type":"color","label":"Texte","default":"#F5F3EE"},
+  {"id":"color-accent","type":"color","label":"Champagne","default":"#D9C6A3"}
+]'>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=1080, height=1920" />
+    <script src="assets/js/gsap.min.js"></script>
+    <style>
+      :root { --color-ground: #04060B; --color-ink: #F5F3EE; --color-accent: #D9C6A3; }
+      * { margin: 0; padding: 0; box-sizing: border-box; }
+      html, body { width: 1080px; height: 1920px; overflow: hidden; background: var(--color-ground); }
+      #bg { position: absolute; inset: 0; background: var(--color-ground); }
+      .scene { position: absolute; inset: 0; }
+    </style>
+  </head>
+  <body>
+    <div id="root" data-composition-id="main" data-start="0" data-duration="28.5" data-width="1080" data-height="1920">
+      <div id="bg" class="clip" data-start="0" data-duration="28.5" data-track-index="0"></div>
+
+      <!-- Le monde : le flux des paiements, en profondeur -->
+      <div id="flux" class="scene" data-composition-id="flux" data-composition-src="compositions/flux.html" data-start="0" data-duration="28.5" data-track-index="1" data-track-kind="graphics" data-width="1080" data-height="1920" style="z-index:1"></div>
+
+      <div id="s-combien" class="scene" data-composition-id="combien" data-composition-src="compositions/combien.html" data-start="0" data-duration="6.6" data-track-index="10" data-track-kind="graphics" data-width="1080" data-height="1920" style="z-index:10"></div>
+      <div id="s-chez" class="scene" data-composition-id="chez" data-composition-src="compositions/chez.html" data-start="6.2" data-duration="6.9" data-track-index="11" data-track-kind="graphics" data-width="1080" data-height="1920" style="z-index:11"></div>
+      <div id="s-gain" class="scene" data-composition-id="gain" data-composition-src="compositions/gain.html" data-start="12.8" data-duration="4.7" data-track-index="12" data-track-kind="graphics" data-width="1080" data-height="1920" style="z-index:12"></div>
+      <div id="s-semaines" class="scene" data-composition-id="semaines" data-composition-src="compositions/semaines.html" data-start="17.25" data-duration="2.9" data-track-index="13" data-track-kind="graphics" data-width="1080" data-height="1920" style="z-index:13"></div>
+      <div id="s-signature" class="scene" data-composition-id="signature" data-composition-src="compositions/signature.html" data-start="19.9" data-duration="8.6" data-track-index="14" data-track-kind="graphics" data-width="1080" data-height="1920" style="z-index:14"></div>
+
+      <audio id="voix" class="clip" data-start="0" data-track-index="20" data-volume="0.9" src="audio/voix_mix.mp3"></audio>
+      <audio id="musique" class="clip" data-start="0" data-duration="28.5" data-track-index="21" data-fade-out="1.0"
+        data-automation='{"version":1,"lanes":[{"target":"volume","points":[{"t":0,"v":0.15},{"t":22.9,"v":0.15},{"t":23.4,"v":0.3},{"t":28.5,"v":0.3}]}]}'
+        src="assets/audio/musique.mp3"></audio>
+      <!--SONS-->
+      <audio id="sfx-00-notif" class="clip" data-start="0.2" data-duration="1.04" data-track-index="23" data-volume="0.3" src="assets/audio/notif.mp3"></audio>
+      <audio id="sfx-01-tambour" class="clip" data-start="2.73" data-duration="1.23" data-track-index="24" data-volume="0.4" src="assets/audio/tambour.mp3"></audio>
+      <audio id="sfx-02-coupe" class="clip" data-start="4.57" data-duration="0.73" data-track-index="23" data-volume="0.35" src="assets/audio/coupe.mp3"></audio>
+      <audio id="sfx-03-croc" class="clip" data-start="5.7" data-duration="0.52" data-track-index="24" data-volume="0.4" src="assets/audio/croc.mp3"></audio>
+      <audio id="sfx-04-verre" class="clip" data-start="6.45" data-duration="0.84" data-track-index="23" data-volume="0.35" src="assets/audio/verre.mp3"></audio>
+      <audio id="sfx-05-flux" class="clip" data-start="7.97" data-duration="1.04" data-track-index="24" data-volume="0.3" src="assets/audio/flux.mp3"></audio>
+      <audio id="sfx-06-tic_a" class="clip" data-start="9.73" data-duration="1.04" data-track-index="23" data-volume="0.3" src="assets/audio/tic_a.mp3"></audio>
+      <audio id="sfx-07-tic_b" class="clip" data-start="10.61" data-duration="0.52" data-track-index="24" data-volume="0.3" src="assets/audio/tic_b.mp3"></audio>
+      <audio id="sfx-08-piliers" class="clip" data-start="11.61" data-duration="1.31" data-track-index="23" data-volume="0.4" src="assets/audio/piliers.mp3"></audio>
+      <audio id="sfx-09-tambour" class="clip" data-start="13.17" data-duration="1.23" data-track-index="24" data-volume="0.35" src="assets/audio/tambour.mp3"></audio>
+      <audio id="sfx-10-coupe" class="clip" data-start="14.98" data-duration="0.73" data-track-index="23" data-volume="0.3" src="assets/audio/coupe.mp3"></audio>
+      <audio id="sfx-11-resultat" class="clip" data-start="15.46" data-duration="1.23" data-track-index="24" data-volume="0.4" src="assets/audio/resultat.mp3"></audio>
+      <audio id="sfx-12-touche" class="clip" data-start="18.29" data-duration="0.63" data-track-index="23" data-volume="0.3" src="assets/audio/touche.mp3"></audio>
+      <audio id="sfx-13-cartes" class="clip" data-start="19.17" data-duration="0.91" data-track-index="24" data-volume="0.4" src="assets/audio/cartes.mp3"></audio>
+      <audio id="sfx-14-signature" class="clip" data-start="20.05" data-duration="2.04" data-track-index="23" data-volume="0.4" src="assets/audio/signature.mp3"></audio>
+      <!--/SONS-->
+    </div>
+    <script>
+      const tl = gsap.timeline({ paused: true });
+      window.__timelines = window.__timelines || {};
+      window.__timelines["main"] = tl;
+    </script>
+  </body>
+</html>

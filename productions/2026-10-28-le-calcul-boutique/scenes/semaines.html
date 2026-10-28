@@ -1,0 +1,52 @@
+<template>
+  <style>
+/*COMMUN*/
+    #w-titre { position: absolute; left: 80px; top: 236px; }
+    .l-w { font-weight: 700; font-size: 110px; letter-spacing: -0.05em; line-height: 1.0; white-space: nowrap; }
+    #w-url { position: absolute; left: 80px; top: 420px; display: inline-flex; align-items: center; gap: 16px; padding: 22px 40px; border-radius: 999px; }
+    #w-url-t { font-weight: 700; font-size: 52px; letter-spacing: -0.03em; white-space: nowrap; }
+    #w-cartes { position: absolute; left: 80px; top: 680px; width: 920px; display: flex; gap: 22px; perspective: 1600px; }
+    .wc { position: relative; width: 292px; height: 340px; transform-style: preserve-3d; }
+    .wc > div { position: absolute; inset: 0; border-radius: 40px; backface-visibility: hidden; -webkit-backface-visibility: hidden; padding: 34px; }
+    .wc .dos { transform: rotateY(180deg); background: #0B111D; border: 1.5px solid rgba(255,255,255,0.10); }
+    .wc .face { background: #121925; border: 1.5px solid rgba(255,255,255,0.16); box-shadow: inset 0 1.5px 0 rgba(255,255,255,0.2); }
+    .wc .face .eyebrow { display: block; }
+    .wc .face .n { margin-top: 30px; font-weight: 700; font-size: 170px; letter-spacing: -0.06em; line-height: 1.0; }
+    #w-ligne { position: absolute; left: 80px; top: 1080px; }
+    .l-ligne { display: inline-flex; align-items: center; gap: 18px; padding: 22px 40px; border-radius: 999px; background: #D9C6A3; color: #04060B; font-weight: 700; font-size: 52px; letter-spacing: -0.03em; white-space: nowrap; }
+    .l-ligne i { width: 16px; height: 16px; border-radius: 50%; background: #04060B; }
+  </style>
+  <div id="root" data-composition-id="semaines" data-width="1080" data-height="1920">
+    <div id="w-titre" class="ombre"><div class="mask"><span class="in l-w" id="w-t">Ta boutique,</span></div></div>
+    <div id="w-url" class="verre"><svg width="40" height="40" viewBox="0 0 26 26"><path class="t fin" d="M7 12 V9 a6 6 0 0 1 12 0 V12 M5 12 H21 V23 H5 Z" /></svg><span id="w-url-t">tonnom.com</span></div>
+    <div id="w-cartes">
+      <div class="wc" id="w-c1"><div class="dos"></div><div class="face"><span class="eyebrow">Semaine</span><div class="n">1</div></div></div>
+      <div class="wc" id="w-c2"><div class="dos"></div><div class="face"><span class="eyebrow">Semaine</span><div class="n">2</div></div></div>
+      <div class="wc" id="w-c3"><div class="dos"></div><div class="face"><span class="eyebrow">Semaine</span><div class="n">3</div></div></div>
+    </div>
+    <div id="w-ligne"><div class="mask"><span class="in l-ligne" id="w-l"><i></i>En ligne</span></div></div>
+  </div>
+  <script>
+    (function () {
+      const DEBUT = 17.25;
+//COMMUN
+      cache(["#w-t", "#w-l"]);
+      tl.fromTo("#w-url", { y: 40, opacity: 0 }, { y: 40, opacity: 0, duration: 0.01 }, 0);
+      tl.fromTo("#w-url-t", { clipPath: "inset(0 100% 0 0)" }, { clipPath: "inset(0 100% 0 0)", duration: 0.01 }, 0);
+      tl.fromTo(".wc", { rotationY: 180, y: 60, opacity: 0 }, { rotationY: 180, y: 60, opacity: 0, duration: 0.01 }, 0);
+
+      // « Ta boutique, à ton nom »
+      entre("#w-t", at(17.39));
+      tl.fromTo("#w-url", { y: 40, opacity: 0 }, { immediateRender: false, y: 0, opacity: 1, duration: 0.5, ease: "expo.out" }, at(17.9));
+      tl.fromTo("#w-url-t", { clipPath: "inset(0 100% 0 0)" }, { immediateRender: false, clipPath: "inset(0 0% 0 0)", duration: 0.6, ease: "steps(10)" }, at(18.1));
+      // « en trois semaines » : trois cartes se retournent, puis « En ligne »
+      tl.fromTo(".wc", { y: 60, opacity: 0 }, { immediateRender: false, y: 0, opacity: 1, duration: 0.35, ease: "expo.out", stagger: 0.09 }, at(18.85));
+      tl.fromTo(".wc", { rotationY: 180 }, { immediateRender: false, rotationY: 0, duration: 0.6, ease: "power3.out", stagger: 0.09 }, at(19.0));
+      entre("#w-l", at(19.42));
+      // Sortie vers la signature
+      sort(["#w-t", "#w-l"], at(19.92));
+      tl.fromTo(["#w-url", "#w-cartes"], { opacity: 1 }, { immediateRender: false, opacity: 0, y: -50, duration: 0.25, ease: "power3.in" }, at(19.92));
+      window.__timelines["semaines"] = tl;
+    })();
+  </script>
+</template>

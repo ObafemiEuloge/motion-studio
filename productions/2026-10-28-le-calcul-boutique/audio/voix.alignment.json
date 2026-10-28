@@ -1,0 +1,407 @@
+{
+ "modele": "eleven_v4",
+ "voice_id": "cEjGxRhK5rId1bacJPJr",
+ "mots": [
+  {
+   "mot": "Ce",
+   "debut": 0.0,
+   "fin": 0.16
+  },
+  {
+   "mot": "mois-ci,",
+   "debut": 0.2,
+   "fin": 0.8
+  },
+  {
+   "mot": "ta",
+   "debut": 0.88,
+   "fin": 0.96
+  },
+  {
+   "mot": "plateforme",
+   "debut": 1.04,
+   "fin": 1.36
+  },
+  {
+   "mot": "t'a",
+   "debut": 1.4,
+   "fin": 1.52
+  },
+  {
+   "mot": "pris",
+   "debut": 1.56,
+   "fin": 1.68
+  },
+  {
+   "mot": "combien",
+   "debut": 1.8,
+   "fin": 2.08
+  },
+  {
+   "mot": "?",
+   "debut": 2.1,
+   "fin": 2.12
+  },
+  {
+   "mot": "[pause]",
+   "debut": 2.14,
+   "fin": 2.386
+  },
+  {
+   "mot": "Sur",
+   "debut": 2.506,
+   "fin": 2.626
+  },
+  {
+   "mot": "deux",
+   "debut": 2.706,
+   "fin": 2.826
+  },
+  {
+   "mot": "millions",
+   "debut": 2.866,
+   "fin": 3.106
+  },
+  {
+   "mot": "de",
+   "debut": 3.186,
+   "fin": 3.266
+  },
+  {
+   "mot": "ventes,",
+   "debut": 3.346,
+   "fin": 3.866
+  },
+  {
+   "mot": "c'est",
+   "debut": 3.906,
+   "fin": 4.066
+  },
+  {
+   "mot": "jusqu'à",
+   "debut": 4.106,
+   "fin": 4.466
+  },
+  {
+   "mot": "trois",
+   "debut": 4.546,
+   "fin": 4.706
+  },
+  {
+   "mot": "cent",
+   "debut": 4.786,
+   "fin": 4.866
+  },
+  {
+   "mot": "mille",
+   "debut": 4.946,
+   "fin": 5.026
+  },
+  {
+   "mot": "francs.",
+   "debut": 5.106,
+   "fin": 5.426
+  },
+  {
+   "mot": "Chaque",
+   "debut": 5.679,
+   "fin": 5.919
+  },
+  {
+   "mot": "mois.",
+   "debut": 5.999,
+   "fin": 6.239
+  },
+  {
+   "mot": "Avec",
+   "debut": 6.39,
+   "fin": 6.63
+  },
+  {
+   "mot": "ta",
+   "debut": 6.71,
+   "fin": 6.87
+  },
+  {
+   "mot": "propre",
+   "debut": 6.95,
+   "fin": 7.19
+  },
+  {
+   "mot": "boutique,",
+   "debut": 7.31,
+   "fin": 7.83
+  },
+  {
+   "mot": "presque",
+   "debut": 7.95,
+   "fin": 8.23
+  },
+  {
+   "mot": "tout",
+   "debut": 8.39,
+   "fin": 8.55
+  },
+  {
+   "mot": "reste",
+   "debut": 8.71,
+   "fin": 8.87
+  },
+  {
+   "mot": "chez",
+   "debut": 8.95,
+   "fin": 9.03
+  },
+  {
+   "mot": "toi.",
+   "debut": 9.11,
+   "fin": 9.545
+  },
+  {
+   "mot": "Mobile",
+   "debut": 9.705,
+   "fin": 9.865
+  },
+  {
+   "mot": "Money,",
+   "debut": 9.945,
+   "fin": 10.505
+  },
+  {
+   "mot": "carte,",
+   "debut": 10.585,
+   "fin": 11.145
+  },
+  {
+   "mot": "près",
+   "debut": 11.185,
+   "fin": 11.305
+  },
+  {
+   "mot": "de",
+   "debut": 11.385,
+   "fin": 11.545
+  },
+  {
+   "mot": "dix-sept",
+   "debut": 11.585,
+   "fin": 11.945
+  },
+  {
+   "mot": "pays",
+   "debut": 12.025,
+   "fin": 12.185
+  },
+  {
+   "mot": "africains.",
+   "debut": 12.265,
+   "fin": 12.906
+  },
+  {
+   "mot": "À",
+   "debut": 12.986,
+   "fin": 13.066
+  },
+  {
+   "mot": "trois",
+   "debut": 13.146,
+   "fin": 13.306
+  },
+  {
+   "mot": "millions",
+   "debut": 13.386,
+   "fin": 13.626
+  },
+  {
+   "mot": "de",
+   "debut": 13.666,
+   "fin": 13.706
+  },
+  {
+   "mot": "ventes",
+   "debut": 13.786,
+   "fin": 14.026
+  },
+  {
+   "mot": "par",
+   "debut": 14.106,
+   "fin": 14.186
+  },
+  {
+   "mot": "mois...",
+   "debut": 14.266,
+   "fin": 14.804
+  },
+  {
+   "mot": "tu",
+   "debut": 14.844,
+   "fin": 14.884
+  },
+  {
+   "mot": "gardes",
+   "debut": 14.964,
+   "fin": 15.364
+  },
+  {
+   "mot": "cent",
+   "debut": 15.444,
+   "fin": 15.524
+  },
+  {
+   "mot": "soixante-quinze",
+   "debut": 15.604,
+   "fin": 16.124
+  },
+  {
+   "mot": "mille",
+   "debut": 16.164,
+   "fin": 16.324
+  },
+  {
+   "mot": "francs",
+   "debut": 16.404,
+   "fin": 16.564
+  },
+  {
+   "mot": "de",
+   "debut": 16.644,
+   "fin": 16.724
+  },
+  {
+   "mot": "plus.",
+   "debut": 16.884,
+   "fin": 17.313
+  },
+  {
+   "mot": "Ta",
+   "debut": 17.393,
+   "fin": 17.473
+  },
+  {
+   "mot": "boutique,",
+   "debut": 17.593,
+   "fin": 18.113
+  },
+  {
+   "mot": "à",
+   "debut": 18.153,
+   "fin": 18.193
+  },
+  {
+   "mot": "ton",
+   "debut": 18.273,
+   "fin": 18.433
+  },
+  {
+   "mot": "nom,",
+   "debut": 18.513,
+   "fin": 18.913
+  },
+  {
+   "mot": "en",
+   "debut": 18.993,
+   "fin": 19.073
+  },
+  {
+   "mot": "trois",
+   "debut": 19.153,
+   "fin": 19.313
+  },
+  {
+   "mot": "semaines.",
+   "debut": 19.393,
+   "fin": 19.919
+  },
+  {
+   "mot": "Écris",
+   "debut": 19.999,
+   "fin": 20.319
+  },
+  {
+   "mot": "BOUTIQUE",
+   "debut": 20.359,
+   "fin": 20.719
+  },
+  {
+   "mot": "sur",
+   "debut": 20.799,
+   "fin": 20.879
+  },
+  {
+   "mot": "WhatsApp.",
+   "debut": 20.959,
+   "fin": 21.534
+  },
+  {
+   "mot": "On",
+   "debut": 21.574,
+   "fin": 21.614
+  },
+  {
+   "mot": "fait",
+   "debut": 21.694,
+   "fin": 21.774
+  },
+  {
+   "mot": "ton",
+   "debut": 21.854,
+   "fin": 21.934
+  },
+  {
+   "mot": "calcul",
+   "debut": 22.094,
+   "fin": 22.254
+  },
+  {
+   "mot": "ensemble.",
+   "debut": 22.454,
+   "fin": 22.937
+  }
+ ],
+ "resserre": {
+  "max_blanc_s": 0.3,
+  "retire_s": 2.503,
+  "coupes": [
+   [
+    2.21608,
+    3.18968
+   ],
+   [
+    6.417940000000001,
+    6.565169999999999
+   ],
+   [
+    7.38388,
+    7.63293
+   ],
+   [
+    10.7738,
+    10.8994
+   ],
+   [
+    14.2722,
+    14.4305
+   ],
+   [
+    16.322699999999998,
+    16.6654
+   ],
+   [
+    19.214199999999998,
+    19.344900000000003
+   ],
+   [
+    21.9454,
+    22.1395
+   ],
+   [
+    23.7301,
+    23.8747
+   ],
+   [
+    25.1726,
+    25.21
+   ]
+  ]
+ }
+}

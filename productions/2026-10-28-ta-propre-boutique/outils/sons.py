@@ -43,8 +43,11 @@ SONS = [
     (88.45, "touche", 0.3),      # « avec toi »
     (90.40, "signature", 0.4),   # la signature
 ]
+# La nouvelle première phrase décale de 1,34 s tout ce qui suit 1,5 s (temps ci-dessus = prise v1)
+DECALAGE = 1.34
 lignes, piste, prec = [], 23, None
 for i, (t, f, v) in enumerate(SONS):
+    t = round(t + DECALAGE, 2) if t > 1.5 else t
     assert f != prec, f"{f} deux fois d'affilée à {t}"
     d = float(subprocess.run(["ffprobe", "-v", "error", "-show_entries", "format=duration", "-of", "csv=p=0",
                               str(ici / "assets/audio" / (f + ".mp3"))], capture_output=True, text=True).stdout)

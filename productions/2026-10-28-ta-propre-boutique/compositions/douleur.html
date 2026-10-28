@@ -94,7 +94,11 @@
     (function () {
       const DEBUT = 18.2;
       // Outils communs : temps du film -> temps de la scène, chiffres qui roulent
-      const at = (g) => +(g - DEBUT).toFixed(3);
+      // Les temps du film sont ceux de la prise v1 ; la nouvelle première phrase (« ou tes produits digitaux »)
+      // décale tout ce qui suit 1,5 s de DECALAGE secondes (voir audio/voix.alignment.json).
+      const DECALAGE = 1.34;
+      const recale = (g) => (g > 1.5 ? g + DECALAGE : g);
+      const at = (g) => +(recale(g) - recale(DEBUT)).toFixed(3);
       const rouleaux = {};
       document.querySelectorAll("#root .roule").forEach((el) => {
         const txt = el.textContent; el.textContent = ""; const rails = [];

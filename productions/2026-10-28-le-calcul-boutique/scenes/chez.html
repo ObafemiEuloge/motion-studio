@@ -1,0 +1,109 @@
+<template>
+  <style>
+/*COMMUN*/
+    /* Presque tout reste chez toi : une seule barre, lue de gauche à droite */
+    #h-texte { position: absolute; left: 80px; top: 236px; }
+    .l-reste { font-weight: 700; font-size: 80px; letter-spacing: -0.045em; line-height: 1.04; white-space: nowrap; }
+    .l-chez { font-weight: 700; font-size: 168px; letter-spacing: -0.06em; line-height: 1.0; white-space: nowrap; }
+    #h-part { position: absolute; left: 80px; top: 720px; width: 920px; }
+    #h-piste { position: relative; height: 112px; border-radius: 56px; border: 1.5px solid rgba(245,243,238,0.18); background: #0B111D; overflow: hidden; }
+    #h-plein { position: absolute; left: 6px; top: 6px; bottom: 6px; width: 878px; border-radius: 50px; background: #D9C6A3; transform-origin: 0 50%; }
+    #h-legende { display: flex; gap: 40px; margin-top: 30px; }
+    .mask > .in.lg, .lg { display: flex; align-items: center; gap: 14px; font-weight: 600; font-size: 36px; white-space: nowrap; }
+    .lg i { display: block; width: 22px; height: 22px; border-radius: 50%; }
+    .lg.toi i { background: #D9C6A3; }
+    .lg.frais { color: rgba(245,243,238,0.6); }
+    .lg.frais i { border: 2px solid rgba(245,243,238,0.5); }
+    /* L'Afrique couchée en 3D */
+    #h-scene3d { position: absolute; left: 0; top: 380px; width: 1080px; height: 1000px; perspective: 1500px; perspective-origin: 50% 20%; }
+    #h-plan { position: absolute; left: 0; top: 0; width: 1080px; height: 1000px; transform-style: preserve-3d; }
+    #h-plan svg { position: absolute; left: 0; top: 0; }
+    #h-plan .pt { fill: rgba(245,243,238,0.3); }
+    #h-piliers { position: absolute; left: 0; top: 0; transform-style: preserve-3d; }
+    .pil { position: absolute; width: 0; height: 0; transform-style: preserve-3d; }
+    .pil .b { position: absolute; left: -7px; bottom: 0; width: 14px; height: 170px; border-radius: 7px 7px 2px 2px; background: #F5F3EE; transform-origin: 50% 100%; }
+    .pil .s { position: absolute; left: -14px; top: -14px; width: 28px; height: 28px; border-radius: 50%; border: 2px solid rgba(245,243,238,0.7); }
+    #h-moyens { position: absolute; left: 80px; top: 236px; display: flex; gap: 14px; }
+    #h-pays { position: absolute; left: 80px; top: 1180px; width: 920px; }
+    #h-pays .nb { font-weight: 700; font-size: 110px; letter-spacing: -0.04em; display: flex; align-items: baseline; gap: 22px; white-space: nowrap; }
+    #h-pays .nb .lab { font-size: 52px; letter-spacing: -0.03em; }
+  </style>
+  <div id="root" data-composition-id="chez" data-width="1080" data-height="1920">
+    <div id="h-texte" class="ombre">
+      <div class="mask"><span class="in l-reste" id="h-t">Avec ta propre boutique,</span></div>
+      <div class="mask"><span class="in l-reste doux" id="h-e">presque tout reste</span></div>
+      <div class="mask"><span class="in l-chez acc" id="h-c">chez toi.</span></div>
+    </div>
+    <div id="h-part">
+      <div id="h-piste"><div id="h-plein"></div></div>
+      <div id="h-legende">
+        <div class="mask"><span class="in lg toi" id="h-l1"><i></i>Chez toi</span></div>
+        <div class="mask"><span class="in lg frais" id="h-l2"><i></i>Frais de paiement</span></div>
+      </div>
+    </div>
+
+    <div id="h-moyens" data-layout-allow-overlap>
+      <div class="mask"><span class="in pastille verre" id="h-m1"><span class="d"></span>Mobile Money</span></div>
+      <div class="mask"><span class="in pastille verre" id="h-m2"><span class="d"></span>Carte</span></div>
+    </div>
+    <div id="h-scene3d" data-layout-ignore>
+      <div id="h-plan">
+        <svg width="1080" height="1000" viewBox="0 380 1080 1000"><g id="h-trame">@@CARTE@@</g></svg>
+        <div id="h-piliers"></div>
+      </div>
+    </div>
+    <div id="h-pays" class="ombre" data-layout-allow-overlap>
+      <div class="mask"><span class="in eyebrow" id="h-p1" data-layout-ignore>Près de</span></div>
+      <div class="nb" id="h-p2"><span class="tambours" id="h-t17">17</span><span class="lab">pays africains</span></div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const DEBUT = 6.2;
+      const ALLUMES = @@ALLUMES@@;
+      const zone = document.getElementById("h-piliers"), piliers = [];
+      ALLUMES.forEach(([x, y], i) => {
+        const p = document.createElement("div"); p.className = "pil"; p.style.left = x + "px"; p.style.top = (y - 380) + "px";
+        p.innerHTML = '<span class="s"></span><span class="b" style="height:' + (110 + (i * 37) % 120) + 'px"></span>';
+        zone.appendChild(p); piliers.push(p);
+      });
+//COMMUN
+      cache(["#h-t", "#h-e", "#h-c", "#h-l1", "#h-l2", "#h-m1", "#h-m2", "#h-p1"]);
+      tl.fromTo("#h-piste", { clipPath: "inset(0 100% 0 0 round 56px)" }, { clipPath: "inset(0 100% 0 0 round 56px)", duration: 0.01 }, 0);
+      tl.fromTo("#h-plein", { scaleX: 0 }, { scaleX: 0, duration: 0.01 }, 0);
+      tl.fromTo("#h-scene3d", { opacity: 0 }, { opacity: 0, duration: 0.01 }, 0);
+      tl.fromTo("#h-plan", { rotationX: 62, rotationZ: -14, y: 120, scale: 0.9 }, { rotationX: 62, rotationZ: -14, y: 120, scale: 0.9, duration: 0.01 }, 0);
+      tl.fromTo(".pil .b", { rotationX: -90, scaleY: 0 }, { rotationX: -90, scaleY: 0, duration: 0.01 }, 0);
+      tl.fromTo(".pil .s", { scale: 0, opacity: 0 }, { scale: 0, opacity: 0, duration: 0.01 }, 0);
+      tl.fromTo("#h-p2", { opacity: 0, y: 30 }, { opacity: 0, y: 30, duration: 0.01 }, 0);
+      posTambour("h-t17", [0, 0]);
+
+      // « Avec ta propre boutique, presque tout reste chez toi »
+      entre("#h-t", at(6.39));
+      tl.fromTo("#h-piste", { clipPath: "inset(0 100% 0 0 round 56px)" }, { immediateRender: false, clipPath: "inset(0 0% 0 0 round 56px)", duration: 0.9, ease: "expo.out" }, at(6.7));
+      // « presque tout reste » : la barre se remplit presque jusqu'au bout ; le petit bout vide, ce sont les frais de paiement
+      entre("#h-e", at(7.95));
+      tl.fromTo("#h-plein", { scaleX: 0 }, { immediateRender: false, scaleX: 0.965, duration: 1.1, ease: "power3.inOut" }, at(7.95));
+      entre("#h-c", at(8.95));
+      entre(["#h-l1", "#h-l2"], at(9.05), 0.1);
+
+      // « Mobile Money, carte, près de dix-sept pays africains » : l'Afrique se couche, 17 piliers se lèvent
+      sort(["#h-t", "#h-e", "#h-c", "#h-l1", "#h-l2"], at(9.55));
+      tl.fromTo("#h-piste", { opacity: 1 }, { immediateRender: false, opacity: 0, y: -40, duration: 0.35, ease: "power3.in" }, at(9.55));
+      entre("#h-m1", at(9.71));
+      entre("#h-m2", at(10.59));
+      tl.fromTo("#h-scene3d", { opacity: 0 }, { immediateRender: false, opacity: 1, duration: 0.6, ease: "power1.out" }, at(9.75));
+      tl.fromTo("#h-plan", { rotationX: 62, rotationZ: -14, y: 120, scale: 0.9 }, { immediateRender: false, rotationX: 52, rotationZ: 6, y: 0, scale: 1, duration: 3.3, ease: "power2.out" }, at(9.75));
+      tl.fromTo(".pil .s", { scale: 0, opacity: 0 }, { immediateRender: false, scale: 1, opacity: 1, duration: 0.3, ease: "back.out(2)", stagger: 0.03 }, at(11.5));
+      tl.fromTo(".pil .b", { scaleY: 0 }, { immediateRender: false, scaleY: 1, duration: 0.7, ease: "expo.out", stagger: 0.035 }, at(11.59));
+      entre("#h-p1", at(11.19));
+      tl.fromTo("#h-p2", { opacity: 0, y: 30 }, { immediateRender: false, opacity: 1, y: 0, duration: 0.5, ease: "expo.out" }, at(11.4));
+      tourne("h-t17", [0, 0], [1, 7], at(11.59), 1.0, 0.06, 1);
+
+      // Sortie vers le calcul
+      sort(["#h-m1", "#h-m2", "#h-p1"], at(12.82));
+      tl.fromTo(["#h-scene3d", "#h-p2"], { opacity: 1 }, { immediateRender: false, opacity: 0, duration: 0.35, ease: "power1.in" }, at(12.82));
+      window.__timelines["chez"] = tl;
+    })();
+  </script>
+</template>

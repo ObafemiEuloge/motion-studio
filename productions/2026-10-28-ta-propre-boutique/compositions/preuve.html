@@ -98,7 +98,11 @@
     (function () {
       const DEBUT = 78.5;
       // Outils communs : temps du film -> temps de la scène, chiffres qui roulent
-      const at = (g) => +(g - DEBUT).toFixed(3);
+      // Les temps du film sont ceux de la prise v1 ; la nouvelle première phrase (« ou tes produits digitaux »)
+      // décale tout ce qui suit 1,5 s de DECALAGE secondes (voir audio/voix.alignment.json).
+      const DECALAGE = 1.34;
+      const recale = (g) => (g > 1.5 ? g + DECALAGE : g);
+      const at = (g) => +(recale(g) - recale(DEBUT)).toFixed(3);
       const rouleaux = {};
       document.querySelectorAll("#root .roule").forEach((el) => {
         const txt = el.textContent; el.textContent = ""; const rails = [];
@@ -133,6 +137,7 @@
       tl.fromTo(".r-nd", { scale: 0, transformOrigin: "50% 50%" }, { scale: 0, transformOrigin: "50% 50%", duration: 0.01 }, 0);
       tl.fromTo("#r-fin", { scale: 0, transformOrigin: "50% 50%" }, { scale: 0, transformOrigin: "50% 50%", duration: 0.01 }, 0);
       tl.fromTo("#r-duo", { y: 0, opacity: 0 }, { y: 0, opacity: 0, duration: 0.01 }, 0);
+      tl.fromTo("#r-frise", { opacity: 0 }, { opacity: 0, duration: 0.01 }, 0);
 
       // A. « Ce moteur de paiement, je l'ai déjà construit »
       tl.fromTo("#r-carte", { y: 140, opacity: 0, scale: 0.96 }, { immediateRender: false, y: 0, opacity: 1, scale: 1, duration: 1.0, ease: "expo.out" }, at(78.62));
@@ -150,6 +155,7 @@
 
       // C. « Trois semaines, et ta boutique est en ligne. Et je suis avec toi à chaque étape. »
       entre("#r-t2", at(86.15));
+      tl.fromTo("#r-frise", { opacity: 0 }, { immediateRender: false, opacity: 1, duration: 0.2 }, at(86.15));
       tl.fromTo("#r-ligne", { strokeDashoffset: 510 }, { immediateRender: false, strokeDashoffset: 0, duration: 1.5, ease: "none" }, at(86.3));
       [[".r-nd:nth-of-type(1)", "#r-e1a", "#r-e1b", 86.3], [".r-nd:nth-of-type(2)", "#r-e2a", "#r-e2b", 86.77], [".r-nd:nth-of-type(3)", "#r-e3a", "#r-e3b", 87.24]].forEach(([n, a, b, t]) => {
         entre([a, b], at(t), 0.06);

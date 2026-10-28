@@ -43,6 +43,9 @@ Pour montrer une application, utilise une capture réelle (`npx hyperframes capt
 - **Chiffres qui roulent** : une colonne 0 à 9 par chiffre (`yPercent: -chiffre × 10`), colonnes de 0,64 em ; masquer le montant tant qu'il n'a pas commencé à rouler (sinon « 00 000 »).
 - **Lettres qui débordent des caches** : état caché à 130 %, sortie à −135 %.
 - **Séquences d'Oba** : toujours sans le son d'origine (`-an`), étalonnées, recadrées dans une carte arrondie.
+- **3D CSS** : chaque parent entre la scène (qui porte `perspective`) et l'objet doit avoir `transform-style: preserve-3d`, sinon tout s'aplatit (piliers restés à plat). Un `mask`, un `filter` ou une `opacity` < 1 sur un parent aplatit aussi.
+- **Compteurs à tambours** : la face avant doit être à la profondeur zéro (cylindre reculé de son rayon), sinon la perspective grossit et rogne les chiffres ; le masque qui cache les faces voisines a besoin d'une marge latérale. Exemple : `productions/2026-10-28-le-calcul-boutique/scenes/_commun.js`.
+- **Éléments cachés dans la frise d'un autre chapitre** : un décor de chapitre suivant (frise, ligne) doit être invisible avant son chapitre, sinon il traverse les cartes (ligne verticale vue par Oba sur 1Peu 1Peu).
 
 ## Vérifier puis rendre
 

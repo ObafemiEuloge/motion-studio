@@ -4,14 +4,14 @@ Offre « Boutique en ligne ». Une histoire racontée au « tu » : le travail, 
 
 ## Accroches proposées
 
-- **A (retenue)** : « Tu vends tes formations en ligne ? Sur chaque vente, quelqu'un se sert avant toi. » Elle s'adresse à la cible dès le premier mot et ouvre une question qu'on veut fermer. À l'écran, en très grand : « Sur chaque vente, quelqu'un se sert avant toi. »
+- **A (retenue)** : « Tu vends tes formations ou tes produits digitaux en ligne ? Sur chaque vente, quelqu'un se sert avant toi. » Elle s'adresse à la cible dès le premier mot et ouvre une question qu'on veut fermer. À l'écran, en très grand : « Sur chaque vente, quelqu'un se sert avant toi. »
 - B : « 2 000 000 vendus. 300 000 partis. » Plus choc, mais on ne sait pas encore de quoi on parle ni à qui.
 
 ## Déroulé
 
 | Chapitre | VOIX | ÉCRAN |
 |---|---|---|
-| Accroche | Tu vends tes formations en ligne ? Alors sur chaque vente... quelqu'un se sert avant toi. | « Sur chaque vente, / quelqu'un se sert / **avant toi.** » ; une notification de vente dont une part est découpée |
+| Accroche | Tu vends tes formations ou tes produits digitaux en ligne ? Alors sur chaque vente... quelqu'un se sert avant toi. | « Sur chaque vente, / quelqu'un se sert / **avant toi.** » ; une notification de vente dont une part est découpée |
 | L'histoire | Tu as passé des semaines sur ta formation. Les vidéos, les fiches, les nuits à tout reprendre. | La formation se construit : modules, vidéos, fiches ; « Les vidéos », « Les fiches », « Les nuits » |
 | La raison d'être | Tu l'as mise sur une plateforme de vente. Et c'est vrai, c'est pratique : ta boutique est prête vite, et tes clients paient par Mobile Money, dans plusieurs pays. | La formation rejoint la vitrine d'une plateforme (sans nom) ; trois coches : « Prête vite », « Mobile Money », « Plusieurs pays » |
 | La douleur | Mais à chaque vente, la plateforme garde sa part. Cinq, dix, parfois quinze pour cent. Sur une vente, tu ne sens rien. Mais le mois où tu vends pour deux millions... ce sont cent mille à trois cent mille francs qui partent. Et ça, c'est avant même de payer tes publicités. C'est ton travail... qui part chez quelqu'un d'autre. | Chaque vente se découpe ; « 5 % », « 10 % », « 15 % » ; une barre « 2 000 000 F » ; la part « 100 000 à 300 000 F » se détache et part ; un bloc « Publicité » ; Oba, pensif, dans une carte : « C'est ton travail. » |

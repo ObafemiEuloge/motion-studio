@@ -1,0 +1,163 @@
+<template>
+  <style>
+    @font-face { font-family: "Plus Jakarta Sans"; font-weight: 500; src: url("assets/fonts/plus-jakarta-sans-latin-500-normal.woff2") format("woff2"); }
+    @font-face { font-family: "Plus Jakarta Sans"; font-weight: 600; src: url("assets/fonts/plus-jakarta-sans-latin-600-normal.woff2") format("woff2"); }
+    @font-face { font-family: "Plus Jakarta Sans"; font-weight: 700; src: url("assets/fonts/plus-jakarta-sans-latin-700-normal.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; font-family: "Plus Jakarta Sans", sans-serif; color: #F5F3EE; }
+    .mask { overflow: hidden; padding: 6px 0 16px; margin-bottom: -18px; }
+    .mask > .in { display: block; }
+    .acc { color: #D9C6A3; }
+    .doux { color: rgba(245,243,238,0.6); }
+    .ombre { text-shadow: 0 0 50px rgba(4,6,11,0.95), 0 0 18px rgba(4,6,11,0.9); }
+    .titre { position: absolute; left: 80px; top: 236px; }
+    .l-titre { font-weight: 700; font-size: 80px; letter-spacing: -0.045em; line-height: 1.04; white-space: nowrap; }
+    .l-geant { font-weight: 700; font-size: 128px; letter-spacing: -0.05em; line-height: 1.0; white-space: nowrap; }
+    .eyebrow { font-weight: 600; font-size: 30px; letter-spacing: 0.22em; text-transform: uppercase; color: rgba(245,243,238,0.6); }
+    .verre { background: rgba(255,255,255,0.065); -webkit-backdrop-filter: blur(34px) saturate(150%); backdrop-filter: blur(34px) saturate(150%);
+      border: 1.5px solid rgba(255,255,255,0.16); box-shadow: inset 0 1.5px 0 rgba(255,255,255,0.28), 0 50px 140px rgba(0,0,0,0.6); }
+    .opaque { background: #0B111D; border: 1.5px solid rgba(255,255,255,0.10); box-shadow: inset 0 1.5px 0 rgba(255,255,255,0.12), 0 50px 140px rgba(0,0,0,0.6); }
+    .pastille { display: inline-flex; align-items: center; gap: 14px; padding: 16px 30px; border-radius: 999px; font-weight: 600; font-size: 38px; white-space: nowrap; }
+    .pastille .d { width: 12px; height: 12px; border-radius: 50%; background: #F5F3EE; }
+    .t { fill: none; stroke: #F5F3EE; stroke-width: 3; stroke-linecap: round; stroke-linejoin: round; }
+    .t.fin { stroke-width: 2; }
+    .t.mi { stroke: rgba(245,243,238,0.45); }
+    .roule { display: inline-block; white-space: nowrap; line-height: 1; }
+    .roule .col { display: inline-block; width: 0.68em; height: 1em; overflow: hidden; vertical-align: top; text-align: center; }
+    .roule .col > span { display: block; }
+    .roule .col > span > span { display: block; height: 1em; }
+    .roule .sep { display: inline-block; width: 0.26em; }
+    .tambours { display: inline-flex; align-items: center; line-height: 1; white-space: nowrap; perspective: 1400px;
+      -webkit-mask-image: linear-gradient(180deg, transparent 12%, #000 21%, #000 79%, transparent 85%);
+              mask-image: linear-gradient(180deg, transparent 12%, #000 21%, #000 79%, transparent 85%); padding: 0.36em 0.5em; margin: 0 -0.5em; }
+    .tambours .tb { position: relative; display: inline-block; width: 0.66em; height: 1em; transform-style: preserve-3d; transform: translateZ(-1.54em); }
+    .tambours .cyl { position: absolute; inset: 0; transform-style: preserve-3d; }
+    .tambours .fa { position: absolute; left: 0; top: 0; width: 100%; height: 1em; text-align: center; backface-visibility: hidden; -webkit-backface-visibility: hidden; }
+    .tambours .sep { display: inline-block; width: 0.26em; }
+    .tambours .sym { display: inline-block; }
+
+    #x-monde { position: absolute; inset: 0; perspective: 1100px; perspective-origin: 50% 46%; overflow: hidden; }
+    #x-espace { position: absolute; inset: 0; transform-style: preserve-3d; }
+    .pi { position: absolute; width: 380px; height: 112px; border-radius: 56px; background: #0E141F; border: 1.5px solid rgba(255,255,255,0.14);
+      display: flex; align-items: center; gap: 22px; padding: 0 26px; }
+    .pi .ic { width: 64px; height: 64px; border-radius: 50%; border: 3px solid rgba(245,243,238,0.7); }
+    .pi i { display: block; height: 14px; border-radius: 7px; background: rgba(245,243,238,0.6); }
+    .pi i + i { margin-top: 14px; background: rgba(245,243,238,0.25); }
+  </style>
+  <div id="root" data-composition-id="flux" data-width="1080" data-height="1920">
+    <div id="x-monde" data-layout-ignore>
+      <div id="x-espace">
+        <div class="pi" id="pi0" style="left:180px;top:54px;opacity:0.77"><span class="ic"></span><span class="tx"><i style="width:150px"></i><i style="width:110px"></i></span></div>
+        <div class="pi" id="pi1" style="left:-132px;top:1070px;opacity:0.94"><span class="ic"></span><span class="tx"><i style="width:180px"></i><i style="width:90px"></i></span></div>
+        <div class="pi" id="pi2" style="left:-143px;top:683px;opacity:0.51"><span class="ic"></span><span class="tx"><i style="width:200px"></i><i style="width:90px"></i></span></div>
+        <div class="pi" id="pi3" style="left:865px;top:-9px;opacity:0.5"><span class="ic"></span><span class="tx"><i style="width:150px"></i><i style="width:110px"></i></span></div>
+        <div class="pi" id="pi4" style="left:536px;top:-183px;opacity:0.49"><span class="ic"></span><span class="tx"><i style="width:180px"></i><i style="width:70px"></i></span></div>
+        <div class="pi" id="pi5" style="left:310px;top:971px;opacity:0.72"><span class="ic"></span><span class="tx"><i style="width:180px"></i><i style="width:90px"></i></span></div>
+        <div class="pi" id="pi6" style="left:531px;top:1201px;opacity:0.59"><span class="ic"></span><span class="tx"><i style="width:150px"></i><i style="width:110px"></i></span></div>
+        <div class="pi" id="pi7" style="left:-179px;top:184px;opacity:0.79"><span class="ic"></span><span class="tx"><i style="width:200px"></i><i style="width:70px"></i></span></div>
+        <div class="pi" id="pi8" style="left:373px;top:1870px;opacity:0.59"><span class="ic"></span><span class="tx"><i style="width:180px"></i><i style="width:90px"></i></span></div>
+        <div class="pi" id="pi9" style="left:691px;top:274px;opacity:0.72"><span class="ic"></span><span class="tx"><i style="width:200px"></i><i style="width:70px"></i></span></div>
+        <div class="pi" id="pi10" style="left:732px;top:377px;opacity:0.99"><span class="ic"></span><span class="tx"><i style="width:150px"></i><i style="width:110px"></i></span></div>
+        <div class="pi" id="pi11" style="left:309px;top:1479px;opacity:0.45"><span class="ic"></span><span class="tx"><i style="width:200px"></i><i style="width:70px"></i></span></div>
+        <div class="pi" id="pi12" style="left:-207px;top:1270px;opacity:0.85"><span class="ic"></span><span class="tx"><i style="width:120px"></i><i style="width:70px"></i></span></div>
+        <div class="pi" id="pi13" style="left:686px;top:1097px;opacity:0.73"><span class="ic"></span><span class="tx"><i style="width:200px"></i><i style="width:90px"></i></span></div>
+        <div class="pi" id="pi14" style="left:882px;top:1920px;opacity:0.66"><span class="ic"></span><span class="tx"><i style="width:150px"></i><i style="width:90px"></i></span></div>
+        <div class="pi" id="pi15" style="left:734px;top:428px;opacity:0.73"><span class="ic"></span><span class="tx"><i style="width:200px"></i><i style="width:70px"></i></span></div>
+        <div class="pi" id="pi16" style="left:715px;top:1785px;opacity:0.58"><span class="ic"></span><span class="tx"><i style="width:200px"></i><i style="width:70px"></i></span></div>
+        <div class="pi" id="pi17" style="left:-31px;top:-25px;opacity:0.39"><span class="ic"></span><span class="tx"><i style="width:120px"></i><i style="width:90px"></i></span></div>
+        <div class="pi" id="pi18" style="left:744px;top:635px;opacity:0.95"><span class="ic"></span><span class="tx"><i style="width:200px"></i><i style="width:90px"></i></span></div>
+        <div class="pi" id="pi19" style="left:-34px;top:644px;opacity:0.53"><span class="ic"></span><span class="tx"><i style="width:180px"></i><i style="width:70px"></i></span></div>
+        <div class="pi" id="pi20" style="left:915px;top:354px;opacity:0.62"><span class="ic"></span><span class="tx"><i style="width:120px"></i><i style="width:110px"></i></span></div>
+        <div class="pi" id="pi21" style="left:943px;top:1951px;opacity:0.45"><span class="ic"></span><span class="tx"><i style="width:180px"></i><i style="width:90px"></i></span></div>
+        <div class="pi" id="pi22" style="left:55px;top:248px;opacity:0.67"><span class="ic"></span><span class="tx"><i style="width:180px"></i><i style="width:70px"></i></span></div>
+        <div class="pi" id="pi23" style="left:123px;top:42px;opacity:0.7"><span class="ic"></span><span class="tx"><i style="width:120px"></i><i style="width:90px"></i></span></div>
+        <div class="pi" id="pi24" style="left:679px;top:911px;opacity:0.75"><span class="ic"></span><span class="tx"><i style="width:150px"></i><i style="width:70px"></i></span></div>
+        <div class="pi" id="pi25" style="left:963px;top:1533px;opacity:0.92"><span class="ic"></span><span class="tx"><i style="width:200px"></i><i style="width:70px"></i></span></div>
+        <div class="pi" id="pi26" style="left:283px;top:-57px;opacity:0.76"><span class="ic"></span><span class="tx"><i style="width:150px"></i><i style="width:90px"></i></span></div>
+        <div class="pi" id="pi27" style="left:-168px;top:191px;opacity:0.46"><span class="ic"></span><span class="tx"><i style="width:120px"></i><i style="width:110px"></i></span></div>
+        <div class="pi" id="pi28" style="left:-188px;top:-299px;opacity:0.45"><span class="ic"></span><span class="tx"><i style="width:150px"></i><i style="width:70px"></i></span></div>
+        <div class="pi" id="pi29" style="left:575px;top:-135px;opacity:0.49"><span class="ic"></span><span class="tx"><i style="width:200px"></i><i style="width:90px"></i></span></div>
+        <div class="pi" id="pi30" style="left:603px;top:1945px;opacity:0.74"><span class="ic"></span><span class="tx"><i style="width:200px"></i><i style="width:90px"></i></span></div>
+        <div class="pi" id="pi31" style="left:-103px;top:847px;opacity:0.99"><span class="ic"></span><span class="tx"><i style="width:200px"></i><i style="width:70px"></i></span></div>
+        <div class="pi" id="pi32" style="left:164px;top:39px;opacity:0.84"><span class="ic"></span><span class="tx"><i style="width:120px"></i><i style="width:70px"></i></span></div>
+        <div class="pi" id="pi33" style="left:867px;top:79px;opacity:0.37"><span class="ic"></span><span class="tx"><i style="width:120px"></i><i style="width:90px"></i></span></div>
+        <div class="pi" id="pi34" style="left:678px;top:1848px;opacity:0.84"><span class="ic"></span><span class="tx"><i style="width:120px"></i><i style="width:110px"></i></span></div>
+        <div class="pi" id="pi35" style="left:914px;top:1336px;opacity:0.52"><span class="ic"></span><span class="tx"><i style="width:120px"></i><i style="width:90px"></i></span></div>
+        <div class="pi" id="pi36" style="left:224px;top:224px;opacity:0.7"><span class="ic"></span><span class="tx"><i style="width:120px"></i><i style="width:110px"></i></span></div>
+        <div class="pi" id="pi37" style="left:43px;top:1607px;opacity:0.99"><span class="ic"></span><span class="tx"><i style="width:180px"></i><i style="width:90px"></i></span></div>
+        <div class="pi" id="pi38" style="left:853px;top:1439px;opacity:0.5"><span class="ic"></span><span class="tx"><i style="width:200px"></i><i style="width:70px"></i></span></div>
+        <div class="pi" id="pi39" style="left:734px;top:2026px;opacity:0.86"><span class="ic"></span><span class="tx"><i style="width:200px"></i><i style="width:70px"></i></span></div>
+        <div class="pi" id="pi40" style="left:3px;top:1122px;opacity:0.57"><span class="ic"></span><span class="tx"><i style="width:120px"></i><i style="width:70px"></i></span></div>
+        <div class="pi" id="pi41" style="left:-150px;top:-60px;opacity:0.66"><span class="ic"></span><span class="tx"><i style="width:120px"></i><i style="width:90px"></i></span></div>
+        <div class="pi" id="pi42" style="left:396px;top:2015px;opacity:0.75"><span class="ic"></span><span class="tx"><i style="width:150px"></i><i style="width:70px"></i></span></div>
+        <div class="pi" id="pi43" style="left:977px;top:508px;opacity:0.77"><span class="ic"></span><span class="tx"><i style="width:150px"></i><i style="width:70px"></i></span></div>
+        <div class="pi" id="pi44" style="left:804px;top:1463px;opacity:0.66"><span class="ic"></span><span class="tx"><i style="width:180px"></i><i style="width:70px"></i></span></div>
+        <div class="pi" id="pi45" style="left:813px;top:481px;opacity:0.87"><span class="ic"></span><span class="tx"><i style="width:200px"></i><i style="width:70px"></i></span></div>
+      </div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const DEBUT = 0;
+      const Z = [[-1789],[-1426],[-2363],[-2387],[-2390],[-1901],[-2179],[-1747],[-2194],[-1896],[-1328],[-2487],[-1630],[-1888],[-2036],[-1891],[-2214],[-2617],[-1416],[-2311],[-2119],[-2489],[-2021],[-1952],[-1835],[-1476],[-1812],[-2473],[-2488],[-2409],[-1857],[-1331],[-1650],[-2668],[-1639],[-2334],[-1942],[-1321],[-2383],[-1594],[-2218],[-2042],[-1846],[-1800],[-2031],[-1579]];
+      // Outils communs : temps du film -> temps de la scène, chiffres qui roulent
+      const at = (g) => +(g - DEBUT).toFixed(3);
+      const rouleaux = {};
+      document.querySelectorAll("#root .roule").forEach((el) => {
+        const txt = el.textContent; el.textContent = ""; const rails = [];
+        for (const ch of txt) {
+          if (/[0-9]/.test(ch)) {
+            const col = document.createElement("span"); col.className = "col";
+            const rail = document.createElement("span");
+            for (let d = 0; d < 10; d++) { const s = document.createElement("span"); s.textContent = d; rail.appendChild(s); }
+            col.appendChild(rail); el.appendChild(col); rails.push({ rail, d: +ch });
+          } else { const s = document.createElement("span"); s.className = ch === " " ? "sep" : ""; s.textContent = ch === " " ? " " : ch; el.appendChild(s); }
+        }
+        rouleaux[el.id] = rails;
+      });
+      const tl = gsap.timeline({ paused: true });
+      const pose = (id, chiffres) => rouleaux[id].forEach((r, i) => tl.fromTo(r.rail, { yPercent: -chiffres[i] * 10 }, { yPercent: -chiffres[i] * 10, duration: 0.01 }, 0));
+      const roule = (id, de, vers, t, dur, dec) => rouleaux[id].forEach((r, i) => {
+        if (de[i] === vers[i]) return;
+        tl.fromTo(r.rail, { yPercent: -de[i] * 10 }, { immediateRender: false, yPercent: -vers[i] * 10, duration: dur || 1.0, ease: "expo.out" }, t + i * (dec === undefined ? 0.05 : dec));
+      });
+      const chiffres = (id) => rouleaux[id].map((r) => r.d);
+      const zeros = (id) => rouleaux[id].map(() => 0);
+      // Entrée et sortie de texte par cache
+      const entre = (sel, t, dec) => tl.fromTo(sel, { yPercent: 130 }, { immediateRender: false, yPercent: 0, duration: 0.8, ease: "expo.out", stagger: dec === undefined ? 0.08 : dec }, t);
+      const sort = (sel, t) => tl.fromTo(sel, { yPercent: 0 }, { immediateRender: false, yPercent: -135, duration: 0.38, ease: "power3.in", stagger: 0.04 }, t);
+      const cache = (sel) => tl.fromTo(sel, { yPercent: 130 }, { yPercent: 130, duration: 0.01 }, 0);
+      // Compteurs à tambours 3D : chaque chiffre est un cylindre de dix faces (rayon 1,54 em)
+      const tambours = {};
+      document.querySelectorAll("#root .tambours").forEach((el) => {
+        // les dix faces d'un cylindre se superposent par construction : le contrôle de mise en page ne doit pas les compter
+        el.setAttribute("data-layout-ignore", "");
+        const txt = el.textContent; el.textContent = ""; const cyls = [];
+        for (const ch of txt) {
+          if (/[0-9]/.test(ch)) {
+            const t = document.createElement("span"); t.className = "tb";
+            const c = document.createElement("span"); c.className = "cyl";
+            for (let d = 0; d < 10; d++) { const f = document.createElement("span"); f.className = "fa"; f.textContent = d;
+              f.style.transform = `rotateX(${-36 * d}deg) translateZ(1.54em)`; c.appendChild(f); }
+            t.appendChild(c); el.appendChild(t); cyls.push({ cyl: c, d: +ch });
+          } else { const s = document.createElement("span"); s.className = ch === " " ? "sep" : "sym"; s.textContent = ch === " " ? "\u00A0" : ch; el.appendChild(s); }
+        }
+        tambours[el.id] = cyls;
+      });
+      const posTambour = (id, ch) => tambours[id].forEach((c, i) => tl.fromTo(c.cyl, { rotationX: 36 * ch[i] }, { rotationX: 36 * ch[i], duration: 0.01 }, 0));
+      const tourne = (id, de, vers, t, dur, dec, tours) => tambours[id].forEach((c, i) => {
+        tl.fromTo(c.cyl, { rotationX: 36 * de[i] }, { immediateRender: false, rotationX: 36 * vers[i] + 360 * (tours === undefined ? 1 : tours), duration: dur || 1.4, ease: "power3.out" }, t + i * (dec === undefined ? 0.06 : dec));
+      });
+      const chiffresT = (id) => tambours[id].map((c) => c.d);
+
+      // Les paiements avancent vers la caméra, chacun à sa profondeur : la parallaxe est réelle
+      Z.forEach(([z], i) => tl.fromTo("#pi" + i, { z: z, rotationY: -8 }, { z: z + 1450, rotationY: -8, duration: 28.5, ease: "none" }, 0));
+      tl.fromTo("#x-espace", { rotationZ: -6 }, { rotationZ: 4, duration: 28.5, ease: "none" }, 0);
+      tl.fromTo("#x-monde", { opacity: 0.6 }, { opacity: 0.6, duration: 0.01 }, 0);
+      // Sous la carte et sous le calcul, le flux se fait discret ; il revient derrière la signature
+      tl.fromTo("#x-monde", { opacity: 0.6 }, { immediateRender: false, opacity: 0.22, duration: 0.6, ease: "power1.inOut" }, at(6.2));
+      tl.fromTo("#x-monde", { opacity: 0.22 }, { immediateRender: false, opacity: 0.12, duration: 0.8, ease: "power1.inOut" }, at(9.4));
+      tl.fromTo("#x-monde", { opacity: 0.12 }, { immediateRender: false, opacity: 0.6, duration: 0.8, ease: "power1.inOut" }, at(19.9));
+      window.__timelines["flux"] = tl;
+    })();
+  </script>
+</template>

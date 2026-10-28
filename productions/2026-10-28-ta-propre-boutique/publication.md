@@ -1,11 +1,11 @@
 # Publication : ta propre boutique (offre Boutique en ligne)
 
-- Vidéo : `renders/ta-propre-boutique.mp4` (99,5 s, 1080 × 1920)
+- Vidéo : `renders/ta-propre-boutique.mp4` (1 min 41 s, 1080 × 1920)
 - Couverture : `renders/ta-propre-boutique_couverture.jpg` (image 0 : « Sur chaque vente, quelqu'un se sert avant toi. », dans le cadre central 1080 × 1350)
 
 ## Légende (Instagram et TikTok)
 
-Tu vends tes formations en ligne ? Sur chaque vente, quelqu'un se sert avant toi.
+Tu vends tes formations ou tes produits digitaux en ligne ? Sur chaque vente, quelqu'un se sert avant toi.
 
 La plateforme, c'est pratique. Mais elle garde 5 à 15 % de chaque vente. Sur un mois à 2 000 000 F, ce sont 100 000 à 300 000 F qui partent, avant même la pub.
 

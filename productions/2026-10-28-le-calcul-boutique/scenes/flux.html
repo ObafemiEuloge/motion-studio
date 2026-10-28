@@ -1,0 +1,80 @@
+<template>
+  <style>
+/*COMMUN*/
+    #x-monde { position: absolute; inset: 0; perspective: 1100px; perspective-origin: 50% 46%; overflow: hidden; }
+    #x-espace { position: absolute; inset: 0; transform-style: preserve-3d; }
+    .pi { position: absolute; width: 380px; height: 112px; border-radius: 56px; background: #0E141F; border: 1.5px solid rgba(255,255,255,0.14);
+      display: flex; align-items: center; gap: 22px; padding: 0 26px; }
+    .pi .ic { width: 64px; height: 64px; border-radius: 50%; border: 3px solid rgba(245,243,238,0.7); }
+    .pi i { display: block; height: 14px; border-radius: 7px; background: rgba(245,243,238,0.6); }
+    .pi i + i { margin-top: 14px; background: rgba(245,243,238,0.25); }
+  </style>
+  <div id="root" data-composition-id="flux" data-width="1080" data-height="1920">
+    <div id="x-monde" data-layout-ignore>
+      <div id="x-espace">
+        <div class="pi" id="pi0" style="left:180px;top:54px;opacity:0.77"><span class="ic"></span><span class="tx"><i style="width:150px"></i><i style="width:110px"></i></span></div>
+        <div class="pi" id="pi1" style="left:-132px;top:1070px;opacity:0.94"><span class="ic"></span><span class="tx"><i style="width:180px"></i><i style="width:90px"></i></span></div>
+        <div class="pi" id="pi2" style="left:-143px;top:683px;opacity:0.51"><span class="ic"></span><span class="tx"><i style="width:200px"></i><i style="width:90px"></i></span></div>
+        <div class="pi" id="pi3" style="left:865px;top:-9px;opacity:0.5"><span class="ic"></span><span class="tx"><i style="width:150px"></i><i style="width:110px"></i></span></div>
+        <div class="pi" id="pi4" style="left:536px;top:-183px;opacity:0.49"><span class="ic"></span><span class="tx"><i style="width:180px"></i><i style="width:70px"></i></span></div>
+        <div class="pi" id="pi5" style="left:310px;top:971px;opacity:0.72"><span class="ic"></span><span class="tx"><i style="width:180px"></i><i style="width:90px"></i></span></div>
+        <div class="pi" id="pi6" style="left:531px;top:1201px;opacity:0.59"><span class="ic"></span><span class="tx"><i style="width:150px"></i><i style="width:110px"></i></span></div>
+        <div class="pi" id="pi7" style="left:-179px;top:184px;opacity:0.79"><span class="ic"></span><span class="tx"><i style="width:200px"></i><i style="width:70px"></i></span></div>
+        <div class="pi" id="pi8" style="left:373px;top:1870px;opacity:0.59"><span class="ic"></span><span class="tx"><i style="width:180px"></i><i style="width:90px"></i></span></div>
+        <div class="pi" id="pi9" style="left:691px;top:274px;opacity:0.72"><span class="ic"></span><span class="tx"><i style="width:200px"></i><i style="width:70px"></i></span></div>
+        <div class="pi" id="pi10" style="left:732px;top:377px;opacity:0.99"><span class="ic"></span><span class="tx"><i style="width:150px"></i><i style="width:110px"></i></span></div>
+        <div class="pi" id="pi11" style="left:309px;top:1479px;opacity:0.45"><span class="ic"></span><span class="tx"><i style="width:200px"></i><i style="width:70px"></i></span></div>
+        <div class="pi" id="pi12" style="left:-207px;top:1270px;opacity:0.85"><span class="ic"></span><span class="tx"><i style="width:120px"></i><i style="width:70px"></i></span></div>
+        <div class="pi" id="pi13" style="left:686px;top:1097px;opacity:0.73"><span class="ic"></span><span class="tx"><i style="width:200px"></i><i style="width:90px"></i></span></div>
+        <div class="pi" id="pi14" style="left:882px;top:1920px;opacity:0.66"><span class="ic"></span><span class="tx"><i style="width:150px"></i><i style="width:90px"></i></span></div>
+        <div class="pi" id="pi15" style="left:734px;top:428px;opacity:0.73"><span class="ic"></span><span class="tx"><i style="width:200px"></i><i style="width:70px"></i></span></div>
+        <div class="pi" id="pi16" style="left:715px;top:1785px;opacity:0.58"><span class="ic"></span><span class="tx"><i style="width:200px"></i><i style="width:70px"></i></span></div>
+        <div class="pi" id="pi17" style="left:-31px;top:-25px;opacity:0.39"><span class="ic"></span><span class="tx"><i style="width:120px"></i><i style="width:90px"></i></span></div>
+        <div class="pi" id="pi18" style="left:744px;top:635px;opacity:0.95"><span class="ic"></span><span class="tx"><i style="width:200px"></i><i style="width:90px"></i></span></div>
+        <div class="pi" id="pi19" style="left:-34px;top:644px;opacity:0.53"><span class="ic"></span><span class="tx"><i style="width:180px"></i><i style="width:70px"></i></span></div>
+        <div class="pi" id="pi20" style="left:915px;top:354px;opacity:0.62"><span class="ic"></span><span class="tx"><i style="width:120px"></i><i style="width:110px"></i></span></div>
+        <div class="pi" id="pi21" style="left:943px;top:1951px;opacity:0.45"><span class="ic"></span><span class="tx"><i style="width:180px"></i><i style="width:90px"></i></span></div>
+        <div class="pi" id="pi22" style="left:55px;top:248px;opacity:0.67"><span class="ic"></span><span class="tx"><i style="width:180px"></i><i style="width:70px"></i></span></div>
+        <div class="pi" id="pi23" style="left:123px;top:42px;opacity:0.7"><span class="ic"></span><span class="tx"><i style="width:120px"></i><i style="width:90px"></i></span></div>
+        <div class="pi" id="pi24" style="left:679px;top:911px;opacity:0.75"><span class="ic"></span><span class="tx"><i style="width:150px"></i><i style="width:70px"></i></span></div>
+        <div class="pi" id="pi25" style="left:963px;top:1533px;opacity:0.92"><span class="ic"></span><span class="tx"><i style="width:200px"></i><i style="width:70px"></i></span></div>
+        <div class="pi" id="pi26" style="left:283px;top:-57px;opacity:0.76"><span class="ic"></span><span class="tx"><i style="width:150px"></i><i style="width:90px"></i></span></div>
+        <div class="pi" id="pi27" style="left:-168px;top:191px;opacity:0.46"><span class="ic"></span><span class="tx"><i style="width:120px"></i><i style="width:110px"></i></span></div>
+        <div class="pi" id="pi28" style="left:-188px;top:-299px;opacity:0.45"><span class="ic"></span><span class="tx"><i style="width:150px"></i><i style="width:70px"></i></span></div>
+        <div class="pi" id="pi29" style="left:575px;top:-135px;opacity:0.49"><span class="ic"></span><span class="tx"><i style="width:200px"></i><i style="width:90px"></i></span></div>
+        <div class="pi" id="pi30" style="left:603px;top:1945px;opacity:0.74"><span class="ic"></span><span class="tx"><i style="width:200px"></i><i style="width:90px"></i></span></div>
+        <div class="pi" id="pi31" style="left:-103px;top:847px;opacity:0.99"><span class="ic"></span><span class="tx"><i style="width:200px"></i><i style="width:70px"></i></span></div>
+        <div class="pi" id="pi32" style="left:164px;top:39px;opacity:0.84"><span class="ic"></span><span class="tx"><i style="width:120px"></i><i style="width:70px"></i></span></div>
+        <div class="pi" id="pi33" style="left:867px;top:79px;opacity:0.37"><span class="ic"></span><span class="tx"><i style="width:120px"></i><i style="width:90px"></i></span></div>
+        <div class="pi" id="pi34" style="left:678px;top:1848px;opacity:0.84"><span class="ic"></span><span class="tx"><i style="width:120px"></i><i style="width:110px"></i></span></div>
+        <div class="pi" id="pi35" style="left:914px;top:1336px;opacity:0.52"><span class="ic"></span><span class="tx"><i style="width:120px"></i><i style="width:90px"></i></span></div>
+        <div class="pi" id="pi36" style="left:224px;top:224px;opacity:0.7"><span class="ic"></span><span class="tx"><i style="width:120px"></i><i style="width:110px"></i></span></div>
+        <div class="pi" id="pi37" style="left:43px;top:1607px;opacity:0.99"><span class="ic"></span><span class="tx"><i style="width:180px"></i><i style="width:90px"></i></span></div>
+        <div class="pi" id="pi38" style="left:853px;top:1439px;opacity:0.5"><span class="ic"></span><span class="tx"><i style="width:200px"></i><i style="width:70px"></i></span></div>
+        <div class="pi" id="pi39" style="left:734px;top:2026px;opacity:0.86"><span class="ic"></span><span class="tx"><i style="width:200px"></i><i style="width:70px"></i></span></div>
+        <div class="pi" id="pi40" style="left:3px;top:1122px;opacity:0.57"><span class="ic"></span><span class="tx"><i style="width:120px"></i><i style="width:70px"></i></span></div>
+        <div class="pi" id="pi41" style="left:-150px;top:-60px;opacity:0.66"><span class="ic"></span><span class="tx"><i style="width:120px"></i><i style="width:90px"></i></span></div>
+        <div class="pi" id="pi42" style="left:396px;top:2015px;opacity:0.75"><span class="ic"></span><span class="tx"><i style="width:150px"></i><i style="width:70px"></i></span></div>
+        <div class="pi" id="pi43" style="left:977px;top:508px;opacity:0.77"><span class="ic"></span><span class="tx"><i style="width:150px"></i><i style="width:70px"></i></span></div>
+        <div class="pi" id="pi44" style="left:804px;top:1463px;opacity:0.66"><span class="ic"></span><span class="tx"><i style="width:180px"></i><i style="width:70px"></i></span></div>
+        <div class="pi" id="pi45" style="left:813px;top:481px;opacity:0.87"><span class="ic"></span><span class="tx"><i style="width:200px"></i><i style="width:70px"></i></span></div>
+      </div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      const DEBUT = 0;
+      const Z = [[-1789],[-1426],[-2363],[-2387],[-2390],[-1901],[-2179],[-1747],[-2194],[-1896],[-1328],[-2487],[-1630],[-1888],[-2036],[-1891],[-2214],[-2617],[-1416],[-2311],[-2119],[-2489],[-2021],[-1952],[-1835],[-1476],[-1812],[-2473],[-2488],[-2409],[-1857],[-1331],[-1650],[-2668],[-1639],[-2334],[-1942],[-1321],[-2383],[-1594],[-2218],[-2042],[-1846],[-1800],[-2031],[-1579]];
+//COMMUN
+      // Les paiements avancent vers la caméra, chacun à sa profondeur : la parallaxe est réelle
+      Z.forEach(([z], i) => tl.fromTo("#pi" + i, { z: z, rotationY: -8 }, { z: z + 1450, rotationY: -8, duration: 28.5, ease: "none" }, 0));
+      tl.fromTo("#x-espace", { rotationZ: -6 }, { rotationZ: 4, duration: 28.5, ease: "none" }, 0);
+      tl.fromTo("#x-monde", { opacity: 0.6 }, { opacity: 0.6, duration: 0.01 }, 0);
+      // Sous la carte et sous le calcul, le flux se fait discret ; il revient derrière la signature
+      tl.fromTo("#x-monde", { opacity: 0.6 }, { immediateRender: false, opacity: 0.22, duration: 0.6, ease: "power1.inOut" }, at(6.2));
+      tl.fromTo("#x-monde", { opacity: 0.22 }, { immediateRender: false, opacity: 0.12, duration: 0.8, ease: "power1.inOut" }, at(9.4));
+      tl.fromTo("#x-monde", { opacity: 0.12 }, { immediateRender: false, opacity: 0.6, duration: 0.8, ease: "power1.inOut" }, at(19.9));
+      window.__timelines["flux"] = tl;
+    })();
+  </script>
+</template>

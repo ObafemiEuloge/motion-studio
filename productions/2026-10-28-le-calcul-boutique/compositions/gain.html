@@ -1,0 +1,194 @@
+<template>
+  <style>
+    @font-face { font-family: "Plus Jakarta Sans"; font-weight: 500; src: url("assets/fonts/plus-jakarta-sans-latin-500-normal.woff2") format("woff2"); }
+    @font-face { font-family: "Plus Jakarta Sans"; font-weight: 600; src: url("assets/fonts/plus-jakarta-sans-latin-600-normal.woff2") format("woff2"); }
+    @font-face { font-family: "Plus Jakarta Sans"; font-weight: 700; src: url("assets/fonts/plus-jakarta-sans-latin-700-normal.woff2") format("woff2"); }
+    #root { position: absolute; inset: 0; font-family: "Plus Jakarta Sans", sans-serif; color: #F5F3EE; }
+    .mask { overflow: hidden; padding: 6px 0 16px; margin-bottom: -18px; }
+    .mask > .in { display: block; }
+    .acc { color: #D9C6A3; }
+    .doux { color: rgba(245,243,238,0.6); }
+    .ombre { text-shadow: 0 0 50px rgba(4,6,11,0.95), 0 0 18px rgba(4,6,11,0.9); }
+    .titre { position: absolute; left: 80px; top: 236px; }
+    .l-titre { font-weight: 700; font-size: 80px; letter-spacing: -0.045em; line-height: 1.04; white-space: nowrap; }
+    .l-geant { font-weight: 700; font-size: 128px; letter-spacing: -0.05em; line-height: 1.0; white-space: nowrap; }
+    .eyebrow { font-weight: 600; font-size: 30px; letter-spacing: 0.22em; text-transform: uppercase; color: rgba(245,243,238,0.6); }
+    .verre { background: rgba(255,255,255,0.065); -webkit-backdrop-filter: blur(34px) saturate(150%); backdrop-filter: blur(34px) saturate(150%);
+      border: 1.5px solid rgba(255,255,255,0.16); box-shadow: inset 0 1.5px 0 rgba(255,255,255,0.28), 0 50px 140px rgba(0,0,0,0.6); }
+    .opaque { background: #0B111D; border: 1.5px solid rgba(255,255,255,0.10); box-shadow: inset 0 1.5px 0 rgba(255,255,255,0.12), 0 50px 140px rgba(0,0,0,0.6); }
+    .pastille { display: inline-flex; align-items: center; gap: 14px; padding: 16px 30px; border-radius: 999px; font-weight: 600; font-size: 38px; white-space: nowrap; }
+    .pastille .d { width: 12px; height: 12px; border-radius: 50%; background: #F5F3EE; }
+    .t { fill: none; stroke: #F5F3EE; stroke-width: 3; stroke-linecap: round; stroke-linejoin: round; }
+    .t.fin { stroke-width: 2; }
+    .t.mi { stroke: rgba(245,243,238,0.45); }
+    .roule { display: inline-block; white-space: nowrap; line-height: 1; }
+    .roule .col { display: inline-block; width: 0.68em; height: 1em; overflow: hidden; vertical-align: top; text-align: center; }
+    .roule .col > span { display: block; }
+    .roule .col > span > span { display: block; height: 1em; }
+    .roule .sep { display: inline-block; width: 0.26em; }
+    .tambours { display: inline-flex; align-items: center; line-height: 1; white-space: nowrap; perspective: 1400px;
+      -webkit-mask-image: linear-gradient(180deg, transparent 12%, #000 21%, #000 79%, transparent 85%);
+              mask-image: linear-gradient(180deg, transparent 12%, #000 21%, #000 79%, transparent 85%); padding: 0.36em 0.5em; margin: 0 -0.5em; }
+    .tambours .tb { position: relative; display: inline-block; width: 0.66em; height: 1em; transform-style: preserve-3d; transform: translateZ(-1.54em); }
+    .tambours .cyl { position: absolute; inset: 0; transform-style: preserve-3d; }
+    .tambours .fa { position: absolute; left: 0; top: 0; width: 100%; height: 1em; text-align: center; backface-visibility: hidden; -webkit-backface-visibility: hidden; }
+    .tambours .sep { display: inline-block; width: 0.26em; }
+    .tambours .sym { display: inline-block; }
+
+    #g-tete { position: absolute; left: 80px; top: 236px; }
+    #g-tete .nb { font-weight: 700; font-size: 112px; letter-spacing: -0.04em; display: flex; align-items: baseline; gap: 20px; white-space: nowrap; }
+    #g-tete .nb .u { font-size: 56px; letter-spacing: -0.03em; }
+
+    /* Deux barres en volume (face, côté, dessus) : ce que prend la plateforme, ce que coûte ta boutique */
+    #g-scene { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; perspective: 1700px; perspective-origin: 50% 30%; }
+    #g-sol { position: absolute; left: 540px; top: 1060px; width: 0; height: 0; transform-style: preserve-3d; }
+    .boite { position: absolute; transform-style: preserve-3d; }
+    .boite > div { position: absolute; left: 0; top: 0; }
+    .av { width: 200px; }
+    .co { width: 200px; }
+    .de { width: 200px; height: 200px; }
+    .boite.encre .av { background: #E7E4DD; } .boite.encre .co { background: #8F8C86; } .boite.encre .de { background: #F7F5F0; }
+    .boite.gris .av { background: #4A4D55; } .boite.gris .co { background: #2B2E35; } .boite.gris .de { background: #5E626B; }
+    .lab3d { position: absolute; top: 1150px; width: 400px; text-align: center; }
+    .lab3d .n { font-weight: 600; font-size: 36px; color: rgba(245,243,238,0.7); white-space: nowrap; }
+    .lab3d .v { font-weight: 700; font-size: 50px; letter-spacing: -0.03em; white-space: nowrap; }
+    #g-la { left: 80px; } #g-lb { left: 600px; }
+
+    #g-res { position: absolute; left: 80px; top: 620px; }
+    #g-res .nb { font-weight: 700; font-size: 168px; letter-spacing: -0.05em; display: flex; align-items: center; white-space: nowrap; }
+    #g-res .nb .u { font-size: 100px; margin-left: 24px; }
+    #g-res .sym { margin-right: 26px; }
+    #g-plus { position: absolute; left: 80px; top: 880px; }
+    .l-plus { font-weight: 600; font-size: 60px; letter-spacing: -0.035em; white-space: nowrap; }
+  </style>
+  <div id="root" data-composition-id="gain" data-width="1080" data-height="1920">
+    <div id="g-tete" class="ombre">
+      <div class="mask"><span class="in eyebrow" id="g-e">Tes ventes</span></div>
+      <div class="nb" id="g-n"><span class="tambours" id="g-t3">3 000 000</span><span class="u">F par mois</span></div>
+    </div>
+
+    <div id="g-scene" data-layout-ignore>
+      <div id="g-sol">
+        <div id="g-groupe" style="position:absolute;left:0;top:0;transform-style:preserve-3d">
+          <!-- plateforme : 480 px de haut = 300 000 F (bas 200 px + haut 280 px) -->
+          <div class="boite encre" id="g-a-bas" style="left:-330px;top:-200px;width:200px;height:200px"></div>
+          <div class="boite encre" id="g-a-haut" style="left:-330px;top:-480px;width:200px;height:280px"></div>
+          <!-- ta boutique : 200 px = 125 000 F -->
+          <div class="boite gris" id="g-b" style="left:130px;top:-200px;width:200px;height:200px"></div>
+        </div>
+      </div>
+    </div>
+    <div class="lab3d" id="g-la"><div class="mask"><span class="in n" id="g-la1">Ta plateforme</span></div><div class="mask"><span class="in v" id="g-la2">300 000 F</span></div></div>
+    <div class="lab3d" id="g-lb"><div class="mask"><span class="in n" id="g-lb1">Ta boutique</span></div><div class="mask"><span class="in v" id="g-lb2">125 000 F</span></div></div>
+
+    <div id="g-res" class="acc">
+      <div class="nb" id="g-rn"><span class="sym">+</span><span class="tambours" id="g-t175">175 000</span><span class="u">F</span></div>
+    </div>
+    <div id="g-plus" class="ombre"><div class="mask"><span class="in l-plus" id="g-p">de plus, chaque mois.</span></div></div>
+  </div>
+  <script>
+    (function () {
+      const DEBUT = 12.8;
+      // Chaque boîte reçoit ses trois faces visibles (face avant, côté droit, dessus), profondeur 200 px
+      document.querySelectorAll("#g-groupe .boite").forEach((b) => {
+        const w = parseFloat(b.style.width), h = parseFloat(b.style.height), d = 200;
+        b.innerHTML = `<div class="av" style="height:${h}px;transform:translateZ(${d / 2}px)"></div>`
+          + `<div class="co" style="height:${h}px;left:${(w - d) / 2}px;transform:rotateY(90deg) translateZ(${w / 2}px)"></div>`
+          + `<div class="de" style="top:${(h - d) / 2}px;transform:rotateX(90deg) translateZ(${h / 2}px)"></div>`;
+      });
+      // Outils communs : temps du film -> temps de la scène, chiffres qui roulent
+      const at = (g) => +(g - DEBUT).toFixed(3);
+      const rouleaux = {};
+      document.querySelectorAll("#root .roule").forEach((el) => {
+        const txt = el.textContent; el.textContent = ""; const rails = [];
+        for (const ch of txt) {
+          if (/[0-9]/.test(ch)) {
+            const col = document.createElement("span"); col.className = "col";
+            const rail = document.createElement("span");
+            for (let d = 0; d < 10; d++) { const s = document.createElement("span"); s.textContent = d; rail.appendChild(s); }
+            col.appendChild(rail); el.appendChild(col); rails.push({ rail, d: +ch });
+          } else { const s = document.createElement("span"); s.className = ch === " " ? "sep" : ""; s.textContent = ch === " " ? " " : ch; el.appendChild(s); }
+        }
+        rouleaux[el.id] = rails;
+      });
+      const tl = gsap.timeline({ paused: true });
+      const pose = (id, chiffres) => rouleaux[id].forEach((r, i) => tl.fromTo(r.rail, { yPercent: -chiffres[i] * 10 }, { yPercent: -chiffres[i] * 10, duration: 0.01 }, 0));
+      const roule = (id, de, vers, t, dur, dec) => rouleaux[id].forEach((r, i) => {
+        if (de[i] === vers[i]) return;
+        tl.fromTo(r.rail, { yPercent: -de[i] * 10 }, { immediateRender: false, yPercent: -vers[i] * 10, duration: dur || 1.0, ease: "expo.out" }, t + i * (dec === undefined ? 0.05 : dec));
+      });
+      const chiffres = (id) => rouleaux[id].map((r) => r.d);
+      const zeros = (id) => rouleaux[id].map(() => 0);
+      // Entrée et sortie de texte par cache
+      const entre = (sel, t, dec) => tl.fromTo(sel, { yPercent: 130 }, { immediateRender: false, yPercent: 0, duration: 0.8, ease: "expo.out", stagger: dec === undefined ? 0.08 : dec }, t);
+      const sort = (sel, t) => tl.fromTo(sel, { yPercent: 0 }, { immediateRender: false, yPercent: -135, duration: 0.38, ease: "power3.in", stagger: 0.04 }, t);
+      const cache = (sel) => tl.fromTo(sel, { yPercent: 130 }, { yPercent: 130, duration: 0.01 }, 0);
+      // Compteurs à tambours 3D : chaque chiffre est un cylindre de dix faces (rayon 1,54 em)
+      const tambours = {};
+      document.querySelectorAll("#root .tambours").forEach((el) => {
+        // les dix faces d'un cylindre se superposent par construction : le contrôle de mise en page ne doit pas les compter
+        el.setAttribute("data-layout-ignore", "");
+        const txt = el.textContent; el.textContent = ""; const cyls = [];
+        for (const ch of txt) {
+          if (/[0-9]/.test(ch)) {
+            const t = document.createElement("span"); t.className = "tb";
+            const c = document.createElement("span"); c.className = "cyl";
+            for (let d = 0; d < 10; d++) { const f = document.createElement("span"); f.className = "fa"; f.textContent = d;
+              f.style.transform = `rotateX(${-36 * d}deg) translateZ(1.54em)`; c.appendChild(f); }
+            t.appendChild(c); el.appendChild(t); cyls.push({ cyl: c, d: +ch });
+          } else { const s = document.createElement("span"); s.className = ch === " " ? "sep" : "sym"; s.textContent = ch === " " ? "\u00A0" : ch; el.appendChild(s); }
+        }
+        tambours[el.id] = cyls;
+      });
+      const posTambour = (id, ch) => tambours[id].forEach((c, i) => tl.fromTo(c.cyl, { rotationX: 36 * ch[i] }, { rotationX: 36 * ch[i], duration: 0.01 }, 0));
+      const tourne = (id, de, vers, t, dur, dec, tours) => tambours[id].forEach((c, i) => {
+        tl.fromTo(c.cyl, { rotationX: 36 * de[i] }, { immediateRender: false, rotationX: 36 * vers[i] + 360 * (tours === undefined ? 1 : tours), duration: dur || 1.4, ease: "power3.out" }, t + i * (dec === undefined ? 0.06 : dec));
+      });
+      const chiffresT = (id) => tambours[id].map((c) => c.d);
+
+      cache(["#g-e", "#g-la1", "#g-la2", "#g-lb1", "#g-lb2", "#g-p"]);
+      posTambour("g-t3", [0, 0, 0, 0, 0, 0, 0]);
+      posTambour("g-t175", [0, 0, 0, 0, 0, 0]);
+      tl.fromTo("#g-n", { opacity: 0, y: 30 }, { opacity: 0, y: 30, duration: 0.01 }, 0);
+      tl.fromTo("#g-groupe", { rotationX: -16, rotationY: -34, y: 0, scale: 1, opacity: 1 }, { rotationX: -16, rotationY: -34, y: 0, scale: 1, opacity: 1, duration: 0.01 }, 0);
+      tl.fromTo(["#g-a-bas", "#g-b"], { scaleY: 0, transformOrigin: "50% 100%" }, { scaleY: 0, transformOrigin: "50% 100%", duration: 0.01 }, 0);
+      tl.fromTo("#g-a-haut", { scaleY: 0, transformOrigin: "50% 100%", x: 0, y: 0, z: 0, rotationY: 0, opacity: 1 }, { scaleY: 0, transformOrigin: "50% 100%", x: 0, y: 0, z: 0, rotationY: 0, opacity: 1, duration: 0.01 }, 0);
+      tl.fromTo("#g-a-haut .av", { backgroundColor: "#E7E4DD" }, { backgroundColor: "#E7E4DD", duration: 0.01 }, 0);
+      tl.fromTo("#g-a-haut .co", { backgroundColor: "#8F8C86" }, { backgroundColor: "#8F8C86", duration: 0.01 }, 0);
+      tl.fromTo("#g-a-haut .de", { backgroundColor: "#F7F5F0" }, { backgroundColor: "#F7F5F0", duration: 0.01 }, 0);
+      tl.fromTo("#g-rn", { opacity: 0, scale: 0.9 }, { opacity: 0, scale: 0.9, duration: 0.01 }, 0);
+
+      // « À trois millions de ventes par mois »
+      entre("#g-e", at(12.99));
+      tl.fromTo("#g-n", { opacity: 0, y: 30 }, { immediateRender: false, opacity: 1, y: 0, duration: 0.5, ease: "expo.out" }, at(13.05));
+      tourne("g-t3", [0, 0, 0, 0, 0, 0, 0], [3, 0, 0, 0, 0, 0, 0], at(13.1), 1.2, 0.05, 1);
+      // les deux barres montent, la caméra tourne doucement autour
+      tl.fromTo("#g-groupe", { rotationY: -34 }, { immediateRender: false, rotationY: -24, duration: 4.2, ease: "none" }, at(13.0));
+      tl.fromTo("#g-a-bas", { scaleY: 0 }, { immediateRender: false, scaleY: 1, duration: 0.7, ease: "expo.out" }, at(13.4));
+      tl.fromTo("#g-a-haut", { scaleY: 0 }, { immediateRender: false, scaleY: 1, duration: 0.8, ease: "expo.out" }, at(13.6));
+      entre(["#g-la1", "#g-la2"], at(13.55), 0.07);
+      tl.fromTo("#g-b", { scaleY: 0 }, { immediateRender: false, scaleY: 1, duration: 0.8, ease: "expo.out" }, at(13.9));
+      entre(["#g-lb1", "#g-lb2"], at(13.95), 0.07);
+
+      // « tu gardes » : le haut de la barre de la plateforme, c'est ce que tu gardes ; il se détache en champagne
+      tl.fromTo("#g-a-haut .av", { backgroundColor: "#E7E4DD" }, { immediateRender: false, backgroundColor: "#D9C6A3", duration: 0.3 }, at(14.84));
+      tl.fromTo("#g-a-haut .co", { backgroundColor: "#8F8C86" }, { immediateRender: false, backgroundColor: "#9E8D6F", duration: 0.3 }, at(14.84));
+      tl.fromTo("#g-a-haut .de", { backgroundColor: "#F7F5F0" }, { immediateRender: false, backgroundColor: "#EADCC2", duration: 0.3 }, at(14.84));
+      tl.fromTo("#g-a-haut", { y: 0, z: 0, rotationY: 0 }, { immediateRender: false, y: -90, z: 120, rotationY: 25, duration: 0.55, ease: "power2.out" }, at(14.96));
+      // il vole vers le chiffre, la scène s'efface derrière lui
+      tl.fromTo("#g-a-haut", { opacity: 1 }, { immediateRender: false, opacity: 0, duration: 0.3, ease: "power1.in" }, at(15.45));
+      tl.fromTo("#g-groupe", { y: 0, scale: 1, opacity: 1 }, { immediateRender: false, y: 260, scale: 0.8, opacity: 0.18, duration: 0.6, ease: "power3.inOut" }, at(15.3));
+      sort(["#g-e", "#g-la1", "#g-la2", "#g-lb1", "#g-lb2"], at(15.25));
+      tl.fromTo("#g-n", { opacity: 1 }, { immediateRender: false, opacity: 0, duration: 0.3 }, at(15.25));
+      // « cent soixante-quinze mille francs de plus »
+      tl.fromTo("#g-rn", { opacity: 0, scale: 0.9 }, { immediateRender: false, opacity: 1, scale: 1, duration: 0.5, ease: "expo.out" }, at(15.42));
+      tourne("g-t175", [0, 0, 0, 0, 0, 0], [1, 7, 5, 0, 0, 0], at(15.44), 1.3, 0.06, 1);
+      entre("#g-p", at(16.88));
+
+      // Sortie vers « Ta boutique »
+      sort("#g-p", at(17.32));
+      tl.fromTo(["#g-rn", "#g-scene"], { opacity: 1 }, { immediateRender: false, opacity: 0, y: -50, duration: 0.3, ease: "power3.in" }, at(17.22));
+      window.__timelines["gain"] = tl;
+    })();
+  </script>
+</template>
